@@ -5,7 +5,7 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 const config: Config = {
   title: 'Data Science Dances',
-  tagline: 'Mỗi Bài toán là một bản nhạc',
+  tagline: 'Mỗi bài toán là một bản nhạc',
   favicon: 'img/logo_ds.svg',
 
   url: 'https://datasciencedances.com',
@@ -29,9 +29,8 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           showLastUpdateAuthor: true,
-              showLastUpdateTime: true,
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          showLastUpdateTime: true,
+          
         },
         blog: {
           showReadingTime: true,
@@ -39,9 +38,7 @@ const config: Config = {
           blogSidebarCount: 'ALL',
           postsPerPage: 10,
           remarkPlugins: [remarkMath],
-          rehypePlugins: [rehypeKatex],
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          rehypePlugins: [rehypeKatex]
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -79,11 +76,15 @@ const config: Config = {
         {
           type: 'dropdown',
           label: "Khóa học",
-          to: '/courses/intro',
+          to: '/courses',
           items:[
             {
+              label: "Giới thiệu",
+              to: "/courses"
+            },
+            {
               label: "Time Series Analysis",
-              to: '/courses/tsa'}
+              to: "/courses/tsa"}
           ]
         },
         {
@@ -94,12 +95,7 @@ const config: Config = {
               label: "Data Scientist",
               to: '/roadmap/roadmap_ds'}
           ]
-        },
-        {
-          href: 'https://github.com/lhduc94',
-          label: 'GitHub',
-          position: 'right',
-        },
+        }
       ],
     },
     footer: {
