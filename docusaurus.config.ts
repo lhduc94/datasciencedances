@@ -17,7 +17,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'lhduc94', // Usually your GitHub org/user name.
-  projectName: 'datasciencedances_proj', // Usually your repo name.
+  projectName: 'datasciencedances', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -88,9 +88,6 @@ const config: Config = {
         },
         {
           to: '/blog', label: 'Blog', position: 'left'
-        },
-        {
-          to: '/helloReact', label: 'Hello', position: 'right'
         },
         {
           href: 'https://github.com/lhduc94',
