@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdsd_project=self.webpackChunkdsd_project||[]).push([[900],{3647:a=>{a.exports=JSON.parse('{"label":"covariance","permalink":"/blog/tags/covariance","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

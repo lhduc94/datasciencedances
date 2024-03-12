@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdsd_project=self.webpackChunkdsd_project||[]).push([[1286],{4552:s=>{s.exports=JSON.parse('{"label":"plot","permalink":"/blog/tags/plot","allTagsPath":"/blog/tags","count":2,"unlisted":false}')}}]);
