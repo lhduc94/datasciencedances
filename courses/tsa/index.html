@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="vi" dir="ltr" class="mdx-wrapper mdx-page plugin-pages plugin-id-default" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.1">
+<title data-rh="true">Phân tích dữ liệu chuỗi thời gian | Data Science Dances</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://kungfupandas.lhduc.com/images/index/cover.jpg"><meta data-rh="true" name="twitter:image" content="https://kungfupandas.lhduc.com/images/index/cover.jpg"><meta data-rh="true" property="og:url" content="https://datasciencedances.com/courses/tsa"><meta data-rh="true" property="og:locale" content="vi"><meta data-rh="true" name="docusaurus_locale" content="vi"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="vi"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" property="og:title" content="Phân tích dữ liệu chuỗi thời gian | Data Science Dances"><meta data-rh="true" name="description" content="Tuần 1: Giới thiệu cơ bản về Dữ liệu chuỗi thời gian"><meta data-rh="true" property="og:description" content="Tuần 1: Giới thiệu cơ bản về Dữ liệu chuỗi thời gian"><link data-rh="true" rel="icon" href="/img/logo_ds.svg"><link data-rh="true" rel="canonical" href="https://datasciencedances.com/courses/tsa"><link data-rh="true" rel="alternate" href="https://datasciencedances.com/courses/tsa" hreflang="vi"><link data-rh="true" rel="alternate" href="https://datasciencedances.com/courses/tsa" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Data Science Dances RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Data Science Dances Atom Feed">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous"><link rel="stylesheet" href="/assets/css/styles.141eb216.css">
+<script src="/assets/js/runtime~main.13a0ea28.js" defer="defer"></script>
+<script src="/assets/js/main.de16da09.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Nhảy tới nội dung"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Nhảy tới nội dung</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo_ds.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo_ds.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Data Science Dances</b></a><a class="navbar__item navbar__link" href="/docs/kungfupandas/gioithieu">Tài liệu tham khảo</a><a class="navbar__item navbar__link" href="/blog">Blog</a><div class="navbar__item dropdown dropdown--hoverable"><a class="navbar__link" aria-haspopup="true" aria-expanded="false" role="button" href="/courses/intro">Khóa học</a><ul class="dropdown__menu"><li><a aria-current="page" class="dropdown__link dropdown__link--active" href="/courses/tsa">Time Series Analysis</a></li></ul></div><div class="navbar__item dropdown dropdown--hoverable"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">Roadmap</a><ul class="dropdown__menu"><li><a class="dropdown__link" href="/roadmap/roadmap_ds">Data Scientist</a></li></ul></div></div><div class="navbar__items navbar__items--right"><a href="https://github.com/lhduc94" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Chuyển đổi chế độ sáng và tối (hiện tại chế độ sáng)" aria-label="Chuyển đổi chế độ sáng và tối (hiện tại chế độ sáng)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><main class="container container--fluid margin-vert--lg"><div class="row mdxPageWrapper_j9I6"><div class="col col--8"><article><h1>Phân tích dữ liệu chuỗi thời gian</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tuần-1-giới-thiệu-cơ-bản-về-dữ-liệu-chuỗi-thời-gian">Tuần 1: Giới thiệu cơ bản về Dữ liệu chuỗi thời gian<a href="#tuần-1-giới-thiệu-cơ-bản-về-dữ-liệu-chuỗi-thời-gian" class="hash-link" aria-label="Đường dẫn trực tiếp tới Tuần 1: Giới thiệu cơ bản về Dữ liệu chuỗi thời gian" title="Đường dẫn trực tiếp tới Tuần 1: Giới thiệu cơ bản về Dữ liệu chuỗi thời gian">​</a></h2>
+<ul>
+<li>Giới thiệu chuỗi thời gian<!-- -->
+<ul>
+<li>Chuỗi thời gian là gì</li>
+<li>Luyện tập chuỗi thời gian trên Pandas và Numpy</li>
+</ul>
+</li>
+<li>Phân rã các thành phần dữ liệu chuỗi thời gian<!-- -->
+<ul>
+<li>Các thành phần chuỗi thời gian<!-- -->
+<ul>
+<li>Xu hướng</li>
+<li>Thời vụ</li>
+<li>Chu kì</li>
+</ul>
+</li>
+<li>Mô hình phân rã các thành phần thời gian<!-- -->
+<ul>
+<li>Mô hình cộng</li>
+<li>Mô hình nhân</li>
+</ul>
+</li>
+<li>Luyện tập ph ân rã chuỗi thời gian</li>
+</ul>
+</li>
+<li>Các bác toán về chuỗi thời gian<!-- -->
+<ul>
+<li>Phân tích các thành phần chuỗi thời gian</li>
+<li>Dự báo chuỗi thời gian</li>
+<li>Phân loại chuỗi thời gian</li>
+<li>Phân đoạn chuỗi thời gian</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tuần-2-arima-model">Tuần 2: ARIMA model<a href="#tuần-2-arima-model" class="hash-link" aria-label="Đường dẫn trực tiếp tới Tuần 2: ARIMA model" title="Đường dẫn trực tiếp tới Tuần 2: ARIMA model">​</a></h2>
+<ul>
+<li>Tính dừng và Làm mịn chuỗi thời gian<!-- -->
+<ul>
+<li>Tính dừng là gì</li>
+<li>Làm mịn chuỗi thời gian<!-- -->
+<ul>
+<li>Phương pháp Moving Average</li>
+<li>Phương pháp Exponential Smoothing</li>
+<li>Phương pháp Whittaker-Eilers Smoothing</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>ARIMA Model<!-- -->
+<ul>
+<li>Lag là gì</li>
+<li>Tự tương quan là gì</li>
+<li>Autoregressive model</li>
+<li>Moving Average process</li>
+<li>ARMA, ARIMA</li>
+</ul>
+</li>
+<li>Sử dụng ARIMA bằng Python</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tuần-3-var-model-arch-model-hierachical">Tuần 3: VAR model, ARCH model, Hierachical<a href="#tuần-3-var-model-arch-model-hierachical" class="hash-link" aria-label="Đường dẫn trực tiếp tới Tuần 3: VAR model, ARCH model, Hierachical" title="Đường dẫn trực tiếp tới Tuần 3: VAR model, ARCH model, Hierachical">​</a></h2>
+<ul>
+<li>Phân tích dữ liệu chuỗi thời gian đa biến<!-- -->
+<ul>
+<li>Mô hình VAR</li>
+<li>Ước lượng mô hình VAR</li>
+<li>Đồng tích hợp</li>
+<li>Kiểm định số quan hệ đồng tích hợp</li>
+</ul>
+</li>
+<li>Các mô hình phương sai có điều kiện<!-- -->
+<ul>
+<li>Mô hình phương sai có điều kiện sai số thay đổi tự hồi quy - ARCH</li>
+<li>Mô hình GARCH</li>
+<li>Mô hình CHARMA</li>
+</ul>
+</li>
+<li>Dữ liệu chuỗi thời gian dạng thứ bậc và dạng nhóm<!-- -->
+<ul>
+<li>Dữ liệu chuỗi thời gian dạng thứ bậc</li>
+<li>Dữ liêu chuỗi thời gian dạng nhóm</li>
+<li>Hướng tiếp cận đơn giản<!-- -->
+<ul>
+<li>Bottom-up</li>
+<li>Top-down</li>
+<li>Middle-out</li>
+</ul>
+</li>
+<li>Hướng tiếp cận ma trận</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tuần-4-các-thuật-toán-dự-đoán-mô-hình-nâng-cao">Tuần 4: Các thuật toán dự đoán mô hình nâng cao<a href="#tuần-4-các-thuật-toán-dự-đoán-mô-hình-nâng-cao" class="hash-link" aria-label="Đường dẫn trực tiếp tới Tuần 4: Các thuật toán dự đoán mô hình nâng cao" title="Đường dẫn trực tiếp tới Tuần 4: Các thuật toán dự đoán mô hình nâng cao">​</a></h2>
+<ul>
+<li>Mô hình cây trong Dự đoán chuỗi thời gian<!-- -->
+<ul>
+<li>Một số phương pháp tạo đặc trưng mới từ dữ liệu đã có</li>
+<li>Huấn luyện mô hình cây cho dữ liệu nhiều chuỗi thời gian</li>
+</ul>
+</li>
+<li>Deep Learning trong Dự đoán chuỗi thời gian<!-- -->
+<ul>
+<li>Kiến trúc thành phần GRU</li>
+<li>Áp dụng LSTM vào dự đoán chuỗi thời gian dày đặc</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tuần-5-mô-hình-phân-tích-sống-sót-survival-analysis">Tuần 5: Mô hình phân tích Sống Sót (Survival Analysis)<a href="#tuần-5-mô-hình-phân-tích-sống-sót-survival-analysis" class="hash-link" aria-label="Đường dẫn trực tiếp tới Tuần 5: Mô hình phân tích Sống Sót (Survival Analysis)" title="Đường dẫn trực tiếp tới Tuần 5: Mô hình phân tích Sống Sót (Survival Analysis)">​</a></h2>
+<ul>
+<li>Mô hình phân tích sống sót là gì</li>
+<li>Sử dụng Phân tích sống sót bằng Python</li>
+<li>Áp dụng Mô hình phân tích sống sót vào bài toán Khách hàng rời mạng</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tuần-6-anomaly-detection">Tuần 6: Anomaly Detection<a href="#tuần-6-anomaly-detection" class="hash-link" aria-label="Đường dẫn trực tiếp tới Tuần 6: Anomaly Detection" title="Đường dẫn trực tiếp tới Tuần 6: Anomaly Detection">​</a></h2>
+<ul>
+<li>Phương pháp Thống kê<!-- -->
+<ul>
+<li>phân loại một số mẫu bất thường bằng phương pháp thống kê</li>
+<li>Sử dụng Pandas để nhận diện các điểm bất thường bằng phương pháp thống kê</li>
+</ul>
+</li>
+<li>Phương pháp sử dụng máy học<!-- -->
+<ul>
+<li>Sử dụng máy học có giám sát để phân loại điểm bất thường</li>
+<li>Phân đoạn vùng bất thường bằng phương pháp clustering</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tuần-7-sử-dụng-một-số-thư-viện-forecasting">Tuần 7: Sử dụng một số thư viện Forecasting<a href="#tuần-7-sử-dụng-một-số-thư-viện-forecasting" class="hash-link" aria-label="Đường dẫn trực tiếp tới Tuần 7: Sử dụng một số thư viện Forecasting" title="Đường dẫn trực tiếp tới Tuần 7: Sử dụng một số thư viện Forecasting">​</a></h2>
+<ul>
+<li>TSLearn</li>
+<li>MLForeacasting</li>
+<li>Prophet</li>
+</ul></article></div><div class="col col--2"><div class="tableOfContents_bqdL thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#tuần-1-giới-thiệu-cơ-bản-về-dữ-liệu-chuỗi-thời-gian" class="table-of-contents__link toc-highlight">Tuần 1: Giới thiệu cơ bản về Dữ liệu chuỗi thời gian</a></li><li><a href="#tuần-2-arima-model" class="table-of-contents__link toc-highlight">Tuần 2: ARIMA model</a></li><li><a href="#tuần-3-var-model-arch-model-hierachical" class="table-of-contents__link toc-highlight">Tuần 3: VAR model, ARCH model, Hierachical</a></li><li><a href="#tuần-4-các-thuật-toán-dự-đoán-mô-hình-nâng-cao" class="table-of-contents__link toc-highlight">Tuần 4: Các thuật toán dự đoán mô hình nâng cao</a></li><li><a href="#tuần-5-mô-hình-phân-tích-sống-sót-survival-analysis" class="table-of-contents__link toc-highlight">Tuần 5: Mô hình phân tích Sống Sót (Survival Analysis)</a></li><li><a href="#tuần-6-anomaly-detection" class="table-of-contents__link toc-highlight">Tuần 6: Anomaly Detection</a></li><li><a href="#tuần-7-sử-dụng-một-số-thư-viện-forecasting" class="table-of-contents__link toc-highlight">Tuần 7: Sử dụng một số thư viện Forecasting</a></li></ul></div></div></div></main></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Tài liệu tham khảo</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/kungfupandas/gioithieu">Kungfu Pandas</a></li></ul></div><div class="col footer__col"><div class="footer__title">Liên Hệ</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.facebook.com/khoai.kho.7/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Facebook<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://www.linkedin.com/lhduc94" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.linkedin.com/lhduc94" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2024 Lê Huỳnh Đức</div></div></div></footer></div>
+</body>
+</html>
