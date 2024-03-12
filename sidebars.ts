@@ -20,21 +20,7 @@ const sidebars: SidebarsConfig = {
       label: 'Kungfu Pandas',
       items: ['kungfupandas/gioithieu'],
     }
-  ],
-
-  timeseriesSidebar: [
-    {
-      type: 'category',
-      label: 'Phân tích chuỗi thời gian',
-      items: ['time-series-analysis/tuan01', 
-              'time-series-analysis/tuan02',
-              'time-series-analysis/tuan03',
-              'time-series-analysis/tuan04',
-              'time-series-analysis/tuan05',
-              'time-series-analysis/tuan06',
-              'time-series-analysis/tuan07'],
-    }
-  ],
+  ]
 };
 
 export default sidebars;

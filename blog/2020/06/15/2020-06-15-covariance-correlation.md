@@ -4,7 +4,7 @@ description: Covariance và Correlation.
 slug: covariance-correlation
 authors: lhduc
 tags: [math, correlation, covariance]
-image: https://i.imgur.com/mErPwqL.png
+image: https://miro.medium.com/v2/resize:fit:720/format:webp/0*ww9NZU5NWGL4miVT
 hide_table_of_contents: false
 ---
 
