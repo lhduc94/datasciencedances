@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdsd_project=self.webpackChunkdsd_project||[]).push([[7759],{1427:e=>{e.exports=JSON.parse('{"permalink":"/blog/tags/histogram","page":1,"postsPerPage":10,"totalPages":1,"totalCount":2,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
