@@ -16,7 +16,7 @@
             <description><![CDATA[This is my first post on Docusaurus.]]></description>
             <content:encoded><![CDATA[<p>Thông thường, khi visualize mặc định histogram của seaborn sẽ không thể hiện tất cả các nhãn của bins và số lượng mỗi bin
 Với cách làm như trên sẽ rất khó theo dõi các khoảng giá trị của từng bin và số lượng của bin đó. May mắn thay seaborn histogram tương tự numpy nên ta có thể dùng hàm np.histogram để giải quyết vấn đề này</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="dấu-hiệu-của-một-biểu-đồ-trực-quan-kém">Dấu hiệu của một biểu đồ trực quan kém<a href="https://datasciencedances.com/blog/10-loi-sai-visualization#d%C3%A2%CC%81u-hi%C3%AA%CC%A3u-cu%CC%89a-m%C3%B4%CC%A3t-bi%C3%AA%CC%89u-%C4%91%C3%B4%CC%80-tr%C6%B0%CC%A3c-quan-ke%CC%81m" class="hash-link" aria-label="Đường dẫn trực tiếp tới Dấu hiệu của một biểu đồ trực quan kém" title="Đường dẫn trực tiếp tới Dấu hiệu của một biểu đồ trực quan kém">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="dấu-hiệu-của-một-biểu-đồ-trực-quan-kém">Dấu hiệu của một biểu đồ trực quan kém<a href="https://datasciencedances.com/blog/10-loi-sai-visualization#d%C3%A2%CC%81u-hi%C3%AA%CC%A3u-cu%CC%89a-m%C3%B4%CC%A3t-bi%C3%AA%CC%89u-%C4%91%C3%B4%CC%80-tr%C6%B0%CC%A3c-quan-ke%CC%81m" class="hash-link" aria-label="Đường dẫn trực tiếp tới Dấu hiệu của một biểu đồ trực quan kém" title="Đường dẫn trực tiếp tới Dấu hiệu của một biểu đ�ồ trực quan kém">​</a></h2>
 <ul>
 <li>Dữ liệu liên quan bị ẩn: Những thông tin cần thiết bị che khuất hoặc không được đánh dấu</li>
 <li>Biểu đồ quá tải: Bao gồm quá nhiều thông tin khiến biểu đồ khó đọc</li>
