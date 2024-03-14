@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdsd_project=self.webpackChunkdsd_project||[]).push([[7393],{5662:e=>{e.exports=JSON.parse('{"label":"deadline","permalink":"/blog/tags/deadline","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
