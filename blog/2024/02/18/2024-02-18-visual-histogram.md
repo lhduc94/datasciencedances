@@ -4,7 +4,8 @@ description: This is my first post on Docusaurus.
 slug: cach-bieu-dien-histogram
 authors: lhduc
 tags: [data visualization, histogram, seaborn, plot]
-image: https://i.imgur.com/mErPwqL.png
+keywords: [data visualization, histogram, seaborn, plot]
+image: https://datasciencedances.com/assets/images/1709112253837-1fa0ac6a6387c91756523efa79c896c0.jpg
 hide_table_of_contents: false
 ---
 

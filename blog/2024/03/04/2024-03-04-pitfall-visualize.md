@@ -4,7 +4,7 @@ description: This is my first post on Docusaurus.
 slug: 10-loi-sai-visualization
 authors: lhduc
 tags: [data visualization, histogram, seaborn, plot]
-image: https://i.imgur.com/mErPwqL.png
+image: https://clauswilke.com/dataviz/pitfalls_of_color_use_files/figure-html/popgrowth-US-rainbow-1.png
 hide_table_of_contents: false
 ---
 

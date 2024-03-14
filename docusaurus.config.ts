@@ -36,7 +36,7 @@ const config: Config = {
           showReadingTime: true,
           blogSidebarTitle: 'Các bài viết',
           blogSidebarCount: 'ALL',
-          postsPerPage: 10,
+          postsPerPage: 3,
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex]
         },
@@ -84,7 +84,12 @@ const config: Config = {
             },
             {
               label: "Time Series Analysis",
-              to: "/courses/tsa"}
+              to: "/courses/time-series-analysis"
+            },
+            {
+              label: "Đánh giá hiệu suất Mô hình",
+              to: "/courses/evaluation-metrics"
+            }
           ]
         },
         {
