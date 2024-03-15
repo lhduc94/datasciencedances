@@ -9,10 +9,13 @@ hide_table_of_contents: false
 ---
 ![](https://i.pinimg.com/564x/3b/29/50/3b2950afe79ddc47c21125285f3ff1f6.jpg)
 
+*Dự án Data Science cũng tương tự các dự án khác, luôn có giới hạn thời gian hoàn thành (deadline), và thông thường một dự án thường có thời gian khoảng 6 tháng. Tuy nhiên đôi khi chúng ta bị ép deadline xuống còn 3 tháng (1 Quý) chẳng hạn. Vậy chúng ta sẽ làm gì để tránh việc hoảng loạn khi bí ép deadline như thế, làm sao để tối ưu thời gian nhất có thể. Bài viết dưới đây của mình sẽ đưa ra một số kinh nghiệm khi bị áp deadline.*
+
 <!-- truncate -->
+<div class="dot">. . .</div>
 
 
-## Lên kế hoạch trước
+##  Lên kế hoạch trước 
 
 Việc đầu tiên để tránh việc hoảng loạn khi bị dí deadline là lên kế hoạch trước. Trước khi bạn bắt đầu một dự án Khoa học Dữ liệu, hay đảm bảo rằng bạn hiểu được scope của dự án, mục tiêu của dự án và kỳ vọng của khách hàng hoặc các bên liên quan đối với dự án của bạn như thế nào.
 
@@ -34,7 +37,7 @@ Có thể sử dụng [MoSCoW prioritisation method](https://en.wikipedia.org
 
 Khi bạn bị dí deadline, bạn không có đủ thời gian để đi khám phá từng ngóc ngách của dữ liệu, do đó cần có chiến lược khám phá dữ liệu phù hợp. Thay vì khám phá tất cả các biến dữ liệu, chúng ta nên đưa ra một số câu hỏi quan trọng, sau đó liệt kê các loại dữ liệu có thể phục vụ cho việc phân tích và trả lời cho câu hỏi đó.
 
-Đối với việc xây dựng mô hình dự báo, thay vì sử dụng các mô hình phức tạp như DeepLearning, chúng ta nên dùng các mô hình đơn giản như **LinearRegression** hoặc các mô hình dạng cây như **LightGBM, XGBoost hoặc CatBoost** . Thời gian huấn luyện của các mô hình này tương đối ngắn và cũng không mất quá nhiều thời gian để viết code, do đó các mô hình này thích hợp để huấn luyện khi bạn bị áp deadline. 
+Đối với việc xây dựng mô hình dự báo, thay vì sử dụng các mô hình phức tạp như DeepLearning, chúng ta nên dùng các mô hình đơn giản như **LinearRegression** hoặc các mô hình dạng cây như **LightGBM, XGBoost** hoặc **CatBoost** . Thời gian huấn luyện của các mô hình này tương đối ngắn và cũng không mất quá nhiều thời gian để viết code, do đó các mô hình này thích hợp để huấn luyện khi bạn bị áp deadline. 
 
 Ngoài ra, chúng ta không nhất thiết phải thiết lập tối ưu *hyperparameters(siêu tham số)* bằng các thuật toán phức tạp vì các thuật toán này cần chạy lại mô hình rất nhiều lần do đó chúng sẽ làm lãng phí thời gian của bạn khá nhiều trong khi độ chính xác không tăng thêm bao nhiêu. Nếu vẫn muốn thực hiện tối ưu siêu tham số, bạn có thể xem xét các phương pháp đơn giản như **GridSearchCV** thay vì dùng các thư viện như **hyperopt** hoặc **optuna**
 

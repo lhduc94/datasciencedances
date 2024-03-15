@@ -28,3 +28,41 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+div.markdown h2,h3,strong
+{
+  color: #bd1481;
+}
+
+[itemprop="blogPost"] h1
+{
+  color: white;
+  text-align:center;
+  background-color: #026992;
+}
+
+[itemprop="blogPost"] img
+{
+  color: white;
+  display: block; /* Make the image a block element */
+  margin-left: auto; /* Auto margin on the left */
+  margin-right: auto; /* Auto margin on the right */
+}
+div.dot
+{
+  margin: auto;
+  text-align:center;
+  font-weight:bold;
+  font-size:20px;
+}
+
+div.course_title h1
+{
+  color: white;
+  text-align:center;
+  background-color: #026992;
+}
+
+/* pre code {
+  background-color: rgb(252, 245, 236);
+} */

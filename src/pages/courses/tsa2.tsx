@@ -35,7 +35,9 @@ export default function Home(): JSX.Element {
       description="Điệu Tango">
       <HomepageHeader />
       <main>
-        <p> Chi tiết khóa học</p>
+        <div className={clsx('chitiet', styles.chitiet)}> <p> Chi tiết khóa học</p> </div>
+        <h3>1️⃣</h3><p>21312</p>
+
       </main>
     </Layout>
   );

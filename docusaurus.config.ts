@@ -84,7 +84,7 @@ const config: Config = {
             },
             {
               label: "Time Series Analysis",
-              to: "/courses/time-series-analysis"
+              to: "/courses/time-series-analysis_v2"
             },
             {
               label: "Đánh giá hiệu suất Mô hình",
