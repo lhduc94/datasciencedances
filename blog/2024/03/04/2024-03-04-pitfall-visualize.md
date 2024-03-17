@@ -6,6 +6,7 @@ authors: lhduc
 tags: [data visualization, histogram, seaborn, plot]
 image: https://clauswilke.com/dataviz/pitfalls_of_color_use_files/figure-html/popgrowth-US-rainbow-1.png
 hide_table_of_contents: false
+draft: true
 ---
 
 Thông thường, khi visualize mặc định histogram của seaborn sẽ không thể hiện tất cả các nhãn của bins và số lượng mỗi bin

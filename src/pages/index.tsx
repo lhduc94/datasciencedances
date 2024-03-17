@@ -32,8 +32,8 @@ export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Chào mừng bạn đến với ${siteConfig.title}`}
-      description="Nhạc nào mình cũng nhảy">
+      title={`Trang chủ`}
+      description="Nơi chia sẻ kiến thức về Data Science cho người mới bắt đầu cũng như những người đã đi làm về Data Science 😍">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

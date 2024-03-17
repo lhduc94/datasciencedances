@@ -17,7 +17,7 @@ const sidebars: SidebarsConfig = {
   tailieuSidebar: [
     {
       type: 'category',
-      label: 'Kungfu Pandas',
+      label: 'Sách Kungfu Pandas',
       items: ['kungfupandas/gioithieu'],
     }
   ]

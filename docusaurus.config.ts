@@ -6,7 +6,7 @@ import rehypeKatex from 'rehype-katex';
 const config: Config = {
   title: 'Data Science Dances',
   tagline: 'Mỗi bài toán là một bản nhạc',
-  favicon: 'img/logo_ds.svg',
+  favicon: 'img/logo_2.jpg',
 
   url: 'https://datasciencedances.com',
   baseUrl: '/',
@@ -28,8 +28,8 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          showLastUpdateAuthor: true,
-          showLastUpdateTime: true,
+          // showLastUpdateAuthor: true,
+          // showLastUpdateTime: true,
           
         },
         blog: {
@@ -56,13 +56,49 @@ const config: Config = {
     },
   ],
   themeConfig: {
+
+    metadata: [
+      {name: 'keywords', content: 'data science, blog'},
+      {name: 'twitter:card', content: 'data science, blog'},
+    ],
+    headTags: [
+      // Declare a <link> preconnect tag
+      {
+        tagName: 'link',
+        attributes: [
+          {
+            rel: 'preconnect',
+            href: 'http://datasciencedances.com/',
+          },
+          {
+            rel: 'icon',
+            href: '/img/logo_2.jpg',
+          }
+        ],
+      },
+      
+      // Declare some json-ld structured data
+      {
+        tagName: 'script',
+        attributes: {
+          type: 'application/ld+json',
+        },
+        innerHTML: JSON.stringify({
+          '@context': 'https://schema.org/',
+          '@type': 'Organization',
+          name: 'Data Science Dances',
+          url: 'http://datasciencedances.com/',
+          logo: 'https://i.pinimg.com/736x/d3/bb/d0/d3bbd0c4629972b9c74a78c9539bd1cb.jpg',
+        }),
+      },
+    ],
     // Replace with your project's social card
     image: 'https://kungfupandas.lhduc.com/images/index/cover.jpg',
     navbar: {
       title: 'Data Science Dances',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo_ds.svg',
+        alt: 'Data Science Dances',
+        src: 'img/logo_2.jpg',
       },
       items: [
         {type:'docSidebar',
@@ -84,7 +120,7 @@ const config: Config = {
             },
             {
               label: "Time Series Analysis",
-              to: "/courses/time-series-analysis_v2"
+              to: "/courses/time-series-analysis"
             },
             {
               label: "Đánh giá hiệu suất Mô hình",
@@ -98,7 +134,7 @@ const config: Config = {
           items:[
             {
               label: "Data Scientist",
-              to: '/roadmap/roadmap_ds'}
+              to: '/roadmap/datascientist'}
           ]
         }
       ],
@@ -123,20 +159,15 @@ const config: Config = {
               href: 'https://www.facebook.com/khoai.kho.7/',
             },
             {
+              label: 'Fanpage',
+              href: 'https://www.facebook.com/datasciencedances/',
+            },
+            {
               label: 'LinkedIn',
               href: 'https://www.linkedin.com/lhduc94'
             }
           ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'Blog',
-              href: 'https://www.linkedin.com/lhduc94',
-            }
-          ],
-        },
+        }
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Lê Huỳnh Đức`},
     prism: {
