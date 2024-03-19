@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdsd_project=self.webpackChunkdsd_project||[]).push([[7670],{4375:s=>{s.exports=JSON.parse('{"label":"math","permalink":"/blog/tags/math","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);
