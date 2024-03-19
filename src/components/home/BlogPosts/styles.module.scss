@@ -29,21 +29,21 @@
           border: 1px solid var(--box-hover-border-color);
           background: var(--active-color);
           .title {
-            color: var(--normal-text-color-1);
+            color: white;
             a {
               &:hover {
-                color: var(--normal-text-color-1);
+                color: white;
               }
             }
           }
           .author {
-            color: var(--sub-text-color-3);
+            color: white;
             .portrait {
-              border-color: var(--portrait-border-hover-color);
+              border-color: white;
             }
           }
           .content {
-            color: var(--normal-text-color-1);
+            color: white;
           }
         }
         .title {
