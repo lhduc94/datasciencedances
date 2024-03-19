@@ -41,3 +41,12 @@ Chúng ta có thể  vẽ một đường thống kê hồi quy $y=0.622x
 Khoảng cách từ các điểm đến đường Efficient Frontier nêu lên độ lệch so với điểm tốt nhất​
 
 ![](efficiente_frontier_regression_line.png)
+
+
+
+
+
+
+
+
+Follow Fanpage của mình để nhận được các bài viết mới nhất nhé!!  https://www.facebook.com/datasciencedances/

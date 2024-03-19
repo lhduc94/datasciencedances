@@ -3,6 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+const path = require('path')
+
 const config: Config = {
   title: 'Data Science Dances',
   tagline: 'Mỗi bài toán là một bản nhạc',
@@ -19,7 +21,7 @@ const config: Config = {
     defaultLocale: 'vi',
     locales: ['vi'],
   },
-
+  plugins: [path.resolve(__dirname, 'plugins', 'add-fb-chat'), 'docusaurus-plugin-sass'],
   presets: [
     [
       'classic',
@@ -56,12 +58,13 @@ const config: Config = {
     },
   ],
   themeConfig: {
-
+  
     metadata: [
       {name: 'keywords', content: 'data science, blog'},
       {name: 'twitter:card', content: 'data science, blog'},
     ],
     headTags: [
+
       // Declare a <link> preconnect tag
       {
         tagName: 'link',
@@ -174,6 +177,7 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    
   } satisfies Preset.ThemeConfig,
 };
 

@@ -6,7 +6,7 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
-
+ 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -22,6 +22,12 @@ function HomepageHeader() {
             to="/blog">
             Cùng nhảy nào 🪇🪇!!
           </Link>
+        </div>
+        <div>
+          <img className='trophy'
+          src='https://github-profile-trophy.vercel.app/?username=lhduc94'
+          alt='duclh'
+          />
         </div>
       </div>
     </header>

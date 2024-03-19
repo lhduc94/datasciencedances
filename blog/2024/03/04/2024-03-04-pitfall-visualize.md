@@ -50,3 +50,9 @@ https://clauswilke.com/dataviz/color-pitfalls.html
 - Sử dụng dải màu ngắn để hiển thị giá trị cao hơn giá trị khác (ví dụ đỏ -> vàng)
 - Cách đơn giản nhất là chuyển dài màu đó về mức xám xem màu bạn chọn có thể hiện sự khác biệt không
 - Sử dụng tông màu nóng/lạnh để thể hiện giá trị đối nghịch (tiêu cực/tích cực)
+
+
+
+
+
+Follow Fanpage của mình để nhận được các bài viết mới nhất nhé  https://www.facebook.com/datasciencedances/

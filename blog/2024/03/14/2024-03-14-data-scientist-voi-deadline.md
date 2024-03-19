@@ -90,3 +90,6 @@ Ngoài ra, bạn có thể chia sẻ những câu hỏi bạn thắc mắc lên 
 ## Tổng kết
 
 Deadline là một phần của dự án. Hãy bình tĩnh và cùng nhảy với nó như một nghệ sĩ!
+
+----
+Follow Fanpage của mình để nhận được các bài viết mới nhất nhé!!  https://www.facebook.com/datasciencedances/

@@ -99,3 +99,8 @@ Từ đó ta tính covariance và correlation
 $Cov(X,Y) = \frac{(50772 - 69095.00) * (102492- 99712.75) + (73756- 69095.00) * (100406- 99712.75) + ... }{4} = -17673758.0$
 
 $Corr(X,Y) = \frac{Cov(X,Y)}{\sigma_X * \sigma_Y} = \frac{-17673758.0} {10681.69 * 1892.48} = -0.87$
+
+
+
+
+Follow Fanpage của mình để nhận được các bài viết mới nhất nhé!!  https://www.facebook.com/datasciencedances/

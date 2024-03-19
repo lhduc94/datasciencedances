@@ -72,3 +72,8 @@ ax.set_ylim(0,28)
 ```
 
 ![Example banner](1709112655963.png)
+
+
+
+
+Follow Fanpage của mình để nhận được các bài viết mới nhất nhé!!  https://www.facebook.com/datasciencedances/
