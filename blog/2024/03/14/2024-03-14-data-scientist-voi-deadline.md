@@ -1,9 +1,9 @@
 ---
 title: Data Scientist sẽ làm gì khi bị áp deadline
-description: Dự án Data Science cũng tương tự các dự án khác, luôn có giới hạn thời gian hoàn thành (deadline). Vậy chúng ta sẽ làm gì để tránh việc hoảng loạn khi bí ép deadline như thế, làm sao để tối ưu thời gian nhất có thể. Bài viết dưới đây của mình sẽ đưa ra một số kinh nghiệm khi bị áp deadline.
+description: Hallo 
 slug: Data-Scientist-se-lam-gi-khi-bi-ap-deadline
 authors: lhduc
-tags: [datasciene, deadline, howto]
+tags: [datasciene, story]
 image: https://i.pinimg.com/736x/5a/bd/f6/5abdf650a165307df13e1ed94e51687b.jpg
 hide_table_of_contents: false
 ---

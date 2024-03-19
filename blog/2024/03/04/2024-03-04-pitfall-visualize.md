@@ -1,10 +1,10 @@
 ---
 title: 10 lỗi sai trong data visualization và cách phòng tránh
-description: This is my first post on Docusaurus.
+description: Hello
 slug: 10-loi-sai-visualization
 authors: lhduc
-tags: [data visualization, histogram, seaborn, plot]
-image: https://clauswilke.com/dataviz/pitfalls_of_color_use_files/figure-html/popgrowth-US-rainbow-1.png
+tags: [data visualization]
+image: https://i.pinimg.com/736x/5a/bd/f6/5abdf650a165307df13e1ed94e51687b.jpg
 hide_table_of_contents: false
 draft: true
 ---

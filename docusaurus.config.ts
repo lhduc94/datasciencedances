@@ -36,14 +36,17 @@ const config: Config = {
         },
         blog: {
           showReadingTime: true,
-          blogSidebarTitle: 'Các bài viết',
-          blogSidebarCount: 'ALL',
+          // blogSidebarTitle: 'Các bài viết',
+          // blogSidebarCount: 'ALL',
           postsPerPage: 3,
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex]
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss:[ './src/css/custom.scss',
+          "./src/css/design-style.scss",
+          "./src/css/design-class.scss"
+        ]
         },
       } satisfies Preset.Options,
     ],
