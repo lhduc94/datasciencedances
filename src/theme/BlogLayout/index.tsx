@@ -4,7 +4,7 @@ import type { Props } from "@theme/BlogLayout";
 import Layout from "@theme/Layout";
 import clsx from "clsx";
 import { useEffect, useState } from "react";
-import BlogSidebar from "../BlogSidebar";
+import BlogSidebar from "@theme/BlogSidebar";
 import styles from "./styles.module.scss";
 
 export default function BlogLayout(props: Props & { items: any }): JSX.Element {

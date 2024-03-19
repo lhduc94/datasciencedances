@@ -20,6 +20,7 @@ export default function useGetNewBlogList(n: number = 4) {
     date = dayjs(date).format("MM/DD,YYYY");
     return {
       title: item.metadata.title,
+      image: item.metadata.frontMatter.image,
       name: item.metadata.authors[0].name,
       date: date,
       content: item.metadata.description,

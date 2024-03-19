@@ -8,8 +8,8 @@ import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import type { Props } from "@theme/BlogListPage";
 import BlogPostItems from "@theme/BlogPostItems";
 import SearchMetadata from "@theme/SearchMetadata";
-import BlogLayout from '@theme/BlogLayout';
-
+import BlogLayout from '../BlogLayout';
+import BlogListPaginator from '@theme/BlogListPaginator';
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 // import BlogLayout from "../BlogLayout";
@@ -31,7 +31,7 @@ function BlogListPageMetadata(props: Props): JSX.Element {
 }
 
 function BlogListPageContent(props: Props): JSX.Element {
-  const { items, sidebar } = props;
+  const {metadata, items, sidebar } = props;
   const [renderItems, setRenderItem] = useState(items);
   const location = useLocation();
   useEffect(() => {
@@ -51,12 +51,15 @@ function BlogListPageContent(props: Props): JSX.Element {
   return (
     <BlogLayout sidebar={sidebar} items={props.items}>
       <BlogPostItems items={renderItems} />
-      {/* <BlogListPaginator metadata={metadata} /> */}
+      <BlogListPaginator metadata={metadata} />
     </BlogLayout>
+    
   );
 }
 
 export default function BlogListPage(props: Props): JSX.Element {
+  const {metadata, items, sidebar } = props;
+
   return (
     <HtmlClassNameProvider
       className={clsx(
@@ -64,8 +67,12 @@ export default function BlogListPage(props: Props): JSX.Element {
         ThemeClassNames.page.blogListPage
       )}
     >
-      <BlogListPageMetadata {...props} />
-      <BlogListPageContent {...props} />
+
+      <BlogListPageMetadata {...props}> </BlogListPageMetadata>
+      {/* <BlogListPaginator metadata={metadata} /> */}
+
+      <BlogListPageContent {...props}> <BlogListPaginator metadata={metadata} /></BlogListPageContent>
+
     </HtmlClassNameProvider>
   );
 }

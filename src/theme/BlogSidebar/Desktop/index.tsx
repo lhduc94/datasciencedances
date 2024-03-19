@@ -19,12 +19,12 @@ export default function BlogSidebarDesktop(props: {
     .flat(1);
 
   // Deduplication
-  const deTags = tags.filter((item, index) => {
+  let deTags = tags.filter((item, index) => {
     return tags.indexOf(item) === index;
   });
 
   deTags.unshift("All");
-
+  deTags = deTags.sort();
   const [tag, setTag] = useState(searchTag || deTags[0]);
 
   const history = useHistory();
@@ -36,7 +36,7 @@ export default function BlogSidebarDesktop(props: {
   return (
     <aside className={styles.aside}>
       <nav className={clsx(styles.sidebar, "thin-scrollbar")}>
-        <div className={clsx(styles.sidebarItemTitle)}>Blog categories</div>
+        <div className={clsx(styles.sidebarItemTitle)}><h3>Phân loại</h3></div>
         <ul className={clsx(styles.sidebarItemList, "clean-list")}>
           {deTags.map((item) => (
             <li

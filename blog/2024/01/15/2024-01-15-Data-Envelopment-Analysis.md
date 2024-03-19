@@ -1,17 +1,15 @@
 ---
 title: Data Envelopment Analysis
-description: Phân tích hiệu suất.
 slug: data-envelopment-analysis-phan-tich-hieu-suat
 authors: lhduc
-tags: [data visualization, histogram, seaborn, plot]
-keywords: [data visualization, histogram, seaborn, plot]
-image: https://i.imgur.com/mErPwqL.png
+tags: [Data Science, Math]
+keywords: [ata visualization, histogram, seaborn, plot]
+image: https://i.pinimg.com/736x/5a/bd/f6/5abdf650a165307df13e1ed94e51687b.jpg
 hide_table_of_contents: false
 draft: true
 ---
  
-
-**Đánh giá Hiệu suất là gì​?**
+<!-- **Đánh giá Hiệu suất là gì​?** -->
 
 Khi chúng ta có đầu vào, và nhận được kết quả, chúng ta hay đánh giá hiệu suất của kết quả xem với đầu vào như thế thì kết quả liệu có tốt không.​ Một số ví dụ cơ bản: Giá thành/sản phẩm, Lợi nhuận/sản phẩm.​
 <!-- truncate -->

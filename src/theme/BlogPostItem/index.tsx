@@ -7,7 +7,7 @@ import BlogItemTitle from "./components/Title";
 import BlogItemTags from "./components/Tags";
 import BlogItemCover from "./components/Cover";
 import BlogItemDesc from "./components/Desc";
-// import BlogPostItemAuthors from "./components/Authors";
+import BlogPostItemAuthors from "./components/Authors";
 
 import styles from "./styles.module.scss";
 
@@ -43,9 +43,9 @@ const BlogListItem = () => {
               <BlogItemTitle />
               <BlogItemDesc style={{ marginTop: 17 }} />
             </div>
-            {/* <BlogPostItemAuthors
-              styles={{ position: "absolute", bottom: 26 }}
-            /> */}
+            <BlogPostItemAuthors
+              styles={{ position: "absolute",  bottom:10 }}
+            />
           </div>
         </LinkWithBaseUrl>
       </header>

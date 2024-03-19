@@ -1,16 +1,15 @@
 ---
 title: 10 lỗi sai trong data visualization và cách phòng tránh
-description: Hello
+# description: Hello
 slug: 10-loi-sai-visualization
 authors: lhduc
-tags: [data visualization]
+tags: [Data Visualization]
 image: https://i.pinimg.com/736x/5a/bd/f6/5abdf650a165307df13e1ed94e51687b.jpg
 hide_table_of_contents: false
 draft: true
 ---
 
-Thông thường, khi visualize mặc định histogram của seaborn sẽ không thể hiện tất cả các nhãn của bins và số lượng mỗi bin
-Với cách làm như trên sẽ rất khó theo dõi các khoảng giá trị của từng bin và số lượng của bin đó. May mắn thay seaborn histogram tương tự numpy nên ta có thể dùng hàm np.histogram để giải quyết vấn đề này
+10 lỗi sai trong data visualization và cách phòng tránh
 <!-- truncate -->
 
 ## Dấu hiệu của một biểu đồ trực quan kém 

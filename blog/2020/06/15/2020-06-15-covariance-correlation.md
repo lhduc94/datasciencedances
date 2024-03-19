@@ -1,14 +1,13 @@
 ---
 title: Covariance và Correlation
-description: Covariance và Correlation.
 slug: covariance-correlation
 authors: lhduc
-tags: [math, correlation, covariance]
-image: https://miro.medium.com/v2/resize:fit:720/format:webp/0*ww9NZU5NWGL4miVT
+tags: [Math]
+image: https://i.pinimg.com/736x/5a/bd/f6/5abdf650a165307df13e1ed94e51687b.jpg
 hide_table_of_contents: false
 ---
 
-![](https://miro.medium.com/v2/resize:fit:720/format:webp/0*ww9NZU5NWGL4miVT)
+![](https://i.pinimg.com/736x/5a/bd/f6/5abdf650a165307df13e1ed94e51687b.jpg)
 
 Covariance (Hiệp phương sai) và Correlation (Hệ số tương quan) là hai khái niệm trong lĩnh vực xác suất thống kê. Cả hai khái niệm này đều nói về mối quan hệ giữa hai biến với nhau, hay nói cách khác hai chỉ số này dùng để thể hiện sự phụ thuộc giữa hai biến.
 <!-- truncate -->

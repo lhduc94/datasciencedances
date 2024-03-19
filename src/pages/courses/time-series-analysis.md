@@ -15,7 +15,7 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
   <li>Time Series</li>
   <li>Pandas</li>
   <li>Cluster Analysis</li>
-  <li>[Data Visualization](/blog/tags/data-visualization)</li>
+  <li>Data Visualization</li>
 </ul>  
 
 ###  Nội dung 

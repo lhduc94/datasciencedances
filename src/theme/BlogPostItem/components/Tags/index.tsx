@@ -12,8 +12,8 @@ export default function Tags({ style }: { style?: React.CSSProperties }) {
           marginRight: 14,
           borderRadius: 24,
           fontSize: 12,
-          background: "var(--tags-bg-color)",
-          color: "var(--active-color)",
+          background: "#026992",
+          color: "white",
           padding: "5px 9px",
         }}
       >

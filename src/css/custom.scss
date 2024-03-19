@@ -17,7 +17,7 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
   --normal-bg-1: rgba(17, 15, 15);
-  --active-color: #bd1481;
+  --active-color: #026992;
   --hover-fill-color: rgba(255, 61, 0, 1);
   --docs-detail-bg: rgba(22, 27, 34, 1);
   --ordered-list-bg-color: rgb(51, 34, 0);
@@ -29,6 +29,7 @@
   --right-sidebar-circle-bg-color: rgba(48, 54, 61, 1);
   --right-sidebar-active-color: var(--active-color);
   --portrait-border-hover-color: rgb(254, 177, 25);
+  --blog-border-color: red
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -42,16 +43,50 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+p.hero__subtitle{
+  color: white;
+}
+[data-theme="light"] {
+  --ifm-font-color-base: #000;
+  --normal-bg-1: #fff;
+  --title-text-color: #000;
+  // --sub-text-color-2: #ee0909;
+  --sub-text-color: #525665;
+  --sub-text-color-1: #525665;
 
+  --home-btn-bg: #000;
+  --home-btn-color: #000;
+
+  --box-border-color: #e0e0e0;
+  --box-hover-border-color: #e0e0e0;
+
+  --right-sidebar-circle-bg-color: #f2f2f2;
+  --sub-text-color-5: #000;
+  --blog-border-color: #e0e0e0;
+  --docs-detail-bg: #eef9fd;
+  --ordered-list-bg-color: #ffeecc;
+  --ordered-list-text-color: #000;
+  --ifm-menu-color-background-active: #ffe5b3;
+  --right-sidebar-active-color: #000;
+
+  --ifm-menu-color-active: #000;
+  --ifm-menu-color: #000;
+  --ifm-breadcrumb-color-active: var(--active-color);
+  --ifm-pagination-nav-color-hover: #e0e0e0;
+  --portrait-border-color: #eef9fd;
+  --ifm-navbar-link-hover-color: var(--active-color);
+  --popper-bg-color: #000;
+  --popper-text-color: #ffffff;
+}
 
 div.markdown h2, div.markdown h3,div.markdown strong
 {
-  color: #bd1481;
+  color: #026992;
 }
 
 article h2, article h3, article strong
 {
-  color: #bd1481;
+  color: #026992;
 }
 [itemprop="blogPost"] h1
 {
@@ -102,7 +137,7 @@ ul#skills li {
   margin: 0 50px 10px -30px;
   border: 1px solid var(--docusaurus-tag-list-border);
   transition: border var(--ifm-transition-fast);
-  border-radius: var(--ifm-global-radius);
+  border-radius: 24px;
   padding: 0.2rem 0.5rem 0.3rem;
   font-size: 100%;
   background-color: antiquewhite;
@@ -126,5 +161,3 @@ summary h4 {
   margin-bottom: 0px;
 
 }
-
-

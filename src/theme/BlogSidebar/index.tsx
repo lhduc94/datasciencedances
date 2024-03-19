@@ -14,6 +14,8 @@ export default function BlogSidebar({
     return null;
   }
   // Mobile sidebar doesn't need to be server-rendered
-
+  if (windowSize === "mobile") {
+    return <BlogSidebarMobile sidebar={sidebar} />;
+  }
   return <BlogSidebarDesktop items={items} />;
 }

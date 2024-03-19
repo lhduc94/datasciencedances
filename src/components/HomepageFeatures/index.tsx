@@ -9,33 +9,33 @@ type FeatureItem = {
 };
 
 const FeatureList: FeatureItem[] = [
-  {
-    title: 'Tài liệu kĩ thuật',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
-    description: (
-      <>
-        Bao gồm các tài liệu tự biên soạn.
-      </>
-    ),
-  },
-  {
-    title: 'Blog kiến thức',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
-    description: (
-      <>
-        Một số kiến thức từ các dự án được tổng hợp thành các bài viết
-      </>
-    ),
-  },
-  {
-    title: 'Khóa học',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
-    description: (
-      <>
-      Các khóa học Data Science cho người mới bắt đầu cũng như cho các bạn đã đi làm
-      </>
-    ),
-  },
+  // {
+  //   title: 'Tài liệu kĩ thuật',
+  //   Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+  //   description: (
+  //     <>
+  //       Bao gồm các tài liệu tự biên soạn.
+  //     </>
+  //   ),
+  // },
+  // {
+  //   title: 'Blog kiến thức',
+  //   Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+  //   description: (
+  //     <>
+  //       Một số kiến thức từ các dự án được tổng hợp thành các bài viết
+  //     </>
+  //   ),
+  // },
+  // {
+  //   title: 'Khóa học',
+  //   Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+  //   description: (
+  //     <>
+  //     Các khóa học Data Science cho người mới bắt đầu cũng như cho các bạn đã đi làm
+  //     </>
+  //   ),
+  // },
 ];
 
 function Feature({title, Svg, description}: FeatureItem) {
