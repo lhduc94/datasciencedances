@@ -61,7 +61,7 @@ export default function BlogPosts() {
   return (
     <div className={styles.wrap}>
       <div className={styles.gTitle}>
-        <Translate>Blog Posts</Translate>
+        <Translate>Bài viết mới nhất</Translate>
       </div>
       <div className={clsx(styles.listWrap, "link-wrap")}>{itemDom}</div>
     </div>
