@@ -44,12 +44,12 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
       <BlogPosts/>
-      <div>
+      {/* <div>
           <img className='trophy'
           src='https://github-profile-trophy.vercel.app/?username=lhduc94'
           alt='duclh'
           />
-        </div>
+        </div> */}
       <HomepageFeatures />
       </main>
     </Layout>
