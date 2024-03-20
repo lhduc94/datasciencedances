@@ -1,6 +1,8 @@
 import { useBlogPost } from "@docusaurus/theme-common/internal";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Popper from "@site/src/components/common/Popper";
+import BlogPostItemHeaderInfo from "@site/src/theme/BlogPostItem/components/Info";
+
 export default function BlogPostItemHeaderAuthors({
   styles,
 }: {
@@ -20,8 +22,8 @@ export default function BlogPostItemHeaderAuthors({
       <span
         key={author.name}
         style={{
-          width: 20,
-          height: 20,
+          width: 40,
+          height: 40,
           borderRadius: "50%",
           display: "inline-block",
           overflow: "hidden",
@@ -31,37 +33,42 @@ export default function BlogPostItemHeaderAuthors({
       >
         <Popper content={author.name}>
           <img
-            style={{ width: 18, height: 18 }}
+            style={{ width: 40, height: 40 }}
             src={useBaseUrl(author.imageURL)}
             srcSet={author.imageURL}
             alt=""
           />
         </Popper>
       </span>
+
     );
   });
   return (
-    <div
-      style={{
-        color: "black",
-        fontSize: 12,
-        display: "flex",
-        alignItems: "center",
-        marginTop: 17,
-        ...styles,
-      }}
-    >
-      <span>Được viết bởi </span>
-      <span
+    <div>
+      <div
         style={{
-          marginRight: 23,
-          marginLeft: 10,
-          height: 22,
+          color: "black",
+          fontSize: 12,
+          display: "flex",
+          alignItems: "center",
+          marginTop: 17,
+          ...styles,
         }}
       >
-        {authorsDom}
-      </span>
-      <span>{formattedDate}</span>
+        {/* <span>"Được viết bởi "</span> */}
+        <span
+          style={{
+            marginRight: 23,
+            marginLeft: 20,
+            height: 22,
+            marginBottom:20
+          }}
+        >
+          {authorsDom}
+        </span>
+        {/* <span>{formattedDate}</span> */}
+        <BlogPostItemHeaderInfo/>
+      </div>
     </div>
   );
 }

@@ -9,6 +9,8 @@ image: https://datasciencedances.com/assets/images/1709112253837-1fa0ac6a6387c91
 hide_table_of_contents: false
 ---
 
+![](https://datasciencedances.com/assets/images/1709112253837-1fa0ac6a6387c91756523efa79c896c0.jpg)
+
 Thông thường, khi visualize mặc định histogram của seaborn sẽ không thể hiện tất cả các nhãn của bins và số lượng mỗi bin
 Với cách làm như trên sẽ rất khó theo dõi các khoảng giá trị của từng bin và số lượng của bin đó. May mắn thay seaborn histogram tương tự numpy nên ta có thể dùng hàm np.histogram để giải quyết vấn đề này
 <!-- truncate -->

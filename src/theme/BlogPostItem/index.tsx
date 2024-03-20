@@ -7,7 +7,8 @@ import BlogItemTitle from "./components/Title";
 import BlogItemTags from "./components/Tags";
 import BlogItemCover from "./components/Cover";
 import BlogItemDesc from "./components/Desc";
-import BlogPostItemAuthors from "./components/Authors";
+import NewBlogPostItemAuthors from "./components/Authors2";
+import BlogPostItemAuthors  from "./components/Authors";
 
 import styles from "./styles.module.scss";
 
@@ -43,6 +44,7 @@ const BlogListItem = () => {
               <BlogItemTitle />
               <BlogItemDesc style={{ marginTop: 17 }} />
             </div>
+
             <BlogPostItemAuthors
               styles={{ position: "absolute",  bottom:10 }}
             />
@@ -57,7 +59,7 @@ const BlogDetailItem = ({ children }) => {
     <BlogPostItemContainer className={styles["blogDetail"]}>
       <header>
         <BlogItemTitle />
-        {/* <BlogPostItemAuthors /> */}
+        <NewBlogPostItemAuthors/>
       </header>
       {/* only show blog detail */}
       <BlogPostItemContent>{children}</BlogPostItemContent>
