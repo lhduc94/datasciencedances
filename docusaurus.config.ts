@@ -8,7 +8,7 @@ const path = require('path')
 const config: Config = {
   title: 'Data Science Dances',
   tagline: 'Mỗi bài toán là một bản nhạc',
-  favicon: 'img/logo_2.jpg',
+  favicon: 'img/logo.jpg',
 
   url: 'https://datasciencedances.com',
   baseUrl: '/',
@@ -78,7 +78,8 @@ const config: Config = {
           },
           {
             rel: 'icon',
-            href: '/img/logo_2.jpg',
+            type: "image/jpg",
+            href: '/img/logo.jpg',
           }
         ],
       },
@@ -104,7 +105,7 @@ const config: Config = {
       title: 'Data Science Dances',
       logo: {
         alt: 'Data Science Dances',
-        src: 'img/logo_2.jpg',
+        src: 'img/logo.jpg',
       },
       items: [
         {type:'docSidebar',
