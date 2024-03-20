@@ -2,6 +2,14 @@ import { useBlogPost } from "@docusaurus/theme-common/internal";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Popper from "@site/src/components/common/Popper";
 import BlogPostItemHeaderInfo from "@site/src/theme/BlogPostItem/components/Info";
+import Link, {type Props as LinkProps} from '@docusaurus/Link';
+
+function MaybeLink(props: LinkProps): JSX.Element {
+  if (props.href) {
+    return <Link {...props} />;
+  }
+  return <>{props.children}</>;
+}
 export default function NewBlogPostItemHeaderAuthors({
   styles,
 }: {
@@ -17,30 +25,39 @@ export default function NewBlogPostItemHeaderAuthors({
   }
 
   const authorsDom = authors.map((author) => {
+    const {name, title, url, imageURL, email} = author;
+    const link = url || (email && `mailto:${email}`) || undefined;
     return (
-      <div>
-        <span
-          key={author.name}
-          style={{
-            width: 40,
-            height: 40,
-            borderRadius: "50%",
-            display: "inline-block",
-            overflow: "hidden",
-            boxSizing: "border-box",
-            border: "1px solid var(--portrait-border-color)",
-          }}
-        >
-          <Popper content={author.name}>
+      <div >
+        {imageURL && (
+          <MaybeLink href={link} className="avatar__photo-link">
             <img
-              style={{ width: 40, height: 40 }}
-              src={useBaseUrl(author.imageURL)}
-              srcSet={author.imageURL}
-              alt=""
+              className="avatar__photo"
+              src={imageURL}
+              alt={name}
+              itemProp="image"
             />
-          </Popper>
-        </span>
-      <span> {author.title}</span>
+          </MaybeLink>
+        )}
+  
+        {name && (
+          <div
+            className="avatar__intro"
+            itemProp="author"
+            itemScope
+            itemType="https://schema.org/Person">
+            <div className="avatar__name">
+              <MaybeLink href={link} itemProp="url">
+                <span itemProp="name">{name}</span>
+              </MaybeLink>
+            </div>
+            {title && (
+              <small className="avatar__subtitle" itemProp="description">
+                {title}
+              </small>
+            )}
+          </div>
+        )}
       </div>
     );
   });
