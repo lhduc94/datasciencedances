@@ -52,9 +52,9 @@ export default function NewBlogPostItemHeaderAuthors({
               </MaybeLink>
             </div>
             {title && (
-              <small className="avatar__subtitle" itemProp="description">
+              <strong className="avatar__subtitle" itemProp="description">
                 {title}
-              </small>
+              </strong>
             )}
           </div>
         )}
@@ -79,7 +79,7 @@ export default function NewBlogPostItemHeaderAuthors({
       <span
         style={{
           marginRight: 23,
-          marginLeft: 20,
+          marginLeft: 0,
           height: 22,
           marginBottom:20
         }}

@@ -8,7 +8,7 @@ const path = require('path')
 const config: Config = {
   title: 'Data Science Dances',
   tagline: 'Mỗi bài toán là một bản nhạc',
-  favicon: 'img/logo.jpg',
+  favicon: 'img/favicon.png',
 
   url: 'https://datasciencedances.com',
   baseUrl: '/',
@@ -24,7 +24,7 @@ const config: Config = {
   plugins: [path.resolve(__dirname, 'plugins', 'add-fb-chat'), 'docusaurus-plugin-sass'],
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       {
         docs: {
           sidebarPath: './sidebars.ts',
@@ -48,8 +48,13 @@ const config: Config = {
           "./src/css/design-class.scss"
         ]
         },
+        gtag: {
+          trackingID: "G-88PWBGGNQW",
+          anonymizeIP: true,
+        }
       } satisfies Preset.Options,
     ],
+   
   ],
   stylesheets: [
     {
@@ -78,8 +83,8 @@ const config: Config = {
           },
           {
             rel: 'icon',
-            type: "image/jpg",
-            href: '/img/logo.jpg',
+            type: "image/png",
+            href: 'img/favicon.png',
           }
         ],
       },
@@ -105,7 +110,7 @@ const config: Config = {
       title: 'Data Science Dances',
       logo: {
         alt: 'Data Science Dances',
-        src: 'img/logo.jpg',
+        src: 'img/favicon.png',
       },
       items: [
         {type:'docSidebar',

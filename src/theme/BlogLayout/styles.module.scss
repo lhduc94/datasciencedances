@@ -1,5 +1,5 @@
 .main {
-    max-width: 896px;
+    max-width: 1400px;
     margin-top: 50px;
     &.blogList {
       .breadcrumbs {
@@ -14,17 +14,19 @@
     }
     &.blogDetail {
       margin: 0 auto;
+      max-width: 800px;
+
       .breadcrumbs {
         margin-top: 20px;
         display: flex;
         align-items: self-start;
       }
     }
-    @media screen and (max-width: 1440px) {
+    @media screen and (max-width: 2440px) {
       &.blogList {
         .listWrap {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(3, 1fr);
           gap: 20px 16px;
           article {
             width: auto !important;
