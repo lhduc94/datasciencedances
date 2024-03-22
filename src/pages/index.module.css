@@ -5,12 +5,14 @@
 
 .heroBanner {
   padding: 4rem 0;
-  text-align: left;
+  vertical-align: bottom;
+  text-align:  left ;
   position: relative;
   overflow: hidden;
-  background: url('/img/background_2.jpg');
-  background-position: left;
-  height: 700px;
+  background: url('/img/background_2.jpg') no-repeat;
+  background-color: #eceaea;
+  background-size: 100%, auto;
+  height: 1400px;
 }
 
 @media screen and (max-width: 996px) {
