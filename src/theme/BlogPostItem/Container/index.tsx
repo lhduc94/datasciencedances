@@ -10,7 +10,7 @@ export default function BlogPostItemContainer({
     <article
       style={{
         width: isBlogPostPage ? "auto" : 440,
-        height: isBlogPostPage ? "auto" : 550,
+        height: isBlogPostPage ? "auto" : 440,
       }}
       className={className}
       itemProp="blogPost"

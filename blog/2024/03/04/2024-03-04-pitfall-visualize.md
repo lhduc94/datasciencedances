@@ -4,7 +4,7 @@ title: 10 lỗi sai trong data visualization và cách phòng tránh
 slug: 10-loi-sai-visualization
 authors: lhduc
 tags: [Data Visualization]
-image: https://i.pinimg.com/736x/5a/bd/f6/5abdf650a165307df13e1ed94e51687b.jpg
+image: /img/blog/20240314_1_cover.jpg
 hide_table_of_contents: false
 draft: true
 ---
@@ -54,4 +54,3 @@ https://clauswilke.com/dataviz/color-pitfalls.html
 
 
 
-Follow Fanpage của mình để nhận được các bài viết mới nhất nhé  https://www.facebook.com/datasciencedances/

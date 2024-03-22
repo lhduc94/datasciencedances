@@ -4,7 +4,7 @@ slug: data-envelopment-analysis-phan-tich-hieu-suat
 authors: lhduc
 tags: [Data Science, Math]
 keywords: [ata visualization, histogram, seaborn, plot]
-image: https://i.pinimg.com/736x/5a/bd/f6/5abdf650a165307df13e1ed94e51687b.jpg
+image: /img/blog/20240314_1_cover.jpg
 hide_table_of_contents: false
 draft: true
 ---
@@ -47,4 +47,3 @@ Khoảng cách từ các điểm đến đường Efficient Frontier nêu 
 
 
 
-Follow Fanpage của mình để nhận được các bài viết mới nhất nhé!!  https://www.facebook.com/datasciencedances/

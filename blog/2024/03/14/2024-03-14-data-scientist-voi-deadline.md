@@ -4,7 +4,7 @@ title: Data Scientist sẽ làm gì khi bị áp deadline
 slug: Data-Scientist-se-lam-gi-khi-bi-ap-deadline
 authors: lhduc
 tags: [Data Science, Story]
-image: https://i.pinimg.com/736x/5a/bd/f6/5abdf650a165307df13e1ed94e51687b.jpg
+image: /img/blog/20240314_1_cover.jpg
 hide_table_of_contents: false
 ---
 ![](https://i.pinimg.com/564x/3b/29/50/3b2950afe79ddc47c21125285f3ff1f6.jpg)
@@ -91,5 +91,3 @@ Ngoài ra, bạn có thể chia sẻ những câu hỏi bạn thắc mắc lên 
 
 Deadline là một phần của dự án. Hãy bình tĩnh và cùng nhảy với nó như một nghệ sĩ!
 
-----
-Follow Fanpage của mình để nhận được các bài viết mới nhất nhé!!  https://www.facebook.com/datasciencedances/

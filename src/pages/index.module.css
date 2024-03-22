@@ -5,9 +5,12 @@
 
 .heroBanner {
   padding: 4rem 0;
-  text-align: center;
+  text-align: left;
   position: relative;
   overflow: hidden;
+  background: url('/img/background_2.jpg');
+  background-position: left;
+  height: 700px;
 }
 
 @media screen and (max-width: 996px) {
@@ -16,8 +19,14 @@
   }
 }
 
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.button {
+  background-color: rgb(255, 255, 255);
+}
+.button:hover{
+  transform: scale(1.05);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 12px,
+   rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+     rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }

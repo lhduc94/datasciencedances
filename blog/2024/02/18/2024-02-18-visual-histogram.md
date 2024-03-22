@@ -5,7 +5,7 @@ slug: cach-bieu-dien-histogram
 authors: lhduc
 tags: [Data Visualization]
 keywords: [data visualization, histogram, seaborn, plot]
-image: https://datasciencedances.com/assets/images/1709112253837-1fa0ac6a6387c91756523efa79c896c0.jpg
+image: /img/blog/20240314_1_cover.jpg
 hide_table_of_contents: false
 ---
 
@@ -78,4 +78,3 @@ ax.set_ylim(0,28)
 
 
 
-Follow Fanpage của mình để nhận được các bài viết mới nhất nhé!!  https://www.facebook.com/datasciencedances/

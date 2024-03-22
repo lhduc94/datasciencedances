@@ -44,8 +44,12 @@ export default function BlogLayout(props: Props & { items: any }): JSX.Element {
           >
             {/* <BreadCrumbs className={styles.breadcrumbs} path={path} /> */}
             <div className={styles.listWrap}>{children}</div>
+
           </main>
           {/* {toc && <div className="col col--2">{toc}</div>} */}
+
+        </div>
+        <div>
         </div>
       </div>
     </Layout>

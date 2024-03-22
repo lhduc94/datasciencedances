@@ -9,6 +9,7 @@ import BlogItemCover from "./components/Cover";
 import BlogItemDesc from "./components/Desc";
 import NewBlogPostItemAuthors from "./components/Authors2";
 import BlogPostItemAuthors  from "./components/Authors";
+import clsx from "clsx";
 
 import styles from "./styles.module.scss";
 
@@ -38,16 +39,18 @@ const BlogListItem = () => {
       <header style={{ padding: "7px 6px" }} className="link-wrap">
         <LinkWithBaseUrl to={permalink}>
           <BlogItemCover />
+     
           <div style={{ padding: "0 11px" }}>
             <div style={{ cursor: "pointer" }}>
               <BlogItemTags style={{ marginTop: 6, marginBottom: 17 }} />
               <BlogItemTitle />
               <BlogItemDesc style={{ marginTop: 17 }} />
-            </div>
-
-            <BlogPostItemAuthors
+              <BlogPostItemAuthors
               styles={{ position: "absolute",  bottom:10 }}
             />
+            </div>
+
+
           </div>
         </LinkWithBaseUrl>
       </header>
@@ -71,6 +74,11 @@ const BlogDetailItem = ({ children }) => {
         <span className={styles.text}>Tags:</span>
         <BlogItemTags />
       </div>
+      <div className={clsx("following", styles.following)}>
+        <p>Follow Fanpage của mình để nhận được thông tin về các bài viết mới nhất nhé!! <a href='https://www.facebook.com/datasciencedances/'>https://www.facebook.com/datasciencedances/</a></p>
+       
+      </div>
+
     </BlogPostItemContainer>
   );
 };

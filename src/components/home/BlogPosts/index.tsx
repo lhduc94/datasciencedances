@@ -20,7 +20,7 @@ function singleAuthor(author: Author, date: string) {
         />
         <span className="name">{author.name}</span>
       </div>
-      <div className="date">{date}</div>
+      {/* <div className="date">{date}</div> */}
     </div>
   );
 }

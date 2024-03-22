@@ -3,7 +3,7 @@ title: Covariance và Correlation
 slug: covariance-correlation
 authors: lhduc
 tags: [Math]
-image: https://i.pinimg.com/736x/12/e1/74/12e17480fe9a563870bd2ee9fd5ee46e.jpg
+image: /img/blog/20240320_1_cover.jpg
 hide_table_of_contents: false
 ---
 
@@ -102,4 +102,3 @@ $Corr(X,Y) = \frac{Cov(X,Y)}{\sigma_X * \sigma_Y} = \frac{-17673758.0} {10681.69
 
 
 
-Follow Fanpage của mình để nhận được các bài viết mới nhất nhé!!  https://www.facebook.com/datasciencedances/

@@ -17,12 +17,13 @@ function HomepageHeader() {
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
+        <div>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx("button button--secondary button--lg", styles.button)}
             to="/blog">
             Cùng nhảy nào 🪇🪇!!
           </Link>
+          
         </div>
         {/* <div>
           <img className='trophy'
