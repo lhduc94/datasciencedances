@@ -4,10 +4,19 @@
         <title>Data Science Dances Blog</title>
         <link>https://datasciencedances.com/blog</link>
         <description>Data Science Dances Blog</description>
-        <lastBuildDate>Wed, 20 Mar 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 22 Mar 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>vi</language>
+        <item>
+            <title><![CDATA[Giới thiệu Graph Database và Neo4J]]></title>
+            <link>https://datasciencedances.com/blog/gioi-thieu-graph-database-va-neo4j</link>
+            <guid>https://datasciencedances.com/blog/gioi-thieu-graph-database-va-neo4j</guid>
+            <pubDate>Fri, 22 Mar 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và cạnh (Edges), hay là tập hợp giữa các nút(Node) và mối quan hệ (Relationship) giữa các nút với nhau. Mối quan hệ có thể là một chiều hay hai chiều.]]></description>
+            <content:encoded><![CDATA[<p>Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và cạnh (Edges), hay là tập hợp giữa các nút(Node) và mối quan hệ (Relationship) giữa các nút với nhau. Mối quan hệ có thể là một chiều hay hai chiều.</p>]]></content:encoded>
+            <category>Database</category>
+        </item>
         <item>
             <title><![CDATA[Covariance và Correlation]]></title>
             <link>https://datasciencedances.com/blog/covariance-correlation</link>
