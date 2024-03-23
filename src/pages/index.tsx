@@ -3,6 +3,7 @@ import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import Courses from '../components/home/Courses';
 import Heading from '@theme/Heading';
 import BlogPosts from "../components/home/BlogPosts";
 import { useWindowSize } from "@docusaurus/theme-common";
@@ -50,9 +51,11 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title={`Trang chủ`}
-      description="Nơi chia sẻ kiến thức về Data Science cho người mới bắt đầu cũng như những người đã đi làm về Data Science 😍">
+      description="Nơi chia sẻ kiến thức về Data Science cho người mới bắt đầu cũng như những người đã đi làm về Data Science 😍"
+      keywords="Data Science">
+     
       <HomepageHeader />
-      <main>
+      <Courses/>
       <BlogPosts/>
       {/* <div>
           <img className='trophy'
@@ -61,7 +64,6 @@ export default function Home(): JSX.Element {
           />
         </div> */}
       <HomepageFeatures />
-      </main>
     </Layout>
   );
 }

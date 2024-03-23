@@ -29,6 +29,9 @@
   .heroBanner {
     padding: 2rem;
   }
+  .imageandtext{
+    display: flex;
+  }
 }
 
 .button {
@@ -41,4 +44,17 @@
     rgba(0, 0, 0, 0.12) 0px 4px 6px,
      rgba(0, 0, 0, 0.17) 0px 12px 13px,
       rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.imageandtext {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0,1fr));
+}
+.imageandtext_img{
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+.imageandtext_content{
+  grid-column-start: 6;
+  grid-column-end: 12;
 }
