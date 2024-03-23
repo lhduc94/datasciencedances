@@ -5,13 +5,22 @@ import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 import BlogPosts from "../components/home/BlogPosts";
+import { useWindowSize } from "@docusaurus/theme-common";
 
 import styles from './index.module.css';
  
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
+  const windowSize = useWindowSize();
+  let s = null;
+  if (windowSize === "mobile"){
+    s = styles.heroBannerMobile
+  }
+  else {
+    s = styles.heroBanner
+  }
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx('hero hero--primary', s)}>
       <div className="container">
         <Heading as="h1" className="hero__title">
           {siteConfig.title}
