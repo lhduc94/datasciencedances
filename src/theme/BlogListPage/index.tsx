@@ -69,9 +69,8 @@ export default function BlogListPage(props: Props): JSX.Element {
     >
 
       <BlogListPageMetadata {...props}> </BlogListPageMetadata>
-      {/* <BlogListPaginator metadata={metadata} /> */}
 
-      <BlogListPageContent {...props}> <BlogListPaginator metadata={metadata} /></BlogListPageContent>
+      <BlogListPageContent {...props}/>
 
     </HtmlClassNameProvider>
   );

@@ -34,7 +34,7 @@ export default function Courses() {
     };
     return (
       <LinkWithBaseUrl to={item.href} key={i}>
-         <div className={styles.item} style={style_} >
+         <div className={styles.item} style={style_}>
             {/* <img className={styles.img} src={useBaseUrl(item.pic)} alt="" /> */}
             <div className={clsx(styles.title)}>{item.title}</div>
             <div className={clsx(styles.desc)}>{NewlineText(item.desc)}</div>
@@ -46,10 +46,11 @@ export default function Courses() {
     <div className={styles.wrap}>
       <div className={styles.content}>
         <div className={styles.left}>
-          {/* <img src={useBaseUrl("/img/home/light-mode.jpg")} alt="" /> */}
-          <span className={styles.text}>
-            <Translate>Khóa học</Translate>
-          </span>
+
+          <div className={styles.imageleft}><a href="/courses"><img src={useBaseUrl("/img/home/image_course_4.png")}alt="" /></a></div>
+          {/* <span className={styles.description}>
+            <Translate>Các khóa học Data Science cho người mới bắt đầu cũng như cho các bạn đã đi làm</Translate>
+          </span> */}
         </div>
         <div className={styles.right}>{itemDom}</div>
       </div>

@@ -39,3 +39,10 @@ article[itemProp="blogPost"] {
 .following {
   color: red;
 }
+
+@media screen and (max-width: 996px) {
+  .blogDetail {
+    padding: 2rem;
+    // max-width: 500px;
+  }
+}
