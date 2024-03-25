@@ -4,11 +4,11 @@ slug: data-envelopment-analysis-phan-tich-hieu-suat
 authors: lhduc
 tags: [Data Science, Math]
 keywords: [ata visualization, histogram, seaborn, plot]
-image: /img/blog/20240314_1_cover.jpg
+image: /img/blog/20240115_1_cover.jpg
 hide_table_of_contents: false
 draft: true
 ---
- 
+![](cover.jpg)
 <!-- **Đánh giá Hiệu suất là gì​?** -->
 
 Khi chúng ta có đầu vào, và nhận được kết quả, chúng ta hay đánh giá hiệu suất của kết quả xem với đầu vào như thế thì kết quả liệu có tốt không.​ Một số ví dụ cơ bản: Giá thành/sản phẩm, Lợi nhuận/sản phẩm.​

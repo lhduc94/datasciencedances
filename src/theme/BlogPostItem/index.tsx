@@ -68,10 +68,6 @@ const BlogDetailItem = ({ children }) => {
         <BlogPostItemHeaderInfo />
         <BlogPostItemHeaderAuthors/>
       </header>
-      <br></br>
-      <br></br>
-      <br></br>
-
       {/* only show blog detail */}
       <BlogPostItemContent>{children}</BlogPostItemContent>
       <div className={styles.tags}>
