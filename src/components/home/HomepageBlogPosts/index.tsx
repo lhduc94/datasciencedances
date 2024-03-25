@@ -44,7 +44,7 @@ function multipleAuthor(author: Author[], date: string) {
   );
 }
 
-export default function BlogPosts() {
+export default function HomepageBlogPosts() {
   const itemDom = useGetNewBlogList(4).map((item, i) => {
     return (
       <LinkWithBaseUrl to={item.href} key={i}>

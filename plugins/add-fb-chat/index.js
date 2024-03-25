@@ -18,6 +18,7 @@ module.exports = function (context, options) {
         function init() {
           window.fbAsyncInit = function() {
             FB.init({
+              appId: 1558670571373690,
               xfbml            : true,
               version          : 'v17.0'
             });
@@ -33,12 +34,13 @@ module.exports = function (context, options) {
         }
   
         try {
-          const isProd = window.location.hostname.includes('https://datasciencedances.com')
+          const isProd = window.location.hostname.includes('https://datasciencedances.com/')
           if (isProd) init()
         } catch(error) {
           console.log('failed to init fb chat', error)
         }
       </script>
+      
     `;
   
     return {

@@ -15,7 +15,7 @@
   width: 100%;
   min-height: 95vh;
   background: linear-gradient(250.73deg, rgba(40, 14, 102, 0.5) 12.73%, var(--ifm-color-primary) 96.49%);
-  opacity: 1;
+  opacity: 0.5;
   position: absolute;
   z-index: 2;
 }

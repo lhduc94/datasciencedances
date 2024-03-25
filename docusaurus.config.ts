@@ -21,7 +21,7 @@ const config: Config = {
     defaultLocale: 'vi',
     locales: ['vi'],
   },
-  plugins: [path.resolve(__dirname, 'plugins', 'add-fb-chat'), 'docusaurus-plugin-sass'],
+  plugins: [path.resolve(__dirname, 'plugins', 'add-fb-chat'),'docusaurus-plugin-sass'],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -132,11 +132,11 @@ const config: Config = {
             },
             {
               label: "Time Series Analysis",
-              to: "/courses/time-series-analysis"
+              to: "/courses/list/time-series-analysis/time-series-analysis"
             },
             {
               label: "Đánh giá hiệu suất Mô hình",
-              to: "/courses/evaluation-metrics"
+              to: "/courses/list/evaluation-metrics/evaluation-metrics"
             }
           ]
         },
@@ -151,6 +151,7 @@ const config: Config = {
         }
       ],
     },
+    
     footer: {
       style: 'dark',
       links: [
