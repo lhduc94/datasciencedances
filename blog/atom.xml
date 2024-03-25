@@ -266,7 +266,7 @@ Luôn nhớ chia sẻ ý tưởng và suy nghĩ của bạn khi làm việc nhó
         <link href="https://datasciencedances.com/blog/cach-bieu-dien-histogram"/>
         <updated>2024-02-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Thông thường, khi visualize mặc định histogram của seaborn sẽ không thể hiện tất cả các nhãn của bins và số lượng mỗi bin]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" src="https://datasciencedances.com/assets/images/cover-3841013ac15c598ca349863a43ba2181.jpg" width="1024" height="1024" class="img_ev3q">
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" src="https://datasciencedances.com/assets/images/cover_2-a6d5bb5b93d6bd71f391dfb93ea31d6b.jpg" width="1024" height="1024" class="img_ev3q">
 Thông thường, khi visualize mặc định histogram của seaborn sẽ không thể hiện tất cả các nhãn của bins và số lượng mỗi bin
 Với cách làm như trên sẽ rất khó theo dõi các khoảng giá trị của từng bin và số lượng của bin đó. May mắn thay seaborn histogram tương tự numpy nên ta có thể dùng hàm np.histogram để giải quyết vấn đề này</p>
 <div class="dot">. . .</div>
