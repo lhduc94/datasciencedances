@@ -13,10 +13,9 @@
         <link href="https://datasciencedances.com/blog/gioi-thieu-graph-database-va-neo4j"/>
         <updated>2024-03-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và cạnh (Edges), hay là tập hợp giữa các nút(Node) và mối quan hệ (Relationship) giữa các nút với nhau. Mối quan hệ có thể là một chiều hay hai chiều.]]></summary>
-        <content type="html"><![CDATA[<p>Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và cạnh (Edges), hay là tập hợp giữa các nút(Node) và mối quan hệ (Relationship) giữa các nút với nhau. Mối quan hệ có thể là một chiều hay hai chiều.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="giới-thiệu">Giới thiệu<a href="https://datasciencedances.com/blog/gioi-thieu-graph-database-va-neo4j#gi%C6%A1%CC%81i-thi%C3%AA%CC%A3u" class="hash-link" aria-label="Đường dẫn trực tiếp tới Giới thiệu" title="Đường dẫn trực tiếp tới Giới thiệu">​</a></h2>
-<p><strong>Graph là gì</strong>
-Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và cạnh (Edges), hay là tập hợp giữa các nút(Node) và mối quan hệ (Relationship) giữa các nút với nhau. Mối quan hệ có thể là một chiều hay hai chiều.
+        <content type="html"><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="giới-thiệu">Giới thiệu<a href="https://datasciencedances.com/blog/gioi-thieu-graph-database-va-neo4j#gi%C6%A1%CC%81i-thi%C3%AA%CC%A3u" class="hash-link" aria-label="Đường dẫn trực tiếp tới Giới thiệu" title="Đường dẫn trực tiếp tới Giới thiệu">​</a></h2>
+<p><strong>Graph là gì</strong></p>
+<p>Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và cạnh (Edges), hay là tập hợp giữa các nút(Node) và mối quan hệ (Relationship) giữa các nút với nhau. Mối quan hệ có thể là một chiều hay hai chiều.
 <img decoding="async" loading="lazy" src="https://datasciencedances.com/assets/images/intro-e42f5e75483b0c485e98a441f4a1bdaa.png" width="457" height="358" class="img_ev3q">
 Ví dụ: A và B có mối quan hệ "FRIEND" với nhau nhưng chỉ có A là "FOLLOW" B.</p>
 <p><strong>Cấu trúc dữ liệu</strong></p>
