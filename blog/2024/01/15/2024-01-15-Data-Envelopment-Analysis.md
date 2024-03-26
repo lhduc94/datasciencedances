@@ -38,13 +38,14 @@ Chúng ta có thể  vẽ một đường thống kê hồi quy $y=0.622x
 
 ![](efficiente_frontier_regression_line.png)
 
-So sánh với đường biên
+### So sánh với đường biên
 
 Với cửa hàng A, có hai cách để so sánh với đường biên. Bằng cách chiếu theo trục tọa độ, chúng ta có hai điểm A1 và A2​
 
-Với điểm A2, để đạt được hiệu suất như B, chúng ta cần phải cố gắng tăng Sale lên 2​
+- Với điểm A2, để đạt được hiệu suất như B mà vẫn giữ nguyên số lượng nhân viên, chúng ta cần phải cố gắng tăng Sale lên 2​
+- Với điểm A1, nếu muốn giữ nguyên sale mà vẫn muốn đạt được hiệu suât cao, chúng ta cần phải cắt giảm nhân sự xuống 1.
 
-Với điểm A1, hoặc chúng ta cắt giảm nhân sự, giảm từ hai nhân sự xuống một
+Ngoài ra, bất cứ điểm nào nằm trong đoạn A1A2 cũng là kết quả tối ưu cho cửa hàng B, đối với các điểm này, chúng ta cần phải thay đổi cả giá trị Sale lẫn Employee.
 
 ![](move_up_frontier.png)
 
