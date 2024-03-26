@@ -34,7 +34,7 @@ function LinkWithBaseUrl(props: Props) {
 
 const BlogListItem = () => {
   const {
-    metadata: { permalink },
+    metadata: { permalink, date, formattedDate, readingTime },
   } = useBlogPost();
 
   return (
@@ -48,12 +48,13 @@ const BlogListItem = () => {
               <BlogItemTags style={{ marginTop: 6, marginBottom: 17 }} />
               <BlogItemTitle />
               <BlogItemDesc style={{ marginTop: 17 }} />
-              <BlogPostItemAuthors
+              <BlogPostItemHeaderInfo/>
+
+              {/* <BlogPostItemAuthors
               styles={{ position: "absolute",  bottom:10 }}
-            />
+            /> */}
+            <BlogPostItemHeaderAuthors/>
             </div>
-
-
           </div>
         </LinkWithBaseUrl>
       </header>

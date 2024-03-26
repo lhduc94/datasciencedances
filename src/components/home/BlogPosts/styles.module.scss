@@ -1,17 +1,15 @@
 .wrap {
   padding: 80px 70px;
   box-sizing: border-box;
-  background-color: rgb(9, 3, 56);
+  background-color: #eceaea;
   max-width: var(--global-main-width);
   margin:  auto;
   // background-image: url("/img/open-book.png");
   overflow: hidden;
-  z-index: 2;
   .gTitle {
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
-    color: white;
   }
   .listWrap {
     margin-top: 23px;
@@ -31,11 +29,11 @@
         margin-bottom: 0;
         &:hover {
           transform: scale(1.05);
-          box-shadow: rgba(255, 255, 255, 0.25) 0px 12px 12px,
-          rgba(255, 255, 255, 0.12) 0px -12px 30px,
-           rgba(255, 255, 255, 0.12) 0px 4px 6px,
-            rgba(255, 255, 255, 0.17) 0px 12px 13px,
-             rgba(255, 255, 255, 0.09) 0px -3px 5px;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 12px,
+           rgba(0, 0, 0, 0.12) 0px -12px 30px,
+            rgba(0, 0, 0, 0.12) 0px 4px 6px,
+             rgba(0, 0, 0, 0.17) 0px 12px 13px,
+              rgba(0, 0, 0, 0.09) 0px -3px 5px;
           // border: 1px solid var(--box-hover-border-color);
           // background: var(--active-color);
           // .title {
@@ -60,10 +58,10 @@
           font-size: 20px;
           font-weight: 500;
           line-height: 26px;
-          color: var(--ifm-color-primary);
+          color: black;
         }
         .author {
-          color: var(--ifm-color-primary);
+          color: black;
           line-height: 20px;
           margin-top: 19px;
           margin-bottom: 5px;
@@ -109,9 +107,9 @@
   @media screen and (max-width: 768px) {
     height: auto;
     padding: 0;
-    // margin-top: 40px;
+    margin-top: 40px;
     .gTitle {
-      font-size: 40px;
+      font-size: 30px;
       text-align: center;
     }
     .listWrap {
@@ -121,7 +119,7 @@
 
       .item {
         margin: 0 auto;
-        width: 70%;
+        width: 100%;
         height: auto;
 
         .title {

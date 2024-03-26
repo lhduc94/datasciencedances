@@ -1,5 +1,6 @@
 ---
 title: Giới thiệu Graph Database và Neo4J
+description: Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và cạnh (Edges), hay là tập hợp giữa các nút(Node) và mối quan hệ (Relationship) giữa các nút với nhau. Mối quan hệ có thể là một chiều hay hai chiều.
 slug: gioi-thieu-graph-database-va-neo4j
 authors: lhduc
 tags: [Database]
@@ -8,13 +9,10 @@ hide_table_of_contents: false
 image: /img/blog/20240322_1_cover.png
 ---
 
-Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và cạnh (Edges), hay là tập hợp giữa các nút(Node) và mối quan hệ (Relationship) giữa các nút với nhau. Mối quan hệ có thể là một chiều hay hai chiều.
-
-<!-- truncate -->
-
 ## Giới thiệu
 
 **Graph là gì**
+
 Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và cạnh (Edges), hay là tập hợp giữa các nút(Node) và mối quan hệ (Relationship) giữa các nút với nhau. Mối quan hệ có thể là một chiều hay hai chiều.
 ![](intro.png)
 Ví dụ: A và B có mối quan hệ "FRIEND" với nhau nhưng chỉ có A là "FOLLOW" B.
