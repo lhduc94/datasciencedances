@@ -1,0 +1,114 @@
+/**
+ * CSS files with the .module.css suffix will be treated as CSS modules
+ * and scoped locally.
+ */
+
+.heroBanner {
+  width: 100%;
+  min-height: 95vh;
+  position: relative;
+  padding:0 0;
+}
+.banner_filter{
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 95vh;
+  background: linear-gradient(250.73deg, rgba(40, 14, 102, 0.5) 12.73%, var(--ifm-color-primary) 96.49%);
+  opacity: 0.5;
+  position: absolute;
+  z-index: 2;
+}
+.banner_image{
+  width: 100%;
+  min-height: 95vh;
+  opacity: .9;
+  background-image: url("/img/home/meo_nhay_cover.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: fixed;
+  z-index: 1;
+}
+.banner_intro{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  /* right: 30%; */
+  transform: translateY(-50%);
+  display: flex;
+  padding-top: 12rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 3;
+  color: var(--white);
+}
+
+.banner_title{
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 4rem;
+  text-shadow: 0 4px 15px #3b12f1;
+  line-height: 4rem;
+  margin: 0 0.8rem;
+  color: white;
+}
+.banner_tagline{
+  text-align: center;
+  line-height: 4rem;
+  margin: 0 0.8rem;
+  color: white;
+  font-size: 1rem;
+}
+.heroBannerMobile {
+  padding: 10rem 0;
+  vertical-align: bottom;
+  text-align:  left ;
+  position: relative;
+  overflow: hidden;
+  /* background: url('/img/meo_nhay_2.jpg') no-repeat; */
+  background-size: auto;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 0;
+    vertical-align: bottom;
+    text-align:  left ;
+    position: relative;
+    overflow: hidden;
+    /* background: url('/img/meo_nhay_2.jpg') no-repeat; */
+    background-size: auto;
+
+  }
+}
+.button {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  text-transform: uppercase;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 10px;
+}
+.button:hover{
+  transform: scale(1.05);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 12px,
+   rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+     rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.imageandtext {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0,1fr));
+}
+.imageandtext_img{
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+.imageandtext_content{
+  grid-column-start: 6;
+  grid-column-end: 12;
+}

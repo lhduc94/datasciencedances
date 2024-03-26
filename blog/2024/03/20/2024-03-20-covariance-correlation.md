@@ -3,11 +3,11 @@ title: Covariance và Correlation
 slug: covariance-correlation
 authors: lhduc
 tags: [Math]
-image: /img/blog/20240320_1_cover.jpg
+image: /img/blog/20240320_1_cover_1.jpg
 hide_table_of_contents: false
 ---
 
-![](https://i.pinimg.com/736x/12/e1/74/12e17480fe9a563870bd2ee9fd5ee46e.jpg)
+![](cover.jpg)
 
 Covariance (Hiệp phương sai) và Correlation (Hệ số tương quan) là hai khái niệm trong lĩnh vực xác suất thống kê. Cả hai khái niệm này đều nói về mối quan hệ giữa hai biến với nhau, hay nói cách khác hai chỉ số này dùng để thể hiện sự phụ thuộc giữa hai biến.
 <!-- truncate -->

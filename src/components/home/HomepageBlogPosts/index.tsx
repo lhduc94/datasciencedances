@@ -4,6 +4,7 @@ import useGetNewBlogList from "@site/src/hooks/useGetNewBlogList";
 import clsx from "clsx";
 import LinkWithBaseUrl from "../../common/LinkWithBaseUrl";
 import styles from "./styles.module.scss";
+import BlogPostItemHeaderAuthors  from "@theme/BlogPostItem/Header/Authors"
 
 interface Author {
   name: string;
@@ -44,7 +45,7 @@ function multipleAuthor(author: Author[], date: string) {
   );
 }
 
-export default function BlogPosts() {
+export default function HomepageBlogPosts() {
   const itemDom = useGetNewBlogList(4).map((item, i) => {
     return (
       <LinkWithBaseUrl to={item.href} key={i}>
@@ -54,6 +55,7 @@ export default function BlogPosts() {
           {item.authors.length === 1
             ? singleAuthor(item.authors[0], item.date)
             : multipleAuthor(item.authors, item.date)}
+          {/* <BlogPostItemHeaderAuthors/> */}
         </div>
       </LinkWithBaseUrl>
     );

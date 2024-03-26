@@ -7,7 +7,10 @@ import BlogItemTitle from "./components/Title";
 import BlogItemTags from "./components/Tags";
 import BlogItemCover from "./components/Cover";
 import BlogItemDesc from "./components/Desc";
-import NewBlogPostItemAuthors from "./components/Authors2";
+// import NewBlogPostItemAuthors from "./components/Authors2";
+import BlogPostItemHeaderAuthors  from "@theme/BlogPostItem/Header/Authors"
+import BlogPostItemHeaderTitle from "@theme/BlogPostItem/Header/Title"
+import BlogPostItemHeaderInfo from "@theme/BlogPostItem/Header/Info"
 import BlogPostItemAuthors  from "./components/Authors";
 import clsx from "clsx";
 
@@ -31,7 +34,7 @@ function LinkWithBaseUrl(props: Props) {
 
 const BlogListItem = () => {
   const {
-    metadata: { permalink },
+    metadata: { permalink, date, formattedDate, readingTime },
   } = useBlogPost();
 
   return (
@@ -45,12 +48,13 @@ const BlogListItem = () => {
               <BlogItemTags style={{ marginTop: 6, marginBottom: 17 }} />
               <BlogItemTitle />
               <BlogItemDesc style={{ marginTop: 17 }} />
-              <BlogPostItemAuthors
+              <BlogPostItemHeaderInfo/>
+
+              {/* <BlogPostItemAuthors
               styles={{ position: "absolute",  bottom:10 }}
-            />
+            /> */}
+            <BlogPostItemHeaderAuthors/>
             </div>
-
-
           </div>
         </LinkWithBaseUrl>
       </header>
@@ -61,13 +65,10 @@ const BlogDetailItem = ({ children }) => {
   return (
     <BlogPostItemContainer className={styles["blogDetail"]}>
       <header>
-        <BlogItemTitle />
-        <NewBlogPostItemAuthors/>
+        <BlogPostItemHeaderTitle/>
+        <BlogPostItemHeaderInfo />
+        <BlogPostItemHeaderAuthors/>
       </header>
-      <br></br>
-      <br></br>
-      <br></br>
-
       {/* only show blog detail */}
       <BlogPostItemContent>{children}</BlogPostItemContent>
       <div className={styles.tags}>

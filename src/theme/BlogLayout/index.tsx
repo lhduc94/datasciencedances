@@ -6,6 +6,7 @@ import clsx from "clsx";
 import { useEffect, useState } from "react";
 import BlogSidebar from "@theme/BlogSidebar";
 import styles from "./styles.module.scss";
+import BlogListPaginator from '@theme/BlogListPaginator';
 
 export default function BlogLayout(props: Props & { items: any }): JSX.Element {
   const [path, setPath] = useState<{ name: string; href?: string }[]>();
@@ -39,6 +40,7 @@ export default function BlogLayout(props: Props & { items: any }): JSX.Element {
               [styles.blogList]: !!props.items,
               [styles.blogDetail]: !props.items,
             })}
+
             itemScope
             itemType="https://schema.org/Blog"
           >
