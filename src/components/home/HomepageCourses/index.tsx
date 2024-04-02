@@ -31,6 +31,11 @@ export default function HomepageCourses() {
             <div className={styles.desc}>
               {NewlineText("Các khóa học Data Science cơ bản cho người mới bắt đầu. \n Các khóa học chuyên sâu về các lĩnh vực cho các bạn đã đi làm Data Science ")}
             </div>
+            <Link
+              className={clsx("button button--lg", styles.button)}
+              to="/courses">
+              Cùng học nào🪇🪇!!
+            </Link>
           </div>
         </div>
       </div>

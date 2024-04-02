@@ -24,10 +24,15 @@ export default function HomepageDocs() {
             <div className={styles.desc}>
             {NewlineText("Các tài liệu tự viết về các thư viện Data Science \n Các cuốn sách tự viết về các lĩnh vực chuyên môn Data Science")}
             </div>
+            <Link
+              className={clsx("button button--lg", styles.button)}
+              to="/docs/kungfupandas/gioithieu">
+              Cùng đọc nào🪇🪇!!
+            </Link>
           </div>
         </div>
         <div className={styles.right}>
-          <div className={styles.imageright}><a href="/courses"><img src={useBaseUrl("/img/home/image_doc_2.png")}alt="" /></a></div>
+          <div className={styles.imageright}><a href="/docs/kungfupandas/gioithieu"><img src={useBaseUrl("/img/home/image_doc_2.png")}alt="" /></a></div>
         </div>
       </div>
     </div>

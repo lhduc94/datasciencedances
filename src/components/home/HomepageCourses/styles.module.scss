@@ -1,5 +1,5 @@
 .wrap {
-    background-color:var(--ifm-color-primary);
+    // background-color:var(--ifm-color-primary);
     padding-top: 62px;
     padding-bottom: 62px;
     z-index: 2;
@@ -75,6 +75,7 @@
             line-height: 26px;
             margin: 17px 0 20px 0;
             color: white;
+            // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
           }
           .desc {
             font-size: 16px;
@@ -84,6 +85,22 @@
             color: white;
             text-decoration: none;
           }
+          .button {
+            // margin-top: 20px;
+            background-color: white;
+            color: black;
+            text-transform: uppercase;
+            border: 1px solid black;
+            border-radius: 20px;
+            &:hover{
+              transform: scale(1.05);
+              box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 12px,
+               rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                rgba(0, 0, 0, 0.12) 0px 4px 6px,
+                 rgba(0, 0, 0, 0.17) 0px 12px 13px,
+                  rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            }
+          } 
         }
       }
     }
