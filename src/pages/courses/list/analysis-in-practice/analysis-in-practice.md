@@ -1,15 +1,12 @@
 ---
 image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 ---
+
 <img src="https://blog.talent500.co/wp-content/uploads/2023/08/173.png" alt="drawing" width="1000"/>
 
 <div class="course_title"><h1>Thực hành phân tích dữ liệu</h1></div>
 
-
-
-###  Các kỹ năng nhận được 
-
-
+###  Các kỹ năng nhận được
 
 <ul id="skills">
   <li>Data Analysis</li>
