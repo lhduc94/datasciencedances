@@ -18,6 +18,12 @@ let ITEM_COURSES = [
     },
     {
       pic: "/img/home/courses.jpg",
+      href: "/courses/list/analysis-in-practice/analysis-in-practice",
+      title: "Thực hành phân tích dữ liệu",
+      desc: "Bao gồm các tài liệu và bài tập",
+    },
+    {
+      pic: "/img/home/courses.jpg",
       href: "/courses/list/evaluation-metrics/evaluation-metrics",
       title: "Đánh giá hiệu suất mô hình",
       desc: "Bao gồm các tài liệu và bài tập",

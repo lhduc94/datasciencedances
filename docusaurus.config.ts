@@ -135,6 +135,10 @@ const config: Config = {
               to: "/courses/list/time-series-analysis/time-series-analysis"
             },
             {
+              label: "Thực hành Phân tích dữ liệu",
+              to: "/courses/list/analysis-in-practice/analysis-in-practice"
+            },
+            {
               label: "Đánh giá hiệu suất Mô hình",
               to: "/courses/list/evaluation-metrics/evaluation-metrics"
             }
