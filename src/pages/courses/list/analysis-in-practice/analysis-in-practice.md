@@ -33,56 +33,63 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 
 ###  Nội dung chi tiết 
 
+
+
 <details>
-  <summary><h4>Nội dung 1: Phân tích ăn mòn</h4></summary>
+  <summary><h4>Nội dung 1: Cohort Analysis </h4></summary>
+- Phân tích liên kết là gì
+</details>
+
+<details>
+  <summary><h4>Nội dung 2: Market Basket Analysis</h4></summary>
+- Phân tích giỏ hàng là gì
+</details>
+
+
+<details>
+  <summary><h4>Nội dung 3: Phân tích phân cụm</h4></summary>
+- Phân tích giỏ hàng là gì
+</details>
+
+<details>
+  <summary><h4>Nội dung 4: Regression Analysis</h4></summary>
+- Phân tích giỏ hàng là gì
+</details>
+
+<details>
+  <summary><h4>Nội dung 5: Timeseries Analysis</h4></summary>
+- Phân tích giỏ hàng là gì
+</details>
+
+<details>
+  <summary><h4>Nội dung 6: Factor Analysis</h4></summary>
+- Phân tích nhân tố là gì
+</details>
+
+<details>
+  <summary><h4>Nội dung 7: Text Analysis</h4></summary>
+- Phân tích nhân tố là gì
+</details>
+
+<details>
+  <summary><h4>Nội dung 8: Cannibalization Analysis</h4></summary>
 - Giới thiệu Phân tích ăn mòn
 </details>
 
 <details>
-  <summary><h4>Nội dung 2: Phân tích đường bao hiệu quả </h4></summary>
+  <summary><h4>Nội dung 9: Data Envelopment Analysis</h4></summary>
 - Giới thiệu phân tích hiệu quả
 - Giới thiệu phân tích đường bao hiệu quả
 - Giới thiệu thuật toán CCR
 </details>
 
+
 <details>
-  <summary><h4>Nội dung 3: Phân tích sống sót</h4></summary>
+  <summary><h4>Nội dung 10: Suvirval Analysis</h4></summary>
 - Giới thiệu phân tích sống sót là gì
 </details>
 
 <details>
-  <summary><h4>Nội dung 4: Phân tích liên kết  </h4></summary>
+  <summary><h4>Nội dung 11: Link Analysis  </h4></summary>
 - Phân tích liên kết là gì
-
-</details>
-
-<details>
-  <summary><h4>Nội dung 5: Phân tích giỏ hàng</h4></summary>
-- Phân tích giỏ hàng là gì
-</details>
-
-
-<details>
-  <summary><h4>Nội dung 6: Phân tích phân cụm</h4></summary>
-- Phân tích giỏ hàng là gì
-</details>
-
-<details>
-  <summary><h4>Nội dung 7: Phân tích hồi quy</h4></summary>
-- Phân tích giỏ hàng là gì
-</details>
-
-<details>
-  <summary><h4>Nội dung 8: Phân tích chuỗi thời gian</h4></summary>
-- Phân tích giỏ hàng là gì
-</details>
-
-<details>
-  <summary><h4>Nội dung 9: Phân tích nhân tố</h4></summary>
-- Phân tích nhân tố là gì
-</details>
-
-<details>
-  <summary><h4>Nội dung 9: Phân tích văn bản</h4></summary>
-- Phân tích nhân tố là gì
 </details>
