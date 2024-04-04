@@ -4,6 +4,7 @@ title: Data Scientist sẽ làm gì khi bị áp deadline
 slug: Data-Scientist-se-lam-gi-khi-bi-ap-deadline
 authors: lhduc
 tags: [Data Science, Story]
+keywords: [Data Science, Data Scientist, Deadline, phương pháp xử lý, mô hình]
 image: /img/blog/20240314_1_cover.jpg
 hide_table_of_contents: false
 ---

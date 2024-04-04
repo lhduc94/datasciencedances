@@ -38,26 +38,19 @@
             // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
           }
           .desc {
-            font-size: 16px;
+            margin-top: 50px;
+            font-size: 24px;
             font-weight: 400;
-            line-height: 20px;
-            text-align: left;
-            color: white;
-            text-decoration: none;
-          }
-          .desc {
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 20px;
+            line-height: 24px;
             text-align: left;
             color: white;
             text-decoration: none;
           }
           .button {
-            // margin-top: 20px;
+            margin-top: 30px;
             background-color: white;
             color: black;
-            text-transform: uppercase;
+            // text-transform: uppercase;
             border: 1px solid black;
             border-radius: 20px;
             &:hover{
@@ -159,8 +152,11 @@
           .item {
             .title {
               text-align: center;
-              font-size: 40px;
+              font-size: 30px;
               line-height: 1;
+            }
+            .desc{
+              font-size: 16px;
             }
           }
         }

@@ -2,11 +2,10 @@
 title: Data Envelopment Analysis
 slug: data-envelopment-analysis-phan-tich-hieu-suat
 authors: lhduc
-tags: [Data Science, Math]
-keywords: [ata visualization, histogram, seaborn, plot]
+tags: [Draft]
+keywords: [Data Science, Math, Data Envelopment Analysis, phân tích đường bao hiệu quả, phân tích hiệu suất, linear programming, quy hoạch tuyến tính]
 image: /img/blog/20240115_1_cover.jpg
 hide_table_of_contents: false
-draft: true
 ---
 ![](cover.jpg)
 <!-- **Đánh giá Hiệu suất là gì​?** -->

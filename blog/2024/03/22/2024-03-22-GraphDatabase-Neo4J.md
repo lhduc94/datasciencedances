@@ -4,7 +4,7 @@ description: Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và c�
 slug: gioi-thieu-graph-database-va-neo4j
 authors: lhduc
 tags: [Database]
-keywords: ["Graph Database", "Neo4J"]
+keywords: [Graph Database, Neo4J, Cypher]
 hide_table_of_contents: false
 image: /img/blog/20240322_1_cover.png
 ---

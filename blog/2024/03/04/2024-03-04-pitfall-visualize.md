@@ -3,10 +3,10 @@ title: 10 lỗi sai trong data visualization và cách phòng tránh
 # description: Hello
 slug: 10-loi-sai-visualization
 authors: lhduc
-tags: [Data Visualization]
+tags: [Draft, Data Visualization]
+keywords: [Data Visualization, Histogram, Seaborn, Numpy]
 image: /img/blog/20240304_1_cover.jpg
 hide_table_of_contents: false
-draft: true
 ---
 
 ![](cover.jpg)

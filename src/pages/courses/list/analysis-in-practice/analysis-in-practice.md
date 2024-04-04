@@ -36,11 +36,6 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 
 
 <details>
-  <summary><h4>Nội dung 1: Cohort Analysis </h4></summary>
-- Phân tích liên kết là gì
-</details>
-
-<details>
   <summary><h4>Nội dung 2: Market Basket Analysis</h4></summary>
 - Phân tích giỏ hàng là gì
 </details>
