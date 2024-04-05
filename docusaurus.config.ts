@@ -113,10 +113,10 @@ const config: Config = {
         src: 'img/favicon.png',
       },
       items: [
-        {type:'docSidebar',
-         sidebarId: 'tailieuSidebar',
-         position: 'left',
-         label: 'Tài liệu tham khảo'},
+        // {type:'docSidebar',
+        //  sidebarId: 'tailieuSidebar',
+        //  position: 'left',
+        //  label: 'Tài liệu tham khảo'},
 
         {
           to: '/blog', label: 'Blog', position: 'left'
@@ -126,10 +126,10 @@ const config: Config = {
           label: "Khóa học",
           to: '/courses',
           items:[
-            {
-              label: "Giới thiệu",
-              to: "/courses"
-            },
+            // {
+            //   label: "Giới thiệu",
+            //   to: "/courses"
+            // },
             {
               label: "Time Series Analysis",
               to: "/courses/list/time-series-analysis/time-series-analysis"
@@ -146,13 +146,20 @@ const config: Config = {
         },
         {
           type: 'dropdown',
-          label: "Roadmap",
+          label: "Tài liệu tham khảo",
           items:[
             {
-              label: "Data Scientist",
-              to: '/roadmap/datascientist'}
+              label: "Roadmap Data Scientist",
+              to: '/roadmap/datascientist'},
+            {
+              label: "Sách Kungfupandas",
+              to: '/docs/kungfupandas/gioithieu',
+            }
           ]
-        }
+        },
+        {
+          to: '/datasets/data', label: 'Datasets', position: 'left'
+        },
       ],
     },
     
