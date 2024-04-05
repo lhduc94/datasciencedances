@@ -8,9 +8,13 @@ import LinkWithBaseUrl from "../../common/LinkWithBaseUrl";
 
 import styles from "./styles.module.scss";
 
-function NewlineText(text) {
-    return text.split('\n').map(str => <p>❤️‍🔥 {str}</p>);
-  }
+const texts = ["Các khóa học Data Science cơ bản cho người mới bắt đầu.",
+"Khóa học dựa trên các dự án thực tế.",
+"Khai phá tiềm năng của các thuật toán phân tích thay vì Machine Learning"]
+
+function NewlineText(_texts) {
+  return _texts.map((item: string) => <p>❤️‍🔥 {item}</p>);
+}
 
 export default function HomepageCourses() {
   return (
@@ -29,12 +33,12 @@ export default function HomepageCourses() {
               Đào tạo
             </div>
             <div className={styles.desc}>
-              {NewlineText("Các khóa học Data Science cơ bản cho người mới bắt đầu.\nKhóa học dựa trên các dự án thực tế.\nKhai phá tiềm năng của các thuật toán phân tích thay vì Machine Learning")}
+              {NewlineText(texts)}
             </div>
             <Link
               className={clsx("button button--lg", styles.button)}
               to="/courses">
-              Cùng học nào🪇🪇!!
+              Cùng học nào ❤️‍🔥!!
             </Link>
           </div>
         </div>
