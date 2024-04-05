@@ -9,7 +9,7 @@ import LinkWithBaseUrl from "../../common/LinkWithBaseUrl";
 import styles from "./styles.module.scss";
 
 function NewlineText(text) {
-    return text.split('\n').map(str => <p>{str}</p>);
+    return text.split('\n').map(str => <p>🔥 {str}</p>);
   }
 
 export default function HomepageDocs() {
@@ -22,7 +22,7 @@ export default function HomepageDocs() {
               Tài liệu kỹ thuật
             </div>
             <div className={styles.desc}>
-            {NewlineText("Các tài liệu tự viết về các thư viện Data Science \n Các cuốn sách tự viết về các lĩnh vực chuyên môn Data Science")}
+            {NewlineText("Các tài liệu tự viết về các thư viện Data Science\nCác cuốn sách tự viết về các lĩnh vực chuyên môn Data Science\nRoadmap về Data Science")}
             </div>
             <Link
               className={clsx("button button--lg", styles.button)}
