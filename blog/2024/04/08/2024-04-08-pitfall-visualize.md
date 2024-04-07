@@ -1,5 +1,5 @@
 ---
-title: Các lỗi sai trong data visualization và cách phòng tránh
+title: Các lỗi sai trong data visualization và cách phòng tránh (Phần 1)
 description: Các lỗi sai trong data visualization và cách phòng tránh
 slug: cac-loi-sai-visualization
 authors: lhduc
@@ -12,7 +12,7 @@ hide_table_of_contents: false
 ![](cover.jpg)
 <!-- truncate -->
 
-## Dấu hiệu của một biểu đồ trực quan kém 
+## Dấu hiệu của một biểu đồ trực quan kém
 
 - Dữ liệu liên quan bị ẩn: Những thông tin cần thiết bị che khuất hoặc không được đánh dấu
 - Biểu đồ quá tải: Bao gồm quá nhiều thông tin khiến biểu đồ khó đọc
@@ -24,7 +24,7 @@ Dưới đây là các lỗi sai trong Data Visualization
 
 ## Độ tương phản màu gây hiểu lầm
 
-Một sai lầm phổ biến là đưa quá nhiều màu vào visualize. Ví dụ vẽ biểu đồ scatter plot về dân số và tốc độ tăng trưởng dân số của Việt Nam, với 63 tỉnh thành ta có 63 màu cho mỗi tỉnh, điều này gây ra vấn đề khó khăn khi nhận biết màu nào là của tỉnh thành nào. 
+Một sai lầm phổ biến là đưa quá nhiều màu vào visualize. Ví dụ vẽ biểu đồ scatter plot về dân số và tốc độ tăng trưởng dân số của Việt Nam, với 63 tỉnh thành ta có 63 màu cho mỗi tỉnh, điều này gây ra vấn đề khó khăn khi nhận biết màu nào là của tỉnh thành nào.
 
 <figure>
 ![](pitfall_1.png)
@@ -78,7 +78,11 @@ Tháng 12 năm 2015, tờ Washington Post đã sửa lại biểu đồ của Na
 
 Vậy lựa chọn đường cơ sở như thế nào cho đúng? Đối với ví dụ một, chúng ta đang so sánh nhiều đối tượng với nhau (Thư viện A, B, C) và giá trị cơ sở tại điểm 0 mang ý nghĩa về mức so sánh chênh lệch giữa các đối tượng (so sánh mức độ lệch phần trăm). Đối với ví dụ thứ hai, độ 0 trong thang F gần như ít có ý nghĩa trong dữ liệu nhiệt độ toàn cầu(tương tự như nhiệt độ con người rất khó đạt ở nhiệt độ 0 độ C), và sự chênh lệch các giá trị rất ít, lúc đó ta nên đưa giá trị đường cơ sở gần với dữ liệu thực tế để việc trực quan hóa dữ liệu có ý nghĩa hơn.
 
-
 ## Đưa quá nhiều dữ liệu với các khoảng dữ liệu khác nhau
 
 Lỗi tiếp theo là lỗi chúng ta thường gặp ở dữ liệu Chuỗi thời gian
+
+<figure>
+![](pitfall_3.png)
+<figcaption>Microbusiness Density Forecasting</figcaption>
+</figure>
