@@ -37,7 +37,7 @@ export default function HomepageDocs() {
           </div>
         </div>
         <div className={styles.right}>
-          <div className={styles.imageright}><a href="/docs/kungfupandas/gioithieu"><img src={useBaseUrl("/img/home/image_doc_2.png")}alt="" /></a></div>
+          <div className={styles.imageright}><a href="/docs/kungfupandas/gioithieu"><img src={useBaseUrl("/img/home/image_doc_3.png")}alt="" /></a></div>
         </div>
       </div>
     </div>

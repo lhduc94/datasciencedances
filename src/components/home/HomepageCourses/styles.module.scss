@@ -1,6 +1,7 @@
 .wrap {
     // background-color:var(--ifm-color-primary);
     background: linear-gradient(90.73deg, rgba(247, 247, 247, 0.2) 12.73%,  rgb(36, 34, 34) 96.49%);
+    // background-color: white;
     padding-top: 62px;
     padding-bottom: 62px;
     z-index: 2;
@@ -75,7 +76,7 @@
             font-weight: bold;
             line-height: 26px;
             margin: 17px 0 20px 0;
-            color: white;
+            color: whitesmoke;
             // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
           }
           .desc {
@@ -84,7 +85,7 @@
             font-weight: 400;
             line-height: 20px;
             text-align: left;
-            color: white;
+            color: whitesmoke;
             text-decoration: none;
           }
           .button {
