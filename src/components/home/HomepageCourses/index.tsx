@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 
 const texts = ["Các khóa học Data Science cơ bản cho người mới bắt đầu.",
 "Khóa học dựa trên các dự án thực tế.",
-"Khai phá tiềm năng của các thuật toán phân tích."]
+"Khai phá tiềm năng của các thuật toán phân tích thay vì Machine Learning"]
 
 function NewlineText(_texts) {
   return _texts.map((item: string) => <p>❤️‍🔥 {item}</p>);
@@ -20,14 +20,7 @@ export default function HomepageCourses() {
   return (
     <div className={styles.wrap}>
       <div className={styles.content}>
-        <div className={styles.left}>
-
-          <div className={styles.imageleft}><a href="/courses"><img src={useBaseUrl("/img/home/image_course_5.png")}alt="" /></a></div>
-          {/* <span className={styles.description}>
-            <Translate>Các khóa học Data Science cho người mới bắt đầu cũng như cho các bạn đã đi làm</Translate>
-          </span> */}
-        </div>
-        <div className={styles.right}>
+        <div className={styles.maincontent}>
           <div className={styles.item}>
             <div className={styles.title}>
               Đào tạo
@@ -42,6 +35,13 @@ export default function HomepageCourses() {
             </Link>
           </div>
         </div>
+        <div className={styles.maintitle}>
+
+      <div className={styles.imagecover}><a href="/courses"><img src={useBaseUrl("/img/home/image_course_7.png")}alt="" /></a></div>
+      {/* <span className={styles.description}>
+        <Translate>Các khóa học Data Science cho người mới bắt đầu cũng như cho các bạn đã đi làm</Translate>
+      </span> */}
+      </div>
       </div>
     </div>
   );

@@ -21,7 +21,10 @@ export default function HomepageDocs() {
   return (
     <div className={styles.wrap}>
       <div className={styles.content}>
-        <div className={styles.left}>
+        <div className={styles.maintitle}>
+          <div className={styles.imagecover}><a href="/docs/kungfupandas/gioithieu"><img src={useBaseUrl("/img/home/image_doc_3.png")}alt="" /></a></div>
+        </div>
+        <div className={styles.maincontent}>
           <div className={styles.item}>
             <div className={styles.title}>
             Tài liệu kỹ thuật
@@ -35,9 +38,6 @@ export default function HomepageDocs() {
               Cùng đọc nào ⭐!!
             </Link>
           </div>
-        </div>
-        <div className={styles.right}>
-          <div className={styles.imageright}><a href="/docs/kungfupandas/gioithieu"><img src={useBaseUrl("/img/home/image_doc_3.png")}alt="" /></a></div>
         </div>
       </div>
     </div>
