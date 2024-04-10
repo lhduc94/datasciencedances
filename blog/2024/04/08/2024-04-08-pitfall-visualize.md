@@ -80,9 +80,22 @@ Vậy lựa chọn đường cơ sở như thế nào cho đúng? Đối với v
 
 ## Đưa quá nhiều dữ liệu với các khoảng dữ liệu khác nhau
 
-Lỗi tiếp theo là lỗi chúng ta thường gặp ở dữ liệu Chuỗi thời gian
+Lỗi tiếp theo là lỗi chúng ta thường gặp ở dữ liệu Chuỗi thời gian. Chúng ta sẽ bàn về cuộc thi dự báo hoạt động kinh doanh vi mô ở các bang của Hoa Kỳ được đo bằng mật độ  doanh nghiệp ở các bang [GoDaddy - Microbusiness Density Forecasting](https://www.kaggle.com/competitions/godaddy-microbusiness-density-forecasting)
 
 <figure>
 ![](pitfall_3.png)
 <figcaption>Microbusiness Density Forecasting</figcaption>
+</figure>
+
+Chúng ta cần chia thành từng nhóm
+
+<figure>
+![](pitfall_3_1.png)
+<figcaption>Boxplot</figcaption>
+</figure>
+
+
+<figure>
+![](pitfall_3_2.png)
+<figcaption>Timeserise</figcaption>
 </figure>
