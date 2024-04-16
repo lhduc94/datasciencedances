@@ -74,7 +74,9 @@ $$P(E) = \frac{r}{N}\sum_{i=r}^{N-1}\frac{1}{i} $$
 Khi N đủ lớn, Tổng $\sum_{i=r}^{N-1}\frac{1}{i}$ sẽ được tính bằng tích phân   $\int_{r}^{N}\frac{1}{x}dx$
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Integral_Test.svg/1280px-Integral_Test.svg.png" alt="drawing" width="500"/>
+<figcaption>Minh họa tích phân</figcaption>
 
+\
 Ta lại có 
 $\int_{r}^{N}\frac{1}{x}dx = ln(x)|^N_r = ln(N) - ln(r) = ln(\frac{N}{r})$
 
@@ -94,19 +96,20 @@ Hay $\frac{r}{N} = \frac{1}{e} \Leftrightarrow r = \frac{N}{e}$
 
 **Bảng biến thiên**
 
-Ta có bảng biến thiên với giá trị $x=\frac{r}{N}$ từ nửa khoảng $(0,1]$
+Ta có bảng biến thiên hàm số $f(x) = -xln(x)$  từ nửa khoảng $(0,1]$
+
 ![](bang_bien_thien.png)
-<figcaption>Bảng biến thiên</figcaption>
+<figcaption>Bảng biến thiên hàm số $f(x)$</figcaption>
 
 **Đồ thị hàm số của $f(x)$**
 
 ![](do_thi_ham_so.png)
-<figcaption>Đồ thị hàm số</figcaption>
+<figcaption>Đồ thị hàm số $f(x)$</figcaption>
 
 
 ## Kết luận
 
-Vậy với bài toán hẹn hò với $N$ ứng viên và $r$ ứng viên bị bỏ qua để hình thành sựa lựa chọn, ta có hai công thức về xác suất lựa chọn
+Vậy với bài toán hẹn hò với $N$ ứng viên và $r$ ứng viên bị bỏ qua để tìm được "gu", ta có hai công thức về xác suất lựa chọn
 ứng viên giỏi nhất
 
 - Công thức cộng
