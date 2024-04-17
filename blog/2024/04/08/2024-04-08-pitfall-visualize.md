@@ -3,7 +3,7 @@ title: Các lỗi sai trong data visualization và cách phòng tránh (Ph�
 description: Các lỗi sai trong data visualization và cách phòng tránh
 slug: cac-loi-sai-visualization
 authors: lhduc
-tags: [Draft, Data Visualization]
+tags: [Data Visualization]
 keywords: [Data Visualization, Histogram, Seaborn, Numpy]
 image: /img/blog/20240304_1_cover.jpg
 hide_table_of_contents: false
@@ -80,22 +80,24 @@ Vậy lựa chọn đường cơ sở như thế nào cho đúng? Đối với v
 
 ## Đưa quá nhiều dữ liệu với các khoảng dữ liệu khác nhau
 
-Lỗi tiếp theo là lỗi chúng ta thường gặp ở dữ liệu Chuỗi thời gian. Chúng ta sẽ bàn về cuộc thi dự báo hoạt động kinh doanh vi mô ở các bang của Hoa Kỳ được đo bằng mật độ  doanh nghiệp ở các bang [GoDaddy - Microbusiness Density Forecasting](https://www.kaggle.com/competitions/godaddy-microbusiness-density-forecasting)
+Lỗi tiếp theo là lỗi chúng ta thường gặp ở dữ liệu Chuỗi thời gian. Chúng ta sẽ bàn về cuộc thi dự báo hoạt động kinh doanh vi mô ở các bang của Hoa Kỳ được đo bằng mật độ  doanh nghiệp ở các bang [GoDaddy - Microbusiness Density Forecasting](https://www.kaggle.com/competitions/godaddy-microbusiness-density-forecasting), mỗi mã `cfips` tương ứng với một quận của bang.
 
 <figure>
 ![](pitfall_3.png)
 <figcaption>Microbusiness Density Forecasting</figcaption>
 </figure>
 
-Chúng ta cần chia thành từng nhóm
+Theo như cách biểu diễn trên, các đường biểu diễn mật độ gần như là các đường thẳng và khó nhận thấy các pattern. Ngoài ra, việc biểu diễn như thế này còn nảy sinh vấn đề các nhóm ở mật độ thấp rất nhiều dẫn đến việc chồng chéo các đường làm cho việc phân biệt các đường rất khó. Hơn nữa, việc số lượng các đường quá nhiều còn làm ảnh hưởng đến việc chia màu sắc, việc này cũng làm rối loạn việc nhận biết các đường.
+
+Do đó chúng ta cần chia các đường biểu diễn thành các nhóm có mức độ khác nhau, cụ thể ở đây là chia các nhóm quận có mật độ doanh nghiệp "gần tương tự nhau". Để làm được điều này, chúng ta có thể dùng phương pháp biểu diễn phân phối của từng đường bằng cách sử dụng biểu đồ hình hộp (boxplot). Như hình dưới đây, nhóm có mật độ tập trung dày đặc ở ngưỡng dưới 6 và chia làm 2 nhóm tách biệt ở ngưỡng trên 6. Ở ngưỡng trên 6 chỉ cần chia làm 2 nhóm đó là ngưỡng trên 8 vầ ngưỡng dưới 8. Trong khhi nhóm ngưỡng dưới 6 cần chia thành các nhóm nhỏ hơn để đảm bảo không quá nhiều đường trong một nhóm.
 
 <figure>
 ![](pitfall_3_1.png)
 <figcaption>Boxplot</figcaption>
 </figure>
 
-
+Hình dưới đây biểu diễn một số đường cho nhóm quận với mật độ nhỏ hơn 1.8. Biểu diễn nãy giúp ta nhìn rõ hơn về tính xu hướng, tính mùa vụ của dữ liệu. Ngoài ra, cách biểu diễn chia nhỏ nhóm này còn giúp chúng ta nhìn được các giá trị ngoại lệ hoặc các đoạn tăng bất thường, qua đó có thể ước lượng được các quận nào có thể dự báo tương lai tốt hơn các quận nào.
 <figure>
 ![](pitfall_3_2.png)
-<figcaption>Timeserise</figcaption>
+<figcaption>Timeseries</figcaption>
 </figure>
