@@ -38,7 +38,7 @@ const config: Config = {
           showReadingTime: true,
           // blogSidebarTitle: 'Các bài viết',
           blogSidebarCount: 'ALL',
-          postsPerPage: 20,
+          postsPerPage: 100,
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex]
         },
