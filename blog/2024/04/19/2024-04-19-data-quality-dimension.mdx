@@ -1,0 +1,83 @@
+---
+title: 6 Chiều chất lượng dữ liệu
+description: 6 Chiều chất lượng dữ liệu
+authors: lhduc
+tags: [Database]
+keywords: ["Data Science", "Optimization", "Optimal stopping", "Secretary Problem"]
+hide_table_of_contents: false
+image: /img/blog/20240412_1_cover.jpg
+---
+
+
+## Accuracy (Tính chính xác)
+
+Tính chính xác thể hiện mức độ đại diện, mức độ thể hiện của dữ liệu đối với các sự vật, sự việc có thực
+
+Ví dụ:
+- Xác thực vật lý: Khi mua hàng thường phải kiểm tra hàng trong giỏ hàng có giống với các món hàng được liệt kê trong hóa đơn hay không?
+- So sánh nguồn tham chiếu: Tham khảo các chỉ số chứng khoán trên các sàn có giống với kết quả trong bảng nội bộ hay không?
+
+## Completeness (Tính đầy đủ)
+
+Tính đầy đủ thể hiện 100% giá trị được điền vào bảng
+
+**Thiếu dữ liệu do mất bản ghi**
+
+Việt Nam có 63 tỉnh thành nhưng dữ liệu lại thiếu bản ghi của một số tỉnh thành
+
+**Thuộc tính bị thiếu** 
+
+Một số người dùng bị thiếu thông tin về email, số điện thoại
+
+**Thiếu dữ liệu tham chiếu**
+
+Một nhân viên ngân hàng muốn cập nhật trạng thái của một tài khoản nằm trong ba trạng thái Open, 
+Closed, Suppended nhưng trong bảng tham chiếu chỉ có 2 trạng thái Open và Closed
+
+**Dữ liệu bị cắt**
+
+Trong quá trình ETL dữ liệu, có thể dữ liệu đã bị cắt mất so với dự định, ví dụ như đoạn text dài quá có thể bị cắt thành 256 kí tự
+
+## Consitency (Tính nhất quán)
+
+Thể hiện phần trăm đồng nhất dữ liệu của bảng này với bảng khác hoặc là bảng tham chiếu
+
+**Cấp độ bản ghi**
+
+Khi dữ liệu được tải từ nguồn này sang nguồn khác, cần đảm bảo số lượng bản ghi không bị thiếu hoặc thừa
+
+**Cấp độ thuộc tính**
+
+Mặc dù đầy đủ bản ghi như thực tế thuộc tính có thể bị thiếu
+
+**Không đồng nhất về cột dữ liệu**
+
+Ví dụ trong cửa hàng quần áo, số lượng sản phẩm Order bị sai lệch so với bảng Shipment
+
+Order 
+
+OrderID|Item|Qty
+--|--|--
+0123|Grow|1
+0123|Dress Pant|3
+
+Shipment
+
+ShipID| OrderID| Qty
+--|--|--
+SHAB1|0123|Grow|3
+SHAB1|0123|Dress Pant|1
+
+**Nhât quán transaction**
+
+Ví dụ ngày 1 gửi 3000$, ngày 2 rút 2000$ thì số tiền cuối ngày 2 phải đảm bảo là 1000$
+
+**Nhất quán theo thời gian**
+
+Dữ liệu thường không thay đổi quá nhiều theo thời gian trừ khi gặp trường hợp biến động lớn. Ví dụ nhiệt độ hôm nay không
+chênh lệch quá nhiều so với ngày hôm qua
+
+**Nhất quán biểu diễn dữ liệu trên các hệ thống**
+
+## Tài liệu tham khảo
+- https://estuary.dev/data-quality/
