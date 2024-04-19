@@ -116,7 +116,7 @@ const config: Config = {
         // {type:'docSidebar',
         //  sidebarId: 'tailieuSidebar',
         //  position: 'left',
-        //  label: 'Tài liệu tham khảo'},
+        //  label: 'Tài liệu tham khảo 2'},
 
         {
           to: '/blog', label: 'Blog', position: 'left'

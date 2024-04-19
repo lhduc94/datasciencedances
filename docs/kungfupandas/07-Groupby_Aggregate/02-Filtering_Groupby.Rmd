@@ -1,0 +1,93 @@
+## Các hàm Filtering trong Groupby
+
+**`.head(n=5)`**
+
+Trả về `n` dòng đầu của mỗi group. 
+
+```python
+df.groupby(['Item_Type']).head(n=2)
+```
+
+```{.python_output}
+    Item_Identifier              Item_Type Outlet_Size  Item_Outlet_Sales
+0             FDA15                  Dairy      Medium          3735.1380
+1             DRC01            Soft Drinks      Medium           443.4228
+2             FDN15                   Meat      Medium          2097.2700
+3             FDX07  Fruits and Vegetables         NaN           732.3800
+4             NCD19              Household        High           994.7052
+5             FDP36           Baking Goods      Medium           556.6088
+6             FDO10            Snack Foods        High           343.5528
+7             FDP10            Snack Foods      Medium          4022.7636
+8             FDH17           Frozen Foods         NaN          1076.5986
+9             FDU28           Frozen Foods         NaN          4710.5350
+10            FDY07  Fruits and Vegetables      Medium          1516.0266
+11            FDA03                  Dairy       Small          2187.1530
+15            FDP49              Breakfast       Small          1547.3192
+16            NCB42     Health and Hygiene      Medium          1621.8888
+17            FDP49              Breakfast      Medium           718.3982
+18            DRI11            Hard Drinks      Medium          2303.6680
+21            FDW12           Baking Goods      Medium          4064.0432
+22            NCB30              Household       Small          1587.2672
+27            DRJ59            Hard Drinks        High           308.9312
+29            FDC14                 Canned       Small           125.8362
+31            NCS17     Health and Hygiene      Medium          2741.7644
+33            FDO23                 Breads         NaN          2174.5028
+34            DRH01            Soft Drinks       Small          2085.2856
+41            FDK43                   Meat        High          2150.5340
+43            FDC02                 Canned      Medium          6768.5228
+72            FDH35          Starchy Foods         NaN          4604.6728
+114           FDV11                 Breads         NaN          3151.8972
+136           FDH35          Starchy Foods      Medium          5262.4832
+139           NCN07                 Others         NaN           263.6568
+142           NCO55                 Others         NaN          2143.8760
+231           FDG33                Seafood      Medium          3435.5280
+713           FDH21                Seafood      Medium          1267.6832
+```
+**`.tail(n=5)`**
+
+Trả về `n` dòng cuối của mỗi group
+
+```python
+df.groupby(['Item_Type']).tail(n=2)
+```
+
+```{.python_output}
+     Item_Identifier              Item_Type Outlet_Size  Item_Outlet_Sales
+8317           FDN13              Breakfast         NaN          1306.9654
+8335           FDO49              Breakfast      Medium           708.4112
+8370           FDV23                 Breads       Small           871.5322
+8413           FDW59                 Breads       Small          1691.1320
+8423           FDJ57                Seafood      Medium          2600.6148
+8426           FDA22          Starchy Foods       Small          4512.1266
+8457           FDY50                  Dairy       Small          1516.6924
+8463           FDG59          Starchy Foods      Medium           810.9444
+8473           DRI47            Hard Drinks         NaN           431.4384
+8483           DRI11            Hard Drinks         NaN          1612.5676
+8488           NCN14                 Others      Medium          2756.4120
+8489           FDV13                 Canned      Medium          2109.2544
+8491           FDO03                   Meat      Medium          4809.7392
+8496           FDJ57                Seafood         NaN          3715.1640
+8499           NCK53     Health and Hygiene       Small          2976.1260
+8502           NCH43              Household         NaN          3020.0688
+8504           NCN18              Household      Medium          4138.6128
+8506           DRF37            Soft Drinks      Medium          3944.8650
+8508           FDW31  Fruits and Vegetables         NaN          2587.9646
+8509           FDG45  Fruits and Vegetables         NaN           424.7804
+8511           FDF05           Frozen Foods      Medium          4207.8560
+8512           FDR26                  Dairy        High          2479.4392
+8513           FDH31                   Meat       Small           595.2252
+8514           FDA01                 Canned         NaN           468.7232
+8515           FDH24           Baking Goods      Medium          1571.2880
+8516           NCJ19                 Others      Medium           858.8820
+8517           FDF53           Frozen Foods       Small          3608.6360
+8518           FDF22            Snack Foods        High          2778.3834
+8519           FDS36           Baking Goods         NaN           549.2850
+8520           NCJ29     Health and Hygiene       Small          1193.1136
+8521           FDN46            Snack Foods      Medium          1845.5976
+8522           DRG01            Soft Drinks       Small           765.6700
+```
+
+```{block2, type='rmdnote'}
+**_Lưu ý:_** 
+`.head()` và `.tail()` trả về các dòng theo thứ tự index của chúng, không trả về theo thứ tự sắp xếp theo key
+``` 

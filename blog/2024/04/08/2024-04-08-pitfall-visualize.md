@@ -48,14 +48,18 @@ của màu sắc trong biểu đồ. Ví dụ như hình bên dưới là biểu
 
 ## Chọn đường biểu diễn cơ sở không phù hợp
 
-Lỗi visualization tiếp theo là chọn đường biểu diễn cơ sở không phù hợp. Biều đồ bị cắt bớt đường cơ sở có thể là do vô tình được cắt ngắt để tiết kiệm không gian (Dữ liệu cột quá lớn) hoặc cố ý biểu diễn để thể hiện sự chênh lệch giữa các giá trị. Trong biểu đồ dưới đây, người tạo ra biểu đồ đã sử dụng điểm bắt đầu tại vị trí 3000 thay vì vị trí 0, với việc cắt tại vị trí này cho thấy sự chênh lệch giữa Thư viện A và Thư viện B, nhưng liệu việc chênh lệch này có được thể hiện đúng?
+Lỗi visualization tiếp theo là chọn đường biểu diễn cơ sở không phù hợp. Biều đồ bị cắt bớt đường cơ sở có thể là do vô tình được cắt ngắt để tiết kiệm không gian (Dữ liệu cột quá lớn) hoặc cố ý biểu diễn để thể hiện sự chênh lệch giữa các giá trị. 
+
+Trong biểu đồ dưới đây, người tạo ra biểu đồ đã sử dụng điểm bắt đầu tại vị trí 3000 thay vì vị trí 0, với việc cắt tại vị trí này cho thấy sự chênh lệch giữa Thư viện A và Thư viện B, nhưng liệu việc chênh lệch này có được thể hiện đúng?
 
 <figure>
 ![](https://www.lrs.org/wp-content/uploads/2020/06/Screen-Shot-2020-06-10-at-9.12.02-AM.png)
 <figcaption>Nguồn : [www.lrs.org](https://www.lrs.org/2020/06/10/visualizing-data-manipulating-the-y-axis/)</figcaption>
 </figure>
 
-Chúng ta có thể sẽ hiểu lầm rằng thư viện A có số lượng sách được lưu hành gấp đôi số lượng sách lưu hành tại Thư Viện B, trong khi thực tế Số lượng sách được lưu hành ở Thư viện A bằng 106% số lượng sách lưu hành tại Thư Viện B. Dưới đây là dữ liệu tương tự nếu chúng ta thêm vào đường cơ sở (giá trị 0), cả ba thư viện đều có số lượng sách lưu hành gần nhau, sự khác biệt giữa các thư viện có vẻ ít quan trọng hơn nhiều.
+Chúng ta có thể sẽ hiểu lầm rằng thư viện A có số lượng sách được lưu hành gấp đôi số lượng sách lưu hành tại Thư Viện B, trong khi thực tế Số lượng sách được lưu hành ở Thư viện A bằng 106% số lượng sách lưu hành tại Thư Viện B. 
+
+Dưới đây là dữ liệu tương tự nếu chúng ta thêm vào đường cơ sở (giá trị 0), cả ba thư viện đều có số lượng sách lưu hành gần nhau, sự khác biệt giữa các thư viện có vẻ ít quan trọng hơn nhiều.
 
 <figure>
 ![](https://www.lrs.org/wp-content/uploads/2020/06/Screen-Shot-2020-06-10-at-9.12.16-AM.png)
@@ -89,7 +93,9 @@ Lỗi tiếp theo là lỗi chúng ta thường gặp ở dữ liệu Chuỗi th
 
 Theo như cách biểu diễn trên, các đường biểu diễn mật độ gần như là các đường thẳng và khó nhận thấy các pattern. Ngoài ra, việc biểu diễn như thế này còn nảy sinh vấn đề các nhóm ở mật độ thấp rất nhiều dẫn đến việc chồng chéo các đường làm cho việc phân biệt các đường rất khó. Hơn nữa, việc số lượng các đường quá nhiều còn làm ảnh hưởng đến việc chia màu sắc, việc này cũng làm rối loạn việc nhận biết các đường.
 
-Do đó chúng ta cần chia các đường biểu diễn thành các nhóm có mức độ khác nhau, cụ thể ở đây là chia các nhóm quận có mật độ doanh nghiệp "gần tương tự nhau". Để làm được điều này, chúng ta có thể dùng phương pháp biểu diễn phân phối của từng đường bằng cách sử dụng biểu đồ hình hộp (boxplot). Như hình dưới đây, nhóm có mật độ tập trung dày đặc ở ngưỡng dưới 6 và chia làm 2 nhóm tách biệt ở ngưỡng trên 6. Ở ngưỡng trên 6 chỉ cần chia làm 2 nhóm đó là ngưỡng trên 8 vầ ngưỡng dưới 8. Trong khhi nhóm ngưỡng dưới 6 cần chia thành các nhóm nhỏ hơn để đảm bảo không quá nhiều đường trong một nhóm.
+Do đó chúng ta cần chia các đường biểu diễn thành các nhóm có mức độ khác nhau, cụ thể ở đây là chia các nhóm quận có mật độ doanh nghiệp "gần tương tự nhau". Để làm được điều này, chúng ta có thể dùng phương pháp biểu diễn phân phối của từng đường bằng cách sử dụng biểu đồ hình hộp (boxplot). 
+
+Như hình dưới đây, nhóm có mật độ tập trung dày đặc ở ngưỡng dưới 6 và chia làm 2 nhóm tách biệt ở ngưỡng trên 6. Ở ngưỡng trên 6 chỉ cần chia làm 2 nhóm đó là ngưỡng trên 8 vầ ngưỡng dưới 8. Trong khhi nhóm ngưỡng dưới 6 cần chia thành các nhóm nhỏ hơn để đảm bảo không quá nhiều đường trong một nhóm.
 
 <figure>
 ![](pitfall_3_1.png)

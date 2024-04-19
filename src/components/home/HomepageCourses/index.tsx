@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 
 const texts = ["Các khóa học Data Science cơ bản cho người mới bắt đầu.",
 "Khóa học dựa trên các dự án thực tế.",
-"Khai phá tiềm năng của các thuật toán phân tích thay vì Machine Learning"]
+"Khai phá tiềm năng của các thuật toán phân tích"]
 
 function NewlineText(_texts) {
   return _texts.map((item: string) => <p>❤️‍🔥 {item}</p>);

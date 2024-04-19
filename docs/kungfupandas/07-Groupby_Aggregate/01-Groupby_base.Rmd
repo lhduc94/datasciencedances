@@ -1,0 +1,53 @@
+## Groupby
+Phương thức `.groupby` sẽ gom các dòng hoặc các cột thành các nhóm khác nhau. Cú pháp cơ bản của `.groupby` như sau
+```python
+DataFrame.groupby(by=None, axis=0, dropna=True)
+```
+Trong đó
+
+- `by`: có thể là dạng mapping, nhãn, danh sách nhãn hoặc một hàm trả về danh sách các index
+
+- `axis`: Tùy chọn group theo dòng {`0` hoặc `index`} hoặc cột {`1` hoặc `columns`}, mặc định là dòng.
+
+- `dropna`: Mặc định là `True` sẽ bỏ qua những dòng chứa `NA` và `False` sẽ thêm `NA` là một khóa trong nhóm, tương tự như `.value_counts()`
+
+Ví dụ với dữ liệu [Big Mart Salses](https://www.kaggle.com/datasets/brijbhushannanda1979/bigmart-sales-data?select=Train.csv)
+
+```python
+df.head()
+```
+
+```{.python_output}
+  Item_Identifier              Item_Type Outlet_Size  Item_Outlet_Sales
+0           FDA15                  Dairy      Medium          3735.1380
+1           DRC01            Soft Drinks      Medium           443.4228
+2           FDN15                   Meat      Medium          2097.2700
+3           FDX07  Fruits and Vegetables         NaN           732.3800
+4           NCD19              Household        High           994.7052
+```
+
+```python
+grouped = df.groupby('Item_Type')
+type(grouped)
+```
+
+```{.python_output}
+pandas.core.groupby.generic.DataFrameGroupBy
+```
+
+Để xem từng nhóm trong group, ta có thể sử dụng `.get_groups()` và truyền key vào đó. Ví dụ với key `Dairy`
+
+```python
+grouped.get_group('Dairy').head()
+```
+
+```{.python_output}
+   Item_Identifier Item_Type Outlet_Size  Item_Outlet_Sales
+0            FDA15     Dairy      Medium          3735.1380
+11           FDA03     Dairy       Small          2187.1530
+19           FDU02     Dairy       Small          2748.4224
+28           FDE51     Dairy         NaN           178.4344
+30           FDV38     Dairy         NaN           163.7868
+```
+
+Khi chọn 1 column sau khi `.groupby` sẽ trả về kiểu `pandas.core.groupby.generic.SeriesGroupBy`

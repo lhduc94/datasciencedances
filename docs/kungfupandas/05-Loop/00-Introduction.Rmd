@@ -1,0 +1,6 @@
+# Tính toán trên các phần tử trong Pandas 
+
+
+```python
+df = pd.read_csv('data/big_mart_sales.csv')
+```

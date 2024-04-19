@@ -1,0 +1,95 @@
+## Sử dụng iterator
+
+```python
+df = pd.read_csv('data/big_mart_sales.csv', usecols=['Item_Identifier', 'Item_Fat_Content', 'Item_Type', 'Outlet_Size', 'Item_Outlet_Sales', 'Outlet_Establishment_Year'])
+```
+
+### Iterrows
+```python
+DataFrame.iterrows()
+```
+
+```python
+row = next(df.iterrows())
+row
+```
+
+```{.python_output}
+(0,
+ Item_Identifier                 FDA15
+ Item_Fat_Content              Low Fat
+ Item_Type                       Dairy
+ Outlet_Establishment_Year        1999
+ Outlet_Size                    Medium
+ Item_Outlet_Sales            3735.138
+ Name: 0, dtype: object)
+```
+
+Kết quả trả về cho row là 1 tuple gồm index và Series chứa các giá trị tại index đó. 
+
+**Cách dùng vòng lặp trong iterrows**
+
+Để duyệt từng dòng ta dùng `for` như bình thường
+
+```python
+prices = []
+for i, row in df.iterrows():
+    prices.append(row['Item_Outlet_Sales'] * 0.5)
+print(prices[:5])
+```
+
+```{.python_output}
+[1867.569, 221.7114, 1048.635, 366.19, 497.3526]
+```
+
+### Itertuple
+
+```python
+DataFrame.itertuples(index=True, name='Pandas')
+```
+
+Trong đó:
+
+- `index`: `True` trả về kết quả kèm theo index và `False` lược bỏ index
+
+- `name`: Quy định kiểu trả về
+    - `Pandas`: trả về namedtuple
+    - `None`: trả về tuple
+    - `namedtuple`: trả về namedtuple
+
+Trả về `namedtuple`   
+```python
+next(df.itertuples(index=True))
+```
+
+```{.python_output}
+Pandas(Index=0, Item_Identifier='FDA15', Item_Fat_Content='Low Fat', Item_Type='Dairy', Outlet_Establishment_Year=1999, Outlet_Size='Medium', Item_Outlet_Sales=3735.138)
+```
+
+Trả về `tuple`
+```python
+next(df.itertuples(index=False, name=None))
+```
+
+```{.python_output}
+('FDA15', 'Low Fat', 'Dairy', 1999, 'Medium', 3735.138)
+```
+
+**Cách dùng vòng lặp trong itertuples**
+
+`name=default`
+```python
+prices = []
+for row in df.itertuples():
+    prices.append(row.Item_Outlet_Sales * 0.5)
+print(prices[:5])
+```
+
+`name=None`
+
+```python
+prices = []
+for row in df.itertuples(index=False, name=None):
+    prices.append(row[5] * 0.5)
+print(prices[:5])
+```
