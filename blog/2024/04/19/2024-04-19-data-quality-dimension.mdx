@@ -14,18 +14,23 @@ image: /img/blog/20240419_1_cover.jpg
 Tính chính xác thể hiện mức độ đại diện, mức độ thể hiện của dữ liệu đối với các sự vật, sự việc có thực
 
 Ví dụ:
-- Xác thực vật lý: Khi mua hàng thường phải kiểm tra hàng trong giỏ hàng có giống với các món hàng được liệt kê trong hóa đơn hay không?
-- So sánh nguồn tham chiếu: Tham khảo các chỉ số chứng khoán trên các sàn có giống với kết quả trong bảng nội bộ hay không?
+- **Xác thực vật lý** 
+
+Khi mua hàng thường phải kiểm tra hàng trong giỏ hàng có giống với các món hàng được liệt kê trong hóa đơn hay không?
+![](accuracy_1_2.jpg)
+- **So sánh nguồn tham chiếu**
+    - So sánh xem các thông tin các tỉnh thành trong bảng nội bộ có trùng khớp với dữ liệu thông tin quốc gia hay không?
+    - Kiểm tra dữ liệu crawl có trùng với dữ liệu từ trang gốc.
 
 ## Completeness (Tính đầy đủ)
 
 Tính đầy đủ thể hiện 100% giá trị được điền vào bảng
 
-- Thiếu dữ liệu do mất bản ghi
+- **Thiếu dữ liệu do mất bản ghi**
 
 Việt Nam có 63 tỉnh thành nhưng dữ liệu lại thiếu bản ghi của một số tỉnh thành
 
-- Thuộc tính bị thiếu
+- **Thuộc tính bị thiếu**
 
 Một số người dùng bị thiếu thông tin về email, số điện thoại
 
@@ -36,7 +41,7 @@ Một nhân viên ngân hàng muốn cập nhật trạng thái của mô�
 Closed, Supspended nhưng trong bảng tham chiếu chỉ có 2 trạng thái Open và Closed. Anh ấy không tìm thấy
 giá trị tham chiếu Supspended để điền vào đơn cập nhật.
 
-- Dữ liệu bị cắt
+- **Dữ liệu bị cắt**
 
 Trong quá trình ETL dữ liệu, có thể dữ liệu đã bị cắt mất so với dự định, ví dụ như đoạn text dài quá có thể bị cắt thành 256 kí tự
 
@@ -44,15 +49,15 @@ Trong quá trình ETL dữ liệu, có thể dữ liệu đã bị că�
 
 Thể hiện phần trăm đồng nhất dữ liệu của bảng này với bảng khác hoặc là bảng tham chiếu
 
-- Cấp độ bản ghi
+- **Cấp độ bản ghi**
 
 Khi dữ liệu được tải từ nguồn này sang nguồn khác, cần đảm bảo số lượng bản ghi không bị thiếu hoặc thừa
 
-- Cấp độ thuộc tính
+- **Cấp độ thuộc tính**
 
 Mặc dù đầy đủ bản ghi như thực tế thuộc tính có thể bị thiếu
 
-- Không đồng nhất về cột dữ liệu
+- **Không đồng nhất về cột dữ liệu**
 
 Ví dụ trong cửa hàng quần áo, số lượng sản phẩm Order bị sai lệch so với bảng Shipment
 
@@ -105,7 +110,8 @@ Net amount = Gross amt - Tax amt - Fee amt - Commission amt
 ## Timeliness (Tính kịp thời)
 Khoảng thời gian trễ giữa thời gian trên hệ thống và thời gian thực
 - **Trễ do business process**: 
-Người dùng đặt pizza vào lúc 11:00 và Nhà hàng cam kết sẽ giao hàng trong 50 phút. Nhưng vì lý do nào đó người nhập liệu lại nhập trễ vào lúc 13:00. Hậu quả là đơn bị giao trễ và có khả năng nhà hàng bị đánh giá tiêu cực.
+    - Người dùng đặt pizza vào lúc 11:00 và Nhà hàng cam kết sẽ giao hàng trong 50 phút. Nhưng vì lý do nào đó người nhập 
+    liệu lại nhập trễ vào lúc 13:00. Hậu quả là đơn bị giao trễ và có khả năng nhà hàng bị đánh giá tiêu cực.
 
 - **Trễ trong hệ thống thời gian thực**: Dữ liệu có thể chính xác nhưng quá trình xử lý chậm hơn so với yêu cầu thực tế.
     - Hệ thống xe tự lái đòi hỏi thời gian phản hồi phải nhanh để phản ứng kịp với môi trường thực tế. 
