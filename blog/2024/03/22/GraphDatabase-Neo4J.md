@@ -6,9 +6,10 @@ authors: lhduc
 tags: [Database]
 keywords: [Graph Database, Neo4J, Cypher]
 hide_table_of_contents: false
-image: /img/blog/20240322_1_cover.png
+image: /img/blog/20240322_1_cover.jpg
 ---
 
+![](cover.jpg)
 ## Giới thiệu
 
 **Graph là gì**
