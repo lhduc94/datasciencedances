@@ -5,7 +5,7 @@ slug: Data-Scientist-se-lam-gi-khi-bi-ap-deadline
 authors: lhduc
 tags: [Data Science, Story]
 keywords: [Data Science, Data Scientist, Deadline, phương pháp xử lý, mô hình]
-image: /img/blog/20240314_1_cover.jpg
+image: /img/blog/20240314_1_cover_2.jpg
 hide_table_of_contents: false
 ---
 ![](https://i.pinimg.com/564x/3b/29/50/3b2950afe79ddc47c21125285f3ff1f6.jpg)
