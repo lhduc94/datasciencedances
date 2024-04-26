@@ -7,48 +7,50 @@ tags: [Database, Draft]
 keywords: ["Database", "Data quality"]
 hide_table_of_contents: false
 image: /img/blog/20240419_1_cover.jpg
+# draft: true
+
 ---
 ![](cover_1.jpg)
 
 ## Accuracy (Tính chính xác)
 
-Tính chính xác thể hiện mức độ đại diện, mức độ thể hiện của dữ liệu đối với các sự vật, sự việc có thực
-
-Ví dụ:
-- **Xác thực vật lý** 
-
+Tính chính xác thể hiện mức độ đại diện, mức độ thể hiện của dữ liệu đối với các sự vật, sự việc có thực. Có nhiều cách khác khau để xác thực dữ liêu đó
+là chính xác hay không:
+- **Xác thực vật lý:** 
 Khi mua hàng thường phải kiểm tra hàng trong giỏ hàng có giống với các món hàng được liệt kê trong hóa đơn hay không?
 ![](accuracy_1_2.jpg)
-- **So sánh nguồn tham chiếu**
+- **So sánh nguồn tham chiếu:**
     - So sánh xem các thông tin các tỉnh thành trong bảng nội bộ có trùng khớp với dữ liệu thông tin quốc gia hay không?
     - Kiểm tra dữ liệu crawl có trùng với dữ liệu từ trang gốc.
 
+Việc dữ liệu không chính xác là rất bình thường, và khi dữ liệu không được ghi chép chính xác có thể ảnh hưởng đến quyền lợi của người dùng. Ví dụ khi một 
+người dùng đăng kí tài khoản trên một ứng dụng, họ có xu hướng không khai thật tên tuổi của mình, việc làm này có thể ảnh hưởng đến quyền lợi sinh nhật hoặc ưu đãi cho người trong độ tuổi. 
+Một người đang tuổi 20 nhưng khai báo thông tin là tuổi 40 sẽ không nhận được voucher xem phim cho U22 chẳng hạn. 
+
 ## Completeness (Tính đầy đủ)
 
-Tính đầy đủ thể hiện 100% giá trị được điền vào bảng
-
-- **Thiếu dữ liệu do mất bản ghi**
-
-Việt Nam có 63 tỉnh thành nhưng dữ liệu lại thiếu bản ghi của một số tỉnh thành
-
-- **Thuộc tính bị thiếu**
-
-Một số người dùng bị thiếu thông tin về email, số điện thoại
-
+Tính đầy đủ của dữ liệu đạt được khi những dữ liệu cần thiết được điền đầy đủ theo một yêu cầu nào đấy, không nhất thiết dữ liệu phải điền 100% đầy đủ mà chỉ cần đảm bảo
+các trường có liên quan được điền phù hợp.
+- **Thiếu dữ liệu do mất bản ghi:**
+    - Chúng ta cần đưa ra biểu đồ về thông tin của 63 tỉnh thành nhưng chỉ có bản ghi của 60 tỉnh thành, thiếu bản ghi của 3 tỉnh thành còn lại
+- **Thuộc tính bị thiếu:**
+Một số người dùng bị thiếu cột thông tin về email, số điện thoại
+    - Đối với yêu cầu về thông tin liên lạc thì dữ liệu vẫn mang tính đầy đủ vì chúng ta có thể gửi thông tin thông qua email hoặc thông qua hình thức tin nhắn số điện thoại
+    - Đối với mục đích telesale thì rõ ràng thông tin về những người thiếu số điện thoại sẽ vi phạm tính đầy đủ
 - **Thiếu dữ liệu tham chiếu**
-
 ![](completeness_3.png)
-Một nhân viên ngân hàng muốn cập nhật trạng thái của một tài khoản nằm trong ba trạng thái Open, 
-Closed, Supspended nhưng trong bảng tham chiếu chỉ có 2 trạng thái Open và Closed. Anh ấy không tìm thấy
+    - Một nhân viên ngân hàng muốn cập nhật trạng thái của một tài khoản nằm trong ba trạng thái Open, 
+Closed, Supspended nhưng trong bảng tham chiếu chỉ có 2 trạng thái Open và Closed do đó anh ấy không tìm thấy
 giá trị tham chiếu Supspended để điền vào đơn cập nhật.
 
 - **Dữ liệu bị cắt**
 
-Trong quá trình ETL dữ liệu, có thể dữ liệu đã bị cắt mất so với dự định, ví dụ như đoạn text dài quá có thể bị cắt thành 256 kí tự
+    - Trong quá trình ETL dữ liệu, có thể dữ liệu đã bị cắt mất so với dự định, ví dụ như cột dữ liệu về tên chúng ta thường chỉ đặt tối đa 20 ký tự, do đó những người có tên
+dài hơn sẽ bị cắt đi dẫn đến sự mất mát thông tin.
 
 ## Consistency (Tính nhất quán)
 
-Thể hiện phần trăm đồng nhất dữ liệu của bảng này với bảng khác hoặc là bảng tham chiếu
+Tính nhất quán dữ liệu thể hiện phần trăm đồng nhất của cùng một dữ liệu nhưng được được lưu sang các nơi khác nhau, hoặc sự đồng nhất giữa dữ liệu và bảng tham chiếu của nó
 
 - **Cấp độ bản ghi**
 
@@ -81,15 +83,16 @@ Ví dụ Bảng giới tính, bảng gốc chỉ có Male, Female, Unknow n
 ![](consistency_6.png)
 
 ## Uniqueness (Tính duy nhất)
-Không muốn có sự trùng lặp dữ liệu 
+
+Tính duy nhất thể hiện với cùng một nội dung trong bảng thì mỗi bản ghi nên là duy nhất. Việc này giúp giảm thiểu bộ nhớ lưu trữ cũng như tránh
+sai sót trong quá trình thống kê. Ngoài ra việc bản ghi bị trùng lặp cũng ảnh hưởng đến tốc độ xử lý dữ liệu đầu vào và có thể gây sai lệch trong 
+quá trình huấn luyện mô hình. Đảm bảo tính duy nhất trong dữ liệu giúp tránh trường hợp dự đoán các bản ghi giống nhau nhiều lần.
 
 - **Cùng một thực thể nhưng hai tên khác nhau**
 
 Ví dụ cùng một người nhưng lại có 2 tên khác nhau 
 
 ![](uniqueness_1.png)
-
-
 
 - **Cùng một thực thể nhưng xuất hiện nhiều lần với cùng một định danh**
 
