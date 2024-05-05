@@ -110,7 +110,7 @@ const config: Config = {
       title: 'Data Science Dances',
       logo: {
         alt: 'Data Science Dances',
-        src: 'img/favicon.png',
+        src: 'img/dsd2-favicon.jpg',
       },
       items: [
         // {type:'docSidebar',
