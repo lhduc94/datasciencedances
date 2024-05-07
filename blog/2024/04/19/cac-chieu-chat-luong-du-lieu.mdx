@@ -1,6 +1,6 @@
 ---
 title: Các chiều chất lượng dữ liệu
-description: 6 Chiều chất lượng dữ liệu
+description: Chất lượng dữ liệu là một khía cạnh quan trọng không chỉ trong lĩnh vực công nghệ thông tin mà còn trong nhiều lĩnh vực khác
 slug: cac-chieu-chat-luong-du-lieu
 authors: lhduc
 tags: [Database, Draft]
@@ -11,6 +11,23 @@ image: /img/blog/20240419_1_cover.jpg
 
 ---
 ![](cover_1.jpg)
+## Giới thiệu 
+
+Chất lượng dữ liệu là một khía cạnh quan trọng không chỉ trong lĩnh vực công nghệ thông tin mà còn trong nhiều lĩnh vực khác như kinh doanh, khoa học dữ liệu,
+y tế, tài chính, v.v. Dữ liệu chất lượng cao là nền tảng quan trọng cho việc ra quyết định đúng đắn, phát triển sản phẩm và dịch vụ, cũng như nghiên cứu và
+phát triển trong nhiều lĩnh vực. Dưới đây là một số chiều quan trọng về chất lượng dữ liệu:
+
+**:one: Tính chính xác (Accuracy):** Dữ liệu phải chính xác và phản ánh đúng thực tế. Sự không chính xác có thể dẫn đến việc đưa ra quyết định sai lầm và kết quả không chính xác.
+
+**:two: Tính đầy đủ (Completeness):** Dữ liệu cần phải hoàn thiện, không bị thiếu sót quan trọng. Thiếu dữ liệu có thể dẫn đến hiểu biết hạn chế và phân tích không chính xác.
+
+**:three: Tính nhất quán (Consistency):** Dữ liệu phải nhất quán với nhau và không có mâu thuẫn. Nếu có sự không nhất quán, việc phân tích và đưa ra quyết định sẽ trở nên khó khăn và không đáng tin cậy.
+
+**:four: Tính duy nhất (Uniqueness):** Dữ liệu phải đảm bảo tính duy nhất. Nếu dữ liệu không đảm bảo tính duy nhất có thể gây ảnh hưởng đến việc thống kê dữ liệu và thời gian xử lý dữ liệu.
+
+**:five: Tính hợp lệ (Validity):** Dữ liệu phải tuần theo các định dạng hoặc yêu cầu cụ thể theo business. Dữ liệu không hợp lệ có thể gây khó khăn trong quá trình chuẩn hóa dữ liệu và sai sót trong việc thống kê.
+
+**:six: Tính kịp thời (Timeliness):** Dữ liệu cần phải được cập nhật đúng thời điểm để phản ánh thực trạng hiện tại. Dữ liệu quá cũ có thể không còn mang tính đáng tin cậy và không thể áp dụng vào các quyết định hiện tại.
 
 ## Accuracy (Tính chính xác)
 
@@ -142,12 +159,13 @@ Nếu như cột dữ liệu lưu Net amount = 600\$ ≠  1000\$ - 100\$ - 2
 
 - **Trình tự không hợp lệ**
     - Thời gian giao hàng không được nhỏ hơn thời gian đặt hàng
+    - Giá trị updated_date phải lớn hơn hoặc bằng giá trị created_date
 
-> Việc dữ liệu hợp lệ không có nghĩa là dữ liệu đó chính xác. Ví dụ dễ thấy nhất đó là định dạng ngày tháng, ví dụ định dạng trong dữ liệu là "mm/dd/yy".
+Việc dữ liệu hợp lệ không có nghĩa là dữ liệu đó chính xác. Ví dụ dễ thấy nhất đó là định dạng ngày tháng, ví dụ định dạng trong dữ liệu là "mm/dd/yy".
 Tại thời điểm hiện tại của bài viết này là ngày 06 tháng 05 năm 2024. Giả như người nhập liệu không biết định dạng của hệ thống và nhập vào "06/05/2024" 
 thì định dạng vẫn hợp lệ theo "mm/dd/yy" nhưng lúc này hệ thống sẽ hiểu là ngày 05 tháng 06 năm 2024 là ngày chưa tồn tại dữ liệu.
 
-> Ngược lại dữ liệu chính xác chưa chắc đã hợp lệ, như trong ví dụ trên mặc dù ngày 06 tháng 05 năm 2024 là chính xác nhưng nếu nhập vào theo chuỗi "ngày 06 tháng 05 năm 2024" 
+Ngược lại dữ liệu chính xác chưa chắc đã hợp lệ, như trong ví dụ trên mặc dù ngày 06 tháng 05 năm 2024 là chính xác nhưng nếu nhập vào theo chuỗi "ngày 06 tháng 05 năm 2024" 
 sẽ không hợp lệ vì hệ thống đang định dạng "mm/dd/yy"
 
 ## Timeliness (Tính kịp thời)
@@ -161,12 +179,11 @@ Tính kịp thời của dữ liệu nói về mức độ sẵn sàng
 - **Trễ trong hệ thống thời gian thực**: Dữ liệu có thể chính xác nhưng quá trình xử lý chậm hơn so với yêu cầu thực tế.
     - Hệ thống xe tự lái đòi hỏi thời gian phản hồi phải nhanh để phản ứng kịp với môi trường thực tế. 
     - Hệ thống phòng chống gian lận đòi hỏi phải truy cập dữ liệu theo thời gian thực
-    
 
-## Những tiêu chí khác
-Ngoài ra còn có các tiêu chí khác để đánh giá chất lượng dữ liệu
+Tùy vào tần suất yêu cầu dữ liệu mà tính kịp thời có thể đánh giá khác nhau. Như ví dụ xử lý hệ thống thời gian thực cần dữ liệu đảm bảo có sẵn trong thời gian thực,
+trong khi những báo cáo hằng ngày thì có mức độ yêu cầu kịp thời chỉ cần đảm bảo trong ngày hay những báo cáo hàng quý thì có thể yêu cầu về tính kịp thời không quá cao.    
 
-- Khả năng kiểm toán
+
 
 
 ## Tài liệu tham khảo
