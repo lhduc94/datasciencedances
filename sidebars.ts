@@ -42,6 +42,7 @@ const sidebars: SidebarsConfig = {
       label: 'Pytorch',
       items: [
         {type: 'doc',
+          label: 'Giới thiệu',
           id : 'pytorch/gioithieu'},
         {
           type: 'category',
@@ -51,6 +52,11 @@ const sidebars: SidebarsConfig = {
               type: 'doc',
               label: 'Deberta Sequence Classification',
               id : 'pytorch/Deberta/DebertaForSequenceClassification'
+            },
+            {
+              type: 'doc',
+              label: 'Pooling',
+              id : 'pytorch/Deberta/Pooling'
             }
           ] 
         }
