@@ -36,6 +36,25 @@ const sidebars: SidebarsConfig = {
           label:'Các hàm cơ bản'
         } 
         ],
+    },
+    {
+      type: 'category',
+      label: 'Pytorch',
+      items: [
+        {type: 'doc',
+          id : 'pytorch/gioithieu'},
+        {
+          type: 'category',
+          label: 'Deberta',
+          items: [
+            {
+              type: 'doc',
+              label: 'Deberta Sequence Classification',
+              id : 'pytorch/Deberta/DebertaForSequenceClassification'
+            }
+          ] 
+        }
+      ]
     }
   ]
 };

@@ -154,6 +154,10 @@ const config: Config = {
             {
               label: "Sách Kungfupandas",
               to: '/docs/kungfupandas/gioithieu',
+            },
+            {
+              label: 'Pytorch',
+              to: 'docs/pytorch/gioithieu'
             }
           ]
         },
@@ -173,6 +177,10 @@ const config: Config = {
               label: 'Kungfu Pandas',
               to: 'docs/kungfupandas/gioithieu',
             },
+            {
+              label: 'Pytorch',
+              to: 'docs/pytorch/gioithieu'
+            }
           ],
         },
         {
