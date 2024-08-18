@@ -2,11 +2,11 @@
 title: Data Envelopment Analysis
 slug: data-envelopment-analysis-phan-tich-hieu-suat
 authors: lhduc
-tags: [Data Science]
+tags: [Data Science, Draft]
 keywords: [Data Science, Math, Data Envelopment Analysis, phân tích đường bao hiệu quả, phân tích hiệu suất, linear programming, quy hoạch tuyến tính]
 image: /img/blog/20240815_1_cover.jpg
 hide_table_of_contents: false
-draft: true
+draft: false
 ---
 ![](cover.jpg)
 <!-- **Đánh giá Hiệu suất là gì​?** -->
