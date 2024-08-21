@@ -1,6 +1,7 @@
 ---
-title: Data Envelopment Analysis
+title: Phân tích hiệu suất với Data Envelopment Analysis
 slug: data-envelopment-analysis-phan-tich-hieu-suat
+description: Khi chúng ta có đầu vào, và nhận được kết quả, chúng ta hay đánh giá hiệu suất của kết quả xem với đầu vào như thế thì kết quả liệu có tốt không.
 authors: lhduc
 tags: [Data Science, Draft]
 keywords: [Data Science, Math, Data Envelopment Analysis, phân tích đường bao hiệu quả, phân tích hiệu suất, linear programming, quy hoạch tuyến tính]
@@ -9,19 +10,49 @@ hide_table_of_contents: false
 draft: false
 ---
 ![](cover.jpg)
-<!-- **Đánh giá Hiệu suất là gì​?** -->
 
-Khi chúng ta có đầu vào, và nhận được kết quả, chúng ta hay đánh giá hiệu suất của kết quả xem với đầu vào như thế thì kết quả liệu có tốt không.​ Một số ví dụ cơ bản: Giá thành/sản phẩm, Lợi nhuận/sản phẩm.​
-<!-- truncate -->
 
+## Giới thiệu
+
+Trong thế giới hiện đại, các Data Scientist đóng vai trò quan trọng trong việc giúp các tổ chức tối ưu hóa hoạt động và đạt được mục tiêu chiến lược. Một trong những công cụ quan trọng trong bộ công cụ của họ là phân tích hiệu suất, một yếu tố then chốt để đảm bảo rằng các nguồn lực được sử dụng một cách hiệu quả nhất. Phân tích hiệu suất cho phép các Data Scientist đánh giá và cải thiện hoạt động của các tổ chức thông qua việc đo lường và phân tích các chỉ số hoạt động quan trọng.
+
+### Tại sao phân tích hiệu suất là cần thiết?
+
+- **Tối Ưu Hóa Quy Trình:** Phân tích hiệu suất giúp xác định các quy trình kém hiệu quả, từ đó đề xuất các biện pháp cải tiến nhằm tối ưu hóa quy trình làm việc và giảm lãng phí tài nguyên.
+
+- **Ra Quyết Định Dựa trên Dữ Liệu:** Đưa ra quyết định chiến lược dựa trên dữ liệu chính xác và đáng tin cậy thay vì cảm tính hoặc dự đoán. Phân tích hiệu suất cung cấp cái nhìn rõ ràng về hoạt động và giúp đưa ra các quyết định thông minh hơn.
+
+- **Đo Lường Thành Công:** Hiểu được các yếu tố chính tạo ra thành công giúp tổ chức duy trì và phát triển các yếu tố đó, đồng thời điều chỉnh các chiến lược để cải thiện hiệu quả.
+
+- **Cải Thiện Hiệu Quả Chi Phí:** Giúp nhận diện các cơ hội tiết kiệm chi phí và tối ưu hóa ngân sách bằng cách phân tích cách các tài nguyên được phân bổ và sử dụng.
+
+- **Tăng Cường Cạnh Tranh:** Hiểu rõ điểm mạnh và điểm yếu của mình so với đối thủ cạnh tranh, từ đó phát triển các chiến lược cải thiện và gia tăng lợi thế cạnh tranh.
+
+### Data Envelopment Analysis (DEA)
+
+Phân Tích Hiệu Suất Dựa trên Data Envelopment Analysis (DEA) là một phương pháp phân tích hiệu suất và đánh giá hiệu quả của các tổ chức, đơn vị, hoặc quy trình dựa trên các dữ liệu đầu vào và đầu ra. Phương pháp này được phát triển bởi Charnes, Cooper, và Rhodes vào năm 1978 và đã nhanh chóng trở thành công cụ quan trọng trong quản lý và nghiên cứu hoạt động.
+
+DEA cung cấp một cách tiếp cận phi tham số để đánh giá hiệu quả, khác với các phương pháp phân tích khác thường dựa trên các giả định và mô hình thống kê cụ thể. Thay vào đó, DEA so sánh các đơn vị đánh giá (hay còn gọi là các đơn vị quyết định, DMUs - Decision Making Units) với nhau dựa trên cách mà các tài nguyên đầu vào của chúng được chuyển đổi thành các kết quả đầu ra.
+
+### Cơ bản về Phân tích hiệu suất
+
+Khi chúng ta đánh giá hiệu suất của một giải pháp, chúng ta cần phải so sánh kết quả đầu vào và đầu ra. Ví dụ như khi chúng ta sản xuất một sản phẩm A với chi phí X/sản phẩm và mang lại lợi nhuận Y/Sản phẩm. Để đánh giá hiệu quả cơ bản nhất, ta có thể so sánh Lợi nhuận/ Chi phí xem hiệu quả của nó mang lại bao nhiêu?
+Giả sử sản phẩm A đó:
+- Chi phí sản xuất 20,000 đồng / sản phẩm
+- Lợi nhuận mang lại 12,000 đồng / sản phẩm
+
+Hiệu quả có thể tính đơn giản là 12,000/20,000 = 0.6
+
+Hay tổng quát hơn, với các yếu tố đầu vào được gọi là Input và đạt được kết quả đầu ra là Output,  hiệu quả có thể được tính theo công thức
 $$
 \frac{Output}{Input}
 $$
 
-Công thức trên được gọi là thước đo hiệu quả.​
-Chúng ta có thể mở rộng công thức trên với Nhiều đầu vào (Inputs) và nhiều đầu ra (Outputs)​
+Input có thể là 1 hoặc nhiều yếu tố và Output cũng có thể là một hoặc nhiều yếu tố. Để đi sâu hơn, chúng ta sẽ đến các ví dụ minh họa ở phần tiếp theo
 
-## Ví dụ đơn giản với một input và một output
+## Ví dụ minh họa
+
+### Một input và Một output
 
 Ví dụ một nhãn hàng có 8 cửa hàng được gán nhãn là A,B,C,D,E,F,G,H với tham số đầu vào là Số lượng nhân viên (Employee) của cửa hàng đó và đầu ra là số lượng hàng bán được (Sales) của cửa hàng. Hệu suất của cửa hàng được tính theo công thức đơn giản là Sales/Employees. Kết quả thu được cửa hàng B có hiệu suất cao nhất là 1 và cửa hàng F có hiệu suất thấp nhất là 0.4
 ![](efficient_frontier.png)
@@ -38,7 +69,7 @@ Chúng ta có thể  vẽ một đường thống kê hồi quy $y=0.622x
 
 ![](efficiente_frontier_regression_line.png)
 
-### So sánh với đường biên
+**So sánh với đường biên**
 
 Với cửa hàng A, có hai cách để so sánh với đường biên. Bằng cách chiếu theo trục tọa độ, chúng ta có hai điểm A1 và A2​
 
@@ -49,7 +80,7 @@ Ngoài ra, bất cứ điểm nào nằm trong đoạn A1A2 cũng là kết qu�
 
 ![](move_up_frontier.png)
 
-## Ví dụ về Dữ liệu với Hai input và Một output
+### Hai input và Một output
 
 Trong ví dụ đầu, chúng ta đã làm quen với đầu vào là Số lượng nhân sự của một cửa hàng và đầu ra là số sale của cửa hàng đó. Ở ví dụ này, chúng ta sẽ làm quen với việc thêm một đầu vào là Diện tích mặt bằng của cửa hàng. Để tiện lợi cho việc tính toán, chúng ta chuẩn hóa số lượng Sale ở các cửa hàng về 1
 
@@ -57,7 +88,7 @@ Trong ví dụ đầu, chúng ta đã làm quen với đầu vào là Số lư�
 
 Đường nối các điểm C, D, E được gọi là đường Efficient Frontiers, đường này bao tất cả các điểm nằm trong nó. Vùng chứa các điểm ở trong này được gọi là Production Possibility Set.
 
-### So sánh với đường biên
+**So sánh với đường biên**
 
 ![](so_sanh_voi_duong_bien_2input_1output.png)
 
@@ -72,7 +103,7 @@ $\frac{OP}{OA} = \frac{4.29}{5} = 0.858$
 - Giữ nguyên employee và giảm area về điểm D
 - Giữ nguyên area và giảm employee về điểm A1
 
-##  Ví dụ về dữ liệu với Một input và Hai output
+### Một input và Hai output
 
 Ngược lại với ví dụ trên, chúng ta sẽ đến ví dụ với một input là số lượng nhân viên của cửa hàng và hai output là số lượng khách hàng và số sales của cửa hàng đó. Tương tự để thuận tiện cho việc tính toán, chúng ta sẽ chuẩn hóa số lượng nhân viên về 1.
 
@@ -90,7 +121,7 @@ Ta có thể nhận thấy B là điểm tham chiếu của cửa hàng A, từ 
 
 Tương tự ta có F,G là hai điểm tham chiếu của D, ta vẽ đường OD cắt FG tại P. Hiệu quả của cửa hàng D được tính bằng $\frac{OD}{OP}=0.75$
 
-## Ví dụ về dữ liệu với Nhiều input và nhiều output
+### Nhiều input và Nhiều output
 
 ![](efficient_frontier_input_output.png)
 
@@ -114,7 +145,13 @@ Một trong những cách có thể chọn tham số cục bộ để tối ưu 
 
 ## CCR model
 
-CCR model được đề xuất bởi Charnes, Cooper và Rhodes vào năm 1978. CCR đưa ra hai khái niệm Virtual input và Virtual output
+CCR model được đề xuất bởi Charnes, Cooper và Rhodes vào năm 1978. CCR là một trong các phương pháp phân tích DEA. Ngoài phương pháp CCR, DEA còn có các biến thể như 
+- BCC (Banker, Charnes, Cooper)
+- SBM (Slacks-Based Measure)
+
+Trong phạm vi bài viết này, mình tập trung vào CCR cơ bản.
+
+CCR đưa ra hai khái niệm Virtual input và Virtual output
 
 $$
 \Large Virtual\ input = v_1*x_1 + ... + v_m * x_m \\
@@ -135,7 +172,7 @@ Với mô hình này, mỗi bệnh viện sẽ có bộ trọng số **tối ưu
 
 ### Công thức cơ bản
 
-Ví dụ chỉ có 5 bệnh viện, để tìm các trọng số sao cho tối ưu bệnh viện A DMU(A), ta có có hàm tối ưu như sau
+Ví dụ chỉ có 5 bệnh viện, để tìm các trọng số sao cho tối ưu bệnh viện A DMU(A), ta có hàm tối ưu như sau
 ![](CCR.png)
 
 Chúng ta cần tìm 
@@ -162,7 +199,7 @@ $$
 \frac{94u_1+66u_2}{22v_1+158v_2}\le 1 (E)
 $$
 
-Bài toán trên có thể chuyển đổi thành bài toán quy hoạch tuyến tính sau
+Bài toán trên có thể chuyển đổi thành bài toán quy hoạch tuyến tính sau. 
 
 $$
 Maximize\ 100u_1 + 90u_2
@@ -285,3 +322,7 @@ Ta lập bảng tính toán như sau
 Kết quả phân tích cho thấy
 Bệnh viện C đang dư thừa 4 Bác sĩ và 18 Y tá cho việc điều trị 160 Bệnh nhân ngoại trú và 55 Bệnh nhân nội trú.
 
+
+## Tài liệu tham khảo
+
+- [Data Envelopment Analysis: A Comprehensive Text with Models, Applications, References and DEA-Solver Software](https://www.researchgate.net/publication/321619879_Data_Envelopment_Analysis_A_Comprehensive_Text_with_Models_Applications_References_and_DEA-Solver_Software)
