@@ -3,6 +3,7 @@ title: Covariance và Correlation
 slug: covariance-correlation
 authors: lhduc
 tags: [Math]
+keywords: [Math, covariance, correlation, regression]
 image: /img/blog/20240320_1_cover_1.jpg
 hide_table_of_contents: false
 ---

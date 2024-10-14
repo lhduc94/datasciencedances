@@ -5,6 +5,7 @@ import clsx from "clsx";
 import LinkWithBaseUrl from "../../common/LinkWithBaseUrl";
 import styles from "./styles.module.scss";
 import BlogPostItemHeaderAuthors  from "@theme/BlogPostItem/Header/Authors"
+import Link, { Props } from "@docusaurus/Link";
 
 interface Author {
   name: string;
@@ -63,9 +64,11 @@ export default function HomepageBlogPosts() {
   return (
     <div className={styles.wrap}>
       <div className={styles.gTitle}>
-        <Translate>Bài viết mới nhất</Translate>
+        <Translate>Bài viết mới nhất 🔥🔥</Translate>
       </div>
       <div className={clsx(styles.listWrap, "link-wrap")}>{itemDom}</div>
+
     </div>
+    
   );
 }

@@ -1,0 +1,246 @@
+## Sử dụng apply
+
+Phương thức `apply` để thực thi một hàm theo dòng hoặc cột
+
+### Sử dụng apply lên Series
+
+```python
+Series.apply(func, convert_dtype=True, args=(), **kwargs)
+```
+
+Trong đó:
+
+- `func`: là hàm cần thực thi
+
+- `convert_dtype`: Giá trị kiểu boolean. Nếu nó được đặt thành True (mặc định), xử lý dữ liệu sẽ cố gắng tìm dtype tốt hơn cho các kết quả của hàm `func`. Nếu `False`, thì dtype sẽ là type(object)
+
+- `args`: Các đối số của hàm 
+
+
+Ví dụ, thao tác `Item_Outlet_Sales` * `5%`
+
+Sử dụng lambda function
+
+```python
+df['Item_Outlet_Sales'].apply(lambda x: x * 0.05)
+```
+
+```{.python_output}
+0       186.75690
+1        22.17114
+2       104.86350
+3        36.61900
+4        49.73526
+          ...    
+8518    138.91917
+8519     27.46425
+8520     59.65568
+8521     92.27988
+8522     38.28350
+Name: Item_Outlet_Sales, Length: 8523, dtype: float64
+```
+
+Sử dụng hàm tự định nghĩa
+
+```python
+def set_price(x, k=0.05):
+    return x * k
+```
+
+```python
+df['Item_Outlet_Sales'].apply(set_price)
+```
+
+```{.python_output}
+0       186.75690
+1        22.17114
+2       104.86350
+3        36.61900
+4        49.73526
+          ...    
+8518    138.91917
+8519     27.46425
+8520     59.65568
+8521     92.27988
+8522     38.28350
+Name: Item_Outlet_Sales, Length: 8523, dtype: float64
+```
+
+Có thể truyền tham số `k` vào hàm `set_price` bằng hai cách
+
+```python
+# Cách 1 - Dùng lambda
+df['Item_Outlet_Sales'].apply(lambda x: set_price(x, 0.1))
+
+# Cách 2 - Dùng `arg`
+df['Item_Outlet_Sales'].apply(set_price, k=0.1)
+```
+
+### Sử dụng apply lên `DataFrame`
+
+Ta dùng cú pháp
+
+```python
+DataFrame.apply(func, axis=0, raw=False, result_type=None, args=(), **kwargs)
+```
+
+Trong đó:
+
+- `func`: là hàm cần thực thi
+
+- `axis`: thực thi theo dòng `0` hoặc cột `1`
+
+- `raw`: Xác định xem dòng hoặc cột có thể chuyển về `Series` hoặc `ndarray`
+
+- `result_type`: Chỉ áp dụng cho `axis=1` 
+
+- `args`: Các đối số của hàm 
+
+Ví dụ:
+
+```python
+sample_df = sample_df = pd.DataFrame([[1, 2, 'A'], [3, 6, 'B'], [5, 10, 'C']], columns=['A', 'B', 'C'])
+sample_df
+```
+
+```{.python_output}
+   A   B  C
+0  1   2  A
+1  3   6  B
+2  5  10  C
+```
+Áp dụng trên toàn `DataFrame`
+
+```python
+sample_df.apply(lambda x: x * 2)
+```
+
+```{.python_output}
+     A	 B	 C
+0	 2	 4	AA
+1	 6	12	BB
+2	10	20	CC
+```
+
+```{block2, type='rmdnote'}
+**_Lưu ý:_** 
+
+Khi áp dụng cho toàn `DataFrame` hãy cẩn thận hàm `func` truyền vào, nếu `func` không áp dụng được cho toàn bộ các phần tử sẽ báo lỗi.
+
+Ví dụ ở trên với x * 2 vẫn áp dụng được cho cột `C` dạng `str`, nhưng khi thay bằng x ** 2 sẽ báo lỗi vì toán tử `**` không áp dụng cho `str` 
+```
+
+Áp dụng trên một số cột trong `DataFrame`
+``` Python
+## Theo cột
+sample_df[['A', 'B']].apply(np.sum, axis=1)
+```
+
+```{.python_output}
+0    13
+1    13
+2    13
+dtype: int64
+```
+
+```python
+## Theo dòng
+df[['A', 'B']].apply(lambda x: np.sum(x), axis=0)
+```
+
+```{.python_output}
+A    12
+B    27
+dtype: int64
+```
+Một cách khác áp dụng trên một số cột trong `DataFrame`
+
+Sử dụng lambda
+```python
+sample_df.apply(lambda x: x['A'] + 2 * x['B'], axis=1)
+```
+
+```{.python_output}
+0     5
+1    15
+2    25
+dtype: int64
+```
+
+Dùng hàm định nghĩa
+
+```python 
+def dsum(row):
+    return row['A'] + 2 * row['B']
+```
+
+```python
+sample_df.apply(dsum, axis=1)
+```
+
+```{.python_output}
+0     5
+1    15
+2    25
+dtype: int64
+```
+
+```{block2, type='rmdtip'}
+**_Mẹo:_**
+
+- Không nhất thiết giá trị trả về của hàm là giá trị đơn, giá trị trả về có thể dưới dạng list, tuple hoặc dict
+
+- Dùng `result_type` để thay đổi cách trả về
+```
+
+Ví dụ ta có 1 hàm trả về nhiều giá trị cùng lúc như sau
+
+```python
+def dsum_2(row):
+    return [row['A'] + 2 * row['B'],  row['A'] - 2 * row['B']]
+```
+
+```python
+## Khi không sử dụng `result_type`
+sample_df.apply(dsum_2, axis=1)
+```
+
+```{.python_output}
+0      [5, -3]
+1     [15, -9]
+2    [25, -15]
+dtype: object
+```
+
+Kết quả trả về của phương pháp trên là `Series` với các giá trị của nó là dạng list. Để chuyển `Series` này thành `DataFrame` với các cột chứa các giá trị của list theo thứ tự, ta dùng `result_type='expand'`
+
+```python
+sample_df.apply(dsum_2, axis=1, result_type='expand')
+```
+
+```{.python_output}
+    0   1
+0   5  -3
+1  15  -9
+2  25 -15
+```
+
+```{block2, type='rmdtip'}
+**_Mẹo:_** Có thể cấu trúc trả về dưới dạng `DataFrame` cho ví dụ trên mà không cần dùng `result_type` bằng cách sử dụng `pd.Series` của một `dictionary`. Lúc này các cột của `DataFrame` sẽ được đánh nhãn theo key của `dictionary`
+```
+
+```python
+def dsum_3(row):
+    return pd.Series({'X': row['A'] + 2 * row['B'],  'Y':row['A'] - 2 * row['B']})
+```
+
+```python
+sample_df.apply(dsum_3, axis=1)
+```
+
+```{.python_output}
+	X	Y
+0	5	-3
+1	15	-9
+2	25	-15
+```

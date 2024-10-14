@@ -18,7 +18,49 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Sách Kungfu Pandas',
-      items: ['kungfupandas/gioithieu'],
+      items: [
+        {type: 'doc',
+         id : 'kungfupandas/gioithieu'},
+        {type: 'doc',
+          id: 'kungfupandas/DataStructure/Introduction',
+          label:'Cấu trúc dữ liệu'
+        },
+        {
+          type: 'doc',
+          id: 'kungfupandas/IO/Introduction',
+          label:'Đọc và lưu dữ liệu'
+        },
+        {
+          type: 'doc',
+          id: 'kungfupandas/Fundamental_Function/Introduction',
+          label:'Các hàm cơ bản'
+        } 
+        ],
+    },
+    {
+      type: 'category',
+      label: 'Pytorch',
+      items: [
+        {type: 'doc',
+          label: 'Giới thiệu',
+          id : 'pytorch/gioithieu'},
+        {
+          type: 'category',
+          label: 'Deberta',
+          items: [
+            {
+              type: 'doc',
+              label: 'Deberta Sequence Classification',
+              id : 'pytorch/Deberta/DebertaForSequenceClassification'
+            },
+            {
+              type: 'doc',
+              label: 'Pooling',
+              id : 'pytorch/Deberta/Pooling'
+            }
+          ] 
+        }
+      ]
     }
   ]
 };

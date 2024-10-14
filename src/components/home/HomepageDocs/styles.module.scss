@@ -1,5 +1,6 @@
 .wrap {
-    background-color:var(--ifm-color-primary);
+    background-color: rgb(3, 5, 19);
+    // background: linear-gradient(-90.73deg, rgba(247, 247, 247, 0.2) 12.73%,  rgb(37, 33, 33) 96.49%);
     padding-top: 62px;
     padding-bottom: 62px;
     z-index: 2;
@@ -16,7 +17,7 @@
       }
       
   
-      .left {
+      .maincontent {
         display: grid;
         grid-template-columns: auto;
         row-gap: 32px;
@@ -29,28 +30,50 @@
           display: block;
           margin: 0 auto;
           .title {
-            
+            // font-family: Be Vietnam Pro,sans-serif;
             font-size: 40px;
             font-weight: bold;
             line-height: 26px;
             margin: 17px 0 20px 0;
-            color: white;
+            color: whitesmoke;
+            font-family: Mazzard,sans-serif;
+
+            // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
           }
           .desc {
-            font-size: 16px;
+            margin-top: 50px;
+            font-size: 24px;
             font-weight: 400;
-            line-height: 20px;
+            line-height: 24px;
             text-align: left;
-            color: white;
+            color: whitesmoke;
             text-decoration: none;
+            font-family: Mazzard,sans-serif;
+
           }
+          .button {
+            margin-top: 30px;
+            background-color: white;
+            color: black;
+            // text-transform: uppercase;
+            border: 1px solid black;
+            border-radius: 20px;
+            &:hover{
+              transform: scale(1.05);
+              box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 12px,
+               rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                rgba(0, 0, 0, 0.12) 0px 4px 6px,
+                 rgba(0, 0, 0, 0.17) 0px 12px 13px,
+                  rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            }
+          } 
         }
       }
-      .right {
+      .maintitle {
         flex-grow: 0;
         width:50%;
         // height: 500px;
-        .imageright {
+        .imagecover {
           // display: flex;
           // justify-content: center;
           // align-items: center;
@@ -85,6 +108,7 @@
           margin-top: 10px;
           display: inline-block;
           text-align: center;
+          
         }
       }
     }
@@ -101,7 +125,7 @@
         padding: 0 var(--mobile-padding-width);
         box-sizing: border-box;
         
-        .left {
+        .maincontent {
           width: 70%;
           
           .item {
@@ -114,7 +138,7 @@
             }
           }
         }
-        .right {
+        .maintitle {
           width: 70%;
           margin-bottom: 38px;
           img {
@@ -130,16 +154,20 @@
   
     @media screen and (max-width: 768px) {
       .content {
-        .left {
+        .maincontent {
           .item {
             .title {
               text-align: center;
               font-size: 40px;
               line-height: 1;
+              margin-top: 20px;
+            }
+            .desc{
+              font-size: 16px;
             }
           }
         }
-        .right {
+        .maintitle {
           .text {
             font-size: 40px;
             line-height: 1;
@@ -148,3 +176,4 @@
       }
     }
   }
+

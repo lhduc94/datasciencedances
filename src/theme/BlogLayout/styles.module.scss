@@ -10,6 +10,9 @@
         flex-wrap: wrap;
         display: flex;
         justify-content: space-between;
+        article {
+         background-color: whitesmoke;
+        }
       }
     }
     &.blogDetail {

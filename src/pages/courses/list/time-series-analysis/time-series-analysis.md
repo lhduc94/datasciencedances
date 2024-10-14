@@ -49,7 +49,7 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 ###  Nội dung chi tiết 
 
 <details>
-  <summary><h4>Tuần 1: Giới thiệu chuỗi thời gian</h4></summary>
+  <summary><h4>Nội dung 1: Giới thiệu chuỗi thời gian</h4></summary>
 - Giới thiệu chuỗi thời gian
     - Chuỗi thời gian là gì
     - Luyện tập chuỗi thời gian trên Pandas và Numpy
@@ -70,7 +70,7 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 </details>
 
 <details>
-  <summary><h4>Tuần 2: ARIMA model </h4></summary>
+  <summary><h4>Nội dung 2: ARIMA model </h4></summary>
 - Tính dừng và Làm mịn chuỗi thời gian
     - Tính dừng là gì
     - Làm mịn chuỗi thời gian
@@ -87,7 +87,7 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 </details>
 
 <details>
-  <summary><h4>Tuần 3: VAR model, ARCH model, Hierachical</h4></summary>
+  <summary><h4>Nội dung 3: VAR model, ARCH model, Hierachical</h4></summary>
 - Phân tích dữ liệu chuỗi thời gian đa biến 
     - Mô hình VAR
     - Ước lượng mô hình VAR
@@ -108,7 +108,7 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 </details>
 
 <details>
-  <summary><h4>Tuần 4: Các thuật toán dự đoán mô hình nâng cao  </h4></summary>
+  <summary><h4>Nội dung 4: Các thuật toán dự đoán mô hình nâng cao  </h4></summary>
 - Mô hình cây trong Dự đoán chuỗi thời gian
     - Một số phương pháp tạo đặc trưng mới từ dữ liệu đã có
     - Huấn luyện mô hình cây cho dữ liệu nhiều chuỗi thời gian
@@ -120,14 +120,14 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 
 
 <details>
-  <summary><h4>Tuần 5: Mô hình phân tích Sống Sót (Survival Analysis) </h4></summary>
+  <summary><h4>Nội dung 5: Mô hình phân tích Sống Sót (Survival Analysis) </h4></summary>
 - Mô hình phân tích sống sót là gì
 - Sử dụng Phân tích sống sót bằng Python
 - Áp dụng Mô hình phân tích sống sót vào bài toán Khách hàng rời mạng 
 </details>
 
 <details>
-  <summary><h4>Tuần 6: Anomaly Detection </h4></summary>
+  <summary><h4>Nội dung 6: Anomaly Detection </h4></summary>
 - Phương pháp Thống kê
     - phân loại một số mẫu bất thường bằng phương pháp thống kê
     - Sử dụng Pandas để nhận diện các điểm bất thường bằng phương pháp thống kê
@@ -137,7 +137,7 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 </details>
 
 <details>
-  <summary><h4>Tuần 7: Sử dụng một số thư viện Forecasting </h4></summary>
+  <summary><h4>Nội dung 7: Sử dụng một số thư viện Forecasting </h4></summary>
 - TSLearn
 - MLForeacasting
 - Prophet

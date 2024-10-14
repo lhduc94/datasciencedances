@@ -1,7 +1,7 @@
 .wrap {
   padding: 80px 70px;
   box-sizing: border-box;
-  background-color: var(--ifm-color-primary);
+  background-color: rgb(3, 5, 19);
   max-width: var(--global-main-width);
   margin:  auto;
   // background-image: url("/img/open-book.png");
@@ -18,6 +18,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
+    
     a {
       width: 100%;
       .item {
@@ -94,7 +95,9 @@
         }
       }
     }
+
   }
+  
   @media screen and (max-width: 1024px) {
     padding: 80px var(--mobile-padding-width);
 
@@ -135,3 +138,20 @@
     }
   }
 }
+
+.button {
+  margin-top: 20px;
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  border: 1px solid black;
+  border-radius: 20px;
+  &:hover{
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 12px,
+     rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+       rgba(0, 0, 0, 0.17) 0px 12px 13px,
+        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+} 

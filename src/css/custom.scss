@@ -85,7 +85,7 @@ div.markdown h2, div.markdown h3,div.markdown strong
   color: #026992;
 }
 
-article h2, article h3, article strong
+article h1, article h2, article h3, article strong
 {
   color: #026992;
 }
@@ -168,6 +168,7 @@ div.docsWrapper_hBAB{
 }
 .footer{
   z-index: 2;
+  background-color: rgb(3, 5, 19);
 }
 
 .navbar{
@@ -183,4 +184,26 @@ figcaption {
   text-align: center;
   // font-style: italic;
   color: #828282;
+}
+
+.markdown p {
+  font-size: 20px;
+}
+
+.markdown li {
+  font-size: 20px;
+}
+
+pythonoutput code {
+  background-color: #000;
+  color: white;
+}
+pythonoutput code span{
+  color: white;
+}
+
+article p code {
+  color: #bd1481;
+  background-color: #ffffff00;
+  padding: 0;
 }

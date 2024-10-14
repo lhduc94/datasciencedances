@@ -1,0 +1,327 @@
+## Xử  lý dữ liệu dạng text 
+Chúng ta có thể lưu dữ liệu text trong Pandas dưới hai dạng dữ liệu : object hoặc string​
+
+```python
+s = pd.Series( ["A", "B", "C", "Aaba", "Baca", np.nan, "CABA", "dog", "cat"], dtype="string")​
+```
+
+Để thực hiện các thao tác cho dữ liệu dạng text ta hay dùng `s.str.<phương thức>`.
+
+### lower()
+
+Chúng ta có thể chuyển text về các kí tự viết thường bằng phương thức `lower()`
+
+```python
+s.str.lower()
+```
+
+```{.python_output}
+0       a
+1       b
+2       c
+3    aaba
+4    baca
+5    <NA>
+6    caba
+7     dog
+8     cat
+```
+
+
+### upper()
+
+Chúng ta có thể chuyển text về các kí tự viết hoa bằng phương thức `upper()`
+
+```python
+s.str.upper()
+```
+
+```{.python_output}
+0       A
+1       B
+2       C
+3    AABA
+4    BACA
+5    <NA>
+6    CABA
+7     DOG
+8     CAT
+```
+
+### split()
+
+#### Thao tác cơ bản {-}
+split giúp cắt chuỗi theo một pattern cho trước, mặc định pattern là khoảng trắng
+
+```python
+s2 = pd.Series(["a_b_c ", "c_d_e", np.nan, "f_g_h"], dtype="string")
+s2.str.split("_")​​
+```
+
+```{.python_output}
+0    [a, b, c]​
+1    [c, d, e]​
+2         <NA>​
+3    [f, g, h]​
+```
+
+Chúng ta có thể chỉ lấy phần tử thứ `i` sau khi split bằng hai cách
+
+- Cách thứ nhất, dùng `get(i)`
+
+```python
+s2.str.split("_").str.get(1)​
+```
+
+```{.python_output}
+0       b​
+1       d​
+2    <NA>​
+3       g
+```
+
+- Cách thứ hai, dùng `[i]`
+
+```python
+s2.str.split("_").str[1]
+```
+
+```{.python_output}
+0       b​
+1       d​
+2    <NA>​
+3       g
+```
+
+#### Tách các phần tử thành nhiều Series {-}
+
+Như cách split mặc định ở phần đầu, chúng ta có kết quả là một Series với mỗi phần tử là một danh sách
+
+```python
+s2.str.split("_")
+```
+
+```{.python_output}
+0    [a, b, c]​
+1    [c, d, e]​
+2         <NA>​
+3    [f, g, h]​
+```
+
+Chúng ta có thể chia tách các danh sách thành các cột khác nhau bằng tham số `expand`, lúc này sẽ sinh ra một DataFrame mới với số cột bằng với số phần tử tối đa của các danh sách
+
+```python
+s2.str.split("_", expand=True)​
+```
+
+```{.python_output}
+      0     1     2​
+0     a     b     c​
+1     c     d     e​
+2  <NA>  <NA>  <NA>​
+3     f     g     h
+```
+
+Ngoài ra, chúng ta cũng có thể chỉ định cắt theo vị trí bằng tham số `n`. Ví dụ chúng ta chỉ cắt chuỗi theo ký tự phân tách `_` đầu tiên
+
+```python
+s2.str.split("_", expand=True, n=1)​
+```
+
+```{.python_output}
+      0     1
+0     a   b_c
+1     c   d_e
+2  <NA>  <NA>
+3     f   g_h
+```
+
+
+### replace
+
+```python
+s3 = pd.Series(​
+
+    ["A ", "B ", "C ", "Aaba ", "Baca ", "", np.nan, "CABA ", "dog ", "cat"],​
+
+    dtype="string",​
+
+)​
+s3
+```
+
+```{.python_output}
+0       A
+1       B
+2       C
+3    Aaba
+4    Baca
+5        
+6    <NA>
+7    CABA
+8     dog
+9     cat
+```
+
+```python
+s3.str.replace("^.a|dog ", "XX-XX ", case=False, regex=True)​
+```
+
+```{.python_output}
+0           A
+1           B
+2           C
+3    XX-XX ba
+4    XX-XX ca
+5            
+6        <NA>
+7    XX-XX BA
+8      XX-XX 
+9     XX-XX t
+```
+
+### remove
+
+```python
+s = pd.Series(["str_foo ", "str_bar ", "no_prefix"])
+s​
+```
+
+```{.python_output}
+0             str_foo
+1             bar_str
+2    no_prefix_suffix
+```
+
+```python
+s.str.removeprefix("str_")​
+```
+
+```{.python_output}
+0                 foo
+1             bar_str
+2    no_prefix_suffix
+```
+
+```python
+s.str.removesuffix("_str")​
+```
+
+```{.python_output}
+0             str_foo
+1                 bar
+2    no_prefix_suffix
+```
+
+
+### concatenate
+
+Để nối các text với nhau, chúng ta có thể sử dụng phương thức .str.cat()​
+
+```python
+Series.str.cat(others=None, sep=None, na_rep=None, join="left")
+```
+Trong đó​
+
+- others: có thể là Series, DataFrame, np.ndarray hoặc có thể là None​
+
+- sep: dùng để thể hiện phân cách giữa các thành phần sau khi nối​
+
+- na_rep: thay thế các giá trị bị thiếu bằng một giá trị nào đó​
+
+- join: Nếu others là một series thì sẽ join 2 kết quả theo index và theo phương thức { "left ", "right ", "outer ", "inner"}​
+
+
+Khi không truyền gì cả vào others, toàn bộ giá trị của series sẽ nối về thành một string​
+
+```python
+s = pd.Series(["a ", "b ", "c ", "d", np.nan], dtype="string")​
+s.str.cat()​
+```
+
+```{.python_output}
+'abcd'
+```
+
+```python
+s.str.cat(sep=",")
+```
+
+```{.python_output}
+'a,b,c,d'
+```
+
+```python
+s.str.cat(sep="\t") 
+```
+
+```{.python_output}
+'a\tb\tc\td'
+```
+
+```python
+s.str.cat(sep=",", na_rep="?")
+```
+
+```{.python_output}
+'a,b,c,d,?'
+```
+
+Khi truyền vào `cat` một List hoặc Array, bắt buộc độ dài của chúng phải bằng với độ dài của Series ​
+
+```python
+s.str.cat(["A ", "B ", "C", np.nan, "E"], na_rep="?") ​
+```
+
+```{.python_output}
+0    aA
+1    bB
+2    cC
+3    d?
+4    ?E
+```
+
+Concat 2 Series
+
+ví dụ ta muốn kết hợp series `s` với series `t`, có các cách kết hợp như sau
+
+```python
+t = pd.Series(["A ", "B ", "C ", "D"], index=[3, 0, 4, 2])
+t​
+```
+
+```{.python_output}
+3    A
+0    B
+4    C
+2    D
+dtype: object
+```
+
+- Sử dụng `join="outer"`, lúc này sẽ kết hợp cả hai index của hai Series với nhau, nếu Series nào không có index của Series kia thì giá trị phần tử tại đó sẽ là NaN
+
+```python
+ s.str.cat(t, join="outer")
+```
+
+```{.python_output}
+0    aB
+1    NaN
+2     cD
+3    dA
+4    NaN
+```
+
+Để thay thế NaN bằng một giá trị khác, chúng ta có thể thêm tham số `na_rep`
+
+```python
+s.str.cat(t, join="outer", na_rep="?")
+```
+
+```{.python_output}
+0    aB
+1    b?
+2    cD
+3    dA
+4    ?C
+```

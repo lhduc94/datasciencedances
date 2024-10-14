@@ -38,7 +38,7 @@ const config: Config = {
           showReadingTime: true,
           // blogSidebarTitle: 'Các bài viết',
           blogSidebarCount: 'ALL',
-          postsPerPage: 20,
+          postsPerPage: 100,
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex]
         },
@@ -110,13 +110,13 @@ const config: Config = {
       title: 'Data Science Dances',
       logo: {
         alt: 'Data Science Dances',
-        src: 'img/favicon.png',
+        src: 'img/dsd2-favicon.jpg',
       },
       items: [
-        {type:'docSidebar',
-         sidebarId: 'tailieuSidebar',
-         position: 'left',
-         label: 'Tài liệu tham khảo'},
+        // {type:'docSidebar',
+        //  sidebarId: 'tailieuSidebar',
+        //  position: 'left',
+        //  label: 'Tài liệu tham khảo 2'},
 
         {
           to: '/blog', label: 'Blog', position: 'left'
@@ -126,13 +126,17 @@ const config: Config = {
           label: "Khóa học",
           to: '/courses',
           items:[
-            {
-              label: "Giới thiệu",
-              to: "/courses"
-            },
+            // {
+            //   label: "Giới thiệu",
+            //   to: "/courses"
+            // },
             {
               label: "Time Series Analysis",
               to: "/courses/list/time-series-analysis/time-series-analysis"
+            },
+            {
+              label: "Thực hành Phân tích dữ liệu",
+              to: "/courses/list/analysis-in-practice/analysis-in-practice"
             },
             {
               label: "Đánh giá hiệu suất Mô hình",
@@ -142,13 +146,24 @@ const config: Config = {
         },
         {
           type: 'dropdown',
-          label: "Roadmap",
+          label: "Tài liệu tham khảo",
           items:[
             {
-              label: "Data Scientist",
-              to: '/roadmap/datascientist'}
+              label: "Roadmap Data Scientist",
+              to: '/roadmap/datascientist'},
+            {
+              label: "Sách Kungfupandas",
+              to: '/docs/kungfupandas/gioithieu',
+            },
+            {
+              label: 'Pytorch',
+              to: 'docs/pytorch/gioithieu'
+            }
           ]
-        }
+        },
+        {
+          to: '/datasets/data', label: 'Datasets', position: 'left'
+        },
       ],
     },
     
@@ -162,6 +177,10 @@ const config: Config = {
               label: 'Kungfu Pandas',
               to: 'docs/kungfupandas/gioithieu',
             },
+            {
+              label: 'Pytorch',
+              to: 'docs/pytorch/gioithieu'
+            }
           ],
         },
         {
