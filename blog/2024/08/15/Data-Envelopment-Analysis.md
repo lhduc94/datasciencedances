@@ -3,7 +3,7 @@ title: Phân tích hiệu suất với Data Envelopment Analysis
 slug: data-envelopment-analysis-phan-tich-hieu-suat
 description: Khi chúng ta có đầu vào, và nhận được kết quả, chúng ta hay đánh giá hiệu suất của kết quả xem với đầu vào như thế thì kết quả liệu có tốt không.
 authors: lhduc
-tags: [Data Science, Draft]
+tags: [Data Science]
 keywords: [Data Science, Math, Data Envelopment Analysis, phân tích đường bao hiệu quả, phân tích hiệu suất, linear programming, quy hoạch tuyến tính]
 image: /img/blog/20240815_1_cover.jpg
 hide_table_of_contents: false
@@ -50,26 +50,29 @@ $$
 
 Input có thể là 1 hoặc nhiều yếu tố và Output cũng có thể là một hoặc nhiều yếu tố. Để đi sâu hơn, chúng ta sẽ đến các ví dụ minh họa ở phần tiếp theo
 
-## Ví dụ minh họa
+## Bài toán Phân tích hiệu suất
 
-### Một input và Một output
+### Bài toán 1 input và 1 output
 
-Ví dụ một nhãn hàng có 8 cửa hàng được gán nhãn là A,B,C,D,E,F,G,H với tham số đầu vào là Số lượng nhân viên (Employee) của cửa hàng đó và đầu ra là số lượng hàng bán được (Sales) của cửa hàng. Hệu suất của cửa hàng được tính theo công thức đơn giản là Sales/Employees. Kết quả thu được cửa hàng B có hiệu suất cao nhất là 1 và cửa hàng F có hiệu suất thấp nhất là 0.4
+**Phát biểu bài toán**
+
+Ví dụ một nhãn hàng có 8 cửa hàng được gán nhãn là A, B, C, D, E, F, G, H với Input là Số lượng nhân viên (Employee) của cửa hàng đó và Output là số lượng hàng bán được (Sales) của cửa hàng. Hệu suất của cửa hàng được tính theo công thức đơn giản là Sales/Employees. Kết quả thu được cửa hàng B có hiệu suất cao nhất là 1 và cửa hàng F có hiệu suất thấp nhất là 0.4
 ![](efficient_frontier.png)
 
+**Phân tích đánh giá**
+
 Ta có thể biểu diễn mối tương quan giữa Input và Output bằng scatterplot.
-Độ dốc của đường nối với mỗi điểm và gốc tọa độ O(0,0) tương ứng với Sales/ Employee ( hiệu quả). Trong hình trên ta có thể tính được đường thằng OB có dạng $y=1x$, do đó hiệu suất của B là 1. ​
+Độ dốc của đường nối với mỗi điểm và gốc tọa độ $O(0,0)$ tương ứng với $Sales/ Employee$ ( hiệu quả). Trong hình trên ta có thể tính được đường thằng $OB$ có dạng $y=1x$, do đó hiệu suất của B là 1. ​
 
-Đường có độ dốc cao nhất (nối với điểm B) được gọi là Efficient  Frontier (Đường biên hiệu quả).​ Các điểm sẽ nằm cùng 1 phía so với đường thẳng, hoặc ở trên, hoặc ở dưới.​ Nếu chúng ta vẽ Output là trục tung và Input là trục hoành thì các điểm sẽ nằm phía dưới đường biên hiệu quả. Ngược lại nếu chúng ta vẽ Output là trục hoành và Input là trục tung thì các điểm sẽ nằm phía trên của đường biên hiệu quả.
+Đường có độ dốc cao nhất (đi qua gốc tọa độ và điểm B) được gọi là Efficient Frontier (Đường biên hiệu quả).​ Các điểm sẽ nằm cùng 1 phía so với đường thẳng, hoặc ở trên, hoặc ở dưới.​ Nếu chúng ta vẽ Output là trục tung và Input là trục hoành thì các điểm sẽ nằm phía dưới đường biên hiệu quả. Ngược lại nếu chúng ta vẽ Output là trục hoành và Input là trục tung thì các điểm sẽ nằm phía trên của đường biên hiệu quả.
 
-
-Chúng ta có thể  vẽ một đường thống kê hồi quy $y=0.622x$ để ước lượng mối quan hệ tuyến tính giữa input và output.​ Đường hồi quy này đi qua chính giữa của tập dữ liệu, do đó chúng ta có thể xem các điểm ở phía trên đường là hiệu quả tốt và điểm dưới là chưa tốt, khoảng cách giữa điểm tới hình chiếu của điểm đó trên đường hồi quy chính ta mức độ hiệu quả/không hiệu quả​ so với trung bình. Trong ví dụ trên, chúng ta có thể thấy điểm H gần với trung bình nhất, 
+Chúng ta có thể  vẽ một đường thống kê hồi quy $y=0.622x$ để ước lượng mối quan hệ tuyến tính giữa Input và Output.​ Đường hồi quy này đi qua chính giữa của tập dữ liệu, do đó chúng ta có thể xem các điểm ở phía trên đường là hiệu quả tốt và điểm dưới là chưa tốt, khoảng cách giữa điểm tới hình chiếu của điểm đó trên đường hồi quy chính ta mức độ hiệu quả/không hiệu quả​ so với trung bình. Trong ví dụ trên, chúng ta có thể thấy điểm H gần với trung bình nhất.
 
 <!-- Khoảng cách từ các điểm đến đường Efficient Frontier nêu lên độ lệch so với điểm tốt nhất​ -->
 
 ![](efficiente_frontier_regression_line.png)
 
-**So sánh với đường biên**
+**So sánh với đường biên hiệu quả**
 
 Với cửa hàng A, có hai cách để so sánh với đường biên. Bằng cách chiếu theo trục tọa độ, chúng ta có hai điểm A1 và A2​
 
@@ -80,40 +83,55 @@ Ngoài ra, bất cứ điểm nào nằm trong đoạn A1A2 cũng là kết qu�
 
 ![](move_up_frontier.png)
 
-### Hai input và Một output
+### Bài toán 2 input và 1 output
+
+**Phát biểu bài toán**
 
 Trong ví dụ đầu, chúng ta đã làm quen với đầu vào là Số lượng nhân sự của một cửa hàng và đầu ra là số sale của cửa hàng đó. Ở ví dụ này, chúng ta sẽ làm quen với việc thêm một đầu vào là Diện tích mặt bằng của cửa hàng. Để tiện lợi cho việc tính toán, chúng ta chuẩn hóa số lượng Sale ở các cửa hàng về 1
 
 ![](efficient_frontier_2input_1output.png)
 
-Đường nối các điểm C, D, E được gọi là đường Efficient Frontiers, đường này bao tất cả các điểm nằm trong nó. Vùng chứa các điểm ở trong này được gọi là Production Possibility Set.
+**Phân tích đánh giá**
 
-**So sánh với đường biên**
+Với bài toán này, ta vẽ scatterplot với 2 trục tung và hoành lần lượt là $\frac{Input_1}{Output} = \frac{Employees}{Sales}$ và $\frac{Input_2}{Output} = \frac{Floor Area}{Sales}$. 
+
+Đường biên hiệu quả trong trường hợp này là đường gấp khúc đi qua 3 điểm E, D, C. Đường này bao tất cả các điểm nằm trong nó, tất cả các điểm còn lại đều nằm cùng phía và nằm phần trên so với Đường biên hiệu quả
+
+Vùng chứa các điểm ở trong này được gọi là Production Possibility Set.
+
+**So sánh với đường biên hiệu quả**
 
 ![](so_sanh_voi_duong_bien_2input_1output.png)
 
 
-Với cửa hàng A,ta có thể nói rằng hai cửa hàng E,D là cửa hàng tham chiếu của nó, nghĩa là để tối ưu hiệu suất của cửa hàng A, ta cần phải dựa trên hiệu quả của cửa hàng E và D. Để làm được điều này, chúng ta vẽ đường thẳng OA cắt đường biên E, D tại P có **Employees/Sales** và **Area/Sales** lần lượt là 3.43 và 2.58. 
-Do đó, hiệu quả của A sẽ được tính theo cách hình học như sau:
+Với cửa hàng A, ta có thể nói rằng hai cửa hàng E, D là cửa hàng tham chiếu của nó, nghĩa là để tối ưu hiệu suất của cửa hàng A, ta cần phải dựa trên hiệu quả của cửa hàng E và D. Để làm được điều này, chúng ta vẽ đường thẳng OA cắt đường biên E, D tại P có $\frac{Employees}{Sales}$ và $\frac{Area}{Sales}$ lần lượt là 3.43 và 2.58. 
+Do đó, hiệu quả của A sẽ được tính theo cách hình học như sau: $\frac{OP}{OA} = \frac{4.29}{5} = 0.858$
 
-$\frac{OP}{OA} = \frac{4.29}{5} = 0.858$
-
-Để tối cửa hàng A, ta có các phương án sau
-- Giảm employee/sale về 3.43 và area/sale về 2.58
+Để tối ưu cửa hàng A, ta có các phương án sau
+- Giảm employees/sales về 3.43 và areas/sales về 2.58
 - Giữ nguyên employee và giảm area về điểm D
 - Giữ nguyên area và giảm employee về điểm A1
 
-### Một input và Hai output
+### Bài toán 1 input và 2 output 
+
+**Phát biểu bài toán**
 
 Ngược lại với ví dụ trên, chúng ta sẽ đến ví dụ với một input là số lượng nhân viên của cửa hàng và hai output là số lượng khách hàng và số sales của cửa hàng đó. Tương tự để thuận tiện cho việc tính toán, chúng ta sẽ chuẩn hóa số lượng nhân viên về 1.
 
 ![](efficient_frontier_1input_2output.png)
 
-Đường nối các điểm B, E, F, G được gọi là đường Efficient Frontiers, đường này bao tất cả các điểm nằm trong nó. Vùng chứa các điểm ở trong này được gọi là Production Possibility Set. 
+**Phân tích đánh giá**
+
+Với bài toán này, ta vẽ scatterplot với 2 trục tung và hoành lần lượt là $\frac{Output_1}{Input} = \frac{Customers}{Employees}$ và $\frac{Output_2}{Input} = \frac{Sales}{Employees}$.
+
+Đường biên hiệu quả trong trường hợp này là đường gấp khúc đi qua các điểm B, E, F, G.Đường này bao tất cả các điểm nằm trong nó, tất cả các điểm còn lại đều nằm cùng phía và nằm phần dưới so với Đường biên hiệu quả
+
+Vùng chứa các điểm ở trong này được gọi là Production Possibility Set. 
+
 Chúng ta để ý rằng đối với Dữ liệu tập trung Input thì đường biên sẽ nằm ở dưới, và cố gắng tối ưu tỉ lệ Input/Output nhỏ nhất có thể. Còn đối với dữ liệu tập
 trung Output thì đường biên sẽ nằm ở trên thể hiện rằng Output/Input càng cao thì càng tối ưu
 
-### So sánh với đường biên
+**So sánh với đường biên hiệu quả**
 
 ![](so_sanh_voi_duong_bien_1input_2output.png)
 
@@ -121,11 +139,16 @@ Ta có thể nhận thấy B là điểm tham chiếu của cửa hàng A, từ 
 
 Tương tự ta có F,G là hai điểm tham chiếu của D, ta vẽ đường OD cắt FG tại P. Hiệu quả của cửa hàng D được tính bằng $\frac{OD}{OP}=0.75$
 
-### Nhiều input và Nhiều output
+### Bài toán Nhiều input và Nhiều output
+
+**Phát biểu bài toán**
+
+Dữ liệu các bệnh viện được đánh nhãn từ A đến L có các Inputs là Số lượng Bác sĩ (Doctors) và số lượng Y tá (Nurses), Outputs là số lượng bên nhân Ngoại trú (Outpatients) và số lượng bệnh nhân nội trú (Inpatients).
 
 ![](efficient_frontier_input_output.png)
 
-Dữ liệu các bệnh viện được đánh nhãn từ A đến L có các Inputs là Số lượng Bác sĩ (Doctors) và số lượng Y tá (Nurses), Outputs là số lượng bên nhân Ngoại trú (Outpatients) và số lượng bệnh nhân nội trú (Inpatients).
+
+**Phân tích đánh giá**
 
 Công thức tính hiệu quả được tính như sau
 
@@ -145,7 +168,7 @@ Một trong những cách có thể chọn tham số cục bộ để tối ưu 
 
 ## CCR model
 
-CCR model được đề xuất bởi Charnes, Cooper và Rhodes vào năm 1978. CCR là một trong các phương pháp phân tích DEA. Ngoài phương pháp CCR, DEA còn có các biến thể như 
+CCR model được đề xuất bởi Charnes, Cooper và Rhodes vào năm 1978. CCR là một trong các phương pháp phân tích DEA. được sử dụng để đánh giá hiệu quả của các đơn vị ra quyết định (Decision Making Units - DMUs) khi có nhiều đầu vào và đầu ra. Ngoài phương pháp CCR, DEA còn có các biến thể như:
 - BCC (Banker, Charnes, Cooper)
 - SBM (Slacks-Based Measure)
 
@@ -172,10 +195,10 @@ Với mô hình này, mỗi bệnh viện sẽ có bộ trọng số **tối ưu
 
 ### Công thức cơ bản
 
-Ví dụ chỉ có 5 bệnh viện, để tìm các trọng số sao cho tối ưu bệnh viện A DMU(A), ta có hàm tối ưu như sau
+Để đơn giản, ta chỉ ví dụ việc tối ưu cho 5 bệnh viện A, B, C, D, E. 
 ![](CCR.png)
 
-Chúng ta cần tìm 
+Để tìm các trọng số sao cho tối ưu bệnh viện A DMU(A). Chúng ta cần giải bài toán tối ưu 
 
 $$
 Maximize\ \frac{100u_1 + 90u_2}{20v_1 + 141v_2}
@@ -295,7 +318,9 @@ def CCR_model(_df,col_name="", type='input', Inputs=[], Outputs=[]):
     return output, models ,weights
 ```
 
-kết quả thu được như sau
+Kết quả sẽ trả về 2 biến chính
+- weights: Trọng số cho từng bệnh viện
+- outputs: Hiệu quả đã được tối ưu
 
 ```python
 output,_, weights = CCR_model(dfx, "Hospital", 'input',["Doctors",'Nurses'], ['Outpatients', 'Inpatients'])
@@ -304,11 +329,6 @@ pd.DataFrame(weights)[["Doctors",'Nurses', 'Outpatients', 'Inpatients']]
 
 ![](weights.png)
 
-Và hiệu suất của các bệnh viện được tính lại
-
-```python
-output
-```
 So với kết quả của phương pháp chọn sẵn các trọng số, phương pháp CCR giúp tính toán hiệu suất tối ưu hơn, các điểm B và D được kéo về 1 như điểm A
 ![](new_score.png)
 
@@ -316,11 +336,21 @@ So với kết quả của phương pháp chọn sẵn các trọng số, phươ
 
 ![](output.png)
 
-Ta lập bảng tính toán như sau 
+### Phân tích tối ưu
+
+Để tối ưu cho bệnh viện C. Ta lập bảng tính toán như sau
 ![](phan_tich_dmu.png)
 
+Trong đó:
+- Hospital B, D là 2 bệnh viện tham chiếu
+- Value là từng giá trị Input, Output cho các bệnh viện
+- Lambda là chỉ số lambda được lấy từ bảng output, đối với bệnh viện B là 0.9 và D là 0.1389
+- Total = Value x Lambda
+- Total Sum bằng Tổng của Total bệnh viện B và bệnh viện D
+- Diff được tính bằng Value của cửa hàng C trừ với Total Sum
+
 Kết quả phân tích cho thấy
-Bệnh viện C đang dư thừa 4 Bác sĩ và 18 Y tá cho việc điều trị 160 Bệnh nhân ngoại trú và 55 Bệnh nhân nội trú.
+Bệnh viện C đang dư thừa 4.15 Bác sĩ và 18.76 Y tá cho việc điều trị 160 Bệnh nhân ngoại trú và 55 Bệnh nhân nội trú.
 
 
 ## Tài liệu tham khảo
