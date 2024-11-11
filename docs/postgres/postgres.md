@@ -79,3 +79,16 @@ Sau đó nhấn Next và đợi Finish
 Tương tự đối với cài đặt `psqlODBC`, bạn cũng chọn Mặc định `C:\Program Files\PostgresSQL\psqlODBC`
 
 Sau đó nhấn Next và đợi Finish
+
+## Hướng dẫn sử dụng PgAdmin4
+
+Bạn vào Explorer và theo đường dẫn sau `C:\Program Files\PostgreSQL\17\pgAdmin 4\runtime`. Sau đó chọn `pgAdmin4`
+
+![](setup_16.png)
+
+![](setup_17.png)
+
+Nhập password của superuser để kết nối đến db
+
+![](setup_17.png)
+
