@@ -76,4 +76,6 @@ Tiếp tục nhấn Next, choinj nơi lưu trữ `pgJDBC`. Mình chọn mặc đ
 
 Sau đó nhấn Next và đợi Finish
 
-Tương tự đối với cài đặt `psqlODBC`
+Tương tự đối với cài đặt `psqlODBC`, bạn cũng chọn Mặc định `C:\Program Files\PostgresSQL\psqlODBC`
+
+Sau đó nhấn Next và đợi Finish
