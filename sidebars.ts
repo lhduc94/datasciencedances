@@ -61,6 +61,10 @@ const sidebars: SidebarsConfig = {
           ] 
         }
       ]
+    },
+    {type: 'doc',
+      id : 'postgres/postgres',
+      label: 'Cách cài đặt Postgres'
     }
   ]
 };
