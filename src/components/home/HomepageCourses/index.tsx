@@ -36,12 +36,11 @@ export default function HomepageCourses() {
           </div>
         </div>
         <div className={styles.maintitle}>
-
-      <div className={styles.imagecover}><a href="/courses"><img src={useBaseUrl("/img/home/image_course_7.png")}alt="" /></a></div>
-      {/* <span className={styles.description}>
-        <Translate>Các khóa học Data Science cho người mới bắt đầu cũng như cho các bạn đã đi làm</Translate>
-      </span> */}
-      </div>
+          <div className={styles.imagecover}><a href="/courses"><img src={useBaseUrl("/img/home/image_course_7.png")}alt="" /></a></div>
+          {/* <span className={styles.description}>
+            <Translate>Các khóa học Data Science cho người mới bắt đầu cũng như cho các bạn đã đi làm</Translate>
+          </span> */}
+          </div>
       </div>
     </div>
   );
