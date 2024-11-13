@@ -90,5 +90,5 @@ Bạn vào Explorer và theo đường dẫn sau `C:\Program Files\PostgreSQL\17
 
 Nhập password của superuser để kết nối đến db
 
-![](setup_17.png)
+![](setup_18.png)
 
