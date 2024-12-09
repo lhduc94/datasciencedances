@@ -37,33 +37,33 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 
 <details>
   <summary><h4>Nội dung 2: Market Basket Analysis</h4></summary>
-- Phân tích giỏ hàng là gì
+- Phân tích Giỏ hàng là gì
 </details>
 
 
 <details>
   <summary><h4>Nội dung 3: Phân tích phân cụm</h4></summary>
-- Phân tích giỏ hàng là gì
+- Giới thiệu Phân tích Phân cụm
 </details>
 
 <details>
   <summary><h4>Nội dung 4: Regression Analysis</h4></summary>
-- Phân tích giỏ hàng là gì
+- Giới thiệu Phân tích Hồi quy
 </details>
 
 <details>
   <summary><h4>Nội dung 5: Timeseries Analysis</h4></summary>
-- Phân tích giỏ hàng là gì
+- Giới thiệu phân tích Dữ liệu thời gian
 </details>
 
 <details>
   <summary><h4>Nội dung 6: Factor Analysis</h4></summary>
-- Phân tích nhân tố là gì
+- Giới thiệu Phân tích nhân tố
 </details>
 
 <details>
   <summary><h4>Nội dung 7: Text Analysis</h4></summary>
-- Phân tích nhân tố là gì
+- Giới thiệu Phân tích nội dung văn bản.
 </details>
 
 <details>
@@ -81,10 +81,10 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 
 <details>
   <summary><h4>Nội dung 10: Suvirval Analysis</h4></summary>
-- Giới thiệu phân tích sống sót là gì
+- Giới thiệu phân tích sống sót.
 </details>
 
 <details>
   <summary><h4>Nội dung 11: Link Analysis  </h4></summary>
-- Phân tích liên kết là gì
+- Giới thiệu Phân tích liên kết.
 </details>

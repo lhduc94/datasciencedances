@@ -113,10 +113,7 @@ const config: Config = {
         src: 'img/dsd2-favicon.jpg',
       },
       items: [
-        // {type:'docSidebar',
-        //  sidebarId: 'tailieuSidebar',
-        //  position: 'left',
-        //  label: 'Tài liệu tham khảo 2'},
+        
 
         {
           to: '/blog', label: 'Blog', position: 'left'
@@ -144,21 +141,17 @@ const config: Config = {
             }
           ]
         },
+        {type:'docSidebar',
+          sidebarId: 'tailieuSidebar',
+          position: 'left',
+          label: 'Tài liệu tham khảo'},
         {
           type: 'dropdown',
-          label: "Tài liệu tham khảo",
+          label: "Roadmap",
           items:[
             {
-              label: "Roadmap Data Scientist",
+              label: "Data Scientist",
               to: '/roadmap/datascientist'},
-            {
-              label: "Sách Kungfupandas",
-              to: '/docs/kungfupandas/gioithieu',
-            },
-            {
-              label: 'Pytorch',
-              to: 'docs/pytorch/gioithieu'
-            }
           ]
         },
         {
