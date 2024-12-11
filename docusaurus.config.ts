@@ -118,29 +118,29 @@ const config: Config = {
         {
           to: '/blog', label: 'Blog', position: 'left'
         },
-        {
-          type: 'dropdown',
-          label: "Khóa học",
-          to: '/courses',
-          items:[
-            // {
-            //   label: "Giới thiệu",
-            //   to: "/courses"
-            // },
-            {
-              label: "Time Series Analysis",
-              to: "/courses/list/time-series-analysis/time-series-analysis"
-            },
-            {
-              label: "Thực hành Phân tích dữ liệu",
-              to: "/courses/list/analysis-in-practice/analysis-in-practice"
-            },
-            {
-              label: "Đánh giá hiệu suất Mô hình",
-              to: "/courses/list/evaluation-metrics/evaluation-metrics"
-            }
-          ]
-        },
+        // {
+        //   type: 'dropdown',
+        //   label: "Khóa học",
+        //   to: '/courses',
+        //   items:[
+        //     // {
+        //     //   label: "Giới thiệu",
+        //     //   to: "/courses"
+        //     // },
+        //     {
+        //       label: "Time Series Analysis",
+        //       to: "/courses/list/time-series-analysis/time-series-analysis"
+        //     },
+        //     {
+        //       label: "Thực hành Phân tích dữ liệu",
+        //       to: "/courses/list/analysis-in-practice/analysis-in-practice"
+        //     },
+        //     {
+        //       label: "Đánh giá hiệu suất Mô hình",
+        //       to: "/courses/list/evaluation-metrics/evaluation-metrics"
+        //     }
+        //   ]
+        // },
         {type:'docSidebar',
           sidebarId: 'tailieuSidebar',
           position: 'left',
