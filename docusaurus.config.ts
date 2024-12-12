@@ -152,6 +152,10 @@ const config: Config = {
             {
               label: "Data Scientist",
               to: '/roadmap/datascientist'},
+            {
+              label: "Phân tích định vị thương hiệu",
+              to: '/roadmap/phan_tich_dinh_vi_thuong_hieu'
+            }
           ]
         },
         {
