@@ -28,11 +28,11 @@ export default function HomepageCourses() {
             <div className={styles.desc}>
               {NewlineText(texts)}
             </div>
-            {/* <Link
+            <Link
               className={clsx("button button--lg", styles.button)}
               to="/courses">
               Cùng học nào ❤️‍🔥!!
-            </Link> */}
+            </Link>
           </div>
         </div>
         <div className={styles.maintitle}>
