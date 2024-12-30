@@ -39,6 +39,15 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Python Package',
+      items: [
+        {type: 'doc',
+          label: 'Python Package',
+          id : 'python_package'}
+      ]
+    },
+    {
+      type: 'category',
       label: 'Pytorch',
       items: [
         {type: 'doc',
