@@ -61,3 +61,7 @@ https://github.com/AmoDinho/datacamp-python-data-science-track
 ## HiAGM: Hierarchy-Aware Global Model for Hierarchical Text Classification
 
 https://github.com/Alibaba-NLP/HiAGM
+
+## GLiNER: Generalist and Lightweight Model for Named Entity Recognition
+
+https://github.com/urchade/GLiNER
