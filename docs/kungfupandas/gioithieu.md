@@ -6,10 +6,10 @@ sidebar_position: 1
 # Giới thiệu
 Dự án Kungfu Pandas là Dự án sách cá nhân mình tự viết về thư viện cực kỳ nổi tiếng dùng để xử lý dữ liệu là **pandas**
 
-Các bạn có thể tham khảo tại đây: https://kungfupandas.lhduc.com/
+Các bạn có thể tham khảo tại đây: https://kungfupandas.datasciencedances.com/
 
 ⏰ Tình trạng: **Hoàn thành 70%**
-<img src="https://kungfupandas.lhduc.com/images/index/cover.jpg" alt="drawing" width="200"/>
+<img src="https://kungfupandas.datasciencedances.com/images/index/cover.jpg" alt="drawing" width="200"/>
 
 ----
 
