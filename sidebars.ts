@@ -21,20 +21,37 @@ const sidebars: SidebarsConfig = {
       items: [
         {type: 'doc',
          id : 'kungfupandas/gioithieu'},
-        {type: 'doc',
-          id: 'kungfupandas/DataStructure/Introduction',
-          label:'Cấu trúc dữ liệu'
+        {type: 'category', label: 'Chương 1: Cấu trúc dữ liệu', 
+          items: [
+            {type: 'doc',
+            id: 'kungfupandas/DataStructure/Introduction',
+            label:'Giới thiệu'
+          },
+          {type: 'doc',
+            id: 'kungfupandas/DataStructure/Series',
+            label:'Series'
+          },
+          {type: 'doc',
+            id: 'kungfupandas/DataStructure/DataFrame',
+            label:'DataFrame'
+          },
+          {type: 'doc',
+            id: 'kungfupandas/DataStructure/DataType',
+            label:'DataType'
+          },
+          ]
         },
-        {
-          type: 'doc',
-          id: 'kungfupandas/IO/Introduction',
-          label:'Đọc và lưu dữ liệu'
-        },
-        {
-          type: 'doc',
-          id: 'kungfupandas/Fundamental_Function/Introduction',
-          label:'Các hàm cơ bản'
-        } 
+
+        // {
+        //   type: 'doc',
+        //   id: 'kungfupandas/IO/Introduction',
+        //   label:'Đọc và lưu dữ liệu'
+        // },
+        // {
+        //   type: 'doc',
+        //   id: 'kungfupandas/Fundamental_Function/Introduction',
+        //   label:'Các hàm cơ bản'
+        // } 
         ],
     },
     {
