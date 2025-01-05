@@ -53,36 +53,41 @@ d = {
 pd.DataFrame(d)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
    one  two
 a  3.0    2
 b  2.0    3
 c  1.0    1
 d  NaN    4
 ```
-
+</pythonoutput>
 
 ```python
 pd.DataFrame(d, index=["d", "b", "a"])
 ```
 
-```{.python_output} 
+<pythonoutput>
+```
    one	two
 d  NaN	  4
 b  2.0	  3
 a  3.0	  2
 ```
+</pythonoutput>
 
 ```python
 pd.DataFrame(d, index=["d", "b", "a"], columns=["two", "three"])
 ```
 
+<pythonoutput>
 ```python
    two	three
 d	 4	  NaN
 b	 3	  NaN
 a	 2	  NaN
 ```
+</pythonoutput>
 
 **Khởi tạo DataFrame từ dict của numpy.ndarray/List**
 
@@ -101,13 +106,17 @@ pd.DataFrame(data=d,
                      columns=["one", "two", "four"])
 ```
 
-```{.python_output}
+<pythonoutput>
+```
    one  two four
 a    1    1   NaN
 b    2    2   NaN
 c    3    3   NaN
 d    4    4   NaN
 ```
+</pythonoutput>
+
+
 **Khởi tạo DataFrame từ Mảng 2 chiều/ 2-d numpy.ndarray**
 
 Khi không truyền `index` vào thì index của `DataFrame` sẽ được tạo từ `0` đến `len(n) - 1` trong đó `n` 
@@ -121,11 +130,13 @@ pd.DataFrame(data=[[1, 2], [3, 4, 5]],
                      columns=['one','two','three'])
 ```
 
-```{.python_output} 
+<pythonoutput>
+```
    one  two  three
 a    1    2    NaN
 b    3    4    5.0
 ```
+</pythonoutput>
 
 ```python
 pd.DataFrame(data=np.random.rand(2,3), 
@@ -133,11 +144,13 @@ pd.DataFrame(data=np.random.rand(2,3),
                      columns=['one','two','three']))
 ```
 
-```{.python_output}
+<pythonoutput>
+```
         one       two     three
 a  0.662008  0.085735  0.331281
 b  0.115360  0.358092  0.862477
 ```
+</pythonoutput>
 
 **Khởi tạo DataFrame từ danh sách các dict**
 
@@ -145,10 +158,10 @@ b  0.115360  0.358092  0.862477
 cột và value là giá trị tại cột đó. Việc truyền thêm hoặc không truyền `index` cũng giống
 như các trường hợp khởi tạo trên. 
 
-```{block2, type='rmdnote'}
-**_Lưu ý:_** Trong trường hợp này, nếu bạn truyền `columns` vào thì `columns` bắt buộc phải chứa tất cả
+:::tip Lưu ý
+Trong trường hợp này, nếu bạn truyền `columns` vào thì `columns` bắt buộc phải chứa tất cả
 các key của dict 
-``` 
+:::
 
 Trong ví dụ dưới đây, `columns` phải chứa toàn bộ keys `["one", "two", "three"]`, nếu thiếu 1 trong 3
 sẽ phát sinh lỗi.
@@ -158,11 +171,13 @@ d = [{"one": 1, "two": 2}, {"one": 4, "two": 5, "three": 6}]
 pd.DataFrame(d, index=["a", "b"], columns=["one", "two", "three", "four"])
 ```
 
-```{.python_output}
+<pythonoutput>
+```
    one  two  three  four
 a    1    2    NaN   NaN
 b    4    5    6.0   NaN
 ```
+</pythonoutput>
 
 **Khởi tạo DataFrame từ Mảng có cấu trúc**
 
@@ -175,11 +190,13 @@ data = np.array([('pikachu', 9, 27.0), ('mewtwo', 3, 81.0)],
 pd.DataFrame(data)
 ```
 
-```{.python_output} 
+<pythonoutput>
+```
        name  age  weight
 0   pikachu    9    27.0
 1    mewtwo    3    81.0
 ```
+</pythonoutput>
 
 **Khởi tạo DataFrame từ namedtuple**
 
@@ -201,24 +218,30 @@ Tạo DataFrame từ namedtuple `Point2D`
 pd.DataFrame([Point2D(0, 0), Point2D(0, 1), Point2D(0, 2)])
 ```
 
-```{.python_output}
+<pythonoutput>
+```
    x  y
 0  0  0
 1  0  1
 2  0  2
 ```
+</pythonoutput>
+
 Tạo DataFrame từ namedtuple cả `Point2D` và `Point3D`
 
 ```python
 pd.DataFrame([Point3D(0, 0, 0), Point2D(0, 1), Point3D(0, 2, 3)])
 ```
 
-```{.python_output}    
+<pythonoutput>
+``` 
    x  y    z
 0  0  0  0.0
 1  0  1  NaN
 2  0  2  3.0
 ```
+</pythonoutput>
+
 Như ta thấy, tại phần tử thứ 2 chỉ có 2 giá trị, trong khi phần tử thứ nhất có 3 giá trị, vậy nên phần tử bị thiếu tại cột `z` sẽ được gán `NaN`
 
 **Khởi tạo DataFrame từ Series**
@@ -228,12 +251,16 @@ s = pd.Series(data=[0, 1, 2], index=["a", "b", "c"], name="meow")
 pd.DataFrame(s)
 ```
 
-```{.python_output} 
+<pythonoutput>
+```
    meow
 a     0
 b     1
 c     2
 ```
+</pythonoutput>
+
+
 `name` của Series sẽ là tên cột của DataFrame và `index` của Series sẽ là index của DataFrame nếu ta không truyền các biến `index`, `columns` khi khởi tạo `pd.DataFrame`
 
 ## Các hàm khởi tạo thay thế 
@@ -248,9 +275,9 @@ pd.DataFrame.from_dict(data, orient='columns', dtype=None, columns=None)
 
 `data` truyền vào là 1 dict, `orient` có 2 giá trị có thể đưa vào là `{"columns", "index"}`, `columns` là danh sách tên các cột của DataFrame.
 
-```{block2, type='rmdnote'}
-**_Lưu ý:_** Chỉ được truyền `columns` khi `orient="index"`. Khi `orient="columns"` sẽ báo lỗi. 
-```
+:::tip Lưu ý
+Chỉ được truyền `columns` khi `orient="index"`. Khi `orient="columns"` sẽ báo lỗi. 
+:::
 
 Ví dụ tạo DataFrame khi `orient="columns"`. Với cách khởi tạo này tên các cột của DataFrame sẽ là key của dict
 
@@ -259,13 +286,15 @@ data = {"col_1": [3, 2, 1, 0], "col_2": ["a", "b", "c", "d"]}
 pd.DataFrame.from_dict(data)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
    col_1 col_2
 0      3     a
 1      2     b
 2      1     c
 3      0     d
 ```
+</pythonoutput>
 
 Ví dụ tạo DataFrame khi `orient="index"`. Với cách khởi tạo này index của DataFrame sẽ là key của dict. 
 
@@ -275,13 +304,16 @@ pd.DataFrame.from_dict(data, orient="index",
                                columns=["one", "two", "three", "four"])
 ```
 
-```{.python_output}
+<pythonoutput>
+```
    col_1 col_2
 0      3     a
 1      2     b
 2      1     c
 3      0     d
 ```
+</pythonoutput>
+
 
 **DataFrame.from_records**
 
@@ -299,11 +331,13 @@ data = np.array([('Rex', 9, 81.0), ('Fido', 3, 27.0)],
 pd.DataFrame.from_records(data, index=["a", "b"])
 ```
 
-```{.python_output} 
+<pythonoutput>
+```
    name  age  weight
 a   Rex    9    81.0
 b  Fido    3    27.0
 ```
+</pythonoutput>
 
 Dữ liệu có thể  một danh sách các namedtuple
 
@@ -315,12 +349,14 @@ pd.DataFrame.from_records([Point3D(0, 0, 0), Point2D(0, 1), Point3D(0, 2, 3)],
                           columns=["x","y","z"], index=["a", "b", "c"])
 ```
 
-```{.python_output}
+<pythonoutput>
+```
    x  y    z
 a  0  0  0.0
 b  0  1  NaN
 c  0  2  3.0
 ```
+</pythonoutput>
 
 Hoặc 1 danh sách các dict 
 
@@ -329,8 +365,10 @@ d = [{"one": 1, "two": 2}, {"one": 4, "two": 5, "three": 6}]
 pd.DataFrame.from_records(d, index=["a", "b"], columns=["one", "two", "three", "four"])
 ```
 
-```{.python_output}
+<pythonoutput>
+```
    one  two  three  four
 a    1    2    NaN   NaN
 b    4    5    6.0   NaN
 ```
+</pythonoutput>

@@ -15,7 +15,7 @@ Boolean       |          np.bool     |      *bool*
 Integer        |         np.int, <br/>         np.uint         |      *int* <br/>                     *uint*
 Float             |      np.float     |     *float*
 Object             |     np.object     |    *O, object*
-Datetime           |     np.datetime64, <br/> pd.Timestamp   |*datetime64*
+Datetime       |     np.datetime64, <br/> pd.Timestamp   |*datetime64*
 Timedelta      |         np.timedelta64, <br/> pd.Timedelta  |*timedelta64*
 Category        |        pd.Categorical |   *category*                  
 Complex          |       np.complex   |     *complex*
@@ -36,6 +36,7 @@ df = pd.DataFrame({
 df
 ```
 
+<pythonoutput>
 ```{.python_output}
    col_1  col_2 col_3 col_4  col_5       col_6
 0      1    1.0     1     1   True  2021-06-01
@@ -43,12 +44,14 @@ df
 2      1    3.0     3     3   True  2021-06-03
 3      0    4.0     4     4  False  2021-06-04
 ```
+</pythonoutput>
 
 ```python
 df.dtypes
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 col_1      int64
 col_2    float64
 col_3     object
@@ -57,15 +60,17 @@ col_5       bool
 col_6     object
 dtype: object
 ```
-```{block2, type='rmdnote'}
-**_Lưu ý:_** 
+</pythonoutput>
+
+
+:::tip Lưu ý
 
 - Nếu không khai báo kiểu dữ liệu khi khởi tạo, pandas sẽ mặc định kiểu dữ liệu là `int64`, `float64`, `object` và `bool`.
 Pandas sẽ không biết kiểu dữ liệu `timestamp` nếu không khai báo.
 
-- Chỉ có thể khai báo duy nhất 1 kiểu dữ liệu khi [khởi tạo pandas](#cach-khoi-tao-data-frame). 
+- Chỉ có thể khai báo duy nhất 1 kiểu dữ liệu khi [khởi tạo pandas](./DataFrame#các-cách-khởi-tạo). 
 Ví dụ như tất cả dữ liệu của bạn là `int` hoặc có thể được ép kiểu về  `int`thì có thể khai báo  `dtype=np.int`
-``` 
+:::
 
 Ở ví dụ phía dưới `col_1`, `col_2`, `col_3`, `col_4`, `col_5` có thể ép về kiểu `int`, còn `col_6` thì không thể ép kiểu được.
 
@@ -81,19 +86,23 @@ df = pd.DataFrame({
 df
 ```
 
-```{.python_output}
+<pythonoutput>
+```
    col_1  col_2  col_3  col_4  col_5       col_6
 0      1      1      1      1      1  2021-06-01
 1      0      2      2      2      0  2021-06-02
 2      1      3      3      3      1  2021-06-03
 3      0      4      4      4      0  2021-06-04
 ```
+</pythonoutput>
+
 
 ```python
 df.dtypes
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 col_1     int64
 col_2     int64
 col_3    object
@@ -102,21 +111,24 @@ col_5     int64
 col_6     int64
 dtype: object
 ```
+</pythonoutput>
 
-```{block2, type='rmdtip'}
-**_Mẹo:_**
+
+:::tip 
 Nếu dữ liệu có khoảng nhỏ thì thay vì khai báo kiểu `np.int`, ta có thể khai báo kiểu `integer` với số byte phù hợp để giảm bộ nhớ lưu trữ. 
 Để xem bộ nhớ sử dụng của DataFrame, ta có thể dùng `.memory_usage()`.
 
 Một số kiểu integer trong numpy như `np.int8`, `np.int16`, `np.int32`, `np.int64`, `np.uint8`, `np.uint16`, `np.uint32`, `np.uint64`
-``` 
+:::
+
 Theo ví dụ trên, khi `dtype=np.int`
 
 ```python
  df.memory_usage()
 ```
 
-```{.python_output} 
+<pythonoutput>
+```
 Index    128
 col_1     32
 col_2     32
@@ -126,6 +138,7 @@ col_5     32
 col_6     32
 dtype: int64
 ```
+</pythonoutput>
 
 và sau khi thay bằng `dtype=np.int8`
 
@@ -133,7 +146,8 @@ và sau khi thay bằng `dtype=np.int8`
  df.memory_usage()
 ```
 
-```{.python_output} 
+<pythonoutput>
+```
 Index    128
 col_1      4
 col_2      4
@@ -143,4 +157,5 @@ col_5      4
 col_6     32
 dtype: int64
 ```
+</pythonoutput>
 Phương thức ép kiểu này được áp dụng khi bạn khởi tạo DataFrame, ngoài ra còn có hàm ép kiểu khác đối với DataFrame cho trước, nội dung này sẽ được đề cập ở [Chương 3](#Chuong-3).
