@@ -7,10 +7,13 @@ import TabItem from '@theme/TabItem';
 
 # DataFrame
 
+## Giới thiệu 
+
 `DataFrame` là cấu trúc dữ liệu chính và cũng là đặc trưng của pandas. Cũng giống như SQL Table, 
 `DataFrame` là một bảng gồm một hay nhiều cột dữ liệu. Hoặc có thể nói rõ hơn là DataFrame là tập 
 hợp các Series lại với nhau.
 
+![](dataframe.png)
 Cách khởi tạo DataFrame như sau
 
 ```python
@@ -33,7 +36,7 @@ cùng 1 bộ nhớ.
 
 ## Các cách khởi tạo
 
-**Khởi tạo DataFrame từ dict của Series**
+### Khởi tạo DataFrame từ dict của Series
 
 Khi không truyền biến `index` vào, thì index của `DataFrame` sẽ là hợp giữa 2 index của `Series` và
 chúng sẽ được sắp xếp theo thứ tự từ vựng. Nếu ta không truyền `columns` thì các cột của `DataFrame` sẽ
@@ -89,7 +92,7 @@ a	 2	  NaN
 ```
 </pythonoutput>
 
-**Khởi tạo DataFrame từ dict của numpy.ndarray/List**
+### Khởi tạo DataFrame từ dict của numpy.ndarray/List
 
 Đối với việc khởi tạo này, bắt buộc các mảng phải có cùng độ dài. Khi không truyền `index` vào thì 
 index của DataFrame sẽ được tạo từ `0` đến `len(n) - 1` trong đó `n` là độ dài của mảng. Khi truyền 
@@ -117,7 +120,7 @@ d    4    4   NaN
 </pythonoutput>
 
 
-**Khởi tạo DataFrame từ Mảng 2 chiều/ 2-d numpy.ndarray**
+### Khởi tạo DataFrame từ Mảng 2 chiều/ 2-d numpy.ndarray
 
 Khi không truyền `index` vào thì index của `DataFrame` sẽ được tạo từ `0` đến `len(n) - 1` trong đó `n` 
 là số lượng List con hoặc là số dòng hay `shape[0]` của `numpy.ndarray`. Khi không truyền `columns` 
@@ -152,7 +155,7 @@ b  0.115360  0.358092  0.862477
 ```
 </pythonoutput>
 
-**Khởi tạo DataFrame từ danh sách các dict**
+### Khởi tạo DataFrame từ danh sách các dict
 
 Ở cách khởi tạo này, bạn hãy tưởng tượng rằng mỗi dict là một dòng của DataFrame với các key là tên 
 cột và value là giá trị tại cột đó. Việc truyền thêm hoặc không truyền `index` cũng giống
@@ -179,7 +182,7 @@ b    4    5    6.0   NaN
 ```
 </pythonoutput>
 
-**Khởi tạo DataFrame từ Mảng có cấu trúc**
+### Khởi tạo DataFrame từ Mảng có cấu trúc
 
 Mảng có cấu trúc là mảng mà các phần tử của nó là một cấu trúc, bao gồm các thành phần nhỏ hơn, các thành phần này được đặt tên và khai báo kiểu dữ liệu.
 Dưới đây là một ví dụ Mảng có cấu trúc trong numpy
@@ -198,7 +201,7 @@ pd.DataFrame(data)
 ```
 </pythonoutput>
 
-**Khởi tạo DataFrame từ namedtuple**
+### Khởi tạo DataFrame từ namedtuple
 
 Các trường trong `nametuple` sẽ được gán thành tên các columns trong `DataFrame`. Những giá trị của `namedtuple` sẽ được xem là 1 dòng trong `DataFrame`. 
 Số lượng cột của `DataFrame` sẽ phụ thuộc vào số lượng giá trị của phần từ `namedtuple` đầu tiên. Nếu các phần tử phía sau có số lượng giá trị ít hơn thì 
@@ -244,7 +247,7 @@ pd.DataFrame([Point3D(0, 0, 0), Point2D(0, 1), Point3D(0, 2, 3)])
 
 Như ta thấy, tại phần tử thứ 2 chỉ có 2 giá trị, trong khi phần tử thứ nhất có 3 giá trị, vậy nên phần tử bị thiếu tại cột `z` sẽ được gán `NaN`
 
-**Khởi tạo DataFrame từ Series**
+### Khởi tạo DataFrame từ Series
 
 ```python
 s = pd.Series(data=[0, 1, 2], index=["a", "b", "c"], name="meow")
@@ -265,7 +268,7 @@ c     2
 
 ## Các hàm khởi tạo thay thế 
 
-**DataFrame.from_dict**
+### DataFrame.from_dict
 
 Cách khởi tạo 
 
@@ -315,7 +318,7 @@ pd.DataFrame.from_dict(data, orient="index",
 </pythonoutput>
 
 
-**DataFrame.from_records**
+### DataFrame.from_records
 
 Cách khởi tạo 
 
