@@ -32,20 +32,87 @@ Trong đó `data` có thể  có dạng:
 
 ### Khởi tạo Series bằng List hoặc dạng numpy.array 
 
-Khi không truyền giá trị `index`, `Series` sẽ mặc định index của nó là 1 mảng số nguyên từ `0` đến `len(data) - 1` 
-
+Bây giờ ta có thể khởi tạo một Series với dữ liệu đầu vào là một List đơn giản `["một", "hai", "ba"]`
 ```python
-pd.Series(data=[0, 1, 2], index=["a", "b", "c"], name="meow")
+pd.Series(data=["một", "hai", "ba"])
 ```
+Lúc này, hệ thống sẽ mặc định `index` sẽ có giá trị từ `0` đến độ dài của `list - 1` tức là 2
 <pythonoutput>
 ```
-a    0
-b    1
-c    2
-Name: meow, dtype: int64
+0    một
+1    hai
+2     ba
+dtype: object
 ```
 </pythonoutput>
 
+Chúng ta có thể thay đổi mặc đinh `index` truyền vào bằng cách thêm vào biến `index` như ví dụ dưới đây
+
+```python
+pd.Series(data=["một", "hai", "ba"], index=["m", "h", "b"])
+```
+<pythonoutput>
+```
+m    một
+h    hai
+b     ba
+dtype: object
+```
+</pythonoutput>
+
+Khi chúng ta truyền `index` có độ dài nhỏ hơn độ dài của mảng đưa vào thì pandas sẽ báo lỗi, trong ví dụ dưới đây mình sẽ
+truyền index chỉ 2 phần tử trong khi data có 3 phần tử
+
+```python
+pd.Series(data=["một", "hai", "ba"], index=["m", "h"])
+```
+
+<pythonoutput>
+```
+ValueError: Length of values (3) does not match length of index (2)
+```
+</pythonoutput>
+
+Tương tự khi truyền `index` có độ dài lớn hơn, pandas cũng báo lỗi tương tự
+
+```python
+pd.Series(data=["một", "hai", "ba"], index=["m", "h", "b","t"])
+```
+
+<pythonoutput>
+```
+ValueError: Length of values (3) does not match length of index (4)
+```
+</pythonoutput>
+
+Bạn cũng có thể thay thế list bằng numpy array như sau
+
+```python
+pd.Series(data=np.array(["một", "hai", "ba"]), index=["m", "h", "b"])
+```
+
+<pythonoutput>
+```
+m    một
+h    hai
+b     ba
+dtype: object
+```
+</pythonoutput>
+
+Ngoài ra chúng ta có thể đặt tên cho Series bằng tham số `name`, tuy nhiên mình thấy không cần thiết lắm
+
+```python
+pd.Series(data=np.array(["một", "hai", "ba"]), index=["m", "h", "b"], name='meow')
+```
+<pythonoutput>
+```
+m    một
+h    hai
+b     ba
+Name: meow, dtype: object
+```
+</pythonoutput>
 
 ### Khởi tạo Series bằng dictionary 
 
