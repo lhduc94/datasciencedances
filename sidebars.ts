@@ -54,40 +54,40 @@ const sidebars: SidebarsConfig = {
         // } 
         ],
     },
-    {
-      type: 'category',
-      label: 'Python Package',
-      items: [
-        {type: 'doc',
-          label: 'Python Package',
-          id : 'python_package'}
-      ]
-    },
-    {
-      type: 'category',
-      label: 'Pytorch',
-      items: [
-        {type: 'doc',
-          label: 'Giới thiệu',
-          id : 'pytorch/gioithieu'},
-        {
-          type: 'category',
-          label: 'Deberta',
-          items: [
-            {
-              type: 'doc',
-              label: 'Deberta Sequence Classification',
-              id : 'pytorch/Deberta/DebertaForSequenceClassification'
-            },
-            {
-              type: 'doc',
-              label: 'Pooling',
-              id : 'pytorch/Deberta/Pooling'
-            }
-          ] 
-        }
-      ]
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Python Package',
+    //   items: [
+    //     {type: 'doc',
+    //       label: 'Python Package',
+    //       id : 'python_package'}
+    //   ]
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Pytorch',
+    //   items: [
+    //     {type: 'doc',
+    //       label: 'Giới thiệu',
+    //       id : 'pytorch/gioithieu'},
+    //     {
+    //       type: 'category',
+    //       label: 'Deberta',
+    //       items: [
+    //         {
+    //           type: 'doc',
+    //           label: 'Deberta Sequence Classification',
+    //           id : 'pytorch/Deberta/DebertaForSequenceClassification'
+    //         },
+    //         {
+    //           type: 'doc',
+    //           label: 'Pooling',
+    //           id : 'pytorch/Deberta/Pooling'
+    //         }
+    //       ] 
+    //     }
+    //   ]
+    // },
     {type: 'doc',
       id : 'postgres/postgres',
       label: 'Cách cài đặt Postgres'

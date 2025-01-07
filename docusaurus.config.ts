@@ -115,7 +115,10 @@ const config: Config = {
       },
       items: [
         
-
+        {type:'docSidebar',
+          sidebarId: 'tailieuSidebar',
+          position: 'left',
+          label: 'Tài liệu tham khảo'},
         {
           to: '/blog', label: 'Blog', position: 'left'
         },
@@ -142,10 +145,7 @@ const config: Config = {
             }
           ]
         },
-        {type:'docSidebar',
-          sidebarId: 'tailieuSidebar',
-          position: 'left',
-          label: 'Tài liệu tham khảo'},
+        
         {
           type: 'dropdown',
           label: "Roadmap",
@@ -175,10 +175,10 @@ const config: Config = {
               label: 'Kungfu Pandas',
               to: 'docs/kungfupandas/gioithieu',
             },
-            {
-              label: 'Pytorch',
-              to: 'docs/pytorch/gioithieu'
-            }
+            // {
+            //   label: 'Pytorch',
+            //   to: 'docs/pytorch/gioithieu'
+            // }
           ],
         },
         {
@@ -186,7 +186,7 @@ const config: Config = {
           items: [
             {
               label: 'Facebook',
-              href: 'https://www.facebook.com/khoai.kho.7/',
+              href: 'https://www.facebook.com/lhduc94/',
             },
             {
               label: 'Fanpage',
