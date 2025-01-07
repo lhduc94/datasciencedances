@@ -49,10 +49,11 @@ const config: Config = {
           "./src/css/design-class.scss"
         ]
         },
-        gtag: {
+        gtag: process.env.NODE_ENV === 'production' && typeof window.gtag !== 'undefined'
+        ?{
           trackingID: "G-88PWBGGNQW",
           anonymizeIP: true,
-        }
+        }: undefined,
       } satisfies Preset.Options,
     ],
    
