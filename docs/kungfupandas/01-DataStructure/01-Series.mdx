@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 Trong Pandas, `Series` là mảng 1 chiều bao gồm một danh sách giá trị, và một mảng chứa index 
 của các giá trị. Trong dữ liệu dảng bảng, mỗi Series được xem như là một cột của bảng đó. 
 Cách đơn giản để tạo Series như sau
-
+![](series.png)
 ```python
 s = pd.Series(data, index=None, name=None)
 ```
@@ -27,7 +27,7 @@ Trong đó `data` có thể  có dạng:
 
 ## Các cách khởi tạo
 
-#### Khởi tạo Series bằng List hoặc dạng numpy.array 
+### Khởi tạo Series bằng List hoặc dạng numpy.array 
 
 Khi không truyền giá trị `index`, `Series` sẽ mặc định index của nó là 1 mảng số nguyên từ `0` đến `len(data) - 1` 
 
@@ -44,7 +44,7 @@ Name: meow, dtype: int64
 </pythonoutput>
 
 
-#### Khởi tạo Series bằng dictionary 
+### Khởi tạo Series bằng dictionary 
 
 ```python
 pd.Series({"b": 1, "a":0, "c": 2})
@@ -85,7 +85,7 @@ dtype: float64
 là `float64` nên kiểu dữ liệu của `Series` cũng là `float64` khác với `int64` ở ví dụ trước đó. 
 :::
 
-#### Khởi tạo Series bằng một giá trị duy nhất 
+### Khởi tạo Series bằng một giá trị duy nhất 
 
 ```python
 pd.Series(data=1, index=["a", "b", "c"])
