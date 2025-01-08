@@ -1,0 +1,131 @@
+
+
+## JSON
+
+### Đọc file JSON
+
+`JSON` là 1 dạng dữ liệu khá phổ biến trong thực tế.
+
+ `Pandas` hỗ trợ đọc file `JSON` theo phương thức sau
+
+```python
+pd.read_json(path_or_buf=None, orient=None,...)
+```
+
+Trong đó:
+
+- `path_or_buf`: là đường dẫn đến file json hoặc Object cho trước
+
+- `orient`:  Kiểu cấu trúc của json
+    - `split`:  Dữ liệu có dạng dictionary theo cấu trúc `{index -> [index], columns - [columns], data -> [values]}`
+    - `records`: Dữ liệu có dạng danh sách các dictionary theo cấu trúc ` [{column -> value}, ... , {column -> value}]`
+    - `index`: Dữ liệu dạng dictionary theo cấu trúc `{"index" -> {"column" -> "value"}}`
+    - `columns`: Dữ liệu dạng dictionary theo cấu trúc `{column -> {index -> value}}`
+    - `values`: danh sách các giá trị
+- Ngoài ra còn các tham số khác nữa như `chunksize`, `nrow`, các bạn có thể tham khảo tại [pd.read_json()](https://pandas.pydata.org/docs/reference/api/pandas.read_json.html)
+
+Dưới đây là file `sample_pokemon.json` với các cấu trúc như sau
+
+**Cấu trúc `records`**
+
+```json
+[{"name":"Bulbasaur","type":["Grass","Poison"],"height":"0.71 m","weight":"6.9 kg"},
+ {"name":"Ivysaur","type":["Grass","Poison"],"height":"0.99 m","weight":"13.0 kg"},
+ {"name":"Venusaur","type":["Grass","Poison"],"height":"2.01 m","weight":"100.0 kg"},
+ {"name":"Charmander","type":["Fire"],"height":"0.61 m","weight":"8.5 kg"},
+ {"name":"Charmeleon","type":["Fire"],"height":"1.09 m","weight":"19.0 kg"}]
+ ```
+
+ ta có thể gọi
+
+ ```python
+ df = pd.read_json('sample_pokemon.json', orient='records')
+ df.head()
+ ```
+
+ ```{.python_output}
+          name             type  height    weight
+0   Bulbasaur  [Grass, Poison]  0.71 m    6.9 kg
+1     Ivysaur  [Grass, Poison]  0.99 m   13.0 kg
+2    Venusaur  [Grass, Poison]  2.01 m  100.0 kg
+3  Charmander           [Fire]  0.61 m    8.5 kg
+4  Charmeleon           [Fire]  1.09 m   19.0 kg
+ ```
+
+Tương tự với cấu trúc `split`
+
+```json
+{"index":   [0,1,2,3,4],
+ "columns": ["name","type","height","weight"],
+ "data":    [["Bulbasaur",["Grass","Poison"],"0.71 m","6.9 kg"],
+             ["Ivysaur",["Grass","Poison"],"0.99 m","13.0 kg"],
+             ["Venusaur",["Grass","Poison"],"2.01 m","100.0 kg"],
+             ["Charmander",["Fire"],"0.61 m","8.5 kg"],
+             ["Charmeleon",["Fire"],"1.09 m","19.0 kg"]]}
+```
+
+ ta có thể gọi
+
+ ```python
+ df = pd.read_json('sample_pokemon.json', orient='split')
+ df.head()
+ ```
+
+
+**Cấu trúc `index`**
+
+ ```json
+ {"0":{"name":"Bulbasaur","type":["Grass","Poison"],"height":"0.71 m","weight":"6.9 kg"},
+ "1":{"name":"Ivysaur","type":["Grass","Poison"],"height":"0.99 m","weight":"13.0 kg"},
+ "2":{"name":"Venusaur","type":["Grass","Poison"],"height":"2.01 m","weight":"100.0 kg"},
+ "3":{"name":"Charmander","type":["Fire"],"height":"0.61 m","weight":"8.5 kg"},
+ "4":{"name":"Charmeleon","type":["Fire"],"height":"1.09 m","weight":"19.0 kg"}}
+ ```
+
+`columns`
+
+```json
+{"name":{"0":"Bulbasaur",
+         "1":"Ivysaur",
+         "2":"Venusaur",
+         "3":"Charmander"
+         "4":"Charmeleon"},
+ "type":{"0":["Grass","Poison"],
+         "1":["Grass","Poison"],
+         "2":["Grass","Poison"],
+         "3":["Fire"],
+         "4":["Fire"]},
+ "height":{"0":"0.71 m",
+           "1":"0.99 m",
+           "2":"2.01 m",
+           "3":"0.61 m",
+           "4":"1.09 m"},
+ "weight":{"0":"6.9 kg",
+           "1":"13.0 kg",
+           "2":"100.0 kg",
+           "3":"8.5 kg",
+           "4":"19.0 kg"}}
+```
+
+`values`
+
+```json
+[["Bulbasaur",["Grass","Poison"],"0.71 m","6.9 kg"],
+ ["Ivysaur",["Grass","Poison"],"0.99 m","13.0 kg"],
+ ["Venusaur",["Grass","Poison"],"2.01 m","100.0 kg"],
+ ["Charmander",["Fire"],"0.61 m","8.5 kg"],
+ ["Charmeleon",["Fire"],"1.09 m","19.0 kg"]]
+```
+ 
+
+```{block2, type='rmdnote'}
+**_Lưu ý_:** 
+
+- `pd.read_json()` mặc định `orient='records'`. Các cấu trúc `records` và `index` là các cấu trúc JSON thường gặp.
+
+- `values` không phải cấu trúc JSON.
+
+- có thể truyền link file thay vì file được lưu ở máy.
+
+```
+### Xuất file JSON

@@ -41,17 +41,26 @@ const sidebars: SidebarsConfig = {
           },
           ]
         },
-
-        // {
-        //   type: 'doc',
-        //   id: 'kungfupandas/IO/Introduction',
-        //   label:'Đọc và lưu dữ liệu'
-        // },
-        // {
-        //   type: 'doc',
-        //   id: 'kungfupandas/Fundamental_Function/Introduction',
-        //   label:'Các hàm cơ bản'
-        // } 
+        {type: 'category', label: 'Chương 2: Nhập xuất dữ liệu', 
+          items: [
+            {type: 'doc',
+            id: 'kungfupandas/IO/Introduction',
+            label:'Giới thiệu'
+          },
+          {type: 'doc',
+          id: 'kungfupandas/IO/Csv_Tsv',
+          label:'CSV và TSV'
+          },
+          {type: 'doc',
+          id: 'kungfupandas/IO/Excel',
+          label:'Excel'
+          },
+          {type: 'doc',
+          id: 'kungfupandas/IO/Json',
+          label:'JSON'
+          }
+          ]
+        },
         ],
     },
     // {

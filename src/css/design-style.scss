@@ -124,7 +124,7 @@ article {
     }
   
     .alert--info {
-      border: none;
+      // border: none;
       background-color: var(--docs-detail-bg);
       &[open] summary {
         &::after {

@@ -176,7 +176,7 @@ dtype: int64
 ```
 </pythonoutput>
 
-:::tip Lưu ý
+:::info Lưu ý
 Trong trường hợp bạn truyền biến `index` vào, `Series` sẽ đánh index dựa vào thứ tự trong `index`, và chỉ chứa các giá trị của dict có key nằm trong `index`. 
 Với các giá trị trong biến `index` không có trong keys của dict, `Series` sẽ tạo ra các giá trị bị thiếu `NaN`.
 :::
@@ -200,7 +200,7 @@ dtype: float64
 </pythonoutput>
 
 
-:::tip Lưu ý
+:::info Lưu ý
 `NaN` là giá trị mặc định cho dữ liệu bị thiếu trong pandas và giá trị này có kiểu 
 là `float64` nên kiểu dữ liệu của `Series` cũng là `float64` khác với `int64` ở ví dụ trước đó. 
 :::
@@ -314,7 +314,7 @@ s["c"]
 </pythonoutput>
 
 
-:::tip Lưu ý
+:::info Lưu ý
 Như ví dụ trên, Series `s` của chúng ta đã được đánh index là dạng chữ, `["a", "b", "c", "d", "e", "f"]`. Vậy nếu chúng ta có index là dạng số thì sẽ như thế nào?
 :::
 
@@ -350,7 +350,7 @@ s2[3]
 ```
 </pythonoutput>
 
-:::tip Lưu ý
+:::info Lưu ý
 Vậy nếu chúng ta có index là dạng số thì việc truyền một số vào `[]` sẽ ưu tiên index của chúng. 
 Trong ví dụ trên sẽ ưu tiên index là `3` có giá trị `2` chứ không phải là indice `3` có giá trị `3`
 :::

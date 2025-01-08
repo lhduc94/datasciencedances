@@ -1,6 +1,6 @@
 ---
 sidebar_label: DataFrame
-sidebar_position: 2
+sidebar_position: 3
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -161,7 +161,7 @@ b  0.115360  0.358092  0.862477
 cột và value là giá trị tại cột đó. Việc truyền thêm hoặc không truyền `index` cũng giống
 như các trường hợp khởi tạo trên. 
 
-:::tip Lưu ý
+:::info Lưu ý
 Trong trường hợp này, nếu bạn truyền `columns` vào thì `columns` bắt buộc phải chứa tất cả
 các key của dict 
 :::
@@ -278,7 +278,7 @@ pd.DataFrame.from_dict(data, orient='columns', dtype=None, columns=None)
 
 `data` truyền vào là 1 dict, `orient` có 2 giá trị có thể đưa vào là `{"columns", "index"}`, `columns` là danh sách tên các cột của DataFrame.
 
-:::tip Lưu ý
+:::info Lưu ý
 Chỉ được truyền `columns` khi `orient="index"`. Khi `orient="columns"` sẽ báo lỗi. 
 :::
 
