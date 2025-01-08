@@ -49,8 +49,8 @@ Trong đó:
 - `path_or_buf`: là đường dẫn đến file json hoặc Object cho trước
 
 - `orient`:  Kiểu cấu trúc của json
-    - `split`:  Dữ liệu có dạng dictionary theo cấu trúc `{index -> [index], columns - [columns], data -> [values]}`
     - `records`: Dữ liệu có dạng danh sách các dictionary theo cấu trúc ` [{column -> value}, ... , {column -> value}]`
+    - `split`:  Dữ liệu có dạng dictionary theo cấu trúc `{index -> [index], columns - [columns], data -> [values]}`
     - `index`: Dữ liệu dạng dictionary theo cấu trúc `{"index" -> {"column" -> "value"}}`
     - `columns`: Dữ liệu dạng dictionary theo cấu trúc `{column -> {index -> value}}`
     - `values`: danh sách các giá trị
@@ -58,7 +58,7 @@ Trong đó:
 
 
 ### Cấu trúc Records
-Giả sử ta có `sample_pokemon.json` Lưu mảng JSON như sau
+Giả sử ta có `sample_pokemon.json` Lưu mảng JSON như sau. Có thể hiểu là mỗi phần tử của mảng là một dòng trong pandas với key là tên cột và value là giá trị của cột.
 
 ```json
 [{"name":"Bulbasaur","type":["Grass","Poison"],"height":"0.71 m","weight":"6.9 kg"},
@@ -109,11 +109,20 @@ Ta có thể gọi phương thức `pd.read_json()` với `orient='split'`
  df.head()
  ```
 
+<pythonoutput>
+ ```
+          name             type  height    weight
+0   Bulbasaur  [Grass, Poison]  0.71 m    6.9 kg
+1     Ivysaur  [Grass, Poison]  0.99 m   13.0 kg
+2    Venusaur  [Grass, Poison]  2.01 m  100.0 kg
+3  Charmander           [Fire]  0.61 m    8.5 kg
+4  Charmeleon           [Fire]  1.09 m   19.0 kg
+ ```
+</pythonoutput>
 
 ### Cấu trúc Index
 
-Đối với cấu trúc Index, ta có dạng JSON như sau
-Với mỗi key là index của dòng, value là một dictionary với các key là cột, value là giá trị của cột.
+Đối với cấu trúc Index, ta có dạng JSON như sau. Cấu trúc này gần tương tự với cấu trúc Records nhưng các key là index của dòng.
 
  ```json
  {"0":{"name":"Bulbasaur","type":["Grass","Poison"],"height":"0.71 m","weight":"6.9 kg"},
@@ -122,8 +131,17 @@ Với mỗi key là index của dòng, value là một dictionary với các key
  "3":{"name":"Charmander","type":["Fire"],"height":"0.61 m","weight":"8.5 kg"},
  "4":{"name":"Charmeleon","type":["Fire"],"height":"1.09 m","weight":"19.0 kg"}}
  ```
+Ta có thể gọi phương thức `pd.read_json()` với `orient='index'`
 
-`columns`
+ ```python
+ df = pd.read_json('sample_pokemon.json', orient='index')
+ df.head()
+ ```
+
+### Cấu trúc Columns
+
+Cấu trúc Columns có dạng JSON như sau. 
+Cấu trúc này có key là cột, Value là một dictionary với các key là index của dòng, value là giá trị của dòng.
 
 ```json
 {"name":{"0":"Bulbasaur",
@@ -147,8 +165,15 @@ Với mỗi key là index của dòng, value là một dictionary với các key
            "3":"8.5 kg",
            "4":"19.0 kg"}}
 ```
+Ta có thể gọi phương thức `pd.read_json()` với `orient='columns'`
 
-`values`
+ ```python
+ df = pd.read_json('sample_pokemon.json', orient='columns')
+ df.head()
+ ```
+
+### Cấu trúc Values
+
 
 ```json
 [["Bulbasaur",["Grass","Poison"],"0.71 m","6.9 kg"],
@@ -167,4 +192,5 @@ Với mỗi key là index của dòng, value là một dictionary với các key
 
 - có thể truyền link file thay vì file được lưu ở máy.
 :::
-### Xuất file JSON
+
+## Xuất file JSON
