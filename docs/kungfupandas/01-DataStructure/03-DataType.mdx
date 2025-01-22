@@ -66,13 +66,14 @@ dtype: object
 :::info Lưu ý
 
 - Nếu không khai báo kiểu dữ liệu khi khởi tạo, pandas sẽ mặc định kiểu dữ liệu là `int64`, `float64`, `object` và `bool`.
-Pandas sẽ không biết kiểu dữ liệu `timestamp` nếu không khai báo.
+Pandas sẽ không biết kiểu dữ liệu có định dạng thời gian nếu không khai báo.
 
-- Chỉ có thể khai báo duy nhất 1 kiểu dữ liệu khi [khởi tạo pandas](./DataFrame#các-cách-khởi-tạo). 
+- Khi [khởi tạo pandas](./DataFrame#các-cách-khởi-tạo), chúng ta chỉ có thể khai báo duy nhất 1 kiểu dữ liệu cho tất cả các cột.
 Ví dụ như tất cả dữ liệu của bạn là `int` hoặc có thể được ép kiểu về  `int`thì có thể khai báo  `dtype=np.int`
+
 :::
 
-Ở ví dụ phía dưới `col_1`, `col_2`, `col_3`, `col_4`, `col_5` có thể ép về kiểu `int`, còn `col_6` thì không thể ép kiểu được.
+Ta có ví dụ về việc khai báo `dtype=np.int` như sau:
 
 ```python
 df = pd.DataFrame({
@@ -80,42 +81,40 @@ df = pd.DataFrame({
                    'col_2': [1.0, 2.0, 3.0, 4.0], 
                    'col_3': ['1', '2', '3', '4'],
                    'col_4': ['1', 2, '3', 4],
-                   'col_5': [True, False, True, False],
-                   'col_6': ['2021-06-01', '2021-06-02', '2021-06-03', '2021-06-04']},
-                   dtype=np.int)
+                   'col_5': [True, False, True, False]},
+                   dtype=np.int64)
 df
 ```
 
 <pythonoutput>
 ```
-   col_1  col_2  col_3  col_4  col_5       col_6
-0      1      1      1      1      1  2021-06-01
-1      0      2      2      2      0  2021-06-02
-2      1      3      3      3      1  2021-06-03
-3      0      4      4      4      0  2021-06-04
+   col_1  col_2  col_3  col_4  col_5
+0      1      1      1      1      1
+1      0      2      2      2      0
+2      1      3      3      3      1
+3      0      4      4      4      0
 ```
 </pythonoutput>
 
-
+Sau khi khai báo `dtype=np.int64`, kiểu dữ liệu của các cột đã được ép kiểu về `int64`.
 ```python
 df.dtypes
 ```
 
 <pythonoutput>
 ```
-col_1     int64
-col_2     int64
-col_3    object
-col_4     int64
-col_5     int64
-col_6     int64
+col_1    int64
+col_2    int64
+col_3    int64
+col_4    int64
+col_5    int64
 dtype: object
 ```
 </pythonoutput>
 
 
 :::tip 
-Nếu dữ liệu có khoảng nhỏ thì thay vì khai báo kiểu `np.int`, ta có thể khai báo kiểu `integer` với số byte phù hợp để giảm bộ nhớ lưu trữ. 
+Nếu dữ liệu có khoảng nhỏ thì thay vì khai báo kiểu `np.int64`, ta có thể khai báo kiểu `integer` với số byte phù hợp để giảm bộ nhớ lưu trữ. 
 Để xem bộ nhớ sử dụng của DataFrame, ta có thể dùng `.memory_usage()`.
 
 Một số kiểu integer trong numpy như `np.int8`, `np.int16`, `np.int32`, `np.int64`, `np.uint8`, `np.uint16`, `np.uint32`, `np.uint64`
@@ -124,18 +123,24 @@ Một số kiểu integer trong numpy như `np.int8`, `np.int16`, `np.int32`, `n
 Theo ví dụ trên, khi `dtype=np.int`
 
 ```python
- df.memory_usage()
+df = pd.DataFrame({
+                   'col_1': [1, 0, 1, 0], 
+                   'col_2': [1.0, 2.0, 3.0, 4.0], 
+                   'col_3': ['1', '2', '3', '4'],
+                   'col_4': ['1', 2, '3', 4],
+                   'col_5': [True, False, True, False]},
+                   dtype=np.int64)
+print(df.memory_usage())
 ```
 
 <pythonoutput>
 ```
-Index    128
+Index    132
 col_1     32
 col_2     32
 col_3     32
 col_4     32
 col_5     32
-col_6     32
 dtype: int64
 ```
 </pythonoutput>
@@ -143,19 +148,26 @@ dtype: int64
 và sau khi thay bằng `dtype=np.int8`
 
 ```python
- df.memory_usage()
+df = pd.DataFrame({
+                   'col_1': [1, 0, 1, 0], 
+                   'col_2': [1.0, 2.0, 3.0, 4.0], 
+                   'col_3': ['1', '2', '3', '4'],
+                   'col_4': ['1', 2, '3', 4],
+                   'col_5': [True, False, True, False]},
+                   dtype=np.int8)
+print(df.memory_usage())
 ```
 
 <pythonoutput>
 ```
-Index    128
+Index    132
 col_1      4
 col_2      4
 col_3      4
 col_4      4
 col_5      4
-col_6     32
 dtype: int64
 ```
+Có thể thấy bộ nhớ sử dụng của DataFrame đã giảm đáng kể từ `32 bytes` xuống còn `4 bytes`.
 </pythonoutput>
 Phương thức ép kiểu này được áp dụng khi bạn khởi tạo DataFrame, ngoài ra còn có hàm ép kiểu khác đối với DataFrame cho trước, nội dung này sẽ được đề cập ở [Chương 3](#Chuong-3).
