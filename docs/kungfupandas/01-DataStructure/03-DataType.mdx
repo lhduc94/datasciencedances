@@ -27,37 +27,37 @@ Ví dụ:
 
 ```python
 df = pd.DataFrame({
-                   'col_1': [1, 0, 1, 0], 
-                   'col_2': [1.0, 2.0, 3.0, 4.0], 
-                   'col_3': ['1', '2', '3', '4'],
-                   'col_4': ['1', 2, '3', 4],
-                   'col_5': [True, False, True, False],
-                   'col_6': ['2021-06-01', '2021-06-02', '2021-06-03', '2021-06-04']})
+                   'int': [1, 0, 1, 0], 
+                   'float': [1.0, 2.0, 3.0, 4.0], 
+                   'object': ['1', '2', '3', '4'],
+                   'str_int': ['1', 2, '3', 4],
+                   'bool': [True, False, True, False],
+                   'date_str': ['2021-06-01', '2021-06-02', '2021-06-03', '2021-06-04']})
 df
 ```
 
 <pythonoutput>
-```{.python_output}
-   col_1  col_2 col_3 col_4  col_5       col_6
-0      1    1.0     1     1   True  2021-06-01
-1      0    2.0     2     2  False  2021-06-02
-2      1    3.0     3     3   True  2021-06-03
-3      0    4.0     4     4  False  2021-06-04
+```
+   int  float object str_int   bool    date_str
+0    1    1.0      1       1   True  2021-06-01
+1    0    2.0      2       2  False  2021-06-02
+2    1    3.0      3       3   True  2021-06-03
+3    0    4.0      4       4  False  2021-06-04
 ```
 </pythonoutput>
 
 ```python
-df.dtypes
+print(df.dtypes)
 ```
 
 <pythonoutput>
 ```
-col_1      int64
-col_2    float64
-col_3     object
-col_4     object
-col_5       bool
-col_6     object
+int           int64
+float       float64
+object       object
+str_int      object
+bool           bool
+date_str     object
 dtype: object
 ```
 </pythonoutput>
@@ -77,37 +77,37 @@ Ta có ví dụ về việc khai báo `dtype=np.int` như sau:
 
 ```python
 df = pd.DataFrame({
-                   'col_1': [1, 0, 1, 0], 
-                   'col_2': [1.0, 2.0, 3.0, 4.0], 
-                   'col_3': ['1', '2', '3', '4'],
-                   'col_4': ['1', 2, '3', 4],
-                   'col_5': [True, False, True, False]},
+                   'int': [1, 0, 1, 0], 
+                   'float': [1.0, 2.0, 3.0, 4.0], 
+                   'object': ['1', '2', '3', '4'],
+                   'str_int': ['1', 2, '3', 4],
+                   'bool': [True, False, True, False]},
                    dtype=np.int64)
 df
 ```
 
 <pythonoutput>
 ```
-   col_1  col_2  col_3  col_4  col_5
-0      1      1      1      1      1
-1      0      2      2      2      0
-2      1      3      3      3      1
-3      0      4      4      4      0
+   int  float  object  str_int  bool
+0    1      1       1        1     1
+1    0      2       2        2     0
+2    1      3       3        3     1
+3    0      4       4        4     0
 ```
 </pythonoutput>
 
 Sau khi khai báo `dtype=np.int64`, kiểu dữ liệu của các cột đã được ép kiểu về `int64`.
 ```python
-df.dtypes
+print(df.dtypes)
 ```
 
 <pythonoutput>
 ```
-col_1    int64
-col_2    int64
-col_3    int64
-col_4    int64
-col_5    int64
+int        int64
+float      int64
+object     int64
+str_int    int64
+bool       int64
 dtype: object
 ```
 </pythonoutput>
@@ -124,23 +124,23 @@ Theo ví dụ trên, khi `dtype=np.int`
 
 ```python
 df = pd.DataFrame({
-                   'col_1': [1, 0, 1, 0], 
-                   'col_2': [1.0, 2.0, 3.0, 4.0], 
-                   'col_3': ['1', '2', '3', '4'],
-                   'col_4': ['1', 2, '3', 4],
-                   'col_5': [True, False, True, False]},
+                   'int': [1, 0, 1, 0], 
+                   'float': [1.0, 2.0, 3.0, 4.0], 
+                   'object': ['1', '2', '3', '4'],
+                   'str_int': ['1', 2, '3', 4],
+                   'bool': [True, False, True, False]},
                    dtype=np.int64)
 print(df.memory_usage())
 ```
 
 <pythonoutput>
 ```
-Index    132
-col_1     32
-col_2     32
-col_3     32
-col_4     32
-col_5     32
+Index      132
+int         32
+float       32
+object      32
+str_int     32
+bool        32
 dtype: int64
 ```
 </pythonoutput>
@@ -149,23 +149,23 @@ và sau khi thay bằng `dtype=np.int8`
 
 ```python
 df = pd.DataFrame({
-                   'col_1': [1, 0, 1, 0], 
-                   'col_2': [1.0, 2.0, 3.0, 4.0], 
-                   'col_3': ['1', '2', '3', '4'],
-                   'col_4': ['1', 2, '3', 4],
-                   'col_5': [True, False, True, False]},
+                   'int': [1, 0, 1, 0], 
+                   'float': [1.0, 2.0, 3.0, 4.0], 
+                   'object': ['1', '2', '3', '4'],
+                   'str_int': ['1', 2, '3', 4],
+                   'bool': [True, False, True, False]},
                    dtype=np.int8)
 print(df.memory_usage())
 ```
 
 <pythonoutput>
 ```
-Index    132
-col_1      4
-col_2      4
-col_3      4
-col_4      4
-col_5      4
+Index      132
+int          4
+float        4
+object       4
+str_int      4
+bool         4
 dtype: int64
 ```
 Có thể thấy bộ nhớ sử dụng của DataFrame đã giảm đáng kể từ `32 bytes` xuống còn `4 bytes`.
