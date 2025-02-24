@@ -49,10 +49,10 @@ const config: Config = {
           "./src/css/design-class.scss"
         ]
         },
-        gtag:{
-          trackingID: "G-88PWBGGNQW",
+        gtag: process.env.NODE_ENV === 'production' ? {
+          trackingID: 'G-88PWBGGNQW',
           anonymizeIP: true,
-        }
+        } : undefined
       } satisfies Preset.Options,
     ],
    
@@ -140,7 +140,7 @@ const config: Config = {
               to: "/courses/list/analysis-in-practice/analysis-in-practice"
             },
             {
-              label: "Đánh giá hiệu suất Mô hình",
+              label: "Giám sát mô hình Machine Learning",
               to: "/courses/list/ml-observation/ml-observation"
             }
           ]

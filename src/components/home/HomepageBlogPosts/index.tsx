@@ -64,7 +64,7 @@ export default function HomepageBlogPosts() {
   return (
     <div className={styles.wrap}>
       <div className={styles.gTitle}>
-        <Translate>Bài viết mới nhất 🔥🔥</Translate>
+        Bài viết mới nhất <span className={styles.fireEmoji}>🔥🔥</span>
       </div>
       <div className={clsx(styles.listWrap, "link-wrap")}>{itemDom}</div>
 

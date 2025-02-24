@@ -14,8 +14,8 @@ const texts = ["Các tài liệu tự viết về các thư viện Data Science"
 "Roadmap về Data Science"]
 
 function NewlineText(_texts) {
-    return _texts.map((item: string) => <p>⭐ {item}</p>);
-  }
+    return _texts.map((item: string) => <p><span className={styles.spinningStar}>⭐</span> {item}</p>);
+}
 
 export default function HomepageDocs() {
   return (
@@ -35,7 +35,7 @@ export default function HomepageDocs() {
             <Link
               className={clsx("button button--lg", styles.button)}
               to="/docs/kungfupandas/gioithieu">
-              Cùng đọc nào ⭐!!
+              Cùng đọc nào <span className={styles.spinningStar}>⭐</span>!!
             </Link>
           </div>
         </div>

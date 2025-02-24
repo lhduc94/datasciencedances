@@ -5,70 +5,59 @@ sidebar_position: 1
 
 # Python Package
 
-## causalml
-Causal ML is a Python package that provides a suite of uplift modeling and causal inference methods using machine learning algorithms based on recent research [1]. It provides a standard interface that allows user to estimate the Conditional Average Treatment Effect (CATE) or Individual Treatment Effect (ITE) from experimental or observational data. Essentially, it estimates the causal impact of intervention T on outcome Y for users with observed features X, without strong assumptions on the model form. Typical use cases include
+## 1. CausalML - Phân tích Nhân Quả bằng Machine Learning
+**Mô tả:** Package Python cung cấp các phương pháp mô hình hóa uplift và suy luận nhân quả sử dụng thuật toán machine learning. Cho phép ước tính Conditional Average Treatment Effect (CATE) hoặc Individual Treatment Effect (ITE).
 
-Campaign targeting optimization: An important lever to increase ROI in an advertising campaign is to target the ad to the set of customers who will have a favorable response in a given KPI such as engagement or sales. CATE identifies these customers by estimating the effect of the KPI from ad exposure at the individual level from A/B experiment or historical observational data.
+**Ứng dụng chính:**
+- Tối ưu hóa chiến dịch quảng cáo
+- Cá nhân hóa tương tác với khách hàng
 
-Personalized engagement: A company has multiple options to interact with its customers such as different product choices in up-sell or messaging channels for communications. One can use CATE to estimate the heterogeneous treatment effect for each customer and treatment option combination for an optimal personalized recommendation system.
+**Tài liệu:** [CausalML Documentation](https://causalml.readthedocs.io/en/latest/about.html)
 
-Documentation is available at:
+## 2. Thuật Toán Đề Xuất của Twitter
+**Mô tả:** Bộ dịch vụ và công việc phụ trách việc cung cấp feed tweets và nội dung trên các sản phẩm Twitter.
 
-https://causalml.readthedocs.io/en/latest/about.html
+**Link:** [GitHub Repository](https://github.com/twitter/the-algorithm)
 
-## Twitter's Recommendation Algorithm
+## 3. TabDDPM - Mô Hình Hóa Dữ Liệu Bảng
+**Mô tả:** Mã nguồn chính thức cho nghiên cứu về mô hình hóa dữ liệu bảng sử dụng Diffusion Models.
 
-Twitter's Recommendation Algorithm is a set of services and jobs that are responsible for serving feeds of Tweets and other content across all Twitter product surfaces (e.g. For You Timeline, Search, Explore, Notifications). For an introduction to how the algorithm works, please refer to [our engineering blog](https://blog.x.com/engineering/en_us/topics/open-source/2023/twitter-recommendation-algorithm).
+**Link:** [GitHub Repository](https://github.com/yandex-research/tab-ddpm)
 
+## 4. Data-Centric AI Labs
+**Mô tả:** Bài tập thực hành cho khóa học Introduction to Data-Centric AI.
 
-https://github.com/twitter/the-algorithm
+**Link:** [GitHub Repository](https://github.com/dcai-course/dcai-lab)
 
-## TabDDPM: Modelling Tabular Data with Diffusion Models
+## 5. Tango
+**Mô tả:** Công cụ tạo âm thanh từ văn bản sử dụng LLM và DPO-based Alignment.
 
-This is the official code for our paper "TabDDPM: Modelling Tabular Data with Diffusion Models" (paper)
+**Link:** [GitHub Repository](https://github.com/declare-lab/tango)
 
-https://github.com/yandex-research/tab-ddpm
+## 6. Awesome NLP
+**Link:** [GitHub Repository](https://github.com/keon/awesome-nlp)
 
-## Lab assignments for Introduction to Data-Centric AI
+## 7. RAPIDS.AI Deep Learning
+**Link:** [GitHub Repository](https://github.com/rapidsai/deeplearning)
 
-This repository contains the lab assignments for the Introduction to Data-Centric AI class.
+## 8. Data Camp: Data Scientist with Python
+**Link:** [GitHub Repository](https://github.com/AmoDinho/datacamp-python-data-science-track)
 
-Contributions are most welcome! If you have ideas for improving the labs, please open an issue or submit a pull request.
+## 9. HiAGM
+**Mô tả:** Mô hình phân loại văn bản phân cấp.
 
-If you're looking for the 2023 version of the labs, check out the 2023 branch.
+**Link:** [GitHub Repository](https://github.com/Alibaba-NLP/HiAGM)
 
-https://github.com/dcai-course/dcai-lab
+## 10. GLiNER
+**Mô tả:** Mô hình nhận dạng thực thể có tên.
 
-## Tango: LLM-guided Diffusion-based Text-to-Audio Generation and DPO-based Alignment
+**Link:** [GitHub Repository](https://github.com/urchade/GLiNER)
 
-https://github.com/declare-lab/tango
+## 11. KAT - Công Cụ Phân Tích Chuỗi Thời Gian
+**Mô tả:** Framework toàn diện để phân tích chuỗi thời gian, bao gồm:
+- Phát hiện bất thường
+- Dự báo
+- Trích xuất đặc trưng
+- Phân tích đa biến
 
-
-## awesome-nlp
-
-https://github.com/keon/awesome-nlp
-
-
-## RAPIDS.AI Deep Learning Repo
-
-https://github.com/rapidsai/deeplearning
-
-
-## Data Camp: Data Scientist with Python 🎉🤖
-
-https://github.com/AmoDinho/datacamp-python-data-science-track
-
-## HiAGM: Hierarchy-Aware Global Model for Hierarchical Text Classification
-
-https://github.com/Alibaba-NLP/HiAGM
-
-## GLiNER: Generalist and Lightweight Model for Named Entity Recognition
-
-https://github.com/urchade/GLiNER
-
-
-## KAT 
-
-Kats is a toolkit to analyze time series data, a lightweight, easy-to-use, and generalizable framework to perform time series analysis. Time series analysis is an essential component of Data Science and Engineering work at industry, from understanding the key statistics and characteristics, detecting regressions and anomalies, to forecasting future trends. Kats aims to provide the one-stop shop for time series analysis, including detection, forecasting, feature extraction/embedding, multivariate analysis, etc.
-
-https://github.com/facebookresearch/Kats
+**Link:** [GitHub Repository](https://github.com/facebookresearch/Kats)

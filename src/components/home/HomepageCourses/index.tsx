@@ -13,7 +13,7 @@ const texts = ["Các khóa học Data Science cơ bản cho người mới bắt
 "Khai phá tiềm năng của các thuật toán phân tích"]
 
 function NewlineText(_texts) {
-  return _texts.map((item: string) => <p>❤️‍🔥 {item}</p>);
+  return _texts.map((item: string) => <p><span className={styles.pulseHeart}>❤️‍🔥</span> {item}</p>);
 }
 
 export default function HomepageCourses() {
@@ -31,7 +31,7 @@ export default function HomepageCourses() {
             <Link
               className={clsx("button button--lg", styles.button)}
               to="/courses">
-              Cùng học nào ❤️‍🔥!!
+              Cùng học nào <span className={styles.pulseHeart}>❤️‍🔥</span>!!
             </Link>
           </div>
         </div>
