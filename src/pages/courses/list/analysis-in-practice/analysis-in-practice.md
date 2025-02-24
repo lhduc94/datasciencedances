@@ -36,43 +36,43 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 
 
 <details>
-  <summary><h4>Nội dung 2: Market Basket Analysis</h4></summary>
+  <summary><h4>Nội dung 1: Market Basket Analysis</h4></summary>
 - Phân tích Giỏ hàng là gì
 </details>
 
 
 <details>
-  <summary><h4>Nội dung 3: Phân tích phân cụm</h4></summary>
+  <summary><h4>Nội dung 2: Phân tích phân cụm</h4></summary>
 - Giới thiệu Phân tích Phân cụm
 </details>
 
 <details>
-  <summary><h4>Nội dung 4: Regression Analysis</h4></summary>
+  <summary><h4>Nội dung 3: Regression Analysis</h4></summary>
 - Giới thiệu Phân tích Hồi quy
 </details>
 
 <details>
-  <summary><h4>Nội dung 5: Timeseries Analysis</h4></summary>
+  <summary><h4>Nội dung 4: Timeseries Analysis</h4></summary> 
 - Giới thiệu phân tích Dữ liệu thời gian
 </details>
 
 <details>
-  <summary><h4>Nội dung 6: Factor Analysis</h4></summary>
+  <summary><h4>Nội dung 5: Factor Analysis</h4></summary>
 - Giới thiệu Phân tích nhân tố
 </details>
 
 <details>
-  <summary><h4>Nội dung 7: Text Analysis</h4></summary>
+  <summary><h4>Nội dung 6: Text Analysis</h4></summary>
 - Giới thiệu Phân tích nội dung văn bản.
 </details>
 
 <details>
-  <summary><h4>Nội dung 8: Cannibalization Analysis</h4></summary>
+  <summary><h4>Nội dung 7: Cannibalization Analysis</h4></summary>
 - Giới thiệu Phân tích ăn mòn
 </details>
 
 <details>
-  <summary><h4>Nội dung 9: Data Envelopment Analysis</h4></summary>
+  <summary><h4>Nội dung 8: Data Envelopment Analysis</h4></summary>
 - Giới thiệu phân tích hiệu quả
 - Giới thiệu phân tích đường bao hiệu quả
 - Giới thiệu thuật toán CCR
@@ -80,11 +80,11 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 
 
 <details>
-  <summary><h4>Nội dung 10: Suvirval Analysis</h4></summary>
+  <summary><h4>Nội dung 9: Suvirval Analysis</h4></summary>
 - Giới thiệu phân tích sống sót.
 </details>
 
 <details>
-  <summary><h4>Nội dung 11: Link Analysis  </h4></summary>
+  <summary><h4>Nội dung 10: Link Analysis  </h4></summary>
 - Giới thiệu Phân tích liên kết.
 </details>

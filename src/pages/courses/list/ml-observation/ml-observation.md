@@ -16,6 +16,12 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 </ul>  
 
 ###  Nội dung 
+**:one:** Giới thiệu về Model Evaluation\
+**:two:** Giới thiệu về Model Explainability\
+**:three:** Giới thiệu về Drift Detection\
+**:four:** Giới thiệu về Data Quality Management\
+**:five:** Giới thiệu về Fairness and Bias Tracing\
+**:six:** Giới thiệu về Unstructured Data & Embedding
 
 [*Nội dung chi tiết tại đây*](#nội-dung-chi-tiết)
 
@@ -46,7 +52,7 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 </details>
 
 <details>
-  <summary><h4>Nội dung 2: Model Explaination/h4></summary>
+  <summary><h4>Nội dung 2: Model Explanation</h4></summary>
 - Tại sao cần giải thích mô hình?
 - Các Phương pháp giải thích mô hình
 - Ứng dụng thực tế
