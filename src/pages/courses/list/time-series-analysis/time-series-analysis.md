@@ -44,7 +44,7 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 ✅️ Được nhận bộ Flashcard về Time Series Analysis(Đang trong quá trình phát triển)
 ### Thông tin đăng kí
 
-📝 Liên hệ [Facebook](https://www.facebook.com/lhduc94)
+📝 Liên hệ [Facebook](https://www.facebook.com/datasciencedances)
 
 ###  Nội dung chi tiết 
 

@@ -141,7 +141,7 @@ const config: Config = {
             },
             {
               label: "Đánh giá hiệu suất Mô hình",
-              to: "/courses/list/evaluation-metrics/evaluation-metrics"
+              to: "/courses/list/ml-observation/ml-observation"
             }
           ]
         },

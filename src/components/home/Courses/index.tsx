@@ -17,8 +17,8 @@ let ITEM_COURSES = [
     },
     {
       pic: "/img/home/courses.jpg",
-      href: "/courses/evaluation-metrics",
-      title: "Đánh giá hiệu suất mô hình",
+      href: "/courses/ml-observation",
+      title: "Giám sát mô hình Machine Learning",
       desc: "Bao gồm các tài liệu và bài tập",
     },
   ];

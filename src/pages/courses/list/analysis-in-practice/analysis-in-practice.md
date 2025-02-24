@@ -25,11 +25,11 @@ image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
 ✅️ Được giải đáp thắc mắc trong quá trình học\
 ✅️ Được nhận chia sẻ nội dung mới có liên quan đến Các loại phân tích\
 ✅️ Nhận được sách về Các loại phân tích được viết bởi mình\
-✅️ Được ưu đãi những khóa học tiếp theo\
+✅️ Được ưu đãi những khóa học tiếp theo
 
 ### Thông tin đăng kí
 
-📝 Liên hệ [Facebook](https://www.facebook.com/khoai.kho.7)
+📝 Liên hệ [Facebook](https://www.facebook.com/datasciencedances)
 
 ###  Nội dung chi tiết 
 
