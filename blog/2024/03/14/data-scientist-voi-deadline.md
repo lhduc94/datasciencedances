@@ -92,3 +92,5 @@ Ngoài ra, bạn có thể chia sẻ những câu hỏi bạn thắc mắc lên 
 
 Deadline là một phần của dự án. Hãy bình tĩnh và cùng nhảy với nó như một nghệ sĩ!
 
+## Phụ lục
+Bản tiếng anh của mình tại đây: [How to handle tight deadlines in data science projects](https://medium.com/@lehuynhduc/how-to-handle-tight-deadlines-in-data-science-projects-9dad2b03ef85)
