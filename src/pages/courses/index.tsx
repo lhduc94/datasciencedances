@@ -23,6 +23,7 @@ let ITEM_COURSES = [
             "• Ứng dụng mô hình phương sai có điều kiện trong thực tế",
       category: "Data Analysis",
       duration: "7 Buổi",
+      status: "not open"
     },
     {
       pic: "/img/home/courses.jpg",
@@ -31,6 +32,7 @@ let ITEM_COURSES = [
       desc: "Bao gồm các tài liệu và bài tập",
       category: "Data Analysis",
       duration: "11 Buổi",
+      status: "notopen"
     },
     {
       pic: "/img/home/courses.jpg",
@@ -38,7 +40,8 @@ let ITEM_COURSES = [
       title: "Giám sát mô hình Machine Learning",
       desc: "Bao gồm các tài liệu và bài tập",
       category: "Machine Learning",
-      duration: "6 Buổi",
+      duration: "6 Buổi", 
+      status: "not open"
     },
   ];
 
@@ -59,6 +62,10 @@ export default function Courses() {
           <div className={styles.courseImage}>
             <img src={useBaseUrl(item.pic)} alt={item.title} />
             <div className={styles.category}>{item.category}</div>
+            <div className={clsx(styles.status, 
+              item.status === 'open' ? styles.statusOpen : styles.statusNotOpen)}>
+              {item.status === 'open' ? 'Đang mở' : 'Chưa mở'}
+            </div>
           </div>
           <div className={styles.courseContent}>
             <h3 className={styles.courseTitle}>{item.title}</h3>
@@ -66,9 +73,11 @@ export default function Courses() {
               <NewlineText text={item.desc} />
             </div>
             <div className={styles.courseFooter}>
-              <span className={clsx(styles.duration, styles.durationHighlight)}>
-                <i className="fas fa-clock"></i> {item.duration}
-              </span>
+              <div className={styles.courseInfo}>
+                <span className={styles.durationHighlight}>
+                  <i className="fas fa-clock"></i> {item.duration}
+                </span>
+              </div>
               <button className={styles.enrollButton}>Xem chi tiết</button>
             </div>
           </div>
