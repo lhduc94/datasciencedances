@@ -13,7 +13,7 @@ let ITEM_COURSES = [
       pic: "/img/home/courses.jpg",
       href: "courses/time-series-analysis",
       title: "Phân tích dữ liệu chuỗi thời gian",
-      desc: "Bao gồm các tài liệu và bài tập,\n Bao gồm các tài liệu và bài tập Bao gồm các tài liệu và bài tập",
+      desc: "Bao gồm các tài liệu và bài tập,\n Bao gồm các tài liệu và bài tập \n Bao gồm các tài liệu và bài tập",
     },
     {
       pic: "/img/home/courses.jpg",
