@@ -134,15 +134,14 @@ div.course_title h1
 } */
 
 ul#skills li {
-  display:inline;
-  margin: 0 50px 10px -30px;
+  display: inline-block;
+  margin: 0 10px 10px 0;
   border: 1px solid var(--docusaurus-tag-list-border);
   transition: border var(--ifm-transition-fast);
   border-radius: 24px;
   padding: 0.2rem 0.5rem 0.3rem;
   font-size: 100%;
   background-color: antiquewhite;
-  
 }
 /* ul#skills li a {
   text-decoration: none;
@@ -208,4 +207,90 @@ article p code {
   color: #bd1481;
   background-color: #ffffff00;
   padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  ul#skills {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 20px;
+  }
+  
+  ul#skills li {
+    margin: 5px;
+  }
+}
+
+// Thêm style cho nội dung blog
+.markdown {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    
+    @media screen and (max-width: 768px) {
+      font-size: 14px; // Giảm font size trên mobile
+    }
+  }
+  
+  code {
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+}
+
+// Điều chỉnh container chính
+main {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+// Điều chỉnh style cho section courses và docs
+.features_src-components-HomepageFeatures-styles-module {
+  @media screen and (max-width: 768px) {
+    padding: 2rem 1rem; // Giảm padding ở mobile
+  }
+}
+
+.row {
+  @media screen and (max-width: 768px) {
+    .col {
+      --ifm-col-width: 100% !important; // Chiếm full width trên mobile
+      padding: 1rem; // Thêm padding đều cho mỗi cột
+      
+      .card {
+        height: auto; // Cho phép card co giãn theo nội dung
+        margin-bottom: 1rem; // Thêm khoảng cách giữa các card
+        
+        .card__image {
+          height: 200px; // Cố định chiều cao ảnh
+          object-fit: cover; // Đảm bảo ảnh không bị méo
+        }
+        
+        .card__body {
+          padding: 1rem;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+// Điều chỉnh khoảng cách giữa các section
+.container {
+  @media screen and (max-width: 768px) {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
 }

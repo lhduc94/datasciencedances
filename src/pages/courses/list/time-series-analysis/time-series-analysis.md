@@ -1,7 +1,7 @@
 ---
-image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
+image: /img/courses/time-series-analysis.jpg
 ---
-<img src="https://blog.talent500.co/wp-content/uploads/2023/08/173.png" alt="drawing" width="1000"/>
+<img src="/img/courses/time-series-analysis.jpg" alt="drawing" width="1000"/>
 
 <div class="course_title"><h1> Phân tích dữ liệu chuỗi thời gian</h1></div>
 

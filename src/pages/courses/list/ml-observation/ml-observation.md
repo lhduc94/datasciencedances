@@ -1,8 +1,8 @@
 ---
-image: https://blog.talent500.co/wp-content/uploads/2023/08/173.png
+image: /img/courses/ml-observation.jpg
 ---
 
-<img src="https://blog.talent500.co/wp-content/uploads/2023/08/173.png" alt="drawing" width="1000"/>
+<img src="/img/courses/ml-observation.jpg" alt="drawing" width="1000"/>
 
 <div class="course_title"><h1>Quan sát mô hình Machine Learning</h1></div>
 
