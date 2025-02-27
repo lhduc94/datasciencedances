@@ -29,7 +29,7 @@ export default function HomepageHeader() {
         <div>
           <Link
             className={clsx("button button--lg", styles.button)}
-            to="/roadmap/datascientist">
+            to="/roadmap">
             Cùng nhảy nào 🪇🪇!!
           </Link>
         </div>

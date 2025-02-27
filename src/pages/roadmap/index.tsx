@@ -11,16 +11,7 @@ import LinkWithBaseUrl from "@site/src/components/common/LinkWithBaseUrl";
 import styles from "./styles.module.scss";
 
 
-
-
 // Hàm để format tên file thành tiêu đề
-function formatTitle(filename: string) {
-  return filename
-    .replace(/\.mdx?$/, '')
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
-}
 
 let item_roadmap = [
   {

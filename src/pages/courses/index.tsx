@@ -12,21 +12,16 @@ import styles from "./styles.module.scss";
 
 let ITEM_COURSES = [
     {
-      pic: "/img/home/courses.jpg",
+      pic: "/img/courses/time-series-analysis.jpg",
       href: "courses/list/time-series-analysis/time-series-analysis",
       title: "Phân tích dữ liệu chuỗi thời gian",
-      desc: "Khám phá sức mạnh của phân tích chuỗi thời gian từ cơ bản đến nâng cao: \n" +
-            "• Nắm vững các khái niệm nền tảng và thành phần của chuỗi thời gian \n" +
-            "• Phân tích tính dừng và kỹ thuật làm mịn dữ liệu \n" +
-            "• Thực hành với các mô hình dự báo hiện đại (AR, MA, ARMA, ARIMA) \n" +
-            "• Khám phá mối tương quan trong dữ liệu chuỗi thời gian đa biến \n" +
-            "• Ứng dụng mô hình phương sai có điều kiện trong thực tế",
+      desc: "Khám phá sức mạnh của phân tích chuỗi thời gian từ cơ bản đến nâng cao",
       category: "Data Analysis",
       duration: "7 Buổi",
       status: "not open"
     },
     {
-      pic: "/img/home/courses.jpg",
+      pic: "/img/courses/analysis-in-practice.jpg",
       href: "/courses/list/analysis-in-practice/analysis-in-practice",
       title: "Thực hành phân tích dữ liệu",
       desc: "Bao gồm các tài liệu và bài tập",
@@ -35,7 +30,7 @@ let ITEM_COURSES = [
       status: "notopen"
     },
     {
-      pic: "/img/home/courses.jpg",
+      pic: "/img/courses/ml-observation.jpg",
       href: "/courses/list/ml-observation/ml-observation",
       title: "Giám sát mô hình Machine Learning",
       desc: "Bao gồm các tài liệu và bài tập",
