@@ -169,3 +169,10 @@
     transform: rotate(5deg);
   }
 }
+
+.authorItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 12px;
+}

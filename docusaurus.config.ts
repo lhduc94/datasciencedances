@@ -123,41 +123,13 @@ const config: Config = {
           to: '/blog', label: 'Blog', position: 'left'
         },
         {
-          // type: 'dropdown',
           label: "Khóa học",
           to: '/courses',
-          // items:[
-          //   // {
-          //   //   label: "Giới thiệu",
-          //   //   to: "/courses"
-          //   // },
-          //   {
-          //     label: "Time Series Analysis",
-          //     to: "/courses/list/time-series-analysis/time-series-analysis"
-          //   },
-          //   {
-          //     label: "Thực hành Phân tích dữ liệu",
-          //     to: "/courses/list/analysis-in-practice/analysis-in-practice"
-          //   },
-          //   {
-          //     label: "Giám sát mô hình Machine Learning",
-          //     to: "/courses/list/ml-observation/ml-observation"
-          //   }
-          // ]
         },
         
         {
-          type: 'dropdown',
           label: "Roadmap",
-          items:[
-            {
-              label: "Data Scientist",
-              to: '/roadmap/datascientist'},
-            {
-              label: "Phân tích định vị thương hiệu",
-              to: '/roadmap/phan_tich_dinh_vi_thuong_hieu'
-            }
-          ]
+          to: '/roadmap',
         },
         {
           to: '/datasets/data', label: 'Datasets', position: 'left'

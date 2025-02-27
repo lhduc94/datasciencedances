@@ -30,17 +30,22 @@ function multipleAuthor(author: Author[], date: string) {
   return (
     <div className={clsx(styles.author, styles.multipleAuthor)}>
       <div className={styles.info}>
-        <div>
+        <div className={styles.nameLogo}>
           {author.map((item, i) => (
-            <img
-              key={i}
-              className={styles.portrait}
-              src={useBaseUrl(item.imageURL)}
-              alt=""
-            />
+            <div key={i} className={styles.authorItem}>
+              <img
+                className={styles.portrait}
+                src={useBaseUrl(item.imageURL)}
+                alt=""
+              />
+              <span className="name">
+                {item.name}
+                {i < author.length - 1 ? ', ' : ''}
+              </span>
+            </div>
           ))}
         </div>
-        <div className={styles.date}>{date}</div>
+        {/* <div className={styles.date}>{date}</div> */}
       </div>
     </div>
   );
