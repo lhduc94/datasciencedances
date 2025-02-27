@@ -121,29 +121,45 @@
   
       .content {
         width: 100%;
-        flex-direction: column;
+        flex-direction: column-reverse;
         padding: 0 var(--mobile-padding-width);
         box-sizing: border-box;
+        align-items: center;
         
         .maincontent {
-          width: 70%;
+          width: 100%;
+          align-items: center;
+          text-align: center;
           
           .item {
             height: auto !important;
+            width: 100%;
             
             img {
               height: auto;
               max-width: 100%;
               width: 100%;
             }
+
+            .desc {
+              text-align: center;
+            }
           }
         }
         .maintitle {
-          width: 70%;
+          width: 100%;
           margin-bottom: 38px;
-          img {
-            width: 70%;
-            height: auto;
+          text-align: center;
+
+          .imagecover {
+            width: 100%;
+            text-align: center;
+
+            img {
+              width: 70%;
+              height: auto;
+              margin: 0 auto;
+            }
           }
           .text {
             width: 100%;

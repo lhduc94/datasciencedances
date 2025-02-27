@@ -124,27 +124,23 @@
         flex-direction: column;
         padding: 0 var(--mobile-padding-width);
         box-sizing: border-box;
-        .right {
-          width: 70%;
-          margin-bottom: 38px;
-          img {
-            width: 70%;
-            height: auto;
-          }
-          .text {
-            width: 100%;
-          }
+        margin: 0 auto;
+        
+        .maintitle {
+          width: 100%;
+          margin-bottom: 30px;
+          order: 1;
         }
-        .left {
-          width: 70%;
   
+        .maincontent {
+          width: 100%;
+          order: 2;
+          
           .item {
-            height: auto !important;
+            text-align: center;
             
-            img {
-              height: auto;
-              max-width: 100%;
-              width: 100%;
+            .desc {
+              text-align: center;
             }
           }
         }
