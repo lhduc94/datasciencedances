@@ -1,0 +1,97 @@
+.footer {
+  background: var(--ifm-background-surface-color);
+  padding: 48px 0;
+  
+  .container {
+    max-width: var(--ifm-container-width);
+    margin: 0 auto;
+    padding: 0 var(--ifm-spacing-horizontal);
+    
+    .content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 32px;
+      
+      .section {
+        .title {
+          font-size: 18px;
+          font-weight: 600;
+          margin-bottom: 16px;
+          color: var(--ifm-color-primary);
+        }
+        
+        .links {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          
+          a {
+            color: var(--ifm-font-color-base);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 14px;
+            
+            &:hover {
+              color: var(--ifm-color-primary);
+            }
+          }
+        }
+        
+        .social {
+          display: flex;
+          gap: 16px;
+          
+          a {
+            color: var(--ifm-font-color-base);
+            font-size: 24px;
+            transition: transform 0.2s;
+            
+            &:hover {
+              transform: translateY(-2px);
+              color: var(--ifm-color-primary);
+            }
+          }
+        }
+      }
+    }
+    
+    .bottom {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--ifm-color-emphasis-200);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .copyright {
+        font-size: 14px;
+        color: var(--ifm-color-emphasis-600);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 32px 0;
+    
+    .container {
+      .content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        
+        .section {
+          .social {
+            justify-content: center;
+          }
+        }
+      }
+      
+      .bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  }
+} 

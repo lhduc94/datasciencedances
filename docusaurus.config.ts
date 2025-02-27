@@ -141,37 +141,57 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Tài liệu tham khảo',
+          title: 'Tài liệu tham khảo',
           items: [
             {
               label: 'Kungfu Pandas',
               to: 'docs/kungfupandas/gioithieu',
             },
-            // {
-            //   label: 'Pytorch',
-            //   to: 'docs/pytorch/gioithieu'
-            // }
+            {
+              label: 'Roadmap Data Science',
+              to: '/roadmap/list/data-scientist/data-scientist',
+            },
           ],
         },
         {
-          title: 'Liên Hệ',
+          title: 'Cộng đồng',
           items: [
             {
               label: 'Facebook',
-              href: 'https://www.facebook.com/lhduc94/',
-            },
-            {
-              label: 'Fanpage',
-              href: 'https://www.facebook.com/datasciencedances/',
+              href: 'https://facebook.com/datasciencedances',
             },
             {
               label: 'LinkedIn',
-              href: 'https://www.linkedin.com/in/lhduc94'
-            }
+              href: 'https://linkedin.com/in/lhduc94',
+            },
           ],
-        }
+        },
+        {
+          title: 'Thông tin thêm',
+          items: [
+            {
+              label: 'Blog',
+              to: '/blog',
+            },
+            {
+              label: 'GitHub',
+              href: 'https://github.com/datasciencedances',
+            },
+            {
+              label: 'Liên hệ',
+              to: '/contact',
+            },
+          ],
+        },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Lê Huỳnh Đức`},
+      copyright: `Copyright © ${new Date().getFullYear()} Data Science Dances.`,
+      // logo: {
+      //   alt: 'Your Logo',
+      //   src: 'img/logo.svg',
+      //   href: 'https://your-website.com',
+      //   width: 160,
+      // },
+    },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
