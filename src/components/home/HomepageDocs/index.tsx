@@ -22,7 +22,7 @@ export default function HomepageDocs() {
     <div className={styles.wrap}>
       <div className={styles.content}>
         <div className={styles.maintitle}>
-          <div className={styles.imagecover}><a href="/docs/kungfupandas/gioithieu"><img src={useBaseUrl("/img/home/image_doc_3.png")}alt="" /></a></div>
+          <div className={styles.imagecover}><a href="/docs/kungfupandas/gioithieu"><img src={useBaseUrl("/img/home/image_doc_4.png")}alt="" /></a></div>
         </div>
         <div className={styles.maincontent}>
           <div className={styles.item}>
@@ -35,7 +35,7 @@ export default function HomepageDocs() {
             <Link
               className={clsx("button button--lg", styles.button)}
               to="/docs/kungfupandas/gioithieu">
-              Cùng đọc nào <span className={styles.spinningStar}>⭐</span>!!
+              <span style={{ fontFamily: "'Consolas', monospace" }}>Cùng đọc nào</span> <span className={styles.spinningStar}>⭐</span>!!
             </Link>
           </div>
         </div>

@@ -6,6 +6,7 @@ import rehypeKatex from 'rehype-katex';
 const path = require('path')
 
 const config: Config = {
+
   title: 'Data Science Dances',
   tagline: 'Mỗi bài toán là một bản nhạc',
   favicon: 'img/favicon.png',
@@ -69,6 +70,10 @@ const config: Config = {
       href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css',
       type: 'text/css',
     },
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap',
+      type: 'text/css',
+    }
   ],
   themeConfig: {
   
@@ -180,10 +185,6 @@ const config: Config = {
             {
               label: 'GitHub',
               href: 'https://github.com/datasciencedances',
-            },
-            {
-              label: 'Liên hệ',
-              to: '/contact',
             },
           ],
         },

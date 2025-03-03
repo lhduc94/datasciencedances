@@ -31,12 +31,12 @@ export default function HomepageCourses() {
             <Link
               className={clsx("button button--lg", styles.button)}
               to="/courses">
-              Cùng học nào <span className={styles.pulseHeart}>❤️‍🔥</span>!!
+              <span style={{ fontFamily: "Consolas, monospace" }}>Cùng học nào</span> <span className={styles.pulseHeart}>❤️‍🔥</span>!!
             </Link>
           </div>
         </div>
         <div className={styles.maintitle}>
-          <div className={styles.imagecover}><a href="/courses"><img src={useBaseUrl("/img/home/image_course_7.png")}alt="" /></a></div>
+          <div className={styles.imagecover}><a href="/courses"><img src={useBaseUrl("/img/home/image_course_8.png")}alt="" /></a></div>
           {/* <span className={styles.description}>
             <Translate>Các khóa học Data Science cho người mới bắt đầu cũng như cho các bạn đã đi làm</Translate>
           </span> */}

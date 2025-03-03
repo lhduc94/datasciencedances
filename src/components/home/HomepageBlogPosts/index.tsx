@@ -56,7 +56,7 @@ export default function HomepageBlogPosts() {
     return (
       <LinkWithBaseUrl to={item.href} key={i}>
         <div className={styles.item}>
-         <div className={clsx(styles.image)}><img src={item.image}/></div>
+          <div className={clsx(styles.image)}><img src={item.image}/></div>
           <div className={clsx(styles.title)}>{item.title}</div>
           {item.authors.length === 1
             ? singleAuthor(item.authors[0], item.date)

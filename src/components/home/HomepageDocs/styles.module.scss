@@ -36,7 +36,7 @@
             line-height: 26px;
             margin: 17px 0 20px 0;
             color: whitesmoke;
-            font-family: Mazzard,sans-serif;
+            font-family: Consolas, monospace;
 
             // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
           }
@@ -48,7 +48,7 @@
             text-align: left;
             color: whitesmoke;
             text-decoration: none;
-            font-family: Mazzard,sans-serif;
+            font-family: Consolas, monospace;
 
           }
           .button {
@@ -121,45 +121,29 @@
   
       .content {
         width: 100%;
-        flex-direction: column-reverse;
+        flex-direction: column;
         padding: 0 var(--mobile-padding-width);
         box-sizing: border-box;
-        align-items: center;
         
         .maincontent {
-          width: 100%;
-          align-items: center;
-          text-align: center;
+          width: 70%;
           
           .item {
             height: auto !important;
-            width: 100%;
             
             img {
               height: auto;
               max-width: 100%;
               width: 100%;
             }
-
-            .desc {
-              text-align: center;
-            }
           }
         }
         .maintitle {
-          width: 100%;
+          width: 70%;
           margin-bottom: 38px;
-          text-align: center;
-
-          .imagecover {
-            width: 100%;
-            text-align: center;
-
-            img {
-              width: 70%;
-              height: auto;
-              margin: 0 auto;
-            }
+          img {
+            width: 70%;
+            height: auto;
           }
           .text {
             width: 100%;
