@@ -7,7 +7,7 @@ tags: [Data Science]
 keywords: [Data Science, Machine Learning, Tomek's Link, Imbalanced Data, Classification, Data Preprocessing]
 image: /img/blog/20241116_1_cover.jpg
 hide_table_of_contents: false
-draft: false
+draft: true
 ---
 
 ![](cover.jfif)
