@@ -41,19 +41,21 @@ const BlogListItem = () => {
     <BlogPostItemContainer className={styles["blogList"]}>
       <header style={{ padding: "7px 6px" }} className="link-wrap">
         <LinkWithBaseUrl to={permalink}>
-          <BlogItemCover />
+          <div style={{ position: "relative" }}>
+            <BlogItemCover />
+            <div style={{ position: "absolute", top: 10, left: 10 }}>
+              <BlogItemTags />
+            </div>
+          </div>
      
-          <div style={{ padding: "0 11px" }}>
+          <div style={{ padding: "0 11px", marginTop: "20px" }}>
             <div style={{ cursor: "pointer" }}>
-              <BlogItemTags style={{ marginTop: 6, marginBottom: 17 }} />
+            <BlogPostItemHeaderAuthors/>
+
               <BlogItemTitle />
               <BlogItemDesc style={{ marginTop: 17 }} />
               <BlogPostItemHeaderInfo/>
 
-              {/* <BlogPostItemAuthors
-              styles={{ position: "absolute",  bottom:10 }}
-            /> */}
-            <BlogPostItemHeaderAuthors/>
             </div>
           </div>
         </LinkWithBaseUrl>

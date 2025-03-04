@@ -15,14 +15,14 @@ import styles from "./styles.module.scss";
 
 let item_roadmap = [
   {
-    title: "Data Scientist",
+    title: "Các kỹ năng cần thiết của Data Scientist",
     href: "roadmap/list/data-scientist/data-scientist",
-    image: "/img/home/courses.jpg",
+    image: "/img/roadmap/datascience-cover.jpg",
   },
   {
     title: "Phân tích định vị thương hiệu", 
     href: "roadmap/list/phan-tich-dinh-vi-thuong-hieu/phan-tich-dinh-vi-thuong-hieu",
-    image: "/img/home/courses.jpg",
+    image: "/img/blog/20240815_1_cover.jpg",
   }
   // Thêm các roadmap khác ở đây
 ];
