@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="vi" dir="ltr" class="blog-wrapper blog-post-page plugin-blog plugin-id-default" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.1">
+<title data-rh="true">Các chiều chất lượng dữ liệu | Data Science Dances</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" property="og:url" content="https://datasciencedances.com/blog/2024/04/cac-chieu-chat-luong-du-lieu"><meta data-rh="true" property="og:locale" content="vi"><meta data-rh="true" name="docusaurus_locale" content="vi"><meta data-rh="true" name="docusaurus_tag" content="default"><meta data-rh="true" name="docsearch:language" content="vi"><meta data-rh="true" name="docsearch:docusaurus_tag" content="default"><meta data-rh="true" name="twitter:card" content="data science, blog"><meta data-rh="true" property="og:title" content="Các chiều chất lượng dữ liệu | Data Science Dances"><meta data-rh="true" name="description" content="Chất lượng dữ liệu là một khía cạnh quan trọng không chỉ trong lĩnh vực công nghệ thông tin mà còn trong nhiều lĩnh vực khác"><meta data-rh="true" property="og:description" content="Chất lượng dữ liệu là một khía cạnh quan trọng không chỉ trong lĩnh vực công nghệ thông tin mà còn trong nhiều lĩnh vực khác"><meta data-rh="true" name="keywords" content="Database,Data quality,chất lượng dữ liệu,Data Engineer,Công nghệ thông tin"><meta data-rh="true" property="og:image" content="https://datasciencedances.com/img/blog/20240419_1_cover.jpg"><meta data-rh="true" name="twitter:image" content="https://datasciencedances.com/img/blog/20240419_1_cover.jpg"><meta data-rh="true" property="og:type" content="article"><meta data-rh="true" property="article:published_time" content="2024-04-19T00:00:00.000Z"><meta data-rh="true" property="article:author" content="https://www.linkedin.com/in/lhduc94/"><meta data-rh="true" property="article:tag" content="Database"><link data-rh="true" rel="icon" href="/img/favicon.png"><link data-rh="true" rel="canonical" href="https://datasciencedances.com/blog/2024/04/cac-chieu-chat-luong-du-lieu"><link data-rh="true" rel="alternate" href="https://datasciencedances.com/blog/2024/04/cac-chieu-chat-luong-du-lieu" hreflang="vi"><link data-rh="true" rel="alternate" href="https://datasciencedances.com/blog/2024/04/cac-chieu-chat-luong-du-lieu" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Data Science Dances RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Data Science Dances Atom Feed">
+
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-88PWBGGNQW"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-88PWBGGNQW",{anonymize_ip:!0})</script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.6d06f557.css">
+<script src="/assets/js/runtime~main.5a09d48a.js" defer="defer"></script>
+<script src="/assets/js/main.b55936f9.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Nhảy tới nội dung"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Nhảy tới nội dung</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/dsd2-favicon.jpg" alt="Data Science Dances" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/dsd2-favicon.jpg" alt="Data Science Dances" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Data Science Dances</b></a><a class="navbar__item navbar__link" href="/docs/kungfupandas/gioithieu">Tài liệu tham khảo</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/blog">Blog</a><a class="navbar__item navbar__link" href="/courses">Khóa học</a><a class="navbar__item navbar__link" href="/roadmap">Roadmap</a><a class="navbar__item navbar__link" href="/datasets/data">Datasets</a></div><div class="navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="Chuyển đổi chế độ sáng và tối (hiện tại chế độ sáng)" aria-label="Chuyển đổi chế độ sáng và tối (hiện tại chế độ sáng)" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="blog-container" style="margin-bottom:62px"><div class="flex" style="padding:0 var(--mobile-padding-width)"><main class="main_RZsv blogDetail_l7Ou" itemscope="" itemtype="https://schema.org/Blog"><div class="listWrap_wBG_"><article style="width:auto;height:auto" class="blogDetail_lT_X" itemprop="blogPost" itemscope="" itemtype="https://schema.org/BlogPosting"><header><h1 class="title_f1Hy" itemprop="headline">Các chiều chất lượng dữ liệu</h1><div class="container_mt6G margin-vert--md"><time datetime="2024-04-19T00:00:00.000Z" itemprop="datePublished">19 tháng 4, 2024</time> · <!-- -->10 phút để đọc</div><div class="margin-top--md margin-bottom--sm row"><div class="col col--6 authorCol_Hf19"><div class="avatar margin-bottom--sm"><a href="https://www.linkedin.com/in/lhduc94/" target="_blank" rel="noopener noreferrer" class="avatar__photo-link"><img class="avatar__photo" src="https://i.pinimg.com/1200x/94/8c/1d/948c1d9c51227296803919f227eb4cdf.jpg" alt="Lê Huỳnh Đức" itemprop="image"></a><div class="avatar__intro" itemprop="author" itemscope="" itemtype="https://schema.org/Person"><div class="avatar__name"><a href="https://www.linkedin.com/in/lhduc94/" target="_blank" rel="noopener noreferrer" itemprop="url"><span itemprop="name">Lê Huỳnh Đức</span></a></div><small class="avatar__subtitle" itemprop="description">Data Scientist</small></div></div></div></div></header><div id="__blog-post-container" class="markdown" itemprop="articleBody"><p><img decoding="async" loading="lazy" src="/assets/images/cover_1-32db384983d027ad37182e7114ca63f3.jpg" width="1024" height="1024" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="giới-thiệu">Giới thiệu<a href="#giới-thiệu" class="hash-link" aria-label="Đường dẫn trực tiếp tới Giới thiệu" title="Đường dẫn trực tiếp tới Giới thiệu">​</a></h2>
+<p>Chất lượng dữ liệu là một khía cạnh quan trọng không chỉ trong lĩnh vực công nghệ thông tin mà còn trong nhiều lĩnh vực khác như kinh doanh, khoa học dữ liệu,
+y tế, tài chính, v.v. Dữ liệu chất lượng cao là nền tảng quan trọng cho việc ra quyết định đúng đắn, phát triển sản phẩm và dịch vụ, cũng như nghiên cứu và
+phát triển trong nhiều lĩnh vực. Dưới đây là một số chiều quan trọng về chất lượng dữ liệu:</p>
+<p><strong>1️⃣<!-- --> Tính chính xác (Accuracy):</strong> Dữ liệu phải chính xác và phản ánh đúng thực tế. Sự không chính xác có thể dẫn đến việc đưa ra quyết định sai lầm và kết quả không chính xác.</p>
+<p><strong>2️⃣<!-- --> Tính đầy đủ (Completeness):</strong> Dữ liệu cần phải hoàn thiện, không bị thiếu sót quan trọng. Thiếu dữ liệu có thể dẫn đến hiểu biết hạn chế và phân tích không chính xác.</p>
+<p><strong>3️⃣<!-- --> Tính nhất quán (Consistency):</strong> Dữ liệu phải nhất quán với nhau và không có mâu thuẫn. Nếu có sự không nhất quán, việc phân tích và đưa ra quyết định sẽ trở nên khó khăn và không đáng tin cậy.</p>
+<p><strong>4️⃣<!-- --> Tính duy nhất (Uniqueness):</strong> Dữ liệu phải đảm bảo tính duy nhất. Nếu dữ liệu không đảm bảo tính duy nhất có thể gây ảnh hưởng đến việc thống kê dữ liệu và thời gian xử lý dữ liệu.</p>
+<p><strong>5️⃣<!-- --> Tính hợp lệ (Validity):</strong> Dữ liệu phải tuần theo các định dạng hoặc yêu cầu cụ thể theo business. Dữ liệu không hợp lệ có thể gây khó khăn trong quá trình chuẩn hóa dữ liệu và sai sót trong việc thống kê.</p>
+<p><strong>6️⃣<!-- --> Tính kịp thời (Timeliness):</strong> Dữ liệu cần phải được cập nhật đúng thời điểm để phản ánh thực trạng hiện tại. Dữ liệu quá cũ có thể không còn mang tính đáng tin cậy và không thể áp dụng vào các quyết định hiện tại.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="accuracy-tính-chính-xác">Accuracy (Tính chính xác)<a href="#accuracy-tính-chính-xác" class="hash-link" aria-label="Đường dẫn trực tiếp tới Accuracy (Tính chính xác)" title="Đường dẫn trực tiếp tới Accuracy (Tính chính xác)">​</a></h2>
+<p>Tính chính xác thể hiện mức độ đại diện, mức độ thể hiện của dữ liệu đối với các sự vật, sự việc có thực. Có nhiều cách khác khau để xác thực dữ liêu đó
+là chính xác hay không:</p>
+<ul>
+<li><strong>Xác thực vật lý:</strong>
+Khi mua hàng thường phải kiểm tra hàng trong giỏ hàng có giống với các món hàng được liệt kê trong hóa đơn hay không?
+<img decoding="async" loading="lazy" src="/assets/images/accuracy_1_2-8b773a4e9ff1104b450d3a3a3465522d.jpg" width="512" height="512" class="img_ev3q"></li>
+<li><strong>So sánh nguồn tham chiếu:</strong>
+<ul>
+<li>So sánh xem các thông tin các tỉnh thành trong bảng nội bộ có trùng khớp với dữ liệu thông tin quốc gia hay không?</li>
+<li>Kiểm tra dữ liệu crawl có trùng với dữ liệu từ trang gốc.</li>
+</ul>
+</li>
+</ul>
+<p>Việc dữ liệu không chính xác là rất bình thường, và khi dữ liệu không được ghi chép chính xác có thể ảnh hưởng đến quyền lợi của người dùng. Ví dụ khi một
+người dùng đăng kí tài khoản trên một ứng dụng, họ có xu hướng không khai thật tên tuổi của mình, việc làm này có thể ảnh hưởng đến quyền lợi sinh nhật hoặc ưu đãi cho người trong độ tuổi.
+Một người đang tuổi 20 nhưng khai báo thông tin là tuổi 40 sẽ không nhận được voucher xem phim cho U22 chẳng hạn.</p>
+<p>Dữ liệu có độ chính xác cao giúp cho báo cáo sát với thực tế và tin cậy, qua đó giúp mang lại hiệu quả kinh doanh. Độ chính xác đặc biệt quan trọng đối với các lĩnh vực như
+chăm sóc sức khỏe và tài chính ngân hàng.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="completeness-tính-đầy-đủ">Completeness (Tính đầy đủ)<a href="#completeness-tính-đầy-đủ" class="hash-link" aria-label="Đường dẫn trực tiếp tới Completeness (Tính đầy đủ)" title="Đường dẫn trực tiếp tới Completeness (Tính đầy đủ)">​</a></h2>
+<p>Tính đầy đủ của dữ liệu đạt được khi những dữ liệu cần thiết được điền đầy đủ theo một yêu cầu nào đấy, không nhất thiết dữ liệu phải điền 100% đầy đủ mà chỉ cần đảm bảo
+các trường có liên quan được điền phù hợp.</p>
+<ul>
+<li>
+<p><strong>Thiếu dữ liệu do mất bản ghi:</strong></p>
+<ul>
+<li>Chúng ta cần đưa ra biểu đồ về thông tin của 63 tỉnh thành nh ưng chỉ có bản ghi của 60 tỉnh thành, thiếu bản ghi của 3 tỉnh thành còn lại.</li>
+<li>Bạn điền vào đơn đăng ký cuộc thi nhưng tên của bạn lại bị thiếu trong danh sách người tham gia
+<img decoding="async" loading="lazy" src="/assets/images/completeness_1-2336af2a64d2c15d8d20113cf655bb95.jpg" width="512" height="512" class="img_ev3q"></li>
+</ul>
+</li>
+<li>
+<p><strong>Thuộc tính bị thiếu:</strong>
+Một số người dùng bị thiếu cột thông tin về email, số điện thoại</p>
+<ul>
+<li>Đối với yêu cầu về thông tin liên lạc thì dữ liệu vẫn mang tính đầy đủ vì chúng ta có thể gửi thông tin thông qua email hoặc thông qua hình thức tin nhắn số điện thoại</li>
+<li>Đối với mục đích telesale thì rõ ràng thông tin về những người thiếu số điện thoại sẽ vi phạm tính đầy đủ</li>
+</ul>
+</li>
+<li>
+<p><strong>Thiếu dữ liệu tham chiếu</strong></p>
+<ul>
+<li>Một nhân viên ngân hàng muốn cập nhật trạng thái của một tài khoản nằm trong ba trạng thái Open,
+Closed, Supspended nhưng trong bảng tham chiếu chỉ có 2 trạng thái Open và Closed do đó anh ấy không tìm thấy
+giá trị tham chiếu Supspended để điền vào đơn cập nhật.
+<img decoding="async" loading="lazy" src="/assets/images/completeness_3-769ffbeaf4c4c04c5a43992f817af6c1.png" width="1218" height="779" class="img_ev3q"></li>
+</ul>
+</li>
+<li>
+<p><strong>Dữ liệu bị cắt</strong></p>
+<ul>
+<li>Trong quá trình ETL dữ liệu, có thể dữ liệu đã bị cắt mất so với dự định, ví dụ như cột dữ liệu về tên chúng ta thường chỉ đặt tối đa 20 ký tự, do đó những người có tên
+dài hơn sẽ bị cắt đi dẫn đến sự mất mát thông tin.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="consistency-tính-nhất-quán">Consistency (Tính nhất quán)<a href="#consistency-tính-nhất-quán" class="hash-link" aria-label="Đường dẫn trực tiếp tới Consistency (Tính nhất quán)" title="Đường dẫn trực tiếp tới Consistency (Tính nhất quán)">​</a></h2>
+<p>Tính nhất quán dữ liệu thể hiện phần trăm đồng nhất của cùng một dữ liệu nhưng được được lưu sang các nơi khác nhau, hoặc sự đồng nhất giữa dữ liệu và bảng tham chiếu của nó.
+Tính nhất quán dữ liệu đảm bảo rằng các hoạt động phân tích nắm bắt và tận dụng được dữ liệu tốt hơn.</p>
+<ul>
+<li><strong>Cấp độ bản ghi</strong></li>
+</ul>
+<p>Khi dữ liệu được tải từ nguồn này sang nguồn khác, cần đảm bảo số lượng bản ghi trong bảng đích khớp với nguồn dữ liệu ban đầu</p>
+<p><img decoding="async" loading="lazy" src="https://icedq.com/wp-content/uploads/2024/06/Source-vs.-Target-Reconciliation-iCEDQ.png" alt="" class="img_ev3q">
+</p><figcaption>Nguồn: <a href="https://icedq.com" target="_blank" rel="noopener noreferrer">icedq.com</a></figcaption><p></p>
+<ul>
+<li><strong>Cấp độ thuộc tính</strong></li>
+</ul>
+<p>Mặc dù đầy đủ bản ghi như thực tế thuộc tính có thể bị thiếu</p>
+<p><img decoding="async" loading="lazy" src="https://icedq.com/wp-content/uploads/2024/06/Data-Inconsistency-Between-Source-Target-iCEDQ.png" alt="" class="img_ev3q">
+</p><figcaption>Nguồn: <a href="https://icedq.com" target="_blank" rel="noopener noreferrer">icedq.com</a></figcaption><p></p>
+<ul>
+<li><strong>Không đồng nhất về cột dữ liệu</strong></li>
+</ul>
+<p>Ví dụ trong cửa hàng quần áo, số lượng sản phẩm Order bị sai lệch so với bảng Shipment</p>
+<p><img decoding="async" loading="lazy" src="https://icedq.com/wp-content/uploads/2024/06/Inconsistent-Data-Between-the-Two-Datasets-iCEDQ.png" alt="" class="img_ev3q">
+</p><figcaption>Nguồn: <a href="https://icedq.com" target="_blank" rel="noopener noreferrer">icedq.com</a></figcaption><p></p>
+<ul>
+<li><strong>Nhất quán transaction</strong></li>
+</ul>
+<p>Ví dụ ngày 1 gửi 9000$, ngày 2 rút 1000$ thì số tiền cuối ngày 2 phải đảm bảo là 8000$</p>
+<p><img decoding="async" loading="lazy" src="https://icedq.com/wp-content/uploads/2024/06/Transaction-Data-Consistency-Issue-iCEDQ.png" alt="" class="img_ev3q">
+</p><figcaption>Nguồn: <a href="https://icedq.com" target="_blank" rel="noopener noreferrer">icedq.com</a></figcaption><p></p>
+<ul>
+<li><strong>Nhất quán theo thời gian</strong></li>
+</ul>
+<p>Dữ liệu thường không thay đổi quá nhiều theo thời gian trừ khi gặp trường hợp biến động lớn.</p>
+<ul>
+<li>
+<p>Ví dụ nhiệt độ hôm nay không chênh lệch quá nhiều so với ngày hôm qua, nhiệt độ ngày hôm qua 20 độ C thì ngày hôm nay có thể là 23 hoặc 17 độ C</p>
+</li>
+<li>
+<p>Lượng Daily active user truy cập vào trang web thường là một giá trị ổn đinh. Nếu như lượng truy cập mỗi ngày là 1000 người dùng mà đột nhiên hôm nay tăng lên
+2000 người dùng thì khả năng cao dữ liệu bị tính toán hai lần. Nếu dữ liệu bằng 0 thì khả năng luồng thống kê dữ liệu đã gặp lỗi không xử lý được.</p>
+</li>
+<li>
+<p><strong>Nhất quán biểu diễn dữ liệu trên các hệ thống</strong></p>
+</li>
+</ul>
+<p>Ví dụ Bảng giới tính, bảng gốc chỉ có Male, Female, Unknown nhưng qua hệ thống khác lại bị viết tắt hoặc thiếu</p>
+<p><img decoding="async" loading="lazy" src="https://icedq.com/wp-content/uploads/2024/06/Consistency-in-data-representation-across-systems-iCEDQ.png" alt="" class="img_ev3q">
+</p><figcaption>Nguồn: <a href="https://icedq.com" target="_blank" rel="noopener noreferrer">icedq.com</a></figcaption><p></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="uniqueness-tính-duy-nhất">Uniqueness (Tính duy nhất)<a href="#uniqueness-tính-duy-nhất" class="hash-link" aria-label="Đường dẫn trực tiếp tới Uniqueness (Tính duy nhất)" title="Đường dẫn trực tiếp tới Uniqueness (Tính duy nhất)">​</a></h2>
+<p>Tính duy nhất thể hiện với cùng một nội dung trong bảng thì mỗi bản ghi nên là duy nhất. Việc này giúp giảm thiểu bộ nhớ lưu trữ cũng như tránh
+sai sót trong quá trình thống kê. Bản ghi bị trùng lặp cũng ảnh hưởng đến tốc độ xử lý dữ liệu đầu vào và có thể gây sai lệch trong
+quá trình huấn luyện mô hình. Đảm bảo tính duy nhất trong dữ liệu giúp tránh trường hợp dự đoán các bản ghi giống nhau nhiều lần.</p>
+<ul>
+<li><strong>Cùng một thực thể nhưng hai tên khác nhau</strong></li>
+</ul>
+<p>Ví dụ cùng một người nhưng lại có 2 tên khác nhau</p>
+<p><img decoding="async" loading="lazy" src="/assets/images/uniqueness_1-858c5f4bb5b6fa3710e9567b6db26b78.png" width="2203" height="804" class="img_ev3q"></p>
+<ul>
+<li><strong>Cùng một thực thể nhưng xuất hiện nhiều lần với cùng một định danh</strong></li>
+</ul>
+<p><img decoding="async" loading="lazy" src="/assets/images/uniqueness_2-d8a21a269ab3ca189fe3ae8a82596582.png" width="2180" height="804" class="img_ev3q"></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="validity-tính-hợp-lệ">Validity (Tính hợp lệ)<a href="#validity-tính-hợp-lệ" class="hash-link" aria-label="Đường dẫn trực tiếp tới Validity (Tính hợp lệ)" title="Đường dẫn trực tiếp t ới Validity (Tính hợp lệ)">​</a></h2>
+<p>Tính hợp lệ dữ liệu thể hiện dữ liệu có tuân theo theo các định dạng, kiểu dữ liệu, một khoảng cho trước hoặc phù hợp với một yêu cầu cụ thể của business.</p>
+<ul>
+<li><strong>Hợp lệ theo business rule hoặc công thức tính toán</strong></li>
+</ul>
+<p>Ví dụ:
+Công thức tính Net theo business như sau</p>
+<p>Net amount = Gross amt - Tax amt - Fee amt - Commission amt</p>
+<p>Gross amt = 1000$</p>
+<p>Tax amt = 100$</p>
+<p>Fee amt = 200$</p>
+<p>Commission amt = 200$</p>
+<p>Nếu như cột dữ liệu lưu Net amount = 600$ ≠  1000$ - 100$ - 200$ - 200$ = 500$ thì dữ liệu vi phạm tính hợp lệ</p>
+<ul>
+<li>
+<p><strong>Hợp lệ theo khoảng</strong></p>
+<ul>
+<li>Ví dụ ngày tháng phải nằm trong khoảng  1-28 hoặc 1-29 đối với tháng 2, 1-30 hoặc 1-31</li>
+<li>Hoặc phân loại tuổi phải đúng nhóm tuổi, ví dụ tuổi 80 không thể nằm trong nhóm độ tuổi lao động</li>
+</ul>
+</li>
+<li>
+<p><strong>Trình tự không hợp lệ</strong></p>
+<ul>
+<li>Thời gian giao hàng không được nhỏ hơn thời gian đặt hàng</li>
+<li>Giá trị updated_date phải lớn hơn hoặc bằng giá trị created_date</li>
+</ul>
+</li>
+</ul>
+<p>Việc dữ liệu hợp lệ không có nghĩa là dữ liệu đó chính xác. Ví dụ dễ thấy nhất đó là định dạng ngày tháng, ví dụ định dạng trong dữ liệu là &quot;mm/dd/yy&quot;.
+Tại thời điểm hiện tại của bài viết này là ngày 06 tháng 05 năm 2024. Giả như người nhập liệu không biết định dạng của hệ thống và nhập vào &quot;06/05/2024&quot;
+thì định dạng vẫn hợp lệ theo &quot;mm/dd/yy&quot; nhưng lúc này hệ thống sẽ hiểu là ngày 05 tháng 06 năm 2024 là ngày chưa tồn tại dữ liệu.</p>
+<p>Ngược lại dữ liệu chính xác chưa chắc đã hợp lệ, như trong ví dụ trên mặc dù ngày 06 tháng 05 năm 2024 là chính xác nhưng nếu nhập vào theo chuỗi &quot;ngày 06 tháng 05 năm 2024&quot;
+sẽ không hợp lệ vì hệ thống đang định dạng &quot;mm/dd/yy&quot;</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="timeliness-tính-kịp-thời">Timeliness (Tính kịp thời)<a href="#timeliness-tính-kịp-thời" class="hash-link" aria-label="Đường dẫn trực tiếp tới Timeliness (Tính kịp thời)" title="Đường dẫn trực tiếp tới Timeliness (Tính kịp thời)">​</a></h2>
+<p>Tính kịp thời của dữ liệu nói về mức độ sẵn sàng của dữ liệu khi cần thiết.</p>
+<ul>
+<li>
+<p><strong>Trễ do business process</strong>:</p>
+<ul>
+<li>Người dùng đặt pizza vào lúc 11:00 và Nhà hàng cam kết sẽ giao hàng trong 50 phút. Nhưng vì lý do nào đó người nhập
+liệu lại nhập trễ vào lúc 13:00. Hậu quả là đơn bị giao trễ và có khả năng nhà hàng bị đánh giá tiêu cực.</li>
+</ul>
+</li>
+<li>
+<p><strong>Trễ trong hệ thống thời gian thực</strong>: Dữ liệu có thể chính xác nhưng quá trình xử lý chậm hơn so với yêu cầu thực tế.</p>
+<ul>
+<li>Hệ thống xe tự lái đòi hỏi thời gian phản hồi phải nhanh để phản ứng kịp với môi trường thực tế.</li>
+<li>Hệ thống phòng chống gian lận đòi hỏi phải truy cập dữ liệu theo thời gian thực</li>
+</ul>
+</li>
+</ul>
+<p>Tùy vào tần suất yêu cầu dữ liệu mà tính kịp thời có thể đánh giá khác nhau. Như ví dụ xử lý hệ thống thời gian thực cần dữ liệu đảm bảo có sẵn trong thời gian thực,
+trong khi những báo cáo hằng ngày thì có mức độ yêu cầu kịp thời chỉ cần đảm bảo trong ngày hay những báo cáo hàng quý thì có thể yêu cầu về tính kịp thời không quá cao.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tài-liệu-tham-khảo">Tài liệu tham khảo<a href="#tài-liệu-tham-khảo" class="hash-link" aria-label="Đường dẫn trực tiếp tới Tài liệu tham khảo" title="Đường dẫn trực tiếp tới Tài liệu tham khảo">​</a></h2>
+<ul>
+<li><a href="https://estuary.dev/data-quality/" target="_blank" rel="noopener noreferrer">https://estuary.dev/data-quality/</a></li>
+<li><a href="https://icedq.com/6-data-quality-dimensions" target="_blank" rel="noopener noreferrer">https://icedq.com/6-data-quality-dimensions</a></li>
+<li><a href="https://www.sagacitysolutions.co.uk/about/news-and-blog/data-quality-dimensions/" target="_blank" rel="noopener noreferrer">https://www.sagacitysolutions.co.uk/about/news-and-blog/data-quality-dimensions/</a></li>
+<li><a href="https://www.precisely.com/blog/data-quality/data-quality-dimensions-measure#:~:text=across%20multiple%20systems.-,Timeliness,can%20be%20even%20more%20important" target="_blank" rel="noopener noreferrer">https://www.precisely.com/blog/data-quality/data-quality-dimensions-measure#:~:text=across%20multiple%20systems.-,Timeliness,can%20be%20even%20more%20important</a>.</li>
+</ul></div><div class="tags_c74R"><span class="text_ny23">Tags:</span><div><span style="margin-right:14px;border-radius:24px;font-size:12px;background:#026992;color:white;padding:5px 9px">Database</span></div></div><div class="following following_Z0VU"><p>Follow Fanpage của mình để nhận được thông tin về các bài viết mới nhất nhé!! <a href="https://www.facebook.com/datasciencedances/">https://www.facebook.com/datasciencedances/</a></p></div></article><nav class="pagination-nav" aria-label="Thanh điều hướng của trang bài viết"><a class="pagination-nav__link pagination-nav__link--prev" href="/blog/2024/08/monte-carlo"><div class="pagination-nav__sublabel">Bài mới hơn</div><div class="pagination-nav__label">Monte Carlo Simulation</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/blog/2024/04/bai-toan-hen-ho"><div class="pagination-nav__sublabel">Bài cũ hơn</div><div class="pagination-nav__label">Bài toán hẹn hò</div></a></nav></div></main></div><div></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Tài liệu tham khảo</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/kungfupandas/gioithieu">Kungfu Pandas</a></li><li class="footer__item"><a class="footer__link-item" href="/roadmap/list/data-scientist/data-scientist">Roadmap Data Science</a></li></ul></div><div class="col footer__col"><div class="footer__title">Cộng đồng</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://facebook.com/datasciencedances" target="_blank" rel="noopener noreferrer" class="footer__link-item">Facebook<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://linkedin.com/in/lhduc94" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Thông tin thêm</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/datasciencedances" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Data Science Dances.</div></div></div></footer></div>
+<!-- Messenger Chat Plugin Code -->
+      <div id="fb-root"></div>
+  
+      <!-- Your Chat Plugin code -->
+      <div id="fb-customer-chat" class="fb-customerchat">
+      </div>
+  
+      <script>var chatbox=document.getElementById("fb-customer-chat");chatbox.setAttribute("page_id","100553918473741"),chatbox.setAttribute("attribution","biz_inbox")</script>
+  
+      <!-- Your SDK code -->
+      <script>function init(){var t,e,n,c,i;window.fbAsyncInit=function(){FB.init({appId:0x5899a45ba847a,xfbml:!0,version:"v17.0"})},t=document,e="script",n="facebook-jssdk",i=t.getElementsByTagName(e)[0],t.getElementById(n)||((c=t.createElement(e)).id=n,c.src="https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js",i.parentNode.insertBefore(c,i))}try{window.location.hostname.includes("https://datasciencedances.com/")&&init()}catch(t){console.log("failed to init fb chat",t)}</script></body>
+</html>
