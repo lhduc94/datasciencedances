@@ -1,6 +1,6 @@
 ---
 title: Covariance và Correlation
-slug: covariance-correlation
+slug: 2024/03/covariance-correlation
 authors: lhduc
 tags: [Math]
 keywords: [Math, covariance, correlation, regression]

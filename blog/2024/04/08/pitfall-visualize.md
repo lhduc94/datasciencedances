@@ -1,7 +1,7 @@
 ---
 title: Các lỗi sai trong data visualization và cách phòng tránh (Phần 1)
 description: Các lỗi sai trong data visualization và cách phòng tránh
-slug: cac-loi-sai-visualization
+slug: 2024/08/cac-loi-sai-visualization
 authors: lhduc
 tags: [Data Visualization]
 keywords: [Data Visualization, Histogram, Seaborn, Numpy]

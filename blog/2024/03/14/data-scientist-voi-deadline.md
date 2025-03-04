@@ -1,7 +1,7 @@
 ---
 title: Data Scientist sẽ làm gì khi bị áp deadline
 # description: Data Scientist sẽ làm gì khi bị áp deadline 
-slug: Data-Scientist-se-lam-gi-khi-bi-ap-deadline
+slug: 2024/03/Data-Scientist-se-lam-gi-khi-bi-ap-deadline
 authors: lhduc
 tags: [Data Science, Story]
 keywords: [Data Science, Data Scientist, Deadline, phương pháp xử lý, mô hình]

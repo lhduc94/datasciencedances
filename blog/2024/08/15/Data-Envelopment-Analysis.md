@@ -1,6 +1,6 @@
 ---
 title: Phân tích hiệu suất với Data Envelopment Analysis
-slug: data-envelopment-analysis-phan-tich-hieu-suat
+slug: 2024/08/data-envelopment-analysis-phan-tich-hieu-suat
 description: Khi chúng ta có đầu vào, và nhận được kết quả, chúng ta hay đánh giá hiệu suất của kết quả xem với đầu vào như thế thì kết quả liệu có tốt không.
 authors: lhduc
 tags: [Data Science]

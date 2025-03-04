@@ -1,13 +1,13 @@
 ---
 title: Ứng dụng ML Time Series -  Dự đoán băng thông mạng
-slug: ung-dung-ml-time-series-du-doan-bang-thong-mang
+slug: 2025/03/ung-dung-ml-time-series-du-doan-bang-thong-mang
 description: Ứng dụng ML Time Series - Dự đoán băng thông mạng
 authors: lhduc
 tags: [Data Science]
 keywords: [time series, python, ml]
 image: /img/blog/20250301_1_cover.jpg
 hide_table_of_contents: false
-draft: false
+draft: true
 ---
 
 ![](cover.jpg)

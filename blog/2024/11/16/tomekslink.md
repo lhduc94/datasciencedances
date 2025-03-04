@@ -1,6 +1,6 @@
 ---
 title: Tomek's Link - Chiến lược xử lý dữ liệu mất cân bằng nhãn
-slug: tomek-link-chien-luoc-xu-ly-du-lieu-mat-can-bang-nhan
+slug: 2024/11/tomek-link-chien-luoc-xu-ly-du-lieu-mat-can-bang-nhan
 description: Tìm hiểu chi tiết về Tomek's Link - một kỹ thuật hiệu quả để xử lý dữ liệu mất cân bằng trong Machine Learning thông qua việc loại bỏ các mẫu nhiễu gần ranh giới quyết định.
 authors: lhduc
 tags: [Data Science]

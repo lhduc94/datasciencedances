@@ -1,7 +1,7 @@
 ---
 title: Cách biểu diễn số lượng và khoảng dữ liệu cho Histogram dùng Seaborn và Numpy
 # description: hallo
-slug: cach-bieu-dien-histogram
+slug: 2024/02/cach-bieu-dien-histogram
 authors: lhduc
 tags: [Data Visualization]
 keywords: [data visualization, histogram, seaborn, plot]
