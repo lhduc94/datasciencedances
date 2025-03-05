@@ -7,6 +7,7 @@ import BlogItemTitle from "./components/Title";
 import BlogItemTags from "./components/Tags";
 import BlogItemCover from "./components/Cover";
 import BlogItemDesc from "./components/Desc";
+import BlogItemLevel from "./components/Level";
 // import NewBlogPostItemAuthors from "./components/Authors2";
 import BlogPostItemHeaderAuthors  from "@theme/BlogPostItem/Header/Authors"
 import BlogPostItemHeaderTitle from "@theme/BlogPostItem/Header/Title"
@@ -45,6 +46,9 @@ const BlogListItem = () => {
             <BlogItemCover />
             <div style={{ position: "absolute", top: 10, left: 10 }}>
               <BlogItemTags />
+            </div>
+            <div style={{ position: "absolute", top: 10, right: 10 }}>
+              <BlogItemLevel />
             </div>
           </div>
      

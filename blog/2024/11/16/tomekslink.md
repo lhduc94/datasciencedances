@@ -4,6 +4,7 @@ slug: 2024/11/tomek-link-chien-luoc-xu-ly-du-lieu-mat-can-bang-nhan
 description: Tìm hiểu chi tiết về Tomek's Link - một kỹ thuật hiệu quả để xử lý dữ liệu mất cân bằng trong Machine Learning thông qua việc loại bỏ các mẫu nhiễu gần ranh giới quyết định.
 authors: lhduc
 tags: [Data Science]
+level: Nâng cao
 keywords: [Data Science, Machine Learning, Tomek's Link, Imbalanced Data, Classification, Data Preprocessing]
 image: /img/blog/20241116_1_cover.jpg
 hide_table_of_contents: false

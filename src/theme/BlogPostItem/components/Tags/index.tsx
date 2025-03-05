@@ -9,7 +9,8 @@ export default function Tags({ style }: { style?: React.CSSProperties }) {
       <span
         key={text.toString()}
         style={{
-          marginRight: 14,
+          marginBottom: 8,
+          display: "block",
           borderRadius: 24,
           fontSize: 12,
           background: "#026992",
