@@ -137,8 +137,8 @@ const config: Config = {
         },
         
         {
-          label: "Roadmap",
-          to: '/roadmap',
+          label: "Boost",
+          to: '/boost',
         },
         {
           to: '/datasets/data', label: 'Datasets', position: 'left'

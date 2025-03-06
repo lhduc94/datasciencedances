@@ -16,12 +16,12 @@ import styles from "./styles.module.scss";
 let item_roadmap = [
   {
     title: "Các kỹ năng cần thiết của Data Scientist",
-    href: "roadmap/list/data-scientist/data-scientist",
-    image: "/img/roadmap/datascience-cover.jpg",
+    href: "boost/list/data-scientist/data-scientist",
+    image: "/img/boost/datascience-cover.jpg",
   },
   {
     title: "Phân tích định vị thương hiệu", 
-    href: "roadmap/list/phan-tich-dinh-vi-thuong-hieu/phan-tich-dinh-vi-thuong-hieu",
+    href: "boost/list/phan-tich-dinh-vi-thuong-hieu/phan-tich-dinh-vi-thuong-hieu",
     image: "/img/blog/20240815_1_cover.jpg",
   }
   // Thêm các roadmap khác ở đây
@@ -52,7 +52,7 @@ export default function Roadmap() {
       <div className={styles.coursesContainer}>
         <div className={styles.coursesBanner}>
           <div className={styles.bannerContent}>
-            <h1>Roadmap</h1>
+            <h1>Boosting Skills</h1>
             <p>Định hướng và kế hoạch học tập chi tiết</p>
           </div>
         </div>

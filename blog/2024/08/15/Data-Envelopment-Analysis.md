@@ -4,6 +4,7 @@ slug: 2024/08/data-envelopment-analysis-phan-tich-hieu-suat
 description: Khi chúng ta có đầu vào, và nhận được kết quả, chúng ta hay đánh giá hiệu suất của kết quả xem với đầu vào như thế thì kết quả liệu có tốt không.
 authors: lhduc
 tags: [Data Science]
+level: Nâng cao
 keywords: [Data Science, Math, Data Envelopment Analysis, phân tích đường bao hiệu quả, phân tích hiệu suất, linear programming, quy hoạch tuyến tính]
 image: /img/blog/20240815_1_cover.jpg
 hide_table_of_contents: false
