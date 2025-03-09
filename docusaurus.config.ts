@@ -158,7 +158,7 @@ const config: Config = {
             },
             {
               label: 'Roadmap Data Science',
-              to: '/roadmap/list/data-scientist/data-scientist',
+              to: '/boost/list/data-scientist/data-scientist',
             },
           ],
         },
