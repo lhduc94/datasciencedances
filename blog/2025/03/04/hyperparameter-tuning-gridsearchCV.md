@@ -210,7 +210,7 @@ Tuned Model Accuracy on Test Set: 0.9557
 ```
 </pythonoutput>
 
-Chúng ta sẽ so sánh với mô hình cơ bản
+Chúng ta sẽ so sánh với mô hình với bộ tham số `n_estimators=50, max_depth=5`
 
 ```python
 model = RandomForestClassifier( n_estimators=50, max_depth=5, random_state=42)
@@ -221,8 +221,6 @@ print(f"Model Accuracy on Valid Set: {accuracy:.4f}")
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Model Accuracy on Test Set: {accuracy:.4f}")
-
-
 ```
 <pythonoutput>
 ```
@@ -231,6 +229,7 @@ Model Accuracy on Test Set: 0.9331
 ```
 </pythonoutput>
 
+Kết quả cho thấy, nếu như chúng ta dùng gridsearch để duyệt nhiều bộ tham số khác nhau, kết quả có thể sẽ tốt hơn so với chỉ dùng một bộ tham số *"trên trời rơi xuống"*
 
 ### GridSearchCV
 
