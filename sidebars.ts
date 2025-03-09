@@ -61,6 +61,19 @@ const sidebars: SidebarsConfig = {
           }
           ]
         },
+        {type: 'category', label: 'Chương 3: Các hàm cơ bản', 
+          items: [
+            {type: 'doc',
+            id: 'kungfupandas/Fundamental_Function/Introduction',
+            label:'Giới thiệu'
+          },
+          {type: 'doc',
+            id: 'kungfupandas/Fundamental_Function/Info',
+            label: 'Các hàm mô tả'
+          }
+          
+        ]
+        },
         ],
     },
     // {

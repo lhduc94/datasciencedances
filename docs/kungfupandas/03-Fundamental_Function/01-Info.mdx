@@ -1,0 +1,259 @@
+---
+sidebar_label: Các hàm thông tin
+sidebar_position: 2
+---
+
+# Các hàm thông tin
+
+
+Dữ liệu mình sẽ sử dụng là dữ liệu `sales_subset.csv` được lấy từ kho dữ liệu `kaggle`
+
+```python
+df = pd.read_csv('https://raw.githubusercontent.com/lhduc94/kungfupandas/master/data/sales_subset.csv',index_col=['Unnamed: 0'])
+```
+
+## `.head()` và `.tail()`
+
+Phương thức `.head(n=5)` hiển thị `n` dòng đầu tiên của `DataFrame`, ngược lại phương thức `.tail(n=5)` hiển thị `n` dòng cuối cùng của `DataFrame`
+
+```python
+df.head()
+```
+```{.python_output}
+        store type  department        date  weekly_sales  is_holiday  \
+0      1    A           1  2010-02-05      24924.50       False   
+1      1    A           1  2010-03-05      21827.90       False   
+2      1    A           1  2010-04-02      57258.43       False   
+3      1    A           1  2010-05-07      17413.94       False   
+4      1    A           1  2010-06-04      17558.09       False 
+
+   temperature_c  fuel_price_usd_per_l  unemployment  
+0       5.727778              0.679451         8.106  
+1       8.055556              0.693452         8.106  
+2      16.816667              0.718284         7.808  
+3      22.527778              0.748928         7.808  
+4      27.050000              0.714586         7.808  
+```
+```python
+df.tail()
+```
+
+<pythonoutput>
+```
+       store type  department        date  weekly_sales  is_holiday  \
+10769     39    A          99  2011-12-09        895.00       False   
+10770     39    A          99  2012-02-03        350.00       False   
+10771     39    A          99  2012-06-08        450.00       False   
+10772     39    A          99  2012-07-13          0.06       False   
+10773     39    A          99  2012-10-05        915.00       False   
+
+       temperature_c  fuel_price_usd_per_l  unemployment  
+10769       9.644444              0.834256         7.716  
+10770      15.938889              0.887619         7.244  
+10771      27.288889              0.911922         6.989  
+10772      25.644444              0.860145         6.623  
+10773      22.250000              0.955511         6.228 
+
+```
+</pythonoutput>
+## `.shape` và `.size`
+
+Phương thức `.shape` cho biết số lượng dòng và cột của bảng
+
+```python
+df.shape
+```
+
+<pythonoutput>
+```
+(10774, 9)
+```
+</pythonoutput>
+
+Trong dó `10774` là số lượng dòng của bảng và `9` là số lượng cột của bảng
+
+Phương thức `.size` cho biết số lượng phần từ của bảng
+
+```python
+df.size
+```
+
+<pythonoutput>
+```
+96966
+```
+</pythonoutput>
+
+## `.info()`
+
+ Phương thức `.info()` dùng để xem một số thông tin cơ bản như
+ 
+ - Index của bảng
+ - Tên các cột, số lượng các phần tử Null trong cột và kiểu dữ liệu của chúng
+ - Số lượng các kiểu dữ liệu
+ - Dung lượng của bảng
+
+ Ví dụ
+
+```python
+df.info()
+```
+
+<pythonoutput>
+```
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 10774 entries, 0 to 10773
+Data columns (total 9 columns):
+ #   Column                Non-Null Count  Dtype  
+---  ------                --------------  -----  
+ 0   store                 10774 non-null  int64  
+ 1   type                  10774 non-null  object 
+ 2   department            10774 non-null  int64  
+ 3   date                  10774 non-null  object 
+ 4   weekly_sales          10774 non-null  float64
+ 5   is_holiday            10774 non-null  bool   
+ 6   temperature_c         10774 non-null  float64
+ 7   fuel_price_usd_per_l  10774 non-null  float64
+ 8   unemployment          10774 non-null  float64
+dtypes: bool(1), float64(4), int64(2), object(2)
+memory usage: 768.1+ KB
+```
+</pythonoutput>
+
+```{block2, type='rmdtip'}
+**_Mẹo:_**
+Phương thức `.info()` có các tham số để tùy chỉnh các thông tin có thể xem. Bạn có thể giới hạn các thông tin theo các tham số dưới đây
+`info(verbose=None, buf=None, max_cols=None, memory_usage=None, show_counts=None, null_counts=None)`
+``` 
+
+## `.describe()`
+
+Phương thức `.describe()` đưa ra một số thống kê đơn giản như `count`, `mean`, `std`, `min`, `max` và `percentiles = [0.25, 0.5, 0.75]`. Phương thức này chỉ áp dụng cho các cột ở dạng `numerical`.
+
+```python
+df.describe()
+```
+
+<pythonoutput>
+```
+              store    department   weekly_sales  temperature_c  \
+count  10774.000000  10774.000000   10774.000000   10774.000000   
+mean      15.441897     45.218118   23843.950149      15.731978   
+std       11.534511     29.867779   30220.387557       9.922446   
+min        1.000000      1.000000   -1098.000000      -8.366667   
+25%        4.000000     20.000000    3867.115000       7.583333   
+50%       13.000000     40.000000   12049.065000      16.966667   
+75%       20.000000     72.000000   32349.850000      24.166667   
+max       39.000000     99.000000  293966.050000      33.827778   
+
+       fuel_price_usd_per_l  unemployment  
+count          10774.000000  10774.000000  
+mean               0.749746      8.082009  
+std                0.059494      0.624355  
+min                0.664129      3.879000  
+25%                0.708246      7.795000  
+50%                0.743381      8.099000  
+75%                0.781421      8.360000  
+max                1.107674      9.765000  
+```
+</pythonoutput>
+
+
+:::tip
+Bạn có thể thay đổi thông số percentiles bằng cách truyền tham số này vào trong `.describe()`
+:::
+
+**Ví dụ** 
+```python
+df.describe(percentiles=[0.1, 0.99])
+```
+
+```{.python_output}
+              store    department   weekly_sales  temperature_c  \
+count  10774.000000  10774.000000   10774.000000   10774.000000   
+mean      15.441897     45.218118   23843.950149      15.731978   
+std       11.534511     29.867779   30220.387557       9.922446   
+min        1.000000      1.000000   -1098.000000      -8.366667   
+10%        2.000000      8.000000     607.695000       2.577778   
+50%       13.000000     40.000000   12049.065000      16.966667   
+99%       39.000000     99.000000  142193.400300      32.388889   
+max       39.000000     99.000000  293966.050000      33.827778   
+
+       fuel_price_usd_per_l  unemployment  
+count          10774.000000  10774.000000  
+mean               0.749746      8.082009  
+std                0.059494      0.624355  
+min                0.664129      3.879000  
+10%                0.687640      7.127000  
+50%                0.743381      8.099000  
+99%                0.978565      9.765000  
+max                1.107674      9.765000   
+``` 
+
+:::info Lưu ý
+
+`pandas` mặc định tính  thêm percentile tại `0.5` dù không truyền vào 
+:::
+
+## `.index`
+Thuộc tính `.index` để lấy index của `DataFrame` hoặc `Series`.
+
+Ví dụ
+
+```python
+df.index
+```
+
+<pythonoutput>
+```
+Int64Index([    0,     1,     2,     3,     4,     5,     6,     7,     8,
+                9,
+            ...
+            10764, 10765, 10766, 10767, 10768, 10769, 10770, 10771, 10772,
+            10773],
+           dtype='int64', length=10774)
+```
+</pythonoutput>
+
+## `.memory_usage()`
+
+Phương thức `.memory_usage(index=True, deep=False)` giúp thông kê dung lượng của từng cột. Trong đó `index` trả về dung lượng của phần đánh index và `deep` nếu đặt giá trị `True` sẽ trả về cách tính toán sâu hơn về bộ nhớ cho kiểu `object`
+
+Ví dụ
+
+```python
+df.memory_usage(index=False)
+```
+
+```{.python_output}
+store                   86192
+type                    86192
+department              86192
+date                    86192
+weekly_sales            86192
+is_holiday              10774
+temperature_c           86192
+fuel_price_usd_per_l    86192
+unemployment            86192
+dtype: int64
+```
+
+```python
+df.memory_usage(deep=True) 
+```
+
+<pythonoutput> 
+```
+Index                    86192
+store                    86192
+type                    624892
+department               86192
+date                    721858
+weekly_sales             86192
+is_holiday               10774
+temperature_c            86192
+fuel_price_usd_per_l     86192
+unemployment             86192
+dtype: int64
+```
+</pythonoutput>
