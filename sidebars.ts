@@ -61,7 +61,7 @@ const sidebars: SidebarsConfig = {
           }
           ]
         },
-        {type: 'category', label: 'Chương 3: Các hàm cơ bản', 
+        {type: 'category', label: 'Chương 3: Các hàm và phương thức cơ bản', 
           items: [
             {type: 'doc',
             id: 'kungfupandas/Fundamental_Function/Introduction',
@@ -70,10 +70,30 @@ const sidebars: SidebarsConfig = {
           {type: 'doc',
             id: 'kungfupandas/Fundamental_Function/Info',
             label: 'Các hàm mô tả'
+          },
+          {type: 'doc',
+          id: 'kungfupandas/Fundamental_Function/Others',
+          label: 'Các hàm và phương thức khác'
           }
           
         ]
         },
+        {type: 'category', label: 'Chương 4: Chọn lọc và lọc dữ liệu', 
+          items: [
+            {type: 'doc',
+            id: 'kungfupandas/SelectingAndFiltering/Introduction',
+            label:'Giới thiệu'
+            },
+            {type: 'doc',
+            id: 'kungfupandas/SelectingAndFiltering/Select',
+            label: 'Chọn dữ liệu'
+            },
+            {type: 'doc',
+            id: 'kungfupandas/SelectingAndFiltering/Filtering',
+            label: 'Lọc dữ liệu'
+            }
+          ]
+        }
         ],
     },
     // {

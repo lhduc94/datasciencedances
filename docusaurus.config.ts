@@ -22,7 +22,10 @@ const config: Config = {
     defaultLocale: 'vi',
     locales: ['vi'],
   },
-  plugins: [path.resolve(__dirname, 'plugins', 'add-fb-chat'),'docusaurus-plugin-sass'],
+  plugins: [
+    'docusaurus-plugin-sass',
+    
+  ],
   presets: [
     [
       '@docusaurus/preset-classic',
@@ -49,6 +52,12 @@ const config: Config = {
           "./src/css/design-style.scss",
           "./src/css/design-class.scss"
         ]
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
         },
         gtag: process.env.NODE_ENV === 'production' ? {
           trackingID: 'G-88PWBGGNQW',
