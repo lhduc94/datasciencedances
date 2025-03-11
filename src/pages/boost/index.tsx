@@ -13,28 +13,40 @@ import styles from "./styles.module.scss";
 
 // Hàm để format tên file thành tiêu đề
 
-let item_roadmap = [
+let ITEMS = [
   {
     title: "Các kỹ năng cần thiết của Data Scientist",
     href: "boost/list/data-scientist/data-scientist",
     image: "/img/boost/datascience-cover.jpg",
+    category: "Roadmap", // Thêm thuộc tính category
+
   },
   {
     title: "Phân tích định vị thương hiệu", 
     href: "boost/list/phan-tich-dinh-vi-thuong-hieu/phan-tich-dinh-vi-thuong-hieu",
     image: "/img/blog/20240815_1_cover.jpg",
-  }
+    category: "Case Study", // Thêm thuộc tính category
+
+  },
+  // {
+  //   title: "Speech and Language Processing",
+  //   href: "boost/list/speech-and-language-processing/speech-and-language-processing",
+  //   image: "/img/blog/20240815_1_cover.jpg",
+  //   category: "Stanford Course", // Thêm thuộc tính category
+
+
+  // }
   // Thêm các roadmap khác ở đây
 ];
 
 export default function Roadmap() {
-  const itemDom = item_roadmap.map((item, i) => {
+  const itemDom = ITEMS.map((item, i) => {
     return (
       <LinkWithBaseUrl to={item.href} key={i}>
         <div className={styles.courseCard}>
           <div className={styles.courseImage}>
             <img src={useBaseUrl(item.image)} alt={item.title} />
-            {/* <div className={styles.category}>Roadmap</div> */}
+            <div className={styles.category}>{item.category}</div> {/* Hiển thị category */}
           </div>
           <div className={styles.courseContent}>
             <h3 className={styles.courseTitle}>{item.title}</h3>

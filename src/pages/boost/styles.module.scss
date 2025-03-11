@@ -45,7 +45,7 @@
   .category {
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    left: 1rem;
     background: var(--ifm-color-primary);
     color: white;
     padding: 0.5rem 1rem;
@@ -113,4 +113,8 @@
     font-size: 1.2rem;
     color: var(--ifm-color-emphasis-700);
   }
+}
+
+.strong {
+  color: #026992
 }
