@@ -140,8 +140,8 @@ param_grid = {
 
 # Tạo tất cả các tổ hợp tham số có thể có
 param_combinations = list(itertools.product(*param_grid.values()))
-for param in param_combinations:
-    print(f'n_estimators: {param[0]}, \t max_depth: {param[1]}')
+for params in param_combinations:
+    print(f'n_estimators: {params[0]}, \t max_depth: {params[1]}')
 
 ```
 

@@ -1,10 +1,10 @@
 ---
-title: Tối ưu siêu tham số mô hình với RandomsearchCV
-slug: 2025/03/hyperparameter-tuning-RandomsearchCV
-description: Bài viết này tập trung về phương pháp Randomsearch - một phương pháp hiệu quả để tối ưu siêu tham số trong machine learning
+title: Tối ưu siêu tham số mô hình với RandomizedSearchCV
+slug: 2025/03/hyperparameter-tuning-RandomizedSearchCV
+description: Trong bài viết này, chúng ta sẽ tìm hiểu về RandomizedSearchCV - một phương pháp hiệu quả hơn để tối ưu siêu tham số.
 authors: lhduc
 tags: [Data Science]
-keywords: [data science, hyperparameter tuning, python, ml, siêu tham số, machine learning, máy học, tối ưu, RandomsearchCV]
+keywords: [data science, hyperparameter tuning, python, ml, siêu tham số, machine learning, máy học, tối ưu, RandomizedSearchCV]
 image: /img/blog/20250304_1_cover.jpg
 hide_table_of_contents: false
 draft: true
@@ -12,7 +12,7 @@ draft: true
 ![](cover.jpg)
 
 ## Giới thiệu
-Trong bài viết trước, chúng ta đã tìm hiểu về GridSearchCV - một phương pháp tối ưu siêu tham số bằng cách thử tất cả các tổ hợp có thể. Tuy nhiên, GridSearch có nhược điểm là tốn nhiều thời gian khi không gian tìm kiếm lớn. Trong bài viết này, chúng ta sẽ tìm hiểu về RandomSearchCV - một phương pháp hiệu quả hơn để tối ưu siêu tham số.
+Trong bài viết trước, chúng ta đã tìm hiểu về GridSearchCV - một phương pháp tối ưu siêu tham số bằng cách thử tất cả các tổ hợp có thể. Tuy nhiên, GridSearch có nhược điểm là tốn nhiều thời gian khi không gian tìm kiếm lớn. Trong bài viết này, chúng ta sẽ tìm hiểu về RandomizedSearchCV - một phương pháp hiệu quả hơn để tối ưu siêu tham số.
 
 ## RandomSearch là gì?
 
@@ -20,16 +20,26 @@ RandomSearch là phương pháp tối ưu siêu tham số bằng cách chọn ng
 
 ### Ưu điểm của RandomSearch so với GridSearch:
 
-1. **Hiệu quả về thời gian**: Chỉ thử một số lượng tổ hợp được chỉ định trước, thay vì tất cả các tổ hợp có thể.
+**:one:** **Hiệu quả về thời gian**: Chỉ thử một số lượng tổ hợp được chỉ định trước, thay vì tất cả các tổ hợp có thể.
 
-2. **Linh hoạt với phân phối tham số**: Có thể định nghĩa phân phối xác suất cho các tham số (ví dụ: phân phối đều, phân phối chuẩn).
+**:two:** **Linh hoạt với phân phối tham số**: Có thể định nghĩa phân phối xác suất cho các tham số (ví dụ: phân phối đều, phân phối chuẩn).
 
-3. **Hiệu quả với không gian tham số lớn**: Đặc biệt tốt khi có nhiều tham số cần tối ưu.
+**:three:**. **Hiệu quả với không gian tham số lớn**: Đặc biệt tốt khi có nhiều tham số cần tối ưu.
 
 <!-- ![](random_vs_grid.png) -->
 
-Hình trên minh họa sự khác biệt giữa GridSearch (trái) và RandomSearch (phải). RandomSearch có thể tìm thấy giải pháp tốt với ít lần thử hơn.
+Hình trên minh họa sự khác biệt giữa GridSearch (trái) và RandomizedSearch (phải). RandomizedSearch có thể tìm thấy giải pháp tốt với ít lần thử hơn.
 
+### So sánh RandomSearchCV với GridSearchCV
+
+| Tiêu chí | **GridSearchCV** | **RandomSearchCV** |
+|----------|------------------|-------------------|
+| **Cách hoạt động** | Thử tất cả tổ hợp tham số có thể | Chọn ngẫu nhiên n tổ hợp tham số |
+| **Thời gian thực thi** | 🐢 Chậm với không gian lớn | ⚡ Nhanh hơn, có thể kiểm soát số lần thử |
+| **Không gian tham số** | Rời rạc, cố định | Linh hoạt, có thể dùng phân phối xác suất |
+| **Hiệu quả** | Tốt với ít tham số | Tốt với nhiều tham số |
+| **Tài nguyên** | Tốn nhiều tài nguyên | Tiết kiệm tài nguyên hơn |
+| **Khi nào nên dùng?** | ✅ Ít tham số, muốn thử tất cả tổ hợp | ✅ Nhiều tham số, thời gian/tài nguyên hạn chế |
 ## Triển khai RandomSearch
 
 ### Triển khai thủ công
@@ -59,10 +69,18 @@ X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, test_siz
 
 print(f"Train size: {X_train.shape}, Valid size: {X_valid.shape}, Test size: {X_test.shape}")
 ```
+<pythonoutput>
+```
+Train size: (6633, 30), Valid size: (2211, 30), Test size: (2211, 30)
+```
+</pythonoutput>
 
 **Tạo các tổ hợp tham số ngẫu nhiên**
 ```python
 import numpy as np
+
+# Đặt seed cho ngẫu nhiên
+np.random.seed(42)
 
 # Định nghĩa không gian tham số, trong bài trước mình dùng list để liệt kê ra cụ thể, trong ví dụ lần này mình dùng np.arrange để sinh ra dãy tham số
 param_space = {
@@ -83,9 +101,24 @@ for _ in range(n_iter):
     random_params.append(params)
 
 # In ra các tổ hợp được chọn
-for i, params in enumerate(random_params, 1):
-    print(f"Combination {i}: n_estimators={params['n_estimators']}, max_depth={params['max_depth']}")
+for params in random_params:
+    print(f"n_estimators={params['n_estimators']},\t max_depth={params['max_depth']}")
 ```
+
+<pythonoutput>
+```
+n_estimators=150,	 max_depth=9
+n_estimators=50,	 max_depth=7
+n_estimators=150,	 max_depth=9
+n_estimators=50,	 max_depth=3
+n_estimators=150,	 max_depth=5
+n_estimators=150,	 max_depth=7
+n_estimators=150,	 max_depth=7
+n_estimators=200,	 max_depth=3
+n_estimators=200,	 max_depth=9
+n_estimators=200,	 max_depth=7
+```
+</pythonoutput>
 
 **Huấn luyện mô hình với từng tổ hợp tham số**
 
@@ -125,33 +158,20 @@ y_pred = best_model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Tuned Model Accuracy on Test Set: {accuracy:.4f}")
 ```
-
-So sánh với mô hình sử dụng tham số mặc định:
-```python
-# Huấn luyện mô hình với tham số mặc định
-default_model = RandomForestClassifier(random_state=42)
-default_model.fit(X_train, y_train)
-
-# Đánh giá trên tập validation
-y_pred_valid = default_model.predict(X_valid)
-valid_accuracy = accuracy_score(y_valid, y_pred_valid)
-print(f"Default Model Accuracy on Valid Set: {valid_accuracy:.4f}")
-
-# Đánh giá trên tập test
-y_pred_test = default_model.predict(X_test)
-test_accuracy = accuracy_score(y_test, y_pred_test)
-print(f"Default Model Accuracy on Test Set: {test_accuracy:.4f}")
+<pythonoutput>
 ```
+Best Parameters: {'n_estimators': np.int64(150), 'max_depth': np.int64(9)}
+Best Model Accuracy on Valid Set: 0.9466304839439168
+```
+</pythonoutput>
 
-### Sử dụng RandomSearchCV
 
-Mặc dù triển khai thủ công giúp chúng ta hiểu rõ về RandomSearch, trong thực tế chúng ta thường sử dụng RandomSearchCV từ thư viện scikit-learn vì nó hiệu quả và tiện lợi hơn.
 
-## Triển khai RandomSearchCV
+### Triển khai RandomizedSearchCV
 
 Chúng ta sẽ sử dụng bộ dữ liệu [Phishing Websites](https://archive.ics.uci.edu/dataset/327/phishing+websites) như trong ví dụ GridSearchCV.
 
-### Chuẩn bị dữ liệu
+**Chuẩn bị dữ liệu**
 
 ```python
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
@@ -173,7 +193,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 print(f"Train size: {X_train.shape}, Test size: {X_test.shape}")
 ```
 
-### Định nghĩa không gian tham số
+**Định nghĩa không gian tham số**
 
 Với RandomSearch, chúng ta có thể định nghĩa phân phối cho các tham số:
 
@@ -190,7 +210,7 @@ param_distributions = {
 }
 ```
 
-### Thực hiện RandomSearchCV
+**Thực hiện RandomSearchCV**
 
 ```python
 # Khởi tạo mô hình
@@ -216,7 +236,7 @@ print("Best Parameters:", random_search.best_params_)
 print("Best CV Accuracy:", random_search.best_score_)
 ```
 
-### Đánh giá mô hình trên tập test
+***Đánh giá mô hình trên tập test***
 
 ```python
 # Dự đoán và đánh giá
@@ -225,16 +245,7 @@ accuracy = accuracy_score(y_test, y_pred)
 print(f"Tuned Model Accuracy on Test Set: {accuracy:.4f}")
 ```
 
-## So sánh RandomSearchCV với GridSearchCV
 
-| Tiêu chí | **GridSearchCV** | **RandomSearchCV** |
-|----------|------------------|-------------------|
-| **Cách hoạt động** | Thử tất cả tổ hợp tham số có thể | Chọn ngẫu nhiên n tổ hợp tham số |
-| **Thời gian thực thi** | 🐢 Chậm với không gian lớn | ⚡ Nhanh hơn, có thể kiểm soát số lần thử |
-| **Không gian tham số** | Rời rạc, cố định | Linh hoạt, có thể dùng phân phối xác suất |
-| **Hiệu quả** | Tốt với ít tham số | Tốt với nhiều tham số |
-| **Tài nguyên** | Tốn nhiều tài nguyên | Tiết kiệm tài nguyên hơn |
-| **Khi nào nên dùng?** | ✅ Ít tham số, muốn thử tất cả tổ hợp | ✅ Nhiều tham số, thời gian/tài nguyên hạn chế |
 
 ## Kết hợp RandomSearch và GridSearch
 
