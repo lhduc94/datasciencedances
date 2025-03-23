@@ -29,8 +29,7 @@ image: /img/courses/time-series-analysis.jpg
 **:seven:** Feature Engineering và các mô hình cây cho dự doán trên dữ liệu chuỗi thời gian\
 **:eight:** Sử dụng DeepLearning để xây dựng mô hình dự đoán chuỗi thời gian\
 **:nine:** Sử dụng phân tích chuỗi thời gian để nhận diện các điểm bất thường\
-**:keycap_ten:** Sử dụng một số thư viện Forecasting cho dữ liệu chuỗi thời gian như **prophet**, **TSLearn** và **MLForeacasting**\
-[*Nội dung chi tiết tại đây*](#nội-dung-chi-tiết)
+**:keycap_ten:** Sử dụng một số thư viện Forecasting cho dữ liệu chuỗi thời gian như **prophet**, **TSLearn** và **MLForeacasting**
 
 ###  Đối tượng
 

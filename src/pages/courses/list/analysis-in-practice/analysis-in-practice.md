@@ -13,13 +13,10 @@ image: /img/courses/analysis-in-practice.jpg
   <li>Data Visualization</li>
 </ul>  
 
-###  Nội dung 
-
-[*Nội dung chi tiết tại đây*](#nội-dung-chi-tiết)
 
 ###  Đối tượng
 
-**🤚🤚** Là những bạn chưa biết gì về các loại Phân tích\
+**🤚🤚** Là những bạn chưa biết gì về các loại Phân tích
 
 ###  Lợi ích 
 ✅️ Được giải đáp thắc mắc trong quá trình học\

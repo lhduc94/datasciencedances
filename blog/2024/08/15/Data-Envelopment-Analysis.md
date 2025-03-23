@@ -368,4 +368,4 @@ Bệnh viện C đang dư thừa 4.15 Bác sĩ và 18.76 Y tá cho việ
 
 ## Tài liệu tham khảo
 
-- [Data Envelopment Analysis: A Comprehensive Text with Models, Applications, References and DEA-Solver Software](https://www.researchgate.net/publication/321619879_Data_Envelopment_Analysis_A_Comprehensive_Text_with_Models_Applications_References_and_DEA-Solver_Software)
+- Data Envelopment Analysis: A Comprehensive Text with Models, Applications, References and DEA-Solver Software

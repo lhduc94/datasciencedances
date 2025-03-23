@@ -23,7 +23,6 @@ image: /img/courses/ml-observation.jpg
 **:four:** Giới thiệu về Data Quality Management\
 **:five:** Giới thiệu về Fairness and Bias Tracing\
 **:six:** Sử dụng các thư viện để Quan sát mô hình
-[*Nội dung chi tiết tại đây*](#nội-dung-chi-tiết)
 
 ### Đối tượng
 
