@@ -19,122 +19,171 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Sách Kungfu Pandas',
       items: [
-        {type: 'doc',
-         id : 'kungfupandas/gioithieu'},
-        {type: 'category', label: 'Chương 1: Cấu trúc dữ liệu', 
-          items: [
-            {type: 'doc',
-            id: 'kungfupandas/DataStructure/Introduction',
-            label:'Giới thiệu'
-          },
-          {type: 'doc',
-            id: 'kungfupandas/DataStructure/Series',
-            label:'Series'
-          },
-          {type: 'doc',
-            id: 'kungfupandas/DataStructure/DataFrame',
-            label:'DataFrame'
-          },
-          {type: 'doc',
-            id: 'kungfupandas/DataStructure/DataType',
-            label:'DataType'
-          },
-          ]
+        {
+          type: 'doc',
+          id: 'kungfupandas/gioithieu'
         },
-        {type: 'category', label: 'Chương 2: Nhập xuất dữ liệu', 
+        {
+          type: 'category',
+          label: 'Chương 1: Cấu trúc dữ liệu',
           items: [
-            {type: 'doc',
-            id: 'kungfupandas/IO/Introduction',
-            label:'Giới thiệu'
-          },
-          {type: 'doc',
-          id: 'kungfupandas/IO/Csv_Tsv',
-          label:'CSV và TSV'
-          },
-          {type: 'doc',
-          id: 'kungfupandas/IO/Excel',
-          label:'Excel'
-          },
-          {type: 'doc',
-          id: 'kungfupandas/IO/Json',
-          label:'JSON'
-          }
-          ]
-        },
-        {type: 'category', label: 'Chương 3: Các hàm và phương thức cơ bản', 
-          items: [
-            {type: 'doc',
-            id: 'kungfupandas/Fundamental_Function/Introduction',
-            label:'Giới thiệu'
-          },
-          {type: 'doc',
-            id: 'kungfupandas/Fundamental_Function/Info',
-            label: 'Các hàm mô tả'
-          },
-          {type: 'doc',
-          id: 'kungfupandas/Fundamental_Function/Others',
-          label: 'Các hàm và phương thức khác'
-          }
-          
-        ]
-        },
-        {type: 'category', label: 'Chương 4: Chọn lọc và lọc dữ liệu', 
-          items: [
-            {type: 'doc',
-            id: 'kungfupandas/SelectingAndFiltering/Introduction',
-            label:'Giới thiệu'
+            {
+              type: 'doc',
+              id: 'kungfupandas/DataStructure/Introduction',
+              label: 'Giới thiệu'
             },
-            {type: 'doc',
-            id: 'kungfupandas/SelectingAndFiltering/Select',
-            label: 'Chọn dữ liệu'
+            {
+              type: 'doc',
+              id: 'kungfupandas/DataStructure/Series',
+              label: 'Series'
             },
-            {type: 'doc',
-            id: 'kungfupandas/SelectingAndFiltering/Filtering',
-            label: 'Lọc dữ liệu'
+            {
+              type: 'doc',
+              id: 'kungfupandas/DataStructure/DataFrame',
+              label: 'DataFrame'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/DataStructure/DataType',
+              label: 'DataType'
             }
           ]
+        },
+        {
+          type: 'category',
+          label: 'Chương 2: Nhập xuất dữ liệu',
+          items: [
+            {
+              type: 'doc',
+              id: 'kungfupandas/IO/Introduction',
+              label: 'Giới thiệu'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/IO/Csv_Tsv',
+              label: 'CSV và TSV'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/IO/Excel',
+              label: 'Excel'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/IO/Json',
+              label: 'JSON'
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Chương 3: Các hàm và phương thức cơ bản',
+          items: [
+            {
+              type: 'doc',
+              id: 'kungfupandas/Fundamental_Function/Introduction',
+              label: 'Giới thiệu'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/Fundamental_Function/Info',
+              label: 'Các hàm mô tả'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/Fundamental_Function/Others',
+              label: 'Các hàm và phương thức khác'
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Chương 4: Chọn lọc và lọc dữ liệu',
+          items: [
+            {
+              type: 'doc',
+              id: 'kungfupandas/SelectingAndFiltering/Introduction',
+              label: 'Giới thiệu'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/SelectingAndFiltering/Select',
+              label: 'Chọn dữ liệu'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/SelectingAndFiltering/Filtering',
+              label: 'Lọc dữ liệu'
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Chương 5: Tính toán dữ liệu trên từng phần tử',
+          items: [
+            {
+              type: 'doc',
+              id: 'kungfupandas/Loop/Introduction',
+              label: 'Giới thiệu'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/Loop/Vectorization',
+              label: 'Vectorization'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/Loop/Apply_Function',
+              label: 'Sử dụng apply'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/Loop/Iterator',
+              label: 'Sử dụng iterator'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/Loop/Compare_Loop_Function',
+              label: 'Tối ưu hóa tốc độ lặp'
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Chương 6: Kết nối giữa các DataFrame',
+          items: [
+            {
+              type: 'doc',
+              id: 'kungfupandas/Merge_Join_Concat/Introduction',
+              label: 'Giới thiệu'
+            }
+          ]
+        },
+        {
+          type: 'category',
+          label: 'Chương 7: Groupby trong Pandas',
+          items: [
+            {
+              type: 'doc',
+              id: 'kungfupandas/Groupby-Aggregation/Introduction',
+              label: 'Giới thiệu'
+            },
+            {
+              type: 'doc',
+              id: 'kungfupandas/Groupby-Aggregation/Groupby-base',
+              label: 'Groupby cơ bản'
+            },
+           
+          ]
         }
-        ],
+      ]
     },
-    // {
-    //   type: 'category',
-    //   label: 'Python Package',
-    //   items: [
-    //     {type: 'doc',
-    //       label: 'Python Package',
-    //       id : 'python_package'}
-    //   ]
-    // },
-    // {
-    //   type: 'category',
-    //   label: 'Pytorch',
-    //   items: [
-    //     {type: 'doc',
-    //       label: 'Giới thiệu',
-    //       id : 'pytorch/gioithieu'},
-    //     {
-    //       type: 'category',
-    //       label: 'Deberta',
-    //       items: [
-    //         {
-    //           type: 'doc',
-    //           label: 'Deberta Sequence Classification',
-    //           id : 'pytorch/Deberta/DebertaForSequenceClassification'
-    //         },
-    //         {
-    //           type: 'doc',
-    //           label: 'Pooling',
-    //           id : 'pytorch/Deberta/Pooling'
-    //         }
-    //       ] 
-    //     }
-    //   ]
-    // },
-    {type: 'doc',
-      id : 'postgres/postgres',
+    {
+      type: 'doc',
+      id: 'postgres/postgres',
       label: 'Cách cài đặt Postgres'
     }
-  ]
+  ],
 };
 
 export default sidebars;

@@ -1,0 +1,194 @@
+# Groupby cơ bản
+
+## Cú pháp
+Phương thức`.groupby` sẽ gom các dòng hoặc các cột thành các nhóm khác nhau. Cú pháp cơ bản của`.groupby`như sau
+
+```python
+DataFrame.groupby(by=None, axis=0, dropna=True)
+```
+
+Trong đó:
+- by: có thể là dạng mapping, nhãn, danh sách nhãn hoặc một hàm trả về danh sách các index
+- axis: Tùy chọn group theo dòng `{0 hoặc index}` hoặc cột `{1 hoặc columns}`, mặc định là dòng.
+- dropna: Mặc định là True sẽ bỏ qua những dòng chứa NA và False sẽ thêm NA là một khóa trong nhóm, tương tự như .value_counts()
+
+
+```python
+df = pd.read_csv('https://raw.githubusercontent.com/lhduc94/kungfupandas/master/data/bigmart-sale-data/train.csv',
+                 usecols=['Item_Identifier','Item_Type','Outlet_Size','Item_Outlet_Sales'])
+df.head()
+```
+
+<pythonoutput>
+```
+	Item_Identifier	            Item_Type	Outlet_Size	    Item_Outlet_Sales
+0	          FDA15	                Dairy	     Medium	            3735.1380
+1	          DRC01	          Soft Drinks	     Medium	             443.4228
+2	          FDN15	                 Meat	     Medium	            2097.2700
+3	          FDX07	Fruits and Vegetables	        NaN	             732.3800
+4	          NCD19	            Household	       High	             994.7052
+```
+</pythonoutput>
+
+Kết quả trả về của phương thức `groupby` là một đối tượng thuộc lớp `pandas.core.groupby.generic.DataFrameGroupBy`
+
+```python
+grouped = df.groupby("Item_Type")
+print(type(grouped))
+```
+
+<pythonoutput>
+```
+<class 'pandas.core.groupby.generic.DataFrameGroupBy'>
+```
+</pythonoutput>
+
+Để xem từng nhóm trong group, ta có thể sử dụng `.get_groups()` và truyền key vào đó. Ví dụ với key `Dairy`
+
+```python
+grouped.get_group("Dairy").head()
+```
+
+<pythonoutput>
+```
+
+    Item_Identifier	Item_Type	Outlet_Size	Item_Outlet_Sales
+0	          FDA15	    Dairy	     Medium	        3735.1380
+11	          FDA03	    Dairy	      Small	        2187.1530
+19	          FDU02	    Dairy	      Small	        2748.4224
+28	          FDE51	    Dairy               NaN	         178.4344
+30	          FDV38	    Dairy               NaN	         163.7868
+```
+</pythonoutput>
+
+Khi chọn 1 column sau khi .groupby sẽ trả đối tưởng thuộc lớp `pandas.core.groupby.generic.SeriesGroupBy`
+
+```python
+df.groupby("Item_Type")['Item_Outlet_Sales']
+```
+
+<pythonoutput>
+```
+<pandas.core.groupby.generic.SeriesGroupBy object at 0x0000021D41248A00>
+```
+</pythonoutput>
+
+
+## Các phương thức trong Groupby Object
+
+### `head()`
+
+kết quả trả về là một dataframe với n dòng đầu tiên của mỗi group. \
+Lưu ý, kết quả trả về theo thứ tự index, không theo thứ tự của `by`
+
+```python
+df.groupby(['Item_Type']).head(n=2)
+```
+
+<pythonoutput>
+```
+	Item_Identifier	Item_Type	Outlet_Size	Item_Outlet_Sales
+0	FDA15	Dairy	Medium	3735.1380
+1	DRC01	Soft Drinks	Medium	443.4228
+2	FDN15	Meat	Medium	2097.2700
+3	FDX07	Fruits and Vegetables	NaN	732.3800
+4	NCD19	Household	High	994.7052
+5	FDP36	Baking Goods	Medium	556.6088
+6	FDO10	Snack Foods	High	343.5528
+7	FDP10	Snack Foods	Medium	4022.7636
+8	FDH17	Frozen Foods	NaN	1076.5986
+9	FDU28	Frozen Foods	NaN	4710.5350
+10	FDY07	Fruits and Vegetables	Medium	1516.0266
+11	FDA03	Dairy	Small	2187.1530
+15	FDP49	Breakfast	Small	1547.3192
+16	NCB42	Health and Hygiene	Medium	1621.8888
+17	FDP49	Breakfast	Medium	718.3982
+18	DRI11	Hard Drinks	Medium	2303.6680
+21	FDW12	Baking Goods	Medium	4064.0432
+22	NCB30	Household	Small	1587.2672
+27	DRJ59	Hard Drinks	High	308.9312
+29	FDC14	Canned	Small	125.8362
+31	NCS17	Health and Hygiene	Medium	2741.7644
+33	FDO23	Breads	NaN	2174.5028
+34	DRH01	Soft Drinks	Small	2085.2856
+41	FDK43	Meat	High	2150.5340
+43	FDC02	Canned	Medium	6768.5228
+72	FDH35	Starchy Foods	NaN	4604.6728
+114	FDV11	Breads	NaN	3151.8972
+136	FDH35	Starchy Foods	Medium	5262.4832
+139	NCN07	Others	NaN	263.6568
+142	NCO55	Others	NaN	2143.8760
+231	FDG33	Seafood	Medium	3435.5280
+713	FDH21	Seafood	Medium	1267.6832
+```
+</pythonoutput>
+
+```python
+df.groupby(['Item_Type']).head(n=2).sort_values(['Item_Type'])
+```
+
+<pythonoutput>
+```
+
+```
+</pythonoutput>
+
+### `count()`
+
+Phương thức này trả về số lượng các phần tử trong mỗi nhóm.
+
+```python
+df.groupby("Item_Type").count()
+```
+
+<pythonoutput>
+```
+
+```
+</pythonoutput>
+
+Chúng ta có thể thấy hàm count() đã đếm số lượng các phần tử Not nUll trong mỗi nhóm.
+
+```python
+df.groupby('Outlet_Size').count()
+```
+
+<pythonoutput>
+```
+
+```
+</pythonoutput>
+
+
+### `size()`
+
+Phương thức này trả về số lượng các phần tử trong mỗi nhóm.
+
+```python
+df.groupby("Item_Type").size()
+```
+
+<pythonoutput>
+```
+Item_Type
+Baking Goods              648
+Breads                    251
+Breakfast                 110
+Canned                    649
+Dairy                     682
+Frozen Foods              856
+Fruits and Vegetables    1232
+Hard Drinks               214
+Health and Hygiene        520
+Household                 910
+Meat                      425
+Others                    169
+Seafood                    64
+Snack Foods              1200
+Soft Drinks               445
+Starchy Foods             148
+dtype: int64
+```
+</pythonoutput>
+
+
