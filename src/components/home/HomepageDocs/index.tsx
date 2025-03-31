@@ -22,7 +22,6 @@ export default function HomepageDocs() {
     <div className={styles.wrap}>
       <div className={styles.content}>
         <div className={styles.maintitle}>
-          <div className={styles.imagecover}><a href="/docs/kungfupandas/gioithieu"><img src={useBaseUrl("/img/home/image_doc_4.png")}alt="" /></a></div>
         </div>
         <div className={styles.maincontent}>
           <div className={styles.item}>
@@ -37,6 +36,8 @@ export default function HomepageDocs() {
               to="/docs/kungfupandas/gioithieu">
               <span style={{ fontFamily: "'Consolas', monospace" }}>Cùng đọc nào</span> <span className={styles.spinningStar}>⭐</span>!!
             </Link>
+            <div className={styles.imagecover}><a href="/docs/kungfupandas/gioithieu"><img src={useBaseUrl("/img/home/image_doc_4.png")}alt="" /></a></div>
+
           </div>
         </div>
       </div>

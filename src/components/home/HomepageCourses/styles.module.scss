@@ -1,13 +1,14 @@
 .wrap {
     // background-color:var(--ifm-color-primary);
     // background: linear-gradient(180deg, rgba(247, 247, 247, 0.2) 12.73%,  rgb(36, 34, 34) 96.49%);
-    background-color: white;
+    background-color:  #ffffff;
     padding-top: 62px;
     padding-bottom: 62px;
     z-index: 2;
 
     .content {
       display: flex;
+      flex-direction: column;
       align-items: center;
       max-width: var(--global-main-width);
       margin: 0 auto;
@@ -17,8 +18,8 @@
         }
       }
       .maintitle {
-        flex-grow: 0;
-        width:50%;
+        width: 100%;
+        margin-bottom: 40px;
         .imagecover {
           img {
             display: block;
@@ -35,7 +36,6 @@
           line-height: 56px;
           color: black;
           margin-top: 10px;
-          display: inline-block;
           text-align: center;
         }
         .description {
@@ -44,29 +44,26 @@
           line-height: 56px;
           color: black;
           margin-top: 10px;
-          display: inline-block;
           text-align: center;
         }
       }
   
       .maincontent {
+        width: 100%;
         display: grid;
-        grid-template-columns: auto;
-        row-gap: 32px;
-  
-        flex-grow: 0;
-        width: 50%;
-        flex-shrink: 0;
+        grid-template-columns: 1fr;
+        gap: 32px;
   
         .item {
           display: block;
           margin: 0 auto;
+          text-align: center;
           .title {
-            font-family: 'Consolas', monospace;
+            // font-family: 'Consolas', monospace;
             font-size: 40px;
             font-weight: bold;
             line-height: 26px;
-            margin: 17px 0 20px 0;
+            margin: 100px 0 20px 0;
             // color: whitesmoke;
             // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
           }
@@ -75,8 +72,8 @@
             font-size: 24px;
             font-weight: 400;
             line-height: 20px;
-            text-align: left;
-            font-family: 'Consolas', monospace;
+            text-align: center;
+            // font-family: 'Consolas', monospace;
 
             // color: whitesmoke;
             text-decoration: none;
@@ -105,44 +102,15 @@
     @media screen and (max-width: 1440px) {
       padding-top: 0;
       width: 100%;
-      height: auto;
-      display: block;
       .content {
-        margin-left: 40px;
+        padding: 0 40px;
       }
     }
   
     @media screen and (max-width: 768px) {
       padding-top: 0;
-      width: 100%;
-      height: auto;
-      display: block;
-  
       .content {
-        width: 100%;
-        flex-direction: column;
         padding: 0 var(--mobile-padding-width);
-        box-sizing: border-box;
-        margin: 0 auto;
-        
-        .maintitle {
-          width: 100%;
-          margin-bottom: 30px;
-          order: 1;
-        }
-  
-        .maincontent {
-          width: 100%;
-          order: 2;
-          
-          .item {
-            text-align: center;
-            
-            .desc {
-              text-align: center;
-            }
-          }
-        }
       }
     }
   
