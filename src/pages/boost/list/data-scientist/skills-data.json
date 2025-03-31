@@ -1,0 +1,56 @@
+[
+    {
+      "id": "linear-algebra",
+      "title": "Đại số tuyến tính",
+      "image": "/img/boost/data-scientist/linear-algebra.png",
+      "description": "Kiến thức nền tảng về đại số tuyến tính",
+      "sections": [
+        {
+          "title": "Cơ bản",
+          "level": "Beginner",
+          "content": [
+            "Vectors",
+            "Matrices",
+            "Transpose of a matrix",
+            "Inverse of a matrix",
+            "Determinant of a matrix",
+            "Trace of a matrix",
+            "Dot product",
+            "Eigenvalues",
+            "Eigenvectors"
+          ]
+        },
+        {
+          "title": "Trung bình",
+          "level": "Intermediate",
+          "content": [
+            "Singular Value Decomposition",
+            "Principal Component Analysis",
+            "Locality Sensitive Hashing",
+            "Distances, Similarity",
+            "Least squares solutions",
+            "Non-negative matrix factorization",
+            "Factor Analysis"
+          ]
+        },
+        {
+          "title": "Nâng cao",
+          "level": "Advanced",
+          "content": [
+            "Graphs and Networks",
+            "Markov matrices",
+            "Fourier matrix",
+            "Fast Fourier Transform"
+          ]
+        }
+      ],
+      "courses": [
+        {
+          "title": "Khan Academy - Linear Algebra",
+          "url": "https://www.khanacademy.org/math/linear-algebra",
+          "type": "free"
+        }
+      ]
+    }
+  ]
+  

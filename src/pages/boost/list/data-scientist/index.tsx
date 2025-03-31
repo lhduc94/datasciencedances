@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import Layout from '@theme/Layout';
 import styles from './styles.module.scss';
+import data from "./skills-data.json";
 
 interface Course {
   title: string;
@@ -17,68 +18,70 @@ interface Section {
 interface Skill {
   id: string;
   title: string;
+  image: string;
   description: string;
   sections: Section[];
   courses: Course[];
 }
+const dataSkills: Skill[] = data;
 
-const dataSkills: Skill[] = [
-  {
-    id: 'linear-algebra',
-    title: 'Đại số tuyến tính',
-    description: 'Kiến thức nền tảng về đại số tuyến tính',
-    sections: [
-      {
-        title: 'Cơ bản',
-        level: 'Beginner',
-        content: [
-          'Vectors',
-          'Matrices',
-          'Transpose of a matrix',
-          'Inverse of a matrix',
-          'Determinant of a matrix',
-          'Trace of a matrix',
-          'Dot product',
-          'Eigenvalues',
-          'Eigenvectors',
-        ],
+// const dataSkills: Skill[] = [
+//   {
+//     id: 'linear-algebra',
+//     title: 'Đại số tuyến tính',
+//     description: 'Kiến thức nền tảng về đại số tuyến tính',
+//     sections: [
+//       {
+//         title: 'Cơ bản',
+//         level: 'Beginner',
+//         content: [
+//           'Vectors',
+//           'Matrices',
+//           'Transpose of a matrix',
+//           'Inverse of a matrix',
+//           'Determinant of a matrix',
+//           'Trace of a matrix',
+//           'Dot product',
+//           'Eigenvalues',
+//           'Eigenvectors',
+//         ],
         
        
-      },
-      {
-        title: 'Trung bình',
-        level: 'Intermediate',
-        content: [
-            'Singular Value Decomposition',
-            'Principal Component Analysis',
-            'Locality Sensitive Hashing',
-            'Distances, Similarity',
-            'Least squares solutions',
-            'Non-negative matrix factorization',
-            'Factor Analysis',
-        ],
-      },
-      {
-        title: 'Nâng cao',
-        level: 'Advanced',
-        content: [
-            'Graphs and Networks',
-            'Markov matrices',
-            'Fourier matrix',
-            'Fast Fourier Transform',
-        ],
-      }
-    ],
-    courses: [
-      {
-        title: 'Khan Academy - Linear Algebra',
-        url: 'https://www.khanacademy.org/math/linear-algebra',
-        type: 'free'
-      }
-    ]
-  },
-  // Thêm các kỹ năng khác...
-];
+//       },
+//       {
+//         title: 'Trung bình',
+//         level: 'Intermediate',
+//         content: [
+//             'Singular Value Decomposition',
+//             'Principal Component Analysis',
+//             'Locality Sensitive Hashing',
+//             'Distances, Similarity',
+//             'Least squares solutions',
+//             'Non-negative matrix factorization',
+//             'Factor Analysis',
+//         ],
+//       },
+//       {
+//         title: 'Nâng cao',
+//         level: 'Advanced',
+//         content: [
+//             'Graphs and Networks',
+//             'Markov matrices',
+//             'Fourier matrix',
+//             'Fast Fourier Transform',
+//         ],
+//       }
+//     ],
+//     courses: [
+//       {
+//         title: 'Khan Academy - Linear Algebra',
+//         url: 'https://www.khanacademy.org/math/linear-algebra',
+//         type: 'free'
+//       }
+//     ]
+//   },
+//   // Thêm các kỹ năng khác...
+// ];
 
 export default function DataScientistSkills(): JSX.Element {
   const [selectedSkill, setSelectedSkill] = useState<Skill | null>(null);
@@ -97,8 +100,14 @@ export default function DataScientistSkills(): JSX.Element {
                 className={`${styles.skillCard} ${selectedSkill?.id === skill.id ? styles.active : ''}`}
                 onClick={() => setSelectedSkill(skill)}
               >
-                <h3>{skill.title}</h3>
-                <p>{skill.description}</p>
+                {skill.image && (
+                  <div className={styles.skillImage}>
+                    <img src={skill.image} alt={skill.title} />
+                  </div>
+                )}
+                <div className={styles.skillContent}>
+                  <h3>{skill.title}</h3>
+                </div>
               </div>
             ))}
           </div>

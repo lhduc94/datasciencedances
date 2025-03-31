@@ -3,6 +3,8 @@
   "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
     "baseUrl": ".",
-    "target": "es2015"
+    "target": "es2015",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   }
 }
