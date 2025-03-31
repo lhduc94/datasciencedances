@@ -16,7 +16,7 @@ import styles from "./styles.module.scss";
 let ITEMS = [
   {
     title: "Các kỹ năng cần thiết của Data Scientist",
-    href: "boost/list/data-scientist/data-scientist",
+    href: "boost/list/data-scientist",
     image: "/img/boost/datascience-cover.jpg",
     category: "Roadmap", // Thêm thuộc tính category
 

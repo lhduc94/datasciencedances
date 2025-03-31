@@ -31,7 +31,7 @@ export default function HomepageCourses() {
             <Link
               className={clsx("button button--lg", styles.button)}
               to="/courses">
-              <span style={{ fontFamily: "Consolas, monospace" }}>Cùng học nào</span> <span className={styles.pulseHeart}>❤️‍🔥</span>!!
+              <span>Cùng học nào</span> <span className={styles.pulseHeart}>❤️‍🔥</span>!!
             </Link>
           </div>
         </div>

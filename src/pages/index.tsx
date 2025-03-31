@@ -5,7 +5,8 @@ import HomepageDocs from '../components/home/HomepageDocs';
 import HomepageBlogPosts from "../components/home/HomepageBlogPosts";
 import HomepageHeader from "../components/home/HomepageHeader";
 import { useWindowSize } from "@docusaurus/theme-common";
- 
+import HomepageAboutme from '../components/home/HomepageAboutme';
+
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
@@ -16,6 +17,7 @@ export default function Home(): JSX.Element {
       <HomepageDocs/>
       <HomepageCourses/>
       <HomepageBlogPosts/>
+      <HomepageAboutme />
     </Layout>
   );
 }
