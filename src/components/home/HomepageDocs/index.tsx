@@ -9,8 +9,8 @@ import LinkWithBaseUrl from "../../common/LinkWithBaseUrl";
 import styles from "./styles.module.scss";
 import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
 
-const texts = ["Các tài liệu tự viết về các thư viện Data Science", 
-"Các cuốn sách tự viết về các lĩnh vực chuyên môn Data Science"]
+const texts = ["Các tài liệu tham khảo về các lĩnh vực chuyên môn Data Science"
+]
 
 function NewlineText(_texts) {
     return _texts.map((item: string) => <p><span className={styles.spinningStar}>⭐</span> {item}</p>);
