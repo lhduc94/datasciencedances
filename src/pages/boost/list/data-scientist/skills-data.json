@@ -2,7 +2,7 @@
     {
       "id": "linear-algebra",
       "title": "Đại số tuyến tính",
-      "image": "/img/boost/data-scientist/linear-algebra.png",
+      "image": "/img/boost/data-scientist/linear-algebra-icon.png",
       "description": "Kiến thức nền tảng về đại số tuyến tính",
       "sections": [
         {
@@ -48,7 +48,7 @@
     {
         "id": "statistics-probability",
         "title": "Thống kê và xác suất",
-        "image": "/img/boost/data-scientist/statistics-probability.png",
+        "image": "/img/boost/data-scientist/statistics-probability-icon.png",
         "description": "Kiến thức nền tảng về thống kê và xác suất",
         "sections": [
           {
