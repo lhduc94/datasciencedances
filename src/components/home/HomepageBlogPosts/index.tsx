@@ -52,7 +52,7 @@ function multipleAuthor(author: Author[], date: string) {
 }
 
 export default function HomepageBlogPosts() {
-  const itemDom = useGetNewBlogList(5).map((item, i) => {
+  const itemDom = useGetNewBlogList(4).map((item, i) => {
     return (
       <LinkWithBaseUrl to={item.href} key={i}>
         <div className={styles.item}>
@@ -61,7 +61,6 @@ export default function HomepageBlogPosts() {
           {item.authors.length === 1
             ? singleAuthor(item.authors[0], item.date)
             : multipleAuthor(item.authors, item.date)}
-          {/* <BlogPostItemHeaderAuthors/> */}
         </div>
       </LinkWithBaseUrl>
     );

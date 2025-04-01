@@ -8,36 +8,28 @@ import LinkWithBaseUrl from "../../common/LinkWithBaseUrl";
 
 import styles from "./styles.module.scss";
 
-const texts = ["Các khóa học Data Science cơ bản cho người mới bắt đầu.",
-"Khóa học dựa trên các dự án thực tế.",
-"Khai phá tiềm năng của các thuật toán phân tích"]
+const texts = ["Roadmap dành cho bạn"]
 
 function NewlineText(_texts) {
   return _texts.map((item: string) => <p><span className={styles.pulseHeart}>❤️‍🔥</span> {item}</p>);
 }
 
-export default function HomepageCourses(): JSX.Element {
+export default function HomepageRoadmap() {
   return (
+
     <div className={styles.wrap}>
       <div className={styles.content}>
         <div className={styles.maincontent}>
-          <div className={styles.item}>
             <div className={styles.title}>
-              Đào tạo
+              Roadmap Data Scientist
             </div>
             <div className={styles.desc}>
               {NewlineText(texts)}
             </div>
             <Link
               className={clsx("button button--lg", styles.button)}
-              to="/courses">
-              <span>Cùng học nào</span> <span className={styles.pulseHeart}>❤️‍🔥</span>!!
-            </Link>
-          </div>
-          <Link 
-              className={styles.imagecover}
-              to="/courses">
-              <img src={useBaseUrl("/img/home/image_course_8.png")}alt="" />
+              to="/boost/list/data-scientist">
+              <span>Xem roadmap</span> <span className={styles.pulseHeart}>❤️‍🔥</span>
             </Link>
         </div>
       </div>

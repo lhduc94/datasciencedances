@@ -1,10 +1,14 @@
 .wrap {
     // background-color:var(--ifm-color-primary);
-    // background: linear-gradient(180deg, rgba(247, 247, 247, 0.2) 12.73%,  rgb(36, 34, 34) 96.49%);
-    background-color:  #ffffff;
+    background: rgba(0, 0, 0, 0.5);
+    // background-color:  #ffffff;
+    // background-image: url("/img/boost/roadmap.png");
+    // background-size: cover;
+    // background-position: center;
+    // background-repeat: no-repeat;
     padding-top: 62px;
     padding-bottom: 62px;
-    z-index: 100;
+    z-index: 1;
 
     .content {
       display: flex;
@@ -31,9 +35,8 @@
           font-size: 40px;
           font-weight: bold;
           line-height: 26px;
-          color: var(--ifm-color-primary);
-          // color: whitesmoke;
-          // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
+          color: whitesmoke;
+          text-shadow: rgb(59, 18, 241) 0px 4px 15px;
         }
         .desc {
           margin-top: 50px;
@@ -43,26 +46,26 @@
           text-align: center;
           // font-family: 'Consolas', monospace;
 
-          // color: whitesmoke;
+          color: whitesmoke;
           text-decoration: none;
-          // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
+          text-shadow: rgb(59, 18, 241) 0px 4px 15px;
 
         }
         .button {
           margin-top: 30px;
-          background-color: white;
-          color: var(--ifm-color-primary);
+          background-color: rgba(0, 0, 0, 0.5);
+          color: whitesmoke;
           // text-transform: uppercase;
           border: 3px solid var(--ifm-color-primary);
           border-radius: 5px;
           &:hover{
-
             transform: scale(1.05);
             box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 12px,
               rgba(0, 0, 0, 0.12) 0px -12px 30px,
               rgba(0, 0, 0, 0.12) 0px 4px 6px,
                 rgba(0, 0, 0, 0.17) 0px 12px 13px,
                 rgba(0, 0, 0, 0.09) 0px -3px 5px;
+          
           }
         } 
       }
@@ -122,4 +125,15 @@
   100% {
     transform: scale(1);
   }
+}
+
+.banner_filter{
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 95vh;
+  background: linear-gradient(250.73deg, rgba(40, 14, 102, 0.5) 12.73%, var(--ifm-color-primary) 96.49%);
+  opacity: 0.5;
+  position: absolute;
+  z-index: 2;
 }

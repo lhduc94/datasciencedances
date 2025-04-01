@@ -27,7 +27,7 @@ let ITEM_COURSES = [
       desc: "Bao gồm các tài liệu và bài tập",
       category: "Data Analysis",
       duration: "11 Buổi",
-      status: "notopen"
+      status: "not open"
     },
     {
       pic: "/img/courses/ml-observation.jpg",
