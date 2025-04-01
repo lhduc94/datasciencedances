@@ -44,9 +44,7 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
-p.hero__subtitle{
-  color: white;
-}
+
 [data-theme="light"] {
   --ifm-font-color-base: #000;
   --normal-bg-1: #fff;
@@ -80,6 +78,9 @@ p.hero__subtitle{
   --popper-text-color: #ffffff;
 }
 
+p.hero__subtitle{
+  color: white;
+}
 div.markdown h2, div.markdown h3,div.markdown strong
 {
   color: #026992;
@@ -172,12 +173,16 @@ div.docsWrapper_hBAB{
 
 .navbar{
   opacity: .9;
-  background-color: rgb(3, 5, 19);
 }
 .navbar__items{
-  color: white;
+  color: black;
 }
-
+.navbar__link{
+  color: black;
+}
+.navbar__logo img {
+  height: 150%;
+}
 
 figcaption {
   text-align: center;

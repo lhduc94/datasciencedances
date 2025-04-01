@@ -126,10 +126,10 @@ const config: Config = {
     // Replace with your project's social card
     image: 'https://kungfupandas.lhduc.com/images/index/cover.jpg',
     navbar: {
-      title: 'Data Science Dances',
+      // title: 'Data Science Dances',
       logo: {
         alt: 'Data Science Dances',
-        src: 'img/dsd2-favicon.jpg',
+        src: 'img/dsd3-favicon.jpg',
       },
       items: [
         
