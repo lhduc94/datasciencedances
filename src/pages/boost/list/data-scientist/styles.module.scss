@@ -87,41 +87,62 @@
   }
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2}
+
 .skillDetail {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 600px;
-  max-height: 85vh;
-  background: white;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
+  top: 10vh;
+  left: 5vh;
+  width: 35%;
+  height: 87vh;
+  background: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
   display: flex;
   flex-direction: column;
-
+  animation: slideInTop 0.3s ease;
+  transform-origin: top center;
+  border-radius: 10px;
   .detailHeader {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem;
-    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+    align-items: flex-start;
     flex-shrink: 0;
-    
-    h1 {
-      margin: 0;
-      color: var(--ifm-color-primary);
+    background: var(--ifm-background-color);
+
+    .headerContent {
+      flex: 1;
+      
+      h1 {
+        margin: 0 0 0.5rem;
+        font-size: 2rem;
+        color: var(--ifm-color-primary);
+      }
+
+      .description {
+        margin: 0;
+        color: var(--ifm-color-emphasis-700);
+        font-size: 1rem;
+        line-height: 1.5;
+      }
     }
 
     .closeButton {
       background: none;
       border: none;
-      font-size: 1.5rem;
+      font-size: 3rem;
       cursor: pointer;
       color: var(--ifm-color-emphasis-600);
       padding: 0.5rem;
-
       &:hover {
         color: var(--ifm-color-emphasis-800);
       }
@@ -129,12 +150,12 @@
   }
 
   .detailContent {
-    padding: 1.5rem;
+    padding: 2rem;
     overflow-y: auto;
     flex: 1;
 
     &::-webkit-scrollbar {
-      width: 6px;
+      width: 8px;
     }
 
     &::-webkit-scrollbar-track {
@@ -143,33 +164,27 @@
 
     &::-webkit-scrollbar-thumb {
       background: var(--ifm-color-emphasis-300);
-      border-radius: 3px;
-    }
-
-    .level {
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-
-    .description {
-      p {
-        margin: 0.5rem 0;
-        line-height: 1.6;
-      }
+      border-radius: 4px;
     }
   }
 }
 
-// Overlay khi skill detail hiển thị
-.skillDetail::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(255, 255, 255, 0.5);
-  z-index: -1;
+@keyframes slideInTop {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
@@ -182,10 +197,22 @@
   }
 
   .skillDetail {
-    width: 95%;
-    margin: 1rem;
+    width: 100%;
+    
+    .detailHeader {
+      padding: 1rem;
+      
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    .detailContent {
+      padding: 1rem;
+    }
   }
 }
+
 
 .section {
   margin-bottom: 2rem;
