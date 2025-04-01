@@ -33,8 +33,7 @@
             "Biến đổi Fourier và Wavelet",
             "Phân rã ma trận nâng cao: Phân rã SVD",
             "Eigen Decomposition trong phân tích dữ liệu",
-            "Ma trận hessian và điểm dừng",
-            "Gradient Descent và các phương pháp tối ưu hóa"
+            "Ma trận hessian và điểm dừng"
           ]
         }
       ],
@@ -93,6 +92,54 @@
               "url": "https://www.khanacademy.org/math/linear-algebra",
               "type": "free"
             }
-          ]}
+          ]},
+    {
+      "id": "Calculus",
+      "title": "Giải tích",
+      "image": "/img/boost/data-scientist/statistics-probability.png",
+      "description": "Kiến thức nền tảng về Giải tích",
+      "sections": [
+        {
+          "title": "Cơ bản",
+          "level": "Beginner",
+          "content": [
+              "Đạo hàm và ứng dụng",
+              "Gradient Decent",
+              "Exponential Function và Exponential decay",
+              "Logarithic Function",
+              "Tìm cực trị và tối ưu hóa cơ bản",
+              "Các hàm khoảng cách"
+          ]
+        },
+        {
+          "title": "Trung bình",
+          "level": "Intermediate",
+          "content": [
+           "Tối ưu hóa cục bộ và toàn cục",
+           "Tối ưu hóa ràng buộc và không ràng buộc",
+           "Tối ưu lồi và không lồi",
+           "Tối ưu trơn và không trơn",
+           "Quy hoạch tuyến tính"
+ 
+          ]
+        },
+        {
+          "title": "Nâng cao",
+          "level": "Advanced",
+          "content": [
+            "Momentum-based optimization (Nadam, RMSProp, Adam)",
+           "Newton’s Method, Quasi-Newton Methods (BFGS, L-BFGS).",
+           "Sử dụng ma trận Hessian để tăng tốc hội tụ.",
+           "Lagrange multipliers",
+           "Quadratic Programming (Tối ưu bậc hai)"
+          ]
+        }],
+      "courses": [
+          {
+            "title": "Khan Academy - Linear Algebra",
+            "url": "https://www.khanacademy.org/math/linear-algebra",
+            "type": "free"
+          }
+        ]}
 ]
   
