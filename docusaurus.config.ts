@@ -135,22 +135,24 @@ const config: Config = {
         
         {type:'docSidebar',
           sidebarId: 'tailieuSidebar',
-          position: 'left',
+          position: 'right',
           label: 'Tài liệu tham khảo'},
         {
-          to: '/blog', label: 'Blog', position: 'left'
+          to: '/blog', label: 'Blog', position: 'right'
         },
         {
           label: "Khóa học",
           to: '/courses',
+          position: 'right',
         },
         
         {
           label: "Boost",
           to: '/boost',
+          position: 'right',
         },
         {
-          to: '/datasets/data', label: 'Datasets', position: 'left'
+          to: '/datasets/data', label: 'Datasets', position: 'right'
         },
       ],
     },

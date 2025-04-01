@@ -177,3 +177,47 @@
   gap: 8px;
   margin-right: 12px;
 }
+
+.viewMore {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.viewMoreButton {
+  margin-top: 30px;
+  background-color: white;
+  color: var(--ifm-color-primary);
+  // text-transform: uppercase;
+  border: 3px solid var(--ifm-color-primary);
+  border-radius: 5px;
+  &:hover{
+    color: var(--ifm-color-primary);
+    transform: scale(1.05);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 12px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px,
+        rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+}
+
+.swiper {
+  padding: 20px 40px;
+  
+  :global {
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: var(--ifm-color-primary);
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--ifm-color-primary);
+    }
+  }
+}
+
+.item {
+  height: 100%;
+  // Thêm các style khác nếu cần
+}

@@ -18,10 +18,10 @@ function NewlineText(_texts) {
 
 export default function HomepageCourses() {
   return (
+
     <div className={styles.wrap}>
       <div className={styles.content}>
         <div className={styles.maincontent}>
-          <div className={styles.item}>
             <div className={styles.title}>
               Đào tạo
             </div>
@@ -33,7 +33,6 @@ export default function HomepageCourses() {
               to="/courses">
               <span>Cùng học nào</span> <span className={styles.pulseHeart}>❤️‍🔥</span>!!
             </Link>
-          </div>
         </div>
         <div className={styles.maintitle}>
           <div className={styles.imagecover}><a href="/courses"><img src={useBaseUrl("/img/home/image_course_8.png")}alt="" /></a></div>
@@ -42,6 +41,6 @@ export default function HomepageCourses() {
           </span> */}
           </div>
       </div>
-    </div>
+    </div>   
   );
 }

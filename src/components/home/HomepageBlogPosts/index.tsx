@@ -52,7 +52,7 @@ function multipleAuthor(author: Author[], date: string) {
 }
 
 export default function HomepageBlogPosts() {
-  const itemDom = useGetNewBlogList(4).map((item, i) => {
+  const itemDom = useGetNewBlogList(5).map((item, i) => {
     return (
       <LinkWithBaseUrl to={item.href} key={i}>
         <div className={styles.item}>
@@ -72,8 +72,11 @@ export default function HomepageBlogPosts() {
         Bài viết mới nhất <span className={styles.fireEmoji}>🔥🔥</span>
       </div>
       <div className={clsx(styles.listWrap, "link-wrap")}>{itemDom}</div>
-
+      <div className={styles.viewMore}>
+        <LinkWithBaseUrl to="/blog" className={clsx("button button--lg",styles.viewMoreButton)}>
+          Xem thêm bài viết
+        </LinkWithBaseUrl>
+      </div>
     </div>
-    
   );
 }
