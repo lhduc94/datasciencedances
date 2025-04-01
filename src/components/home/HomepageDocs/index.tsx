@@ -19,7 +19,9 @@ interface DocItem {
 const DocContent: DocItem = {
   title: "Tài liệu kỹ thuật",
   description: [
-    "Các tài liệu tham khảo về các lĩnh vực chuyên môn Data Science"
+    "Tài liệu tham khảo về Pandas(Phân tích dữ liệu)",
+    "Tài liệu về Pytorch",
+    "Tài liệu về cài đặt Database"
   ],
   buttonText: "Cùng đọc nào",
   buttonLink: "/docs/kungfupandas/gioithieu",

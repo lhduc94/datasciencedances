@@ -173,17 +173,16 @@ div.docsWrapper_hBAB{
 
 .navbar{
   opacity: .9;
-}
-.navbar__items{
-  color: black;
-}
-.navbar__link{
-  color: black;
+  background-color: rgb(3, 5, 19);
 }
 .navbar__logo img {
   height: 150%;
 }
 
+.navbar__items {
+  padding-right: 20%;
+  padding-left: 15%;
+}
 figcaption {
   text-align: center;
   // font-style: italic;

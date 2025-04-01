@@ -14,7 +14,7 @@ export default function Home(): JSX.Element {
       title={`Trang chủ`}
       description="Nơi chia sẻ kiến thức về Data Science cho người mới bắt đầu cũng như những người đã đi làm về Data Science 😍">
       <HomepageHeader />
-      <HomepageDocs/>
+      <div id="homepagedoc"><HomepageDocs/></div>
       <HomepageCourses/>
       <HomepageRoadmap/>
       <HomepageBlogPosts/>

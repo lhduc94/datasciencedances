@@ -4,8 +4,8 @@
   background-color:  #f8f9fa;
   padding-top: 62px;
   padding-bottom: 62px;
-  z-index: 2;
-
+  z-index: 1;
+  position: relative;
   .content {
     display: flex;
     flex-direction: column;

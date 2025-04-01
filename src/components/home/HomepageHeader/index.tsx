@@ -26,13 +26,13 @@ export default function HomepageHeader() {
         <div className={clsx("hero-banner_tagline", styles.banner_tagline)}>
           {siteConfig.tagline}
         </div>
-        {/* <div>
+        <div>
           <Link
             className={clsx("button button--lg", styles.button)}
-            to="/boost/list/data-scientist/data-scientist">
+            to="/#homepagedoc">
             Cùng nhảy nào 🪇🪇!!
           </Link>
-        </div> */}
+        </div>
       </div>
     </header>
   );

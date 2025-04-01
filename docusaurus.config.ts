@@ -8,7 +8,7 @@ const path = require('path')
 const config: Config = {
 
   title: 'Data Science Dances',
-  tagline: 'Mỗi bài toán là một bản nhạc',
+  tagline: 'Data Science Dances sẽ giúp bạn hiểu thêm về những vấn đề của Data Science. Hãy xem những bài toán như những điệu nhảy và thưởng thức nó nào!',
   favicon: 'img/favicon.png',
 
   url: 'https://datasciencedances.com',
