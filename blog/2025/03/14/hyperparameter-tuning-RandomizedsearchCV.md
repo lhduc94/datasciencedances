@@ -14,37 +14,32 @@ draft: true
 ## Giới thiệu
 Trong bài viết trước, chúng ta đã tìm hiểu về GridSearchCV - một phương pháp tối ưu siêu tham số bằng cách thử tất cả các tổ hợp có thể. Tuy nhiên, GridSearch có nhược điểm là tốn nhiều thời gian khi không gian tìm kiếm lớn. Trong bài viết này, chúng ta sẽ tìm hiểu về RandomizedSearchCV - một phương pháp hiệu quả hơn để tối ưu siêu tham số.
 
-## RandomSearch là gì?
+## Randomized Search là gì?
 
-RandomSearch là phương pháp tối ưu siêu tham số bằng cách chọn ngẫu nhiên các tổ hợp giá trị từ không gian tìm kiếm, thay vì thử tất cả các tổ hợp như GridSearch. 
+Randomized Search là phương pháp tối ưu siêu tham số bằng cách chọn ngẫu nhiên các tổ hợp giá trị từ không gian tìm kiếm, thay vì thử tất cả các tổ hợp như GridSearch. 
+![](randomized-search-and-grid-search.png)
 
-### Ưu điểm của RandomSearch so với GridSearch:
+Vì là phương pháp ngẫu nhiên nên Randomized Search có những ưu điểm so với GridSearch như
 
-**:one:** **Hiệu quả về thời gian**: Chỉ thử một số lượng tổ hợp được chỉ định trước, thay vì tất cả các tổ hợp có thể.
+- **Giảm thiểu số lần thử nghiệm nhưng vẫn hiệu quả**
+    - Giả sử có 3 tham số với mỗi tham số thử 5 lần thì Grid Search phải thử 5 x 5 x 5 = 125 lần
+    - Randomized Search có thể thử 50 hoặc 100 lần tùy vào cài đặt
 
-**:two:** **Linh hoạt với phân phối tham số**: Có thể định nghĩa phân phối xác suất cho các tham số (ví dụ: phân phối đều, phân phối chuẩn).
+- **Tìm được kết quả tốt hơn với cùng một số lần thử**
+    - Vì là ngẫu nhiên niên Randomized Search có thể tìm ra bộ tham số gần tối ưu, trong khi Grid Search có thể lãng phí thử nghiệm vào những vùng không quan trọng.
+    - Ví dụ learing rate, Grid có thể bỏ sót các giá trị tốt nếu khoảng cách giữa các giá trị trong lưới quá lớn( Do người dùng phải chọn trước các giá trị cần thử nghiệm )
 
-**:three:**. **Hiệu quả với không gian tham số lớn**: Đặc biệt tốt khi có nhiều tham số cần tối ưu.
+- **Dễ mở rộng với tài nguyên tính toán hạn chế**: 
+    - Nếu bạn có hạn chế về thời gian hoặc tài nguyên, Randomized Search có thể dừng sau một số lần thử cố định (n_iter), trong khi Grid Search phải chạy toàn bộ
 
-<!-- ![](random_vs_grid.png) -->
+Nói đi cũng phải nói lại, vậy khi nào Grid Search vẫn hữu ích: Grid Search vẫn hữu ích khi không gian tham số nhỏ và có thể kiểm tra toàn bộ. Hoặc khi bạn đã có kiến thức rõ ràng về từng siêu tham số, có thể ước lượng được phạm vi tham số tốt nhất. Hoặc nếu như bạn có máy tính với nhiều cores có thể chạy song song và bạn quan tâm tới tối ưu hóa toàn bộ thay vì tìm kiếm một giải pháp nhanh và đủ tốt, bạn có thể lựa chọn Grid Search
 
-Hình trên minh họa sự khác biệt giữa GridSearch (trái) và RandomizedSearch (phải). RandomizedSearch có thể tìm thấy giải pháp tốt với ít lần thử hơn.
 
-### So sánh RandomSearchCV với GridSearchCV
-
-| Tiêu chí | **GridSearchCV** | **RandomSearchCV** |
-|----------|------------------|-------------------|
-| **Cách hoạt động** | Thử tất cả tổ hợp tham số có thể | Chọn ngẫu nhiên n tổ hợp tham số |
-| **Thời gian thực thi** | 🐢 Chậm với không gian lớn | ⚡ Nhanh hơn, có thể kiểm soát số lần thử |
-| **Không gian tham số** | Rời rạc, cố định | Linh hoạt, có thể dùng phân phối xác suất |
-| **Hiệu quả** | Tốt với ít tham số | Tốt với nhiều tham số |
-| **Tài nguyên** | Tốn nhiều tài nguyên | Tiết kiệm tài nguyên hơn |
-| **Khi nào nên dùng?** | ✅ Ít tham số, muốn thử tất cả tổ hợp | ✅ Nhiều tham số, thời gian/tài nguyên hạn chế |
-## Triển khai RandomSearch
+## Triển khai Randomized Search
 
 ### Triển khai thủ công
 
-Trước tiên, chúng ta sẽ thử triển khai RandomSearch một cách thủ công để hiểu rõ cách hoạt động của nó.
+Trước tiên, chúng ta sẽ thử triển khai Randomized Search một cách thủ công để hiểu rõ cách hoạt động của nó.
 
 **Chuẩn bị dữ liệu**
 ```python
@@ -195,7 +190,7 @@ print(f"Train size: {X_train.shape}, Test size: {X_test.shape}")
 
 **Định nghĩa không gian tham số**
 
-Với RandomSearch, chúng ta có thể định nghĩa phân phối cho các tham số:
+Với Randomized Search, chúng ta có thể định nghĩa phân phối cho các tham số:
 
 ```python
 from scipy.stats import randint, uniform
@@ -210,13 +205,13 @@ param_distributions = {
 }
 ```
 
-**Thực hiện RandomSearchCV**
+**Thực hiện Randomized SearchCV**
 
 ```python
 # Khởi tạo mô hình
 rf = RandomForestClassifier(random_state=42)
 
-# RandomSearchCV với 100 lần thử
+# Randomized SearchCV với 100 lần thử
 random_search = RandomizedSearchCV(
     rf, 
     param_distributions=param_distributions,
@@ -247,18 +242,18 @@ print(f"Tuned Model Accuracy on Test Set: {accuracy:.4f}")
 
 
 
-## Kết hợp RandomSearch và GridSearch
+## Kết hợp Randomized Search và GridSearch
 
 Một chiến lược hiệu quả là kết hợp cả hai phương pháp:
-1. Dùng RandomSearch để khám phá nhanh không gian tham số rộng
-2. Sau đó dùng GridSearch để tìm kiếm chi tiết xung quanh các giá trị tốt nhất từ RandomSearch
+1. Dùng Randomized Search để khám phá nhanh không gian tham số rộng
+2. Sau đó dùng GridSearch để tìm kiếm chi tiết xung quanh các giá trị tốt nhất từ Randomized Search
 
 ### Ví dụ triển khai
 
 ```python
 from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
 
-# Bước 1: RandomSearch với không gian tham số rộng
+# Bước 1: Randomized Search với không gian tham số rộng
 param_distributions = {
     'n_estimators': randint(50, 300),
     'max_depth': randint(3, 15),
@@ -267,7 +262,7 @@ param_distributions = {
     'max_features': uniform(0.1, 0.9)
 }
 
-# RandomSearch đầu tiên
+# Randomized Search đầu tiên
 random_search = RandomizedSearchCV(
     RandomForestClassifier(random_state=42),
     param_distributions=param_distributions,
@@ -278,9 +273,9 @@ random_search = RandomizedSearchCV(
 )
 
 random_search.fit(X_train, y_train)
-print("Best parameters from RandomSearch:", random_search.best_params_)
+print("Best parameters from Randomized Search:", random_search.best_params_)
 
-# Bước 2: GridSearch xung quanh kết quả tốt nhất của RandomSearch
+# Bước 2: GridSearch xung quanh kết quả tốt nhất của Randomized Search
 # Tạo không gian tham số hẹp hơn xung quanh giá trị tốt nhất
 best_params = random_search.best_params_
 fine_tune_params = {
@@ -320,7 +315,7 @@ print(f"\nFinal Model Accuracy on Test Set: {final_accuracy:.4f}")
 ### Ưu điểm của phương pháp kết hợp
 
 1. **Hiệu quả về thời gian**: 
-   - RandomSearch giúp khám phá nhanh không gian tham số rộng
+   - Randomized Search giúp khám phá nhanh không gian tham số rộng
    - GridSearch chỉ tập trung vào vùng hẹp có triển vọng
 
 2. **Độ chính xác cao**: 
@@ -328,7 +323,7 @@ print(f"\nFinal Model Accuracy on Test Set: {final_accuracy:.4f}")
    - GridSearch giúp tinh chỉnh chi tiết các tham số tốt nhất
 
 3. **Cân bằng giữa khám phá và khai thác**:
-   - RandomSearch đảm nhiệm vai trò khám phá (exploration)
+   - Randomized Search đảm nhiệm vai trò khám phá (exploration)
    - GridSearch đảm nhiệm vai trò khai thác (exploitation)
 
 ### Khi nào nên dùng phương pháp kết hợp?
@@ -341,15 +336,15 @@ print(f"\nFinal Model Accuracy on Test Set: {final_accuracy:.4f}")
 ### Lưu ý khi triển khai
 
 1. Đảm bảo không gian tham số trong GridSearch không quá rộng
-2. Chọn số lượng thử nghiệm (n_iter) phù hợp trong RandomSearch
-3. Có thể điều chỉnh phạm vi tìm kiếm trong GridSearch tùy theo kết quả RandomSearch
+2. Chọn số lượng thử nghiệm (n_iter) phù hợp trong Randomized Search
+3. Có thể điều chỉnh phạm vi tìm kiếm trong GridSearch tùy theo kết quả Randomized Search
 4. Nên lưu lại kết quả của cả hai giai đoạn để so sánh
 
 ## Kết luận
 
-RandomSearchCV là một phương pháp hiệu quả để tối ưu siêu tham số, đặc biệt khi:
+Randomized SearchCV là một phương pháp hiệu quả để tối ưu siêu tham số, đặc biệt khi:
 - Có nhiều tham số cần tối ưu
 - Thời gian và tài nguyên tính toán hạn chế
 - Muốn linh hoạt trong việc định nghĩa không gian tìm kiếm
 
-Tuy nhiên, không có phương pháp nào là hoàn hảo. Việc lựa chọn giữa GridSearch và RandomSearch phụ thuộc vào bài toán cụ thể, tài nguyên có sẵn và yêu cầu về độ chính xác.
+Tuy nhiên, không có phương pháp nào là hoàn hảo. Việc lựa chọn giữa GridSearch và Randomized Search phụ thuộc vào bài toán cụ thể, tài nguyên có sẵn và yêu cầu về độ chính xác.

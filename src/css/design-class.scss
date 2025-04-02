@@ -1,15 +1,10 @@
-.sub-text {
-  line-height: 24px;
-  letter-spacing: 0.02em;
-  text-align: left;
-  color: var(--sub-text-color-2);
-}
-
+// Typography
 .main-title {
   font-size: 32px;
   font-weight: 700;
   line-height: 56px;
 }
+
 .sub-title {
   font-size: 20px;
   font-weight: 700;
@@ -17,18 +12,36 @@
   color: var(--sub-text-color-5);
 }
 
+.sub-text {
+  line-height: 24px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  color: var(--sub-text-color-2);
+}
+
+// Layout
 .flex {
   display: flex;
-}
-.flex-justify-center {
-  justify-content: center;
-}
-
-.active-color {
-  color: var(--active-color);
-  cursor: pointer;
+  
+  &-justify-center {
+    justify-content: center;
+  }
 }
 
+.global-width {
+  &-layout {
+    max-width: var(--global-main-width);
+    margin: 0 auto;
+    padding: 0 var(--mobile-padding-width);
+  }
+  
+  &-center {
+    max-width: var(--global-main-width);
+    margin: 0 auto;
+  }
+}
+
+// Text overflow handling
 .two-lines-ellipsis {
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -36,35 +49,28 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .single-line-overflow {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.global-width-layout {
-  max-width: var(--global-main-width);
-  margin: 0 auto;
-  padding:0 var(--mobile-padding-width);
+// Utilities
+.active-color {
+  color: var(--active-color);
+  cursor: pointer;
 }
-.global-width-center {
-  max-width: var(--global-main-width);
-  margin: 0 auto;
-}
+
 .hide-before-after {
-  &::before {
-    display: none;
-  }
+  &::before,
   &::after {
     display: none;
   }
 }
 
-// set up an external container and remove the underline of other labels in label a
 .link-wrap {
-  &:hover {
-    * {
-      text-decoration: none;
-    }
+  &:hover * {
+    text-decoration: none;
   }
 }
