@@ -132,19 +132,42 @@ const config: Config = {
         src: 'img/dsd3-favicon.jpg',
       },
       items: [
-        
-        {type:'docSidebar',
-          sidebarId: 'tailieuSidebar',
+        {type: 'dropdown',
+          label: 'Tài liệu tham khảo',
           position: 'right',
-          label: 'Tài liệu tham khảo'},
+          items: [
+            {type:'docSidebar',
+              sidebarId: 'kungfupandasSidebar',
+              label: 'Kungfu Pandas'}
+          ]
+        },
+       
         {
           to: '/blog', label: 'Blog', position: 'right'
         },
-        {
-          label: "Khóa học",
-          to: '/courses',
+        {type: 'dropdown',
+          label: 'Khóa học',
           position: 'right',
+          items: [
+            { 
+              label: "Tất cả",
+              to: '/courses',
+            },
+            {
+              label: "Phân tích dữ liệu chuỗi thời gian",
+              to: '/courses/list/time-series-analysis/time-series-analysis',
+            },
+            {
+              label: "Thực hành phân tích dữ liệu",
+              to: '/courses/list/analysis-in-practice/analysis-in-practice',
+            },
+            {
+              label: "Giám sát mô hình Machine Learning",
+              to: '/courses/list/ml-observation/ml-observation',
+            },
+          ]
         },
+        
         
         {
           label: "Boost",
