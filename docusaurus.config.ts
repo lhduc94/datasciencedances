@@ -87,8 +87,8 @@ const config: Config = {
   themeConfig: {
   
     metadata: [
-      {name: 'keywords', content: 'data science, blog'},
-      {name: 'twitter:card', content: 'data science, blog'},
+      {name: 'keywords', content: 'data science, blog, machine learning, data analysis, data visualization, data engineering, data science dances'},
+      {name: 'twitter:card', content: 'data science, blog, machine learning, data analysis, data visualization, data engineering, data science dances'},
     ],
     headTags: [
 
@@ -98,7 +98,7 @@ const config: Config = {
         attributes: [
           {
             rel: 'preconnect',
-            href: 'http://datasciencedances.com/',
+            href: 'https://datasciencedances.com',
           },
           {
             rel: 'icon',
@@ -118,13 +118,13 @@ const config: Config = {
           '@context': 'https://schema.org/',
           '@type': 'Organization',
           name: 'Data Science Dances',
-          url: 'http://datasciencedances.com/',
+          url: 'https://datasciencedances.com',
           logo: 'https://i.pinimg.com/736x/d3/bb/d0/d3bbd0c4629972b9c74a78c9539bd1cb.jpg',
         }),
       },
     ],
     // Replace with your project's social card
-    image: 'https://kungfupandas.lhduc.com/images/index/cover.jpg',
+    image: 'https://datasciencedances.com/img/dsd3-favicon.jpg',
     navbar: {
       // title: 'Data Science Dances',
       logo: {
