@@ -37,136 +37,9 @@ Nói đi cũng phải nói lại, vậy khi nào Grid Search vẫn hữu ích: G
 
 ## Triển khai Randomized Search
 
-### Triển khai thủ công
+Khác với bài trước [Tối ưu siêu tham số mô hình với GridSearchCV](hyperparameter-tuning-gridsearchCV) chỉ code phần GridSearch từ đầu, trong bài viết này chúng ta sẽ thực hành code Randomized Search CV sau đó so sánh với thư viện Scikitlearn
 
-Trước tiên, chúng ta sẽ thử triển khai Randomized Search một cách thủ công để hiểu rõ cách hoạt động của nó.
-
-**Chuẩn bị dữ liệu**
-```python
-from sklearn.model_selection import train_test_split
-from ucimlrepo import fetch_ucirepo 
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
-import numpy as np
-
-# fetch dataset 
-phishing_websites = fetch_ucirepo(id=327) 
-  
-# data (as pandas dataframes) 
-X = phishing_websites.data.features 
-y = phishing_websites.data.targets
-
-# Chia tập train và test
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
-
-# Chia tập train và valid
-X_train, X_valid, y_train, y_valid = train_test_split(X_train, y_train, test_size=0.25, random_state=42, stratify=y_train)
-
-print(f"Train size: {X_train.shape}, Valid size: {X_valid.shape}, Test size: {X_test.shape}")
-```
-<pythonoutput>
-```
-Train size: (6633, 30), Valid size: (2211, 30), Test size: (2211, 30)
-```
-</pythonoutput>
-
-**Tạo các tổ hợp tham số ngẫu nhiên**
-```python
-import numpy as np
-
-# Đặt seed cho ngẫu nhiên
-np.random.seed(42)
-
-# Định nghĩa không gian tham số, trong bài trước mình dùng list để liệt kê ra cụ thể, trong ví dụ lần này mình dùng np.arrange để sinh ra dãy tham số
-param_space = {
-    'n_estimators': np.arange(50, 201, 50),  # [50, 100, 150, 200]
-    'max_depth': np.arange(3, 11, 2),        # [3, 5, 7, 9]
-}
-
-# Số lần thử ngẫu nhiên
-n_iter = 10
-
-# Tạo các tổ hợp tham số ngẫu nhiên
-random_params = []
-for _ in range(n_iter):
-    params = {
-        'n_estimators': np.random.choice(param_space['n_estimators']),
-        'max_depth': np.random.choice(param_space['max_depth'])
-    }
-    random_params.append(params)
-
-# In ra các tổ hợp được chọn
-for params in random_params:
-    print(f"n_estimators={params['n_estimators']},\t max_depth={params['max_depth']}")
-```
-
-<pythonoutput>
-```
-n_estimators=150,	 max_depth=9
-n_estimators=50,	 max_depth=7
-n_estimators=150,	 max_depth=9
-n_estimators=50,	 max_depth=3
-n_estimators=150,	 max_depth=5
-n_estimators=150,	 max_depth=7
-n_estimators=150,	 max_depth=7
-n_estimators=200,	 max_depth=3
-n_estimators=200,	 max_depth=9
-n_estimators=200,	 max_depth=7
-```
-</pythonoutput>
-
-**Huấn luyện mô hình với từng tổ hợp tham số**
-
-```python
-# Lưu kết quả
-best_score = 0
-best_params = None
-best_model = None
-
-# Thử từng bộ tham số ngẫu nhiên
-for params in random_params:
-    # Train model
-    model = RandomForestClassifier(**params, random_state=42)
-    model.fit(X_train, y_train)
-    
-    # Dự đoán và đánh giá
-    y_pred = model.predict(X_valid)
-    accuracy = accuracy_score(y_valid, y_pred)
-    
-    print(f"Parameters: {params}, Accuracy: {accuracy:.4f}")
-    
-    # Lưu lại bộ tham số tốt nhất
-    if accuracy > best_score:
-        best_score = accuracy
-        best_params = params
-        best_model = model
-
-# In kết quả tốt nhất
-print("\nBest Parameters:", best_params)
-print("Best Model Accuracy on Valid Set:", best_score)
-```
-
-**Đánh giá mô hình trên tập test**
-```python
-# Dự đoán và đánh giá
-y_pred = best_model.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred)
-print(f"Tuned Model Accuracy on Test Set: {accuracy:.4f}")
-```
-<pythonoutput>
-```
-Best Parameters: {'n_estimators': np.int64(150), 'max_depth': np.int64(9)}
-Best Model Accuracy on Valid Set: 0.9466304839439168
-```
-</pythonoutput>
-
-
-
-### Triển khai RandomizedSearchCV
-
-Chúng ta sẽ sử dụng bộ dữ liệu [Phishing Websites](https://archive.ics.uci.edu/dataset/327/phishing+websites) như trong ví dụ GridSearchCV.
-
-**Chuẩn bị dữ liệu**
+Dữ liệu lần này vẫn là dữ liệu https://archive.ics.uci.edu/dataset/327/phishing+websites
 
 ```python
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
@@ -188,60 +61,246 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 print(f"Train size: {X_train.shape}, Test size: {X_test.shape}")
 ```
 
-**Định nghĩa không gian tham số**
+<pythonoutput>
+```
+Train size: (8844, 30), Test size: (2211, 30)
+```
+</pythonoutput>
 
-Với Randomized Search, chúng ta có thể định nghĩa phân phối cho các tham số:
-
+Ta sẽ tune 2 siêu tham số `n_estimators` và `max_depth`
 ```python
 from scipy.stats import randint, uniform
 
-# Định nghĩa không gian tham số với phân phối
 param_distributions = {
-    'n_estimators': randint(50, 300),  # Số nguyên từ 50 đến 300
-    'max_depth': randint(3, 15),       # Số nguyên từ 3 đến 15
-    'min_samples_split': randint(2, 20),
-    'min_samples_leaf': randint(1, 10),
-    'max_features': uniform(0.1, 0.9)   # Số thực từ 0.1 đến 1.0
+    'n_estimators': randint(50, 300),
+    'max_depth': randint(3, 15)
 }
 ```
-
-**Thực hiện Randomized SearchCV**
+ta sẽ viết hàm `sample_params` nhận đầu vào là `param_distributions` và trả ra 1 bộ tham số
 
 ```python
-# Khởi tạo mô hình
+def sample_params(param_distributions):
+    sampled_params = {}
+    for param, dist in param_distributions.items():
+        sampled_params[param] = dist.rvs()
+    return sampled_params
+```
+Để lấy ngẫu nhiên 10 bộ tham số ta sử dụng vòng lặp for, ngoài ra ta cần dùng np.random.seed(42) đặt seed cho lấy ngẫu nhiên
+
+```python
+import numpy as np
+np.random.seed(42)
+for i in range(10):
+    sampled_params = sample_params(param_distributions)
+    print(sampled_params)
+```
+
+<pythonoutput>
+```
+{'n_estimators': 152, 'max_depth': 6}
+{'n_estimators': 142, 'max_depth': 13}
+{'n_estimators': 121, 'max_depth': 7}
+{'n_estimators': 152, 'max_depth': 12}
+{'n_estimators': 260, 'max_depth': 9}
+{'n_estimators': 124, 'max_depth': 13}
+{'n_estimators': 137, 'max_depth': 7}
+{'n_estimators': 149, 'max_depth': 10}
+{'n_estimators': 201, 'max_depth': 5}
+{'n_estimators': 199, 'max_depth': 7}
+```
+</pythonoutput>
+
+
+### Tự viết Randomized Search CV
+
+**Tạo class `RandomizedSearchCV_from_scratch`**
+
+```python
+class RandomizedSearchCV_from_scratch:
+    def __init__(self, estimator, param_distributions, n_iter=10, cv=5, random_state=None):
+        self.estimator = estimator  # Mô hình cần tối ưu hóa
+        self.param_distributions = param_distributions  # Phân phối tham số
+        self.n_iter = n_iter  # Số lần thử nghiệm
+        self.cv = cv  # Số fold cho cross-validation
+        self.random_state = random_state  # Seed cho tái lập
+
+        # Thiết lập seed nếu cần
+        if self.random_state is not None:
+            np.random.seed(self.random_state)
+    def sample_params(self):
+        ## TODO
+        """
+        Lấy mẫu ngẫu nhiên các tham số từ phân phối đã cho
+        """
+        
+    def cross_val_score(self, X, y, params):
+        ## TODO
+        """
+        Thực hiện cross-validation trả về điểm số trung bình các fold
+        """
+    def fit(self, X, y):
+        ## TODO
+        """
+        Thực hiện huấn luyện trên từng bộ tham số
+        """
+ 
+```
+
+Đầu tiên ta viết method `sample_params`
+
+```python
+def sample_params(self):
+    """
+    Lấy mẫu ngẫu nhiên các tham số từ phân phối đã cho.
+    """
+    sampled_params = {}
+    for param, dist in self.param_distributions.items():
+        sampled_params[param] = dist.rvs()
+    return sampled_params
+```
+
+Tiếp theo ta viết `cross_val_score`, vì trong bài viết này dùng dữ liệu dạng classification nên ta sẽ dùng `StratifiedKfold`.
+Đối với dữ liệu `Phising_website` là dữ liệu không bị mất cân bằng nên ta đơn giản dùng `accuracy_score` làm metric đánh giá.
+
+```python
+def cross_val_score(self, X, y, params):
+    """
+    Thực hiện cross-validation (StratifiedKFold) để tính điểm cho mô hình với tham số đã cho.
+    """
+    skf = StratifiedKFold(n_splits=self.cv, shuffle=True, random_state=self.random_state)
+    scores = []
+
+    # Chạy CV
+    for train_idx, valid_idx in skf.split(X, y):
+        _X_train, _X_valid = X.iloc[train_idx], X.iloc[valid_idx]
+        _y_train, _y_valid = y.iloc[train_idx], y.iloc[valid_idx]
+
+        # Huấn luyện mô hình với tham số đã chọn
+        self.estimator.set_params(**params)
+        self.estimator.fit(_X_train, _y_train)
+
+        # Dự đoán và tính điểm accuracy
+        y_pred = self.estimator.predict(_X_valid)
+        score = accuracy_score(_y_valid, y_pred)
+        scores.append(score)
+
+    return np.mean(scores)  # 
+```
+
+sau đó là viết phương thức `fit`
+
+```python
+def fit(self, X, y):
+    """
+    Tiến hành tìm kiếm ngẫu nhiên các tham số và huấn luyện mô hình với Cross-Validation.
+    """
+    best_score = -np.inf
+    best_params = None
+    results = []
+
+    for i in range(self.n_iter):
+        # Lấy mẫu các tham số
+        sampled_params = self.sample_params()
+
+        # Tính điểm cho tham số hiện tại với Cross-Validation
+        score = self.cross_val_score(X, y, sampled_params)
+
+        results.append({'params': sampled_params, 'score': score})
+
+        # Cập nhật nếu điểm số hiện tại là tốt nhất
+        if score > best_score:
+            best_score = score
+            best_params = sampled_params
+
+    # Lưu kết quả và trả về tham số tốt nhất
+    self.results_ = results
+    self.best_score_ = best_score
+    self.best_params_ = best_params
+```
+
+**Huấn luyện mô hình**
+
+```python
 rf = RandomForestClassifier(random_state=42)
 
-# Randomized SearchCV với 100 lần thử
-random_search = RandomizedSearchCV(
-    rf, 
-    param_distributions=param_distributions,
-    n_iter=100,  # Số lần thử ngẫu nhiên
-    cv=5,        # K-fold cross validation
-    scoring='accuracy',
-    n_jobs=-1,   # Sử dụng tất cả CPU cores
-    verbose=1,
-    random_state=42
-)
-
-# Huấn luyện
-random_search.fit(X_train, y_train)
-
-# In kết quả tốt nhất
-print("Best Parameters:", random_search.best_params_)
-print("Best CV Accuracy:", random_search.best_score_)
+search = RandomizedSearchCV_from_scratch(rf, param_distributions, n_iter=10, cv=5, random_state=42)
+search.fit(X_train, y_train)
 ```
 
-***Đánh giá mô hình trên tập test***
+Xem kết quả
 
 ```python
-# Dự đoán và đánh giá
-y_pred = random_search.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred)
-print(f"Tuned Model Accuracy on Test Set: {accuracy:.4f}")
+results = search.results_
+results
 ```
 
+<pythonoutput>
+```
+[{'params': {'n_estimators': 152, 'max_depth': 6},
+  'score': 0.9337398228413425},
+ {'params': {'n_estimators': 142, 'max_depth': 13},
+  'score': 0.9614432445152692},
+ {'params': {'n_estimators': 121, 'max_depth': 7},
+  'score': 0.9362274235258307},
+ {'params': {'n_estimators': 152, 'max_depth': 12},
+  'score': 0.9601992843056255},
+ {'params': {'n_estimators': 260, 'max_depth': 9}, 'score': 0.946969937255243},
+ {'params': {'n_estimators': 124, 'max_depth': 13},
+  'score': 0.9608778254964202},
+ {'params': {'n_estimators': 137, 'max_depth': 7},
+  'score': 0.9369059007696656},
+ {'params': {'n_estimators': 149, 'max_depth': 10},
+  'score': 0.9514931615121155},
+ {'params': {'n_estimators': 201, 'max_depth': 5},
+  'score': 0.9306874426076035},
+ {'params': {'n_estimators': 199, 'max_depth': 7},
+  'score': 0.9378106223573919}]
+```
+</pythonoutput>
 
+Để xem đẹp hơn :D
 
+```python
+results = search.results_
+# Tạo DataFrame từ list các kết quả
+import pandas as pd
+df = pd.DataFrame(results)
+params_df = pd.DataFrame(df['params'].tolist())
+final_df = pd.concat([params_df, df['score']], axis=1).sort_values(by='score', ascending=False)
+final_df
+```
+
+<pythonoutput>
+```
+n_estimators  max_depth     score
+1           142         13  0.961443
+5           124         13  0.960878
+3           152         12  0.960199
+7           149         10  0.951493
+4           260          9  0.946970
+9           199          7  0.937811
+6           137          7  0.936906
+2           121          7  0.936227
+0           152          6  0.933740
+8           201          5  0.930687
+```
+</pythonoutput>
+
+Xem best_params_ và best_score_
+
+```python
+print(search.best_params_)
+print(search.best_score_)
+```
+
+<pythonoutput>
+```
+{'n_estimators': 142, 'max_depth': 13}
+0.9614432445152692
+```
+</pythonoutput>
+
+### Sử dụng RandomsearchCV của scikitlearn
 ## Kết hợp Randomized Search và GridSearch
 
 Một chiến lược hiệu quả là kết hợp cả hai phương pháp:
