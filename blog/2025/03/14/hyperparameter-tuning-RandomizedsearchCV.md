@@ -7,7 +7,6 @@ tags: [Data Science]
 keywords: [data science, hyperparameter tuning, python, ml, siêu tham số, machine learning, máy học, tối ưu, RandomizedSearchCV]
 image: /img/blog/20250304_1_cover.jpg
 hide_table_of_contents: false
-draft: true
 ---
 ![](cover.jpg)
 
