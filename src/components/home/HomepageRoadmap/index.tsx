@@ -8,7 +8,7 @@ import LinkWithBaseUrl from "../../common/LinkWithBaseUrl";
 
 import styles from "./styles.module.scss";
 
-const texts = ["Roadmap dành cho bạn"]
+const texts = ["Roadmap dành cho bạn(Đang cập nhật)"]
 
 function NewlineText(_texts) {
   return _texts.map((item: string) => <p><span className={styles.pulseHeart}>❤️‍🔥</span> {item}</p>);

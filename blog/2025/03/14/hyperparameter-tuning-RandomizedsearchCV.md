@@ -8,37 +8,41 @@ keywords: [data science, hyperparameter tuning, python, ml, siêu tham số, mac
 image: /img/blog/20250304_1_cover.jpg
 hide_table_of_contents: false
 ---
+
+# Tối ưu siêu tham số mô hình với RandomizedSearchCV
+
 ![](cover.jpg)
 
 ## Giới thiệu
-Trong bài viết trước, chúng ta đã tìm hiểu về GridSearchCV - một phương pháp tối ưu siêu tham số bằng cách thử tất cả các tổ hợp có thể. Tuy nhiên, GridSearch có nhược điểm là tốn nhiều thời gian khi không gian tìm kiếm lớn. Trong bài viết này, chúng ta sẽ tìm hiểu về RandomizedSearchCV - một phương pháp hiệu quả hơn để tối ưu siêu tham số.
+Ở bài viết trước, GridSearchCV đã được giới thiệu như một công cụ tối ưu siêu tham số bằng cách duyệt qua toàn bộ tổ hợp có thể. Tuy nhiên, khi không gian tìm kiếm trở nên quá rộng, phương pháp này nhanh chóng bộc lộ điểm yếu: tốn thời gian, tốn tài nguyên và đôi khi… không hiệu quả.
+
+Trong bài viết này, ta sẽ tiếp cận một phương pháp khác — RandomizedSearchCV — linh hoạt hơn, nhanh hơn và đặc biệt phù hợp với những tình huống thực tế nơi thời gian và hiệu năng là yếu tố quan trọng.
 
 ## Randomized Search là gì?
 
-Randomized Search là phương pháp tối ưu siêu tham số bằng cách chọn ngẫu nhiên các tổ hợp giá trị từ không gian tìm kiếm, thay vì thử tất cả các tổ hợp như GridSearch. 
+Thay vì "lần lượt thử hết như GridSearch, Randomized Search chọn ngẫu nhiên một số tổ hợp siêu tham số trong không gian tìm kiếm. Điều này nghe có vẻ đơn giản, nhưng lại mang đến nhiều lợi ích bất ngờ
 ![](randomized-search-and-grid-search.png)
 
-Vì là phương pháp ngẫu nhiên nên Randomized Search có những ưu điểm so với GridSearch như
+**Ngẫu nhiên nhưng hiệu quả – vì sao nên thử Randomized Search?**
 
-- **Giảm thiểu số lần thử nghiệm nhưng vẫn hiệu quả**
-    - Giả sử có 3 tham số với mỗi tham số thử 5 lần thì Grid Search phải thử 5 x 5 x 5 = 125 lần
-    - Randomized Search có thể thử 50 hoặc 100 lần tùy vào cài đặt
+So với GridSearch, Randomized Search mang lại hiệu quả cao hơn với chi phí tính toán thấp hơn đáng kể. Hãy hình dung: nếu cần tối ưu 3 siêu tham số, mỗi tham số có 5 giá trị, GridSearch sẽ phải thử toàn bộ 125 tổ hợp. Trong khi đó, Randomized Search chỉ cần chạy khoảng 50 đến 100 lượt là đã có thể tiếp cận kết quả tối ưu — tiết kiệm thời gian mà vẫn đạt được hiệu quả tương đương.
 
-- **Tìm được kết quả tốt hơn với cùng một số lần thử**
-    - Vì là ngẫu nhiên niên Randomized Search có thể tìm ra bộ tham số gần tối ưu, trong khi Grid Search có thể lãng phí thử nghiệm vào những vùng không quan trọng.
-    - Ví dụ learing rate, Grid có thể bỏ sót các giá trị tốt nếu khoảng cách giữa các giá trị trong lưới quá lớn( Do người dùng phải chọn trước các giá trị cần thử nghiệm )
+Không dừng lại ở đó, việc lựa chọn tổ hợp tham số một cách ngẫu nhiên giúp Randomized Search có khả năng “chạm vào” những vùng tối ưu mà GridSearch dễ bỏ lỡ, nhất là khi khoảng cách giữa các giá trị trong Grid không đủ nhỏ để bao phủ toàn diện không gian tham số.
 
-- **Dễ mở rộng với tài nguyên tính toán hạn chế**: 
-    - Nếu bạn có hạn chế về thời gian hoặc tài nguyên, Randomized Search có thể dừng sau một số lần thử cố định (n_iter), trong khi Grid Search phải chạy toàn bộ
+Thêm vào đó, Randomized Search đặc biệt phù hợp trong môi trường có giới hạn về tài nguyên — từ thời gian đến khả năng xử lý của phần cứng. Thay vì phải hoàn tất toàn bộ phép thử như GridSearch, ta có thể chủ động cấu hình số lần thử (`n_iter`) để kiểm soát quá trình tìm kiếm theo thời gian hoặc năng lực tính toán sẵn có.
 
-Nói đi cũng phải nói lại, vậy khi nào Grid Search vẫn hữu ích: Grid Search vẫn hữu ích khi không gian tham số nhỏ và có thể kiểm tra toàn bộ. Hoặc khi bạn đã có kiến thức rõ ràng về từng siêu tham số, có thể ước lượng được phạm vi tham số tốt nhất. Hoặc nếu như bạn có máy tính với nhiều cores có thể chạy song song và bạn quan tâm tới tối ưu hóa toàn bộ thay vì tìm kiếm một giải pháp nhanh và đủ tốt, bạn có thể lựa chọn Grid Search
 
+**Khi nào GridSearch vẫn hữu ích?**
+
+Dù Randomized Search mang lại nhiều lợi thế, GridSearch không hẳn đã lỗi thời. Phương pháp này vẫn tỏ ra hữu dụng trong một số tình huống cụ thể: chẳng hạn khi không gian tham số nhỏ và có thể kiểm tra toàn diện, hoặc khi đã hiểu rõ từng siêu tham số và có khả năng xác định phạm vi tối ưu tương đối chính xác. Ngoài ra, nếu có trong tay hệ thống máy tính mạnh mẽ, hỗ trợ xử lý song song, và mục tiêu là tìm lời giải tối ưu toàn cục, GridSearch vẫn là một lựa chọn đáng cân nhắc.
 
 ## Triển khai Randomized Search
 
-Khác với bài trước [Tối ưu siêu tham số mô hình với GridSearchCV](hyperparameter-tuning-gridsearchCV) chỉ code phần GridSearch từ đầu, trong bài viết này chúng ta sẽ thực hành code Randomized Search CV sau đó so sánh với thư viện Scikitlearn
+Nếu ở bài viết trước các bạn đã quen với [Tối ưu siêu tham số mô hình với GridSearchCV](hyperparameter-tuning-gridsearchCV)  lần này ta sẽ cùng nhau triển khai Randomized Search từ đầu (from scratch) để hiểu rõ cách hoạt động bên trong của nó — cách chọn tổ hợp tham số ngẫu nhiên, cách tính điểm đánh giá và cách tìm ra bộ tham số tốt nhất.
 
-Dữ liệu lần này vẫn là dữ liệu https://archive.ics.uci.edu/dataset/327/phishing+websites
+Sau khi nắm được nguyên lý, ta sẽ chuyển sang phần thứ hai: sử dụng `RandomizedSearchCV` từ thư viện scikit-learn để tận dụng các tiện ích có sẵn, đánh giá hiệu quả và so sánh kết quả với phiên bản tự viết.
+
+Bộ dữ liệu là [Phising Websites Dataset](https://archive.ics.uci.edu/dataset/327/phishing+websites) từ UCI — quen thuộc nhưng vẫn đủ thách thức để thử nghiệm các kỹ thuật tinh chỉnh mô hình
 
 ```python
 from sklearn.model_selection import train_test_split, RandomizedSearchCV
@@ -75,7 +79,8 @@ param_distributions = {
     'max_depth': randint(3, 15)
 }
 ```
-ta sẽ viết hàm `sample_params` nhận đầu vào là `param_distributions` và trả ra 1 bộ tham số
+
+Dưới đây là hàm `sample_params dùng` để lấy ngẫu nhiên một bộ tham số từ `param_distributions` theo đúng kiểu phân phối của `scipy.stats` như randint, uniform, v.v.:
 
 ```python
 def sample_params(param_distributions):
@@ -84,12 +89,13 @@ def sample_params(param_distributions):
         sampled_params[param] = dist.rvs()
     return sampled_params
 ```
-Để lấy ngẫu nhiên 10 bộ tham số ta sử dụng vòng lặp for, ngoài ra ta cần dùng np.random.seed(42) đặt seed cho lấy ngẫu nhiên
+
+Để tái lập kết quả và đảm bảo tính nhất quán trong thử nghiệm, có thể đặt seed trước bằng `np.random.seed(42)`
 
 ```python
 import numpy as np
 np.random.seed(42)
-for i in range(10):
+for _ in range(10):
     sampled_params = sample_params(param_distributions)
     print(sampled_params)
 ```
@@ -109,7 +115,11 @@ for i in range(10):
 ```
 </pythonoutput>
 
-### Tự viết Randomized Search CV
+Như vậy, ta vừa tạo ra 10 bộ siêu tham số hoàn toàn ngẫu nhiên. Các bước tiếp theo sẽ bao gồm huấn luyện mô hình với từng bộ, đánh giá bằng cross-validation và chọn ra bộ tốt nhất — cũng sẽ được viết thủ công trước khi chuyển sang dùng RandomizedSearchCV trong thư viện scikit-learn để so sánh hiệu quả.
+
+### Tự xây dựng phiên bản Randomized SearchCV
+
+Thay vì chỉ gọi `RandomizedSearchCV` từ `scikit-learn`, ta sẽ bắt đầu từ con số 0: tạo một class tự định nghĩa để mô phỏng lại toàn bộ quy trình tìm kiếm ngẫu nhiên. Cách tiếp cận này không chỉ giúp bạn hiểu sâu hơn về cơ chế hoạt động, mà còn mở ra khả năng tùy chỉnh theo nhu cầu riêng sau này.
 
 **Tạo class `RandomizedSearchCV_from_scratch`**
 
@@ -218,6 +228,8 @@ def fit(self, X, y):
 
 **Huấn luyện mô hình**
 
+Sau khi đã định nghĩa class, ta có thể sử dụng giống như `RandomizedSearchCV` trong scikit-learn, nhưng tất nhiên là phiên bản đơn giản do ta tự tay xây dựng:
+
 ```python
 rf = RandomForestClassifier(random_state=42)
 
@@ -225,7 +237,15 @@ search = RandomizedSearchCV_from_scratch(rf, param_distributions, n_iter=10, cv=
 search.fit(X_train, y_train)
 ```
 
-Xem kết quả
+**Phân tích kết quả tìm kiếm**
+
+Sau khi chạy search.fit(X_train, y_train), toàn bộ kết quả được lưu trong `search.results_`. Mỗi phần tử trong danh sách chứa:
+
+- `params`: bộ siêu tham số đã thử
+
+- `mean_score`: điểm trung bình của mô hình trên 5-fold cross-validation
+
+- `std_score`: độ lệch chuẩn giữa các fold
 
 ```python
 results = search.results_
@@ -267,7 +287,10 @@ results
 ```
 </pythonoutput>
 
-Để xem đẹp hơn :D
+**Hiển thị kết quả đầy đủ**
+
+Để xem kết quả một cách trực quan hơn, ta có thể đưa chúng vào một `DataFrame` và sắp xếp theo `mean_score` giảm dần:
+
 
 ```python
 results = search.results_
@@ -295,22 +318,26 @@ final_df
 9           201          5    0.930687   0.004489
 ```
 </pythonoutput>
+Từ bảng trên, có thể thấy mô hình đạt hiệu suất cao nhất với `n_estimators=142` và `max_depth=13`, với độ chính xác trung bình khoảng `96.14%`.
 
-Xem best_params_ và best_score_
 
+**Tham số tối ưu và điểm số cao nhất
+**
 ```python
-print(search.best_params_)
-print(search.best_score_)
+print("Best Parameters:", search.best_params_)
+print("Best Cross-Val Score:", search.best_score_)
 ```
 
 <pythonoutput>
 ```
-{'n_estimators': 142, 'max_depth': 13}
-0.9614432445152692
+Best Parameters: {'n_estimators': 142, 'max_depth': 13}
+Best Cross-Val Score: 0.9614432445152692
 ```
 </pythonoutput>
 
-**Dự đoán trên tập test**
+**Đánh giá trên tập test**
+
+Sau khi đã có bộ tham số tối ưu, ta huấn luyện lại mô hình trên toàn bộ `X_train` và đánh giá trên `X_test`
 
 ```python
 rf = RandomForestClassifier(random_state=42)
@@ -326,8 +353,14 @@ Test accuracy 0.9638172772501131
 ```
 </pythonoutput>
 
+Với độ chính xác gần 96.4% trên tập test, ta có thể khẳng định phương pháp Randomized Search không chỉ nhanh hơn mà còn mang lại kết quả gần như tương đương (thậm chí tốt hơn) so với Grid Search trong nhiều trường hợp thực tế.
+
+Sau khi hiểu cơ chế hoạt động từ bên trong, ta chuyển sang cách dùng thư viện scikit-learn để tận dụng hiệu suất tối ưu và độ tin cậy cao trong thực tế.
+
 
 ### Sử dụng `RandomizedsearchCV` của `scikit-learn`
+
+Ở phần trước, ta đã tự xây dựng một phiên bản thu nhỏ của Randomized Search để hiểu rõ từng bước hoạt động. Giờ đây, hãy chuyển sang cách dùng công cụ chính thống trong thư viện scikit-learn — nhanh chóng, đáng tin cậy và rất phù hợp khi áp dụng vào dự án thực tế.
 
 Chúng ta có thể sử dụng `RandomizedSearchCV` của  `scikit-learn` như sau
 ```python
@@ -352,7 +385,7 @@ print(sklearn_rdsearch.best_params_)
 pd.DataFrame(sklearn_rdsearch.cv_results_)
 ```
 
-**Dự đoán trên tập test**
+**Đánh giá trên tập test**
 
 ```python
 rf = RandomForestClassifier(random_state=42)
@@ -369,14 +402,16 @@ Test accuracy 0.9633649932157394
 </pythonoutput>
 ## Kết hợp RandomizedSearch và GridSearch
 
-Một chiến lược hiệu quả là kết hợp cả hai phương pháp:
-**::one::** Dùng Randomized Search để khám phá nhanh không gian tham số rộng
-**::two::** Sau đó dùng GridSearch để tìm kiếm chi tiết xung quanh các giá trị tốt nhất từ Randomized Search
+Trong thực tế, kết hợp hai phương pháp này sẽ giúp ta tận dụng ưu điểm của cả hai: Randomized Search giúp khám phá nhanh, GridSearch giúp tinh chỉnh sâu. Các bước kết hợp cả hai phương pháp như sau:
+
+**:one:** Dùng Randomized Search để khám phá nhanh không gian tham số rộng
+
+**:two:** Sau đó dùng GridSearch để tìm kiếm chi tiết xung quanh các giá trị tốt nhất từ Randomized Search
 
 ![](hybrid.png)
 ### Ví dụ triển khai
 
-Khời tạo `param_distributions`
+Khởi tạo `param_distributions`
 ```python
 from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
 
@@ -422,13 +457,13 @@ Tạo không gian tham số hẹp hơn xung quanh giá trị tốt nhất
 best_params = random_search.best_params_
 fine_tune_params = {
     'n_estimators': np.arange(
-        max(100, best_params['n_estimators'] - 5),  # Giảm 20 nhưng không nhỏ hơn 10
-        best_params['n_estimators'] + 6,  # Tăng 20
+        max(100, best_params['n_estimators'] - 5),  # Giảm 5 nhưng không nhỏ hơn 100
+        best_params['n_estimators'] + 6,  # Tăng tối đa 5
         step=2  # Khoảng cách giữa các giá trị
     ).tolist(),
     
     'max_depth': np.arange(
-        max(4, best_params['max_depth'] - 3),  # Giảm tối đa 3
+        max(4, best_params['max_depth'] - 3),  # Giảm tối đa 3 nhưng không nhỏ hơn 4
         best_params['max_depth'] + 4,  # Tăng tối đa 3
         step=1
     ).tolist()}
