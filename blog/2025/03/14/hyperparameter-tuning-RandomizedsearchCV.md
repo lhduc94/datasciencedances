@@ -38,7 +38,7 @@ Dù Randomized Search mang lại nhiều lợi thế, GridSearch không hẳn đ
 
 ## Triển khai Randomized Search
 
-Nếu ở bài viết trước các bạn đã quen với [Tối ưu siêu tham số mô hình với GridSearchCV](hyperparameter-tuning-gridsearchCV)  lần này ta sẽ cùng nhau triển khai Randomized Search từ đầu (from scratch) để hiểu rõ cách hoạt động bên trong của nó — cách chọn tổ hợp tham số ngẫu nhiên, cách tính điểm đánh giá và cách tìm ra bộ tham số tốt nhất.
+Nếu ở bài viết trước các bạn đã quen với [Tối ưu siêu tham số mô hình với GridSearchCV](https://datasciencedances.com/blog/2025/03/hyperparameter-tuning-gridsearchCV)  lần này ta sẽ cùng nhau triển khai Randomized Search từ đầu (from scratch) để hiểu rõ cách hoạt động bên trong của nó — cách chọn tổ hợp tham số ngẫu nhiên, cách tính điểm đánh giá và cách tìm ra bộ tham số tốt nhất.
 
 Sau khi nắm được nguyên lý, ta sẽ chuyển sang phần thứ hai: sử dụng `RandomizedSearchCV` từ thư viện scikit-learn để tận dụng các tiện ích có sẵn, đánh giá hiệu quả và so sánh kết quả với phiên bản tự viết.
 
@@ -321,8 +321,7 @@ final_df
 Từ bảng trên, có thể thấy mô hình đạt hiệu suất cao nhất với `n_estimators=142` và `max_depth=13`, với độ chính xác trung bình khoảng `96.14%`.
 
 
-**Tham số tối ưu và điểm số cao nhất
-**
+**Tham số tối ưu và điểm số cao nhất**
 ```python
 print("Best Parameters:", search.best_params_)
 print("Best Cross-Val Score:", search.best_score_)
