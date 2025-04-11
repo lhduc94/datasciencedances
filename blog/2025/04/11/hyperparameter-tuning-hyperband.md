@@ -96,7 +96,31 @@ class Hyperband:
             np.random.seed(self.random_state)
             
     def get_hyperband_configs(self):
-        """Tính toán các cấu hình cho Hyperband"""
+        """Tính toán các cấu hình cho Hyperband
+        
+        Hàm này tính toán các cấu hình (n,r) cho mỗi bracket của Hyperband, trong đó:
+        - n: số lượng cấu hình ban đầu cần thử nghiệm
+        - r: số lượng tài nguyên được phân bổ cho mỗi cấu hình
+        
+        Công thức tính:
+        - s_max = ⌊log_η(max_iter)⌋
+        - B = (s_max + 1) * max_iter
+        - Với mỗi s từ s_max đến 0:
+            + n = ⌈(B/max_iter) * η^s/(s+1)⌉
+            + r = max_iter * η^(-s)
+        
+        Returns:
+            list: Danh sách các tuple (n,r) cho mỗi bracket của Hyperband.
+                  Mỗi tuple chứa:
+                  - n: số lượng cấu hình cần thử
+                  - r: số lượng tài nguyên cho mỗi cấu hình
+        
+        Example:
+            >>> hb = Hyperband(...)
+            >>> configs = hb.get_hyperband_configs()
+            >>> print(configs)
+            [(81, 1), (27, 3), (9, 9), (6, 27), (5, 81)]  # Ví dụ với max_iter=81, eta=3
+        """
         s_max = int(np.log(self.max_iter) / np.log(self.eta))
         B = (s_max + 1) * self.max_iter
         
@@ -128,8 +152,13 @@ class Hyperband:
     def successive_halving(self, n, r):
         """
         Thực hiện Successive Halving với:
-        n: số lượng cấu hình ban đầu
-        r: số lượng tài nguyên tối đa (epochs hoặc kích thước dữ liệu)
+        
+        Args:
+            n: số lượng cấu hình ban đầu (số lượng bộ siêu tham số được lấy mẫu ngẫu nhiên)
+            r: số lượng tài nguyên tối đa cho mỗi cấu hình (có thể là số epochs hoặc kích thước dữ liệu)
+        
+        Returns:
+            tuple: (final_params, final_score) - bộ tham số tốt nhất và điểm số tương ứng
         """
         # Lấy mẫu n bộ tham số
         params_list = [self.sample_params() for _ in range(n)]
