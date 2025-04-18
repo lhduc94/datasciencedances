@@ -16,7 +16,7 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <div id="homepagedoc"><HomepageDocs/></div>
       <HomepageCourses/>
-      <HomepageRoadmap/>
+      {/* <HomepageRoadmap/> */}
       <HomepageBlogPosts/>
       <HomepageAboutme />
     </Layout>

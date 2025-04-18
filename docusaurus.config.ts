@@ -134,20 +134,23 @@ const config: Config = {
       items: [
         {type: 'dropdown',
           label: 'Tài liệu tham khảo',
-          position: 'right',
+          position: 'left',
           items: [
             {type:'docSidebar',
               sidebarId: 'kungfupandasSidebar',
-              label: 'Kungfu Pandas'}
+              label: 'Kungfu Pandas'},
+            {type: 'docSidebar',
+              sidebarId: 'mathSidebar',
+              label: 'Toán học cho ML và DS'},
           ]
         },
        
         {
-          to: '/blog', label: 'Blog', position: 'right'
+          to: '/blog', label: 'Blog', position: 'left'
         },
         {type: 'dropdown',
           label: 'Khóa học',
-          position: 'right',
+          position: 'left',
           items: [
             { 
               label: "Tất cả",
@@ -169,14 +172,14 @@ const config: Config = {
         },
         
         
-        {
-          label: "Boost",
-          to: '/boost',
-          position: 'right',
-        },
-        {
-          to: '/datasets/data', label: 'Datasets', position: 'right'
-        },
+        // {
+        //   label: "Boost",
+        //   to: '/boost',
+        //   position: 'right',
+        // },
+        // {
+        //   to: '/datasets/data', label: 'Datasets', position: 'right'
+        // },
       ],
     },
     

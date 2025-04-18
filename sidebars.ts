@@ -174,8 +174,14 @@ const sidebars: SidebarsConfig = {
            
           ]
         }
+      ],
+  mathSidebar: [
+        {
+          type: 'doc',
+          id: 'math/gioithieu',
+        }
       ]
-   
+  
 };
 
 export default sidebars;
