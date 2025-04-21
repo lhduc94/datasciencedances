@@ -6,6 +6,7 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  // Theme colors
   --ifm-color-primary: #026992;
   --ifm-color-primary-dark: #32A2F3;
   --ifm-color-primary-darker: #32A2F3;
@@ -13,10 +14,13 @@
   --ifm-color-primary-light: #32A2F3;
   --ifm-color-primary-lighter: #32A2F3;
   --ifm-color-primary-lightest: #32A2F3;
+  
+  // Base settings
   --ifm-code-font-size: 95%;
-  --ifm-navbar-link-color:white;
+  --ifm-navbar-link-color: black;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-
+  
+  // Custom variables
   --normal-bg-1: rgba(17, 15, 15);
   --active-color: #026992;
   --hover-fill-color: rgba(255, 61, 0, 1);
@@ -44,9 +48,7 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
-p.hero__subtitle{
-  color: white;
-}
+
 [data-theme="light"] {
   --ifm-font-color-base: #000;
   --normal-bg-1: #fff;
@@ -80,6 +82,9 @@ p.hero__subtitle{
   --popper-text-color: #ffffff;
 }
 
+p.hero__subtitle{
+  color: white;
+}
 div.markdown h2, div.markdown h3,div.markdown strong
 {
   color: #026992;
@@ -171,14 +176,21 @@ div.docsWrapper_hBAB{
 }
 
 .navbar{
-  opacity: .9;
-  background-color: rgb(3, 5, 19);
+  opacity: .8;
+  // background-color: rgb(3, 5, 19);
 }
-.navbar__items{
-  color: white;
+.navbar__logo img {
+  height: 150%;
 }
 
-
+.navbar__items {
+  padding-right: 100px;
+  padding-left: 100px;
+  @media screen and (max-width: 1400px) {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
 figcaption {
   text-align: center;
   // font-style: italic;

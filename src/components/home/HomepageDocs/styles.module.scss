@@ -4,8 +4,8 @@
   background-color:  #f8f9fa;
   padding-top: 62px;
   padding-bottom: 62px;
-  z-index: 2;
-
+  z-index: 1;
+  position: relative;
   .content {
     display: flex;
     flex-direction: column;
@@ -17,87 +17,50 @@
         text-decoration: none;
       }
     }
-    .maintitle {
-      width: 100%;
-      margin-bottom: 40px;
-      .imagecover {
-        img {
-          display: block;
-          margin: 0 auto;
-          max-width: 70%;
-          max-height: 70%;        
-        }
-      }
-        
-      .text {
-        font-size: 40px;
-        font-weight: 700;
-        width: 100%;
-        line-height: 56px;
-        color: black;
-        margin-top: 10px;
-        text-align: center;
-      }
-      .description {
-        font-size: 30px;
-        width: 100%;
-        line-height: 56px;
-        color: black;
-        margin-top: 10px;
-        text-align: center;
-      }
-    }
-
     .maincontent {
       width: 100%;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 32px;
-
-      .item {
-        display: block;
-        margin: 0 auto;
-        text-align: center;
-        .title {
-          // font-family: 'Consolas', monospace;
-          font-size: 40px;
-          font-weight: bold;
-          line-height: 26px;
-          margin: 100px 0 20px 0;
-          color: var(--ifm-color-primary);
-          // color: whitesmoke;
-          // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
-        }
-        .desc {
-          margin-top: 50px;
-          font-size: 24px;
-          font-weight: 400;
-          line-height: 20px;
-          text-align: center;
-          // font-family: 'Consolas', monospace;
-
-          // color: whitesmoke;
-          text-decoration: none;
-          // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
-
-        }
-        .button {
-          margin-top: 30px;
-          background-color: white;
-          color: var(--ifm-color-primary);
-          // text-transform: uppercase;
-          border: 3px solid var(--ifm-color-primary);
-          border-radius: 5px;
-          &:hover{
-            transform: scale(1.05);
-            box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 12px,
-             rgba(0, 0, 0, 0.12) 0px -12px 30px,
-              rgba(0, 0, 0, 0.12) 0px 4px 6px,
-               rgba(0, 0, 0, 0.17) 0px 12px 13px,
-                rgba(0, 0, 0, 0.09) 0px -3px 5px;
-          }
-        } 
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      .title {
+        // font-family: 'Consolas', monospace;
+        font-size: 40px;
+        font-weight: bold;
+        line-height: 26px;
+        margin: 100px 0 20px 0;
+        color: var(--ifm-color-primary);
+        // color: whitesmoke;
+        // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
       }
+      .desc {
+        margin-top: 50px;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 20px;
+        text-align: center;
+        // font-family: 'Consolas', monospace;
+
+        // color: whitesmoke;
+        text-decoration: none;
+        // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
+
+      }
+      .button {
+        margin-top: 30px;
+        background-color: white;
+        color: var(--ifm-color-primary);
+        // text-transform: uppercase;
+        border: 3px solid var(--ifm-color-primary);
+        border-radius: 5px;
+        &:hover{
+          transform: scale(1.05);
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 12px 12px,
+            rgba(0, 0, 0, 0.12) 0px -12px 30px,
+            rgba(0, 0, 0, 0.12) 0px 4px 6px,
+              rgba(0, 0, 0, 0.17) 0px 12px 13px,
+              rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+      } 
     }
   }
   @media screen and (max-width: 1440px) {
@@ -115,29 +78,6 @@
     }
   }
 
-  // @media screen and (max-width: 768px) {
-  //   .content {
-  //     .right {
-  //       .text {
-  //         font-size: 40px;
-  //         line-height: 1;
-  //       }
-  //     }
-  //     .left {
-  //       .item {
-          
-  //         .title {
-  //           font-size: 40px;
-  //           text-align: center;
-  //           margin-top: 20px;
-  //         }
-  //         .desc{
-  //           font-size: 20px;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
 }
 
 .pulseHeart {

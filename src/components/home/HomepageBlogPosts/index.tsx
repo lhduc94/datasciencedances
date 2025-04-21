@@ -61,7 +61,6 @@ export default function HomepageBlogPosts() {
           {item.authors.length === 1
             ? singleAuthor(item.authors[0], item.date)
             : multipleAuthor(item.authors, item.date)}
-          {/* <BlogPostItemHeaderAuthors/> */}
         </div>
       </LinkWithBaseUrl>
     );
@@ -72,8 +71,11 @@ export default function HomepageBlogPosts() {
         Bài viết mới nhất <span className={styles.fireEmoji}>🔥🔥</span>
       </div>
       <div className={clsx(styles.listWrap, "link-wrap")}>{itemDom}</div>
-
+      <div className={styles.viewMore}>
+        <LinkWithBaseUrl to="/blog" className={clsx("button button--lg",styles.viewMoreButton)}>
+          Xem thêm bài viết
+        </LinkWithBaseUrl>
+      </div>
     </div>
-    
   );
 }

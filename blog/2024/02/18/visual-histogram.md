@@ -74,7 +74,3 @@ ax.set_ylim(0,28)
 ```
 
 ![Example banner](1709112655963.png)
-
-
-
-

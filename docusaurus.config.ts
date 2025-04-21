@@ -8,7 +8,7 @@ const path = require('path')
 const config: Config = {
 
   title: 'Data Science Dances',
-  tagline: 'Mỗi bài toán là một bản nhạc',
+  tagline: 'Data Science Dances sẽ giúp bạn hiểu thêm về những vấn đề của Data Science. Hãy xem những bài toán như những điệu nhảy và thưởng thức nó nào!',
   favicon: 'img/favicon.png',
 
   url: 'https://datasciencedances.com',
@@ -85,10 +85,15 @@ const config: Config = {
     }
   ],
   themeConfig: {
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
   
     metadata: [
-      {name: 'keywords', content: 'data science, blog'},
-      {name: 'twitter:card', content: 'data science, blog'},
+      {name: 'keywords', content: 'data science, blog, machine learning, data analysis, data visualization, data engineering, data science dances'},
+      {name: 'twitter:card', content: 'data science, blog, machine learning, data analysis, data visualization, data engineering, data science dances'},
     ],
     headTags: [
 
@@ -98,7 +103,7 @@ const config: Config = {
         attributes: [
           {
             rel: 'preconnect',
-            href: 'http://datasciencedances.com/',
+            href: 'https://datasciencedances.com',
           },
           {
             rel: 'icon',
@@ -118,40 +123,68 @@ const config: Config = {
           '@context': 'https://schema.org/',
           '@type': 'Organization',
           name: 'Data Science Dances',
-          url: 'http://datasciencedances.com/',
+          url: 'https://datasciencedances.com',
           logo: 'https://i.pinimg.com/736x/d3/bb/d0/d3bbd0c4629972b9c74a78c9539bd1cb.jpg',
         }),
       },
     ],
     // Replace with your project's social card
-    image: 'https://kungfupandas.lhduc.com/images/index/cover.jpg',
+    image: 'https://datasciencedances.com/img/dsd3-favicon.jpg',
     navbar: {
-      title: 'Data Science Dances',
+      // title: 'Data Science Dances',
       logo: {
         alt: 'Data Science Dances',
-        src: 'img/dsd2-favicon.jpg',
+        src: 'img/dsd3-favicon.jpg',
       },
       items: [
-        
-        {type:'docSidebar',
-          sidebarId: 'tailieuSidebar',
+        {type: 'dropdown',
+          label: 'Tài liệu tham khảo',
           position: 'left',
-          label: 'Tài liệu tham khảo'},
+          items: [
+            {type:'docSidebar',
+              sidebarId: 'kungfupandasSidebar',
+              label: 'Kungfu Pandas'},
+            {type: 'docSidebar',
+              sidebarId: 'mathSidebar',
+              label: 'Toán học cho ML và DS'},
+          ]
+        },
+       
         {
           to: '/blog', label: 'Blog', position: 'left'
         },
-        {
-          label: "Khóa học",
-          to: '/courses',
+        {type: 'dropdown',
+          label: 'Khóa học',
+          position: 'left',
+          items: [
+            { 
+              label: "Tất cả",
+              to: '/courses',
+            },
+            {
+              label: "Phân tích dữ liệu chuỗi thời gian",
+              to: '/courses/list/time-series-analysis/time-series-analysis',
+            },
+            {
+              label: "Thực hành phân tích dữ liệu",
+              to: '/courses/list/analysis-in-practice/analysis-in-practice',
+            },
+            {
+              label: "Giám sát mô hình Machine Learning",
+              to: '/courses/list/ml-observation/ml-observation',
+            },
+          ]
         },
         
-        {
-          label: "Boost",
-          to: '/boost',
-        },
-        {
-          to: '/datasets/data', label: 'Datasets', position: 'left'
-        },
+        
+        // {
+        //   label: "Boost",
+        //   to: '/boost',
+        //   position: 'right',
+        // },
+        // {
+        //   to: '/datasets/data', label: 'Datasets', position: 'right'
+        // },
       ],
     },
     

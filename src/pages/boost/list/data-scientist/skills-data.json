@@ -2,45 +2,38 @@
     {
       "id": "linear-algebra",
       "title": "Đại số tuyến tính",
-      "image": "/img/boost/data-scientist/linear-algebra.png",
+      "image": "/img/boost/data-scientist/linear-algebra-icon.png",
       "description": "Kiến thức nền tảng về đại số tuyến tính",
       "sections": [
         {
           "title": "Cơ bản",
           "level": "Beginner",
-          "content": [
-            "Vectors",
-            "Matrices",
-            "Transpose of a matrix",
-            "Inverse of a matrix",
-            "Determinant of a matrix",
-            "Trace of a matrix",
-            "Dot product",
-            "Eigenvalues",
-            "Eigenvectors"
+          "content": ["Véc-tơ và không gian véc-tơ",
+          "Ma trận và các phép toán trên ma trận",
+          "Định thức và ứng dụng",
+          "Hệ phương trình tuyến tính và ma trận nghịch đảo"
           ]
         },
         {
           "title": "Trung bình",
           "level": "Intermediate",
-          "content": [
-            "Singular Value Decomposition",
-            "Principal Component Analysis",
-            "Locality Sensitive Hashing",
-            "Distances, Similarity",
-            "Least squares solutions",
-            "Non-negative matrix factorization",
-            "Factor Analysis"
+          "content": ["Không gian véc-tơ và cơ sở trực chuẩn",
+          "Ma trạn nâng cao: Phep nhân Hadamard, phép nhân Kronecker",
+          "Ma trận Hermitian, ma trận đối xứng, ma trận trực giao",
+          "Giá trị riêng, vector riêng, chéo hóa ma trận",
+          "Phân rã ma trận: Phân rã LU, phân rã QR, phân rã Cholesky.",
+          "Ứng dụng Phân rã trong ML"
           ]
         },
         {
           "title": "Nâng cao",
           "level": "Advanced",
           "content": [
-            "Graphs and Networks",
-            "Markov matrices",
-            "Fourier matrix",
-            "Fast Fourier Transform"
+            "Không gian vector mở rộng: Không gian Hilbert, không gian Sobolev. Ánh xạ tuyến tính và toán tử tuyến tính",
+            "Biến đổi Fourier và Wavelet",
+            "Phân rã ma trận nâng cao: Phân rã SVD",
+            "Eigen Decomposition trong phân tích dữ liệu",
+            "Ma trận hessian và điểm dừng"
           ]
         }
       ],
@@ -51,6 +44,102 @@
           "type": "free"
         }
       ]
-    }
-  ]
+    },
+    {
+        "id": "statistics-probability",
+        "title": "Thống kê và xác suất",
+        "image": "/img/boost/data-scientist/statistics-probability-icon.png",
+        "description": "Kiến thức nền tảng về thống kê và xác suất",
+        "sections": [
+          {
+            "title": "Cơ bản",
+            "level": "Beginner",
+            "content": [
+                "Thống kê mô tả: mean, median, mode, variance, standard deviation, quantile, IQR",
+                "Biểu diễn dữ liệu: Histogram, Boxplot, Scatter plot, Pie chart, Bar chart, Line chart, Scatter plot, Heatmap",
+                "Xác suất cơ bản: Quy tắc cộng, quy tắc nhân",
+                "Biến cố độc lập và xác suất có điều kiện",
+                "Biến ngẫu nhiên rời rạc và liên tục",
+                "Hàm khối xác suất(PMF), hàm mật độ xác suất(PDF), hàm phân phối tích lũy(CDF)"
+            ]
+          },
+          {
+            "title": "Trung bình",
+            "level": "Intermediate",
+            "content": [
+                "Phân phối rời rạc: Nhị thức, Poisson, Geometric",
+                "Phân phối liên tục: Gaussian, t-student, chi-square, F",
+                "Thống kê suy luận: Ước lượng và kiểm định giả thuyết, Khoảng tin cậy, kiểm định t-test, kiểm định z-test",
+                "Sai lầm loại I và loại II. P-value và mức ý nghĩa",
+                "Tương quan và hồi quy tuyến tính: Tương quan Pearson, Spearman, Kendall, Hồi quy tuyến tính đơn biến, hồi quy tuyến tính đa biến",
+                "Phân tích phương sai ANOVA"
+            ]
+          },
+          {
+            "title": "Nâng cao",
+            "level": "Advanced",
+            "content": [
+                "Phân phối đồng thời và Suy luận Bayes",
+                "Markov Chain Monte Carlo và Ứng dụng",
+                "Lý tuyết Entropy và Information Gain, Kullback-Leibler Divergence",
+                "Chuỗi Markov và mô hình Markov ẩn",
+                "Quá trinh Poisson và Ứng dụng"
+            ]
+          }],
+        "courses": [
+            {
+              "title": "Khan Academy - Linear Algebra",
+              "url": "https://www.khanacademy.org/math/linear-algebra",
+              "type": "free"
+            }
+          ]},
+    {
+      "id": "Calculus",
+      "title": "Giải tích",
+      "image": "/img/boost/data-scientist/statistics-probability.png",
+      "description": "Kiến thức nền tảng về Giải tích",
+      "sections": [
+        {
+          "title": "Cơ bản",
+          "level": "Beginner",
+          "content": [
+              "Đạo hàm và ứng dụng",
+              "Gradient Decent",
+              "Exponential Function và Exponential decay",
+              "Logarithic Function",
+              "Tìm cực trị và tối ưu hóa cơ bản",
+              "Các hàm khoảng cách"
+          ]
+        },
+        {
+          "title": "Trung bình",
+          "level": "Intermediate",
+          "content": [
+           "Tối ưu hóa cục bộ và toàn cục",
+           "Tối ưu hóa ràng buộc và không ràng buộc",
+           "Tối ưu lồi và không lồi",
+           "Tối ưu trơn và không trơn",
+           "Quy hoạch tuyến tính"
+ 
+          ]
+        },
+        {
+          "title": "Nâng cao",
+          "level": "Advanced",
+          "content": [
+            "Momentum-based optimization (Nadam, RMSProp, Adam)",
+           "Newton’s Method, Quasi-Newton Methods (BFGS, L-BFGS).",
+           "Sử dụng ma trận Hessian để tăng tốc hội tụ.",
+           "Lagrange multipliers",
+           "Quadratic Programming (Tối ưu bậc hai)"
+          ]
+        }],
+      "courses": [
+          {
+            "title": "Khan Academy - Linear Algebra",
+            "url": "https://www.khanacademy.org/math/linear-algebra",
+            "type": "free"
+          }
+        ]}
+]
   

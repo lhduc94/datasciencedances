@@ -1,44 +1,72 @@
+import React from 'react';
 import Translate from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
-import Link, { Props } from "@docusaurus/Link";
+import Link from "@docusaurus/Link";
 import clsx from "clsx";
+import styles from "./styles.module.scss";
 
 // import { WHY_CLOUDBERRY_DATABASE } from "@site/src/consts/homeContent";
 import LinkWithBaseUrl from "../../common/LinkWithBaseUrl";
 
-import styles from "./styles.module.scss";
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal } from "react";
-
-const texts = ["Các tài liệu tham khảo về các lĩnh vực chuyên môn Data Science"
-]
-
-function NewlineText(_texts) {
-    return _texts.map((item: string) => <p><span className={styles.spinningStar}>⭐</span> {item}</p>);
+interface DocItem {
+  title: string;
+  description: string[];
+  buttonText: string;
+  buttonLink: string;
+  imagePath: string;
 }
 
-export default function HomepageDocs() {
+const DocContent: DocItem = {
+  title: "Tài liệu kỹ thuật",
+  description: [
+    "Tài liệu tham khảo về Pandas(Phân tích dữ liệu)",
+    "Toán học cho Data Scientist và Machine Learning Engineer"
+  ],
+  buttonText: "Cùng đọc nào",
+  buttonLink: "/docs/kungfupandas/gioithieu",
+  imagePath: "/img/home/image_doc_4.png"
+};
+
+const StarIcon = () => <span className={styles.spinningStar}>⭐</span>;
+
+const DescriptionList = ({ items }: { items: string[] }) => (
+  <>
+    {items.map((item, index) => (
+      <p key={index}>
+        <StarIcon /> {item}
+      </p>
+    ))}
+  </>
+);
+
+export default function HomepageDocs(): JSX.Element {
   return (
     <div className={styles.wrap}>
       <div className={styles.content}>
-        <div className={styles.maintitle}>
-        </div>
         <div className={styles.maincontent}>
-          <div className={styles.item}>
             <div className={styles.title}>
-            Tài liệu kỹ thuật
+              {DocContent.title}
             </div>
+            
             <div className={styles.desc}>
-            {NewlineText(texts)}
+              <DescriptionList items={DocContent.description} />
             </div>
+
             <Link
               className={clsx("button button--lg", styles.button)}
-              to="/docs/kungfupandas/gioithieu">
-              <span>Cùng đọc nào</span> <span className={styles.spinningStar}>⭐</span>!!
+              to={DocContent.buttonLink}
+            >
+              <span>{DocContent.buttonText}</span> <StarIcon />!!
             </Link>
-            <div className={styles.imagecover}><a href="/docs/kungfupandas/gioithieu"><img src={useBaseUrl("/img/home/image_doc_4.png")}alt="" /></a></div>
 
-          </div>
         </div>
+        
+            <Link to={DocContent.buttonLink}>
+              <img 
+                src={useBaseUrl(DocContent.imagePath)} 
+                alt={DocContent.title} 
+              />
+            </Link> 
       </div>
     </div>
   );
