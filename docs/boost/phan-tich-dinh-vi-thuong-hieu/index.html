@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="vi" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-boost/phan-tich-dinh-vi-thuong-hieu" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.1.1">
+<title data-rh="true">Phân tích định vị thương hiệu | Data Science Dances</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" property="og:image" content="https://datasciencedances.com/img/dsd3-favicon.jpg"><meta data-rh="true" name="twitter:image" content="https://datasciencedances.com/img/dsd3-favicon.jpg"><meta data-rh="true" property="og:url" content="https://datasciencedances.com/docs/boost/phan-tich-dinh-vi-thuong-hieu"><meta data-rh="true" property="og:locale" content="vi"><meta data-rh="true" name="docusaurus_locale" content="vi"><meta data-rh="true" name="docsearch:language" content="vi"><meta data-rh="true" name="keywords" content="data science, blog, machine learning, data analysis, data visualization, data engineering, data science dances"><meta data-rh="true" name="twitter:card" content="data science, blog, machine learning, data analysis, data visualization, data engineering, data science dances"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Phân tích định vị thương hiệu | Data Science Dances"><meta data-rh="true" name="description" content="Quy trình phân tích định vị thương hiệu"><meta data-rh="true" property="og:description" content="Quy trình phân tích định vị thương hiệu"><link data-rh="true" rel="icon" href="/img/favicon.png"><link data-rh="true" rel="canonical" href="https://datasciencedances.com/docs/boost/phan-tich-dinh-vi-thuong-hieu"><link data-rh="true" rel="alternate" href="https://datasciencedances.com/docs/boost/phan-tich-dinh-vi-thuong-hieu" hreflang="vi"><link data-rh="true" rel="alternate" href="https://datasciencedances.com/docs/boost/phan-tich-dinh-vi-thuong-hieu" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Data Science Dances RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Data Science Dances Atom Feed">
+
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-88PWBGGNQW"></script>
+<script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-88PWBGGNQW",{anonymize_ip:!0})</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css" integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&amp;display=swap"><link rel="stylesheet" href="/assets/css/styles.d466547f.css">
+<script src="/assets/js/runtime~main.3fe3bb5d.js" defer="defer"></script>
+<script src="/assets/js/main.74ac90a3.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Nhảy tới nội dung"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Nhảy tới nội dung</a></div><nav aria-label="Main" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/dsd3-favicon.jpg" alt="Data Science Dances" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/dsd3-favicon.jpg" alt="Data Science Dances" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div></a><div class="navbar__item dropdown dropdown--hoverable"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">Tài liệu tham khảo</a><ul class="dropdown__menu"><li><a class="dropdown__link" href="/docs/kungfupandas/gioithieu">Kungfu Pandas</a></li><li><a class="dropdown__link" href="/docs/math/gioithieu">Toán học cho ML và DS</a></li><li><a aria-current="page" class="dropdown__link dropdown__link--active" href="/docs/boost/phan-tich-dinh-vi-thuong-hieu">Thực hành phân tích</a></li></ul></div><a class="navbar__item navbar__link" href="/blog">Blog</a><div class="navbar__item dropdown dropdown--hoverable"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">Khóa học</a><ul class="dropdown__menu"><li><a class="dropdown__link" href="/courses">Tất cả</a></li><li><a class="dropdown__link" href="/courses/list/time-series-analysis/time-series-analysis">Phân tích dữ liệu chuỗi thời gian</a></li><li><a class="dropdown__link" href="/courses/list/analysis-in-practice/analysis-in-practice">Thực hành phân tích dữ liệu</a></li><li><a class="dropdown__link" href="/courses/list/ml-observation/ml-observation">Giám sát mô hình Machine Learning</a></li></ul></div></div><div class="navbar__items navbar__items--right"><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Trở lại đầu trang" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/docs/boost/phan-tich-dinh-vi-thuong-hieu">Phân tích định vị thương hiệu</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="Trang chủ" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Phân tích định vị thương hiệu</span><meta itemprop="position" content="1"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">Trên trang này</button></div><div class="theme-doc-markdown markdown"><h1>Phân tích định vị thương hiệu</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="quy-trình-phân-tích-định-vị-thương-hiệu">Quy trình phân tích định vị thương hiệu<a href="#quy-trình-phân-tích-định-vị-thương-hiệu" class="hash-link" aria-label="Đường dẫn trực tiếp tới Quy trình phân tích định vị thương hiệu" title="Đường dẫn trực tiếp tới Quy trình phân tích định vị thương hiệu">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="thu-thập-dữ-liệu">Thu thập dữ liệu<a href="#thu-thập-dữ-liệu" class="hash-link" aria-label="Đường dẫn trực tiếp tới Thu thập dữ liệu" title="Đường dẫn trực tiếp tới Thu thập dữ liệu">​</a></h3>
+<ul>
+<li>Nguồn dữ liệu:<!-- -->
+<ul>
+<li>Mạng xã hội: Facebook, Twitter, Instagram, LinkedIn, YouTube.</li>
+<li>Báo chí trực tuyến: Các bài báo hoặc tin tức liên quan đến thương hiệu.</li>
+<li>Diễn đàn, blog, review: Reddit, Quora, các trang đánh giá sản phẩm (Amazon, Yelp, v.v.).</li>
+</ul>
+</li>
+<li>Công cụ hỗ trợ:<!-- -->
+<ul>
+<li>API của Twitter, Facebook Graph API để thu thập dữ liệu mạng xã hội.</li>
+<li>Công cụ web scraping như BeautifulSoup hoặc Selenium để thu thập bài viết từ báo chí và blog.</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="làm-sạch-và-xử-lý-dữ-liệu">Làm sạch và xử lý dữ liệu<a href="#làm-sạch-và-xử-lý-dữ-liệu" class="hash-link" aria-label="Đường dẫn trực tiếp tới Làm sạch và xử lý dữ liệu" title="Đường dẫn trực tiếp tới Làm sạch và xử lý dữ liệu">​</a></h3>
+<ul>
+<li>Làm sạch dữ liệu:<!-- -->
+<ul>
+<li>Loại bỏ spam, quảng cáo hoặc nội dung không liên quan.</li>
+<li>Chuẩn hóa văn bản: Loại bỏ ký tự đặc biệt, xử lý từ viết tắt, chuyển về chữ thường.</li>
+</ul>
+</li>
+<li>Tokenization: Chia câu thành từ hoặc cụm từ để phân tích.</li>
+<li>Xử lý ngôn ngữ tự nhiên (NLP):<!-- -->
+<ul>
+<li>Loại bỏ stop words (các từ không mang ý nghĩa như &quot;và&quot;, &quot;của&quot;).</li>
+<li>Lemmatization hoặc stemming để chuẩn hóa từ về dạng gốc.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="phân-tích-text-analysis">Phân tích Text Analysis<a href="#phân-tích-text-analysis" class="hash-link" aria-label="Đường dẫn trực tiếp tới Phân tích Text Analysis" title="Đường dẫn trực tiếp tới Phân tích Text Analysis">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="word-cloud-đám-mây-từ-khóa">Word Cloud (đám mây từ khóa)<a href="#word-cloud-đám-mây-từ-khóa" class="hash-link" aria-label="Đường dẫn trực tiếp tới Word Cloud (đám mây từ khóa)" title="Đường dẫn trực tiếp tới Word Cloud (đám mây từ khóa)">​</a></h3>
+<ul>
+<li>Mục tiêu: Xác định các từ khóa được sử dụng phổ biến nhất liên quan đến thương hiệu.</li>
+<li>Công cụ:<!-- -->
+<ul>
+<li>Python: Thư viện wordcloud, matplotlib để trực quan hóa.</li>
+</ul>
+</li>
+<li>Ý nghĩa: Giúp nhận diện các giá trị hoặc đặc điểm khách hàng thường gắn liền với thương hiệu.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="topic-modeling-phân-cụm-chủ-đề">Topic Modeling (Phân cụm chủ đề)<a href="#topic-modeling-phân-cụm-chủ-đề" class="hash-link" aria-label="Đường dẫn trực tiếp tới Topic Modeling (Phân cụm chủ đề)" title="Đường dẫn trực tiếp tới Topic Modeling (Phân cụm chủ đề)">​</a></h3>
+<ul>
+<li>Mục tiêu: Xác định các chủ đề chính được thảo luận về thương hiệu.</li>
+<li>Phương pháp:<!-- -->
+<ul>
+<li>Latent Dirichlet Allocation (LDA): Dùng để phân cụm chủ đề từ các bài viết hoặc bình luận.</li>
+<li>N-grams Analysis: Tìm cụm từ thường xuyên xuất hiện, như &quot;dịch vụ tốt&quot;, &quot;chất lượng cao&quot;.</li>
+</ul>
+</li>
+<li>Ứng dụng:<!-- -->
+<ul>
+<li>Xác định lĩnh vực mà thương hiệu nổi bật (chất lượng sản phẩm, dịch vụ, giá cả, v.v.).</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="phân-tích-sentiment-analysis">Phân tích Sentiment Analysis<a href="#phân-tích-sentiment-analysis" class="hash-link" aria-label="Đường dẫn trực tiếp tới Phân tích Sentiment Analysis" title="Đường dẫn trực tiếp tới Phân tích Sentiment Analysis">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="phân-loại-cảm-xúc">Phân loại cảm xúc<a href="#phân-loại-cảm-xúc" class="hash-link" aria-label="Đường dẫn trực tiếp tới Phân loại cảm xúc" title="Đường dẫn trực tiếp tới Phân loại cảm xúc">​</a></h3>
+<ul>
+<li>Phân loại chính:<!-- -->
+<ul>
+<li>Tích cực, tiêu cực, trung tính.</li>
+</ul>
+</li>
+<li>Phương pháp:<!-- -->
+<ul>
+<li>Rule-based: Sử dụng từ điển cảm xúc (e.g., AFINN, VADER).</li>
+<li>Machine Learning: Huấn luyện mô hình trên tập dữ liệu gắn nhãn (e.g., Logistic Regression, Random Forest).</li>
+<li>Deep Learning: Dùng các mô hình như BERT, LSTM để cải thiện độ chính xác.</li>
+</ul>
+</li>
+<li>Công cụ:<!-- -->
+<ul>
+<li>Thư viện TextBlob, NLTK, hoặc Hugging Face Transformers.</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="đo-lường-chỉ-số-cảm-xúc-sentiment-score">Đo lường chỉ số cảm xúc (Sentiment Score)<a href="#đo-lường-chỉ-số-c ảm-xúc-sentiment-score" class="hash-link" aria-label="Đường dẫn trực tiếp tới Đo lường chỉ số cảm xúc (Sentiment Score)" title="Đường dẫn trực tiếp tới Đo lường chỉ số cảm xúc (Sentiment Score)">​</a></h3>
+<ul>
+<li>Cách tính:<!-- -->
+<ul>
+<li>Gán điểm số (+1 cho tích cực, -1 cho tiêu cực).</li>
+<li>Tính trung bình để xác định xu hướng cảm xúc chung.</li>
+</ul>
+</li>
+<li>Ứng dụng:<!-- -->
+<ul>
+<li>Xác định mức độ hài lòng chung của khách hàng với thương hiệu.</li>
+<li>Theo dõi sự thay đổi cảm xúc qua thời gian để đánh giá hiệu quả chiến dịch.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="đo-lường-nhận-diện-thương-hiệu">Đo lường nhận diện thương hiệu<a href="#đo-lường-nhận-diện-thương-hiệu" class="hash-link" aria-label="Đường dẫn trực tiếp tới Đo lường nhận diện thương hiệu" title="Đường dẫn trực tiếp tới Đo lường nhận diện thương hiệu">​</a></h2>
+<ul>
+<li>Chỉ số chính:<!-- -->
+<ul>
+<li>Tỷ lệ nhắc đến tích cực (Positive Mention Rate): Tỷ lệ bài viết/bình luận tích cực so với tổng số.</li>
+<li>Share of Voice (SOV): So sánh số lần nhắc đến thương hiệu với đối thủ.</li>
+<li>Sentiment Trend: Xu hướng cảm xúc (tích cực/tiêu cực) qua thời gian.</li>
+<li>Chỉ số chủ đề (Topic Sentiment Score): Điểm cảm xúc cho từng chủ đề được thảo luận (giá cả, dịch vụ, sản phẩm).</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="trực-quan-hóa-kết-quả">Trực quan hóa kết quả<a href="#trực-quan-hóa-kết-quả" class="hash-link" aria-label="Đường dẫn trực tiếp tới Trực quan hóa kết quả" title="Đường dẫn trực tiếp tới Trực quan hóa kết quả">​</a></h2>
+<ul>
+<li>Biểu đồ phổ biến:<!-- -->
+<ul>
+<li>Biểu đồ tròn (Pie chart): Phân loại cảm xúc tích cực/tiêu cực/trung tính.</li>
+<li>Biểu đồ cột (Bar chart): Số lượng nhắc đến theo từng chủ đề.</li>
+<li>Đường xu hướng (Line chart): Theo dõi cảm xúc qua thời gian.</li>
+</ul>
+</li>
+<li>Công cụ:<!-- -->
+<ul>
+<li>Tableau, Power BI</li>
+<li>Thư viện Python (matplotlib, seaborn, plotly).</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="lợi-ích">Lợi ích<a href="#lợi-ích" class="hash-link" aria-label="Đường dẫn trực tiếp tới Lợi ích" title="Đường dẫn trực tiếp tới Lợi ích">​</a></h2>
+<ul>
+<li>Đánh giá sức khỏe thương hiệu: Hiểu rõ nhận diện và cảm xúc của khách hàng.</li>
+<li>Theo dõi đối thủ cạnh tranh: So sánh hiệu suất và cảm xúc thương hiệu với các đối thủ chính.</li>
+<li>Cải thiện chiến lược thương hiệu: Điều chỉnh thông điệp và chiến lược dựa trên phân tích cảm xúc và chủ đề.</li>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="Trang tài liệu"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#quy-trình-phân-tích-định-vị-thương-hiệu" class="table-of-contents__link toc-highlight">Quy trình phân tích định vị thương hiệu</a><ul><li><a href="#thu-thập-dữ-liệu" class="table-of-contents__link toc-highlight">Thu thập dữ liệu</a></li><li><a href="#làm-sạch-và-xử-lý-dữ-liệu" class="table-of-contents__link toc-highlight">Làm sạch và xử lý dữ liệu</a></li></ul></li><li><a href="#phân-tích-text-analysis" class="table-of-contents__link toc-highlight">Phân tích Text Analysis</a><ul><li><a href="#word-cloud-đám-mây-từ-khóa" class="table-of-contents__link toc-highlight">Word Cloud (đám mây từ khóa)</a></li><li><a href="#topic-modeling-phân-cụm-chủ-đề" class="table-of-contents__link toc-highlight">Topic Modeling (Phân cụm chủ đề)</a></li></ul></li><li><a href="#phân-tích-sentiment-analysis" class="table-of-contents__link toc-highlight">Phân tích Sentiment Analysis</a><ul><li><a href="#phân-loại-cảm-xúc" class="table-of-contents__link toc-highlight">Phân loại cảm xúc</a></li><li><a href="#đo-lường-chỉ-số-cảm-xúc-sentiment-score" class="table-of-contents__link toc-highlight">Đo lường chỉ số cảm xúc (Sentiment Score)</a></li></ul></li><li><a href="#đo-lường-nhận-diện-thương-hiệu" class="table-of-contents__link toc-highlight">Đo lường nhận diện thương hiệu</a></li><li><a href="#trực-quan-hóa-kết-quả" class="table-of-contents__link toc-highlight">Trực quan hóa kết quả</a></li><li><a href="#lợi-ích" class="table-of-contents__link toc-highlight">Lợi ích</a></li></ul></div></div></div></div></main></div></div></div><footer class="footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="col footer__col"><div class="footer__title">Tài liệu tham khảo</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/kungfupandas/gioithieu">Kungfu Pandas</a></li><li class="footer__item"><a class="footer__link-item" href="/boost/list/data-scientist/data-scientist">Roadmap Data Science</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/boost/phan-tich-dinh-vi-thuong-hieu">Thực hành phân tích</a></li></ul></div><div class="col footer__col"><div class="footer__title">Cộng đồng</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://facebook.com/datasciencedances" target="_blank" rel="noopener noreferrer" class="footer__link-item">Facebook<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li><li class="footer__item"><a href="https://linkedin.com/in/lhduc94" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div><div class="col footer__col"><div class="footer__title">Thông tin thêm</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/datasciencedances" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" viewBox="0 0 24 24" class="iconExternalLink_nPIU"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"></path></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Data Science Dances.</div></div></div></footer></div>
+</body>
+</html>
