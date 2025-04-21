@@ -45,11 +45,7 @@ function NewlineText({ text }) {
   return text.split('\n').map((str, index) => <p key={index}>{str}</p>);
 }
 
-export default function Courses() {
-  // Xóa state và logic filter
-  // const [selectedCategory, setSelectedCategory] = useState('All');
-  
-  // Sử dụng trực tiếp ITEM_COURSES thay vì filtered courses
+export function ItemCourses(){
   const itemDom = ITEM_COURSES.map((item, i) => {
     return (
       <LinkWithBaseUrl to={item.href} key={i}>
@@ -80,6 +76,14 @@ export default function Courses() {
       </LinkWithBaseUrl>
     );
   });
+  return itemDom
+}
+export default function Courses() {
+  // Xóa state và logic filter
+  // const [selectedCategory, setSelectedCategory] = useState('All');
+  
+  // Sử dụng trực tiếp ITEM_COURSES thay vì filtered courses
+  
 
   return (
     <Layout>
@@ -92,7 +96,7 @@ export default function Courses() {
         {/* Xóa phần categoryFilter */}
         
         <div className={styles.coursesGrid}>
-          {itemDom}
+          <ItemCourses></ItemCourses>
         </div>
       </div>
     </Layout>
