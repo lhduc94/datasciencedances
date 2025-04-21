@@ -85,6 +85,11 @@ const config: Config = {
     }
   ],
   themeConfig: {
+    colorMode: {
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
   
     metadata: [
       {name: 'keywords', content: 'data science, blog, machine learning, data analysis, data visualization, data engineering, data science dances'},

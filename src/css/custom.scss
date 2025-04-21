@@ -17,7 +17,7 @@
   
   // Base settings
   --ifm-code-font-size: 95%;
-  --ifm-navbar-link-color: white;
+  --ifm-navbar-link-color: black;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
   
   // Custom variables
@@ -176,8 +176,8 @@ div.docsWrapper_hBAB{
 }
 
 .navbar{
-  opacity: .9;
-  background-color: rgb(3, 5, 19);
+  opacity: .8;
+  // background-color: rgb(3, 5, 19);
 }
 .navbar__logo img {
   height: 150%;

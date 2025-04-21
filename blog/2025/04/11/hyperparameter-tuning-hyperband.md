@@ -6,6 +6,7 @@ authors: lhduc
 tags: [Data Science]
 keywords: [data science, hyperparameter tuning, python, ml, siêu tham số, machine learning, máy học, tối ưu, Hyperband, Early Stopping]
 hide_table_of_contents: false
+draft: true
 ---
 
 # Tối ưu siêu tham số mô hình với Hyperband

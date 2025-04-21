@@ -17,11 +17,16 @@ export default function HomepageHeader() {
   }
   return (
     <header className={clsx('hero', styles.heroBanner)}>
-      <div className={clsx("hero-banner_filter", styles.banner_filter)}></div>
+      {/* <div className={clsx("hero-banner_filter", styles.banner_filter)}></div> */}
       <div className={clsx("hero-banner_image", styles.banner_image)}></div>
       <div className={clsx("hero-banner_intro",styles.banner_intro)}>
         <div className={clsx("hero-banner_title", styles.banner_title)}>
-          {siteConfig.title}
+          <img 
+            src="/img/dsd3-favicon.jpg" 
+            alt={siteConfig.title}
+            className={styles.banner_titleImage}
+          />
+          {/* {siteConfig.title} */}
         </div>
         <div className={clsx("hero-banner_tagline", styles.banner_tagline)}>
           {siteConfig.tagline}
