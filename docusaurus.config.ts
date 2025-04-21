@@ -147,6 +147,10 @@ const config: Config = {
             {type: 'docSidebar',
               sidebarId: 'mathSidebar',
               label: 'Toán học cho ML và DS'},
+            {type: 'docSidebar',
+              sidebarId: 'boostSidebar',
+              label: 'Thực hành phân tích'
+            }
           ]
         },
        
@@ -202,6 +206,9 @@ const config: Config = {
               label: 'Roadmap Data Science',
               to: '/boost/list/data-scientist/data-scientist',
             },
+            { label: 'Thực hành phân tích',
+              to: 'docs/boost/phan-tich-dinh-vi-thuong-hieu'
+            }
           ],
         },
         {

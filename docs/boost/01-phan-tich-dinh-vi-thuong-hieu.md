@@ -1,7 +1,6 @@
 ---
-title: Phân tích định vị thương hiệu
+sidebar_label: Phân tích định vị thương hiệu
 ---
-![](/img/blog/20240815_1_cover.jpg)
 # Phân tích định vị thương hiệu
 
 ## Quy trình phân tích định vị thương hiệu

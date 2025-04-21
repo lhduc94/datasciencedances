@@ -19,8 +19,9 @@ interface DocItem {
 const DocContent: DocItem = {
   title: "Tài liệu kỹ thuật",
   description: [
-    "Tài liệu tham khảo về Pandas(Phân tích dữ liệu)",
-    "Toán học cho Data Scientist và Machine Learning Engineer"
+    "Tài liệu tham khảo về Pandas cho Xử lý dữ liệu",
+    "Toán học cho Data Scientist và Machine Learning Engineer",
+    "Thực hành phân tích dữ liệu với các bài toán thực tế"
   ],
   buttonText: "Cùng đọc nào",
   buttonLink: "/docs/kungfupandas/gioithieu",
