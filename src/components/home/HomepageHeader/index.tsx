@@ -32,9 +32,13 @@ export default function HomepageHeader() {
           {siteConfig.tagline}
         </div>
         <div>
-          <Link
+        <Link
             className={clsx("button button--lg", styles.button)}
-            to="/#homepagedoc">
+            to="/#homepagedoc"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('homepagedoc')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
             Cùng nhảy nào 🪇🪇!!
           </Link>
         </div>

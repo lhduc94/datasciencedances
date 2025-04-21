@@ -53,21 +53,19 @@ export default function HomepageDocs(): JSX.Element {
               <DescriptionList items={DocContent.description} />
             </div>
 
-            <Link
+            {/* <Link
               className={clsx("button button--lg", styles.button)}
               to={DocContent.buttonLink}
             >
               <span>{DocContent.buttonText}</span> <StarIcon />!!
-            </Link>
+            </Link> */}
 
         </div>
         
-            <Link to={DocContent.buttonLink}>
               <img 
                 src={useBaseUrl(DocContent.imagePath)} 
                 alt={DocContent.title} 
               />
-            </Link> 
       </div>
     </div>
   );
