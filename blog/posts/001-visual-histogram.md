@@ -9,7 +9,7 @@ image: /img/blog/20240218_1_cover_2.jpg
 hide_table_of_contents: false
 ---
 
-![](cover_2.jpg)
+![](../assets/001-visual-histogram/cover_2.jpg)
 Thông thường, khi visualize mặc định histogram của seaborn sẽ không thể hiện tất cả các nhãn của bins và số lượng mỗi bin
 Với cách làm như trên sẽ rất khó theo dõi các khoảng giá trị của từng bin và số lượng của bin đó. May mắn thay seaborn histogram tương tự numpy nên ta có thể dùng hàm np.histogram để giải quyết vấn đề này
 <!-- truncate -->
@@ -25,7 +25,7 @@ x = np.random.uniform(size=200)
 sns.histplot(x, bins=10)
 ```
 
-![Example banner](1709112253837.jpg)
+![Example banner](../assets/001-visual-histogram/1709112253837.jpg)
 
 Kết quả không cho ta thấy được bin đầu tiên nằm trong khoảng giá trị nào, và số lượng phần tử là bao nhiêu, điều này dẫn đến khó khăn để hiểu được biểu đồ cũng như đánh giá kết quả. Để giải quyết vấn đề trên, chúng ta tìm cách điền vào biểu đồ bằng phương thức `plt.text`. Trước hết, chúng ta cần tính được khoảng mỗi bin và số lượng các phần tử trong bin, may mắn thay np.histogram có thể giúp ta tính được các giá trị này
 
@@ -73,4 +73,4 @@ ax.set_xticks(mids, labels=labels, fontsize=14, rotation=90)
 ax.set_ylim(0,28)
 ```
 
-![Example banner](1709112655963.png)
+![Example banner](../assets/001-visual-histogram/1709112655963.png)

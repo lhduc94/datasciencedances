@@ -16,7 +16,8 @@ row = next(df.iterrows())
 row
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 (0,
  Item_Identifier                 FDA15
  Item_Fat_Content              Low Fat
@@ -26,6 +27,7 @@ row
  Item_Outlet_Sales            3735.138
  Name: 0, dtype: object)
 ```
+</pythonoutput>
 
 Kết quả trả về cho row là 1 tuple gồm index và Series chứa các giá trị tại index đó. 
 
@@ -40,9 +42,11 @@ for i, row in df.iterrows():
 print(prices[:5])
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 [1867.569, 221.7114, 1048.635, 366.19, 497.3526]
 ```
+</pythonoutput>
 
 ### Itertuple
 
@@ -64,18 +68,22 @@ Trả về `namedtuple`
 next(df.itertuples(index=True))
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 Pandas(Index=0, Item_Identifier='FDA15', Item_Fat_Content='Low Fat', Item_Type='Dairy', Outlet_Establishment_Year=1999, Outlet_Size='Medium', Item_Outlet_Sales=3735.138)
 ```
+</pythonoutput>
 
 Trả về `tuple`
 ```python
 next(df.itertuples(index=False, name=None))
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 ('FDA15', 'Low Fat', 'Dairy', 1999, 'Medium', 3735.138)
 ```
+</pythonoutput>
 
 **Cách dùng vòng lặp trong itertuples**
 
