@@ -17,7 +17,7 @@ export default function HomepageHeader() {
   }
   return (
     <header className={clsx('hero', styles.heroBanner)}>
-      {/* <div className={clsx("hero-banner_filter", styles.banner_filter)}></div> */}
+      <div className={clsx("hero-banner_filter", styles.banner_filter)}></div>
       <div className={clsx("hero-banner_image", styles.banner_image)}></div>
       <div className={clsx("hero-banner_intro",styles.banner_intro)}>
         <div className={clsx("hero-banner_title", styles.banner_title)}>
@@ -32,9 +32,13 @@ export default function HomepageHeader() {
           {siteConfig.tagline}
         </div>
         <div>
-          <Link
+        <Link
             className={clsx("button button--lg", styles.button)}
-            to="/#homepagedoc">
+            to="/#homepagedoc"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('homepagedoc')?.scrollIntoView({ behavior: 'smooth' });
+            }}>
             Cùng nhảy nào 🪇🪇!!
           </Link>
         </div>

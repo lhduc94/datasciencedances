@@ -2,7 +2,7 @@ import Translate from "@docusaurus/Translate";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import Link, { Props } from "@docusaurus/Link";
 import clsx from "clsx";
-
+import {ItemCourses} from "../../../pages/courses/index";
 // import { WHY_CLOUDBERRY_DATABASE } from "@site/src/consts/homeContent";
 import LinkWithBaseUrl from "../../common/LinkWithBaseUrl";
 
@@ -16,6 +16,8 @@ function NewlineText(_texts) {
   return _texts.map((item: string) => <p><span className={styles.pulseHeart}>❤️‍🔥</span> {item}</p>);
 }
 
+
+
 export default function HomepageCourses(): JSX.Element {
   return (
     <div className={styles.wrap}>
@@ -28,19 +30,23 @@ export default function HomepageCourses(): JSX.Element {
             <div className={styles.desc}>
               {NewlineText(texts)}
             </div>
-            <Link
+            {/* <Link
               className={clsx("button button--lg", styles.button)}
               to="/courses">
               <span>Cùng học nào</span> <span className={styles.pulseHeart}>❤️‍🔥</span>!!
-            </Link>
+            </Link> */}
           </div>
-          <Link 
+          {/* <Link 
               className={styles.imagecover}
               to="/courses">
               <img src={useBaseUrl("/img/home/image_course_8.png")}alt="" />
-            </Link>
+            </Link> */}
+          <div className={styles.coursesGrid}>
+          <ItemCourses></ItemCourses>
+        </div>
         </div>
       </div>
     </div>   
   );
 }
+

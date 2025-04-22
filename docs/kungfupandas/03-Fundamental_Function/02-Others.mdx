@@ -138,24 +138,27 @@ df.drop_duplicates()
 df.drop_duplicates(subset=['action'])
 ```
 
-```{.python_output}
+<pythonoutput>
+```
         action  fruit   times
 0         view  orange      1
 2  add to cart  orange      3
 ```
+</pythonoutput>
 
 ```python
 df.drop_duplicates(subset=['action','fruit'], keep='last', ignore_index=True)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
         action   fruit  times
 0         view  orange      1
 1  add to cart  orange      3
 2  add to cart   apple      4
 
 ```
-
+</pythonoutput>
 ## Phương thức đếm số lần xuất hiện `.value_counts()`
 
 Phương thức này trả số lần xuất hiện của các phần tử trong `Series`. Kết quả trả về mặc định sẽ sắp xếp theo số lần xuất hiện giảm dần và mặc định bỏ qua các giá trị null
@@ -182,14 +185,15 @@ s = pd.Series([3, 1, 2, 3,  np.nan, 4, np.nan])
 s.value_counts()
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 3.0    2
 1.0    1
 2.0    1
 4.0    1
 dtype: int64
 ```
-
+</pythonoutput>
 ```python
 s.value_counts(normalize=True, sort=False, dropna=False)
 ```

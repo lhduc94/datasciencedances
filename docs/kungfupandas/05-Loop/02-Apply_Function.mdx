@@ -29,7 +29,8 @@ Sử dụng lambda function
 df['Item_Outlet_Sales'].apply(lambda x: x * 0.05)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 0       186.75690
 1        22.17114
 2       104.86350
@@ -43,7 +44,7 @@ df['Item_Outlet_Sales'].apply(lambda x: x * 0.05)
 8522     38.28350
 Name: Item_Outlet_Sales, Length: 8523, dtype: float64
 ```
-
+</pythonoutput>
 Sử dụng hàm tự định nghĩa
 
 ```python
@@ -55,7 +56,8 @@ def set_price(x, k=0.05):
 df['Item_Outlet_Sales'].apply(set_price)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 0       186.75690
 1        22.17114
 2       104.86350
@@ -68,8 +70,8 @@ df['Item_Outlet_Sales'].apply(set_price)
 8521     92.27988
 8522     38.28350
 Name: Item_Outlet_Sales, Length: 8523, dtype: float64
-```
-
+``` 
+</pythonoutput>
 Có thể truyền tham số `k` vào hàm `set_price` bằng hai cách
 
 ```python
@@ -107,32 +109,36 @@ sample_df = sample_df = pd.DataFrame([[1, 2, 'A'], [3, 6, 'B'], [5, 10, 'C']], c
 sample_df
 ```
 
-```{.python_output}
+<pythonoutput> 
+```
    A   B  C
 0  1   2  A
 1  3   6  B
 2  5  10  C
 ```
+</pythonoutput>
+
 Áp dụng trên toàn `DataFrame`
 
 ```python
 sample_df.apply(lambda x: x * 2)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
      A	 B	 C
 0	 2	 4	AA
 1	 6	12	BB
 2	10	20	CC
 ```
+</pythonoutput>
 
-```{block2, type='rmdnote'}
-**_Lưu ý:_** 
+:::info Lưu ý
 
 Khi áp dụng cho toàn `DataFrame` hãy cẩn thận hàm `func` truyền vào, nếu `func` không áp dụng được cho toàn bộ các phần tử sẽ báo lỗi.
 
 Ví dụ ở trên với x * 2 vẫn áp dụng được cho cột `C` dạng `str`, nhưng khi thay bằng x ** 2 sẽ báo lỗi vì toán tử `**` không áp dụng cho `str` 
-```
+:::
 
 Áp dụng trên một số cột trong `DataFrame`
 ``` Python
@@ -140,23 +146,27 @@ Ví dụ ở trên với x * 2 vẫn áp dụng được cho cột `C` dạng `s
 sample_df[['A', 'B']].apply(np.sum, axis=1)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 0    13
 1    13
 2    13
 dtype: int64
 ```
+</pythonoutput>
 
 ```python
 ## Theo dòng
 df[['A', 'B']].apply(lambda x: np.sum(x), axis=0)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 A    12
 B    27
 dtype: int64
 ```
+</pythonoutput>
 Một cách khác áp dụng trên một số cột trong `DataFrame`
 
 Sử dụng lambda
@@ -164,12 +174,14 @@ Sử dụng lambda
 sample_df.apply(lambda x: x['A'] + 2 * x['B'], axis=1)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 0     5
 1    15
 2    25
 dtype: int64
 ```
+</pythonoutput>
 
 Dùng hàm định nghĩa
 
@@ -182,20 +194,21 @@ def dsum(row):
 sample_df.apply(dsum, axis=1)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 0     5
 1    15
 2    25
 dtype: int64
 ```
+</pythonoutput>
 
-```{block2, type='rmdtip'}
-**_Mẹo:_**
+:::tip Mẹo
 
 - Không nhất thiết giá trị trả về của hàm là giá trị đơn, giá trị trả về có thể dưới dạng list, tuple hoặc dict
 
 - Dùng `result_type` để thay đổi cách trả về
-```
+:::
 
 Ví dụ ta có 1 hàm trả về nhiều giá trị cùng lúc như sau
 
@@ -209,12 +222,14 @@ def dsum_2(row):
 sample_df.apply(dsum_2, axis=1)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 0      [5, -3]
 1     [15, -9]
 2    [25, -15]
 dtype: object
 ```
+</pythonoutput>
 
 Kết quả trả về của phương pháp trên là `Series` với các giá trị của nó là dạng list. Để chuyển `Series` này thành `DataFrame` với các cột chứa các giá trị của list theo thứ tự, ta dùng `result_type='expand'`
 
@@ -222,16 +237,19 @@ Kết quả trả về của phương pháp trên là `Series` với các giá t
 sample_df.apply(dsum_2, axis=1, result_type='expand')
 ```
 
-```{.python_output}
+<pythonoutput>
+```
     0   1
 0   5  -3
 1  15  -9
 2  25 -15
 ```
+</pythonoutput>
 
-```{block2, type='rmdtip'}
-**_Mẹo:_** Có thể cấu trúc trả về dưới dạng `DataFrame` cho ví dụ trên mà không cần dùng `result_type` bằng cách sử dụng `pd.Series` của một `dictionary`. Lúc này các cột của `DataFrame` sẽ được đánh nhãn theo key của `dictionary`
-```
+:::tip Mẹo
+
+Có thể cấu trúc trả về dưới dạng `DataFrame` cho ví dụ trên mà không cần dùng `result_type` bằng cách sử dụng `pd.Series` của một `dictionary`. Lúc này các cột của `DataFrame` sẽ được đánh nhãn theo key của `dictionary`
+:::
 
 ```python
 def dsum_3(row):
@@ -242,9 +260,11 @@ def dsum_3(row):
 sample_df.apply(dsum_3, axis=1)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 	X	Y
 0	5	-3
 1	15	-9
 2	25	-15
 ```
+</pythonoutput>

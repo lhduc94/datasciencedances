@@ -16,7 +16,7 @@
   width: 100%;
   min-height: 95vh;
   background: linear-gradient(250.73deg, rgba(40, 14, 102, 0.5) 12.73%, var(--ifm-color-primary) 96.49%);
-  opacity: 0.5;
+  opacity: 0.1;
   position: absolute;
   z-index: 2;
 }
@@ -24,7 +24,7 @@
   width: 100%;
   min-height: 95vh;
   opacity: .9;
-  background-image: url("/img/home/home_background_without_text_2.png");
+  background-image: url("/img/home/home_background_without_text_3.png");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -68,7 +68,7 @@
   margin:  0.8rem;
   padding-left: 25%;
   padding-right: 25%;
-  color: rgb(19, 1, 1);
+  color: gray;
   font-size: 1.2rem;
 }
 .heroBannerMobile {

@@ -8,7 +8,8 @@ df['price'] = df['Item_Outlet_Sales'] * 0.05
 df[['Item_Outlet_Sales', 'price']]
 ```
 
-```{.python_output}
+<pythonoutput>
+```
       Item_Outlet_Sales      price
 0             3735.1380  186.75690
 1              443.4228   22.17114
@@ -22,6 +23,8 @@ df[['Item_Outlet_Sales', 'price']]
 8521          1845.5976   92.27988
 8522           765.6700   38.28350
 ```
+</pythonoutput>
+
 Nối hai cột lại với nhau, Ví dụ 
 
 - nối `Item_type` và `Item_Fat_Content` thành `Item_Type_Fat_Content`
@@ -34,7 +37,8 @@ df['Outlet_Identifier_Establishment_Year'] = df['Outlet_Identifier'] + '_' +df['
 df[['Item_Type_Fat_Content', 'Outlet_Identifier_Establishment_Year']]
 ```
 
-```{.python_output}
+<pythonoutput>
+```
               Item_Type_Fat_Content Outlet_Identifier_Establishment_Year
 0                     Dairy_Low Fat                          OUT049_1999
 1               Soft Drinks_Regular                          OUT018_2009
@@ -48,3 +52,6 @@ df[['Item_Type_Fat_Content', 'Outlet_Identifier_Establishment_Year']]
 8521            Snack Foods_Regular                          OUT018_2009
 8522            Soft Drinks_Low Fat                          OUT046_1997
 ```
+</pythonoutput>
+
+

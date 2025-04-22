@@ -248,13 +248,15 @@ West South Central  Arkansas       2280.0           432.0    3009733
 df.loc[pd.Index(["Pacific", "East South Central"], name="meow")]
 ```
 
-```{.python_output}
+<pythonoutput>
+```
                          state  individuals  family_members  state_pop
 meow                                                                   
 Pacific                 Alaska       1434.0           582.0     735139
 Pacific             California     109008.0         20964.0   39461588
 East South Central     Alabama       2570.0           864.0    4887681
 ```
+</pythonoutput>
 
 **Select với `MultiIndex`**
 ```python
@@ -274,19 +276,21 @@ Với nhãn đơn
 df.loc['Mountain']
 ```
 
-```{.python_output} 
+<pythonoutput> 
+```
           individuals  family_members  state_pop
 state                                           
 Arizona        7259.0          2606.0    7158024
 Colorado       7607.0          3250.0    5691287
 Idaho          1297.0           715.0    1750536
 ```
+</pythonoutput>
 
-```{block2, type='rmdnote'}
-**_Lưu ý:_** 
+:::info Lưu ý
+
 Với `MultiIndex`,các index sẽ xếp theo thứ tự từ level 0 đến n (`level 0` cao hơn `level 1` ...),  với nhãn đơn là nhãn của 1 `index` thì chỉ thực hiện được index level đầu tiên, các index level sau sẽ báo lỗi.
 Theo như ví dụ trên thì `region` có level cao hơn 'state' nên chỉ gọi được `.loc['Mountain']` còn `.loc['Arizona']` sẽ báo lỗi
-``` 
+:::
 
 Để select nhiều index cùng lúc, ta truyền vào `tuple(label1, label2...)` theo thứ tự index có level từ cao đến thấp
 

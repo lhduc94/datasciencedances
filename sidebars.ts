@@ -180,8 +180,13 @@ const sidebars: SidebarsConfig = {
           type: 'doc',
           id: 'math/gioithieu',
         }
-      ]
-  
+      ],
+  boostSidebar: [
+      {
+        type: 'doc',
+        id: 'boost/phan-tich-dinh-vi-thuong-hieu'
+      }
+  ]
 };
 
 export default sidebars;

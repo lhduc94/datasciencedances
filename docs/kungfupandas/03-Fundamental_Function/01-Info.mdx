@@ -6,7 +6,7 @@ sidebar_position: 2
 # Các hàm và phương thức thông tin
 
 
-Dữ liệu mình sẽ sử dụng là dữ liệu `sales_subset.csv` được lấy từ kho dữ liệu `kaggle`
+Trong phần này mình sẽ sử dụng dữ liệu `sales_subset.csv` được lấy từ kho dữ liệu `kaggle`
 
 ```python
 df = pd.read_csv('https://raw.githubusercontent.com/lhduc94/kungfupandas/master/data/sales_subset.csv',index_col=['Unnamed: 0'])
@@ -19,7 +19,8 @@ Phương thức `.head(n=5)` hiển thị `n` dòng đầu tiên của `DataFram
 ```python
 df.head()
 ```
-```{.python_output}
+<pythonoutput>
+```
         store type  department        date  weekly_sales  is_holiday  \
 0      1    A           1  2010-02-05      24924.50       False   
 1      1    A           1  2010-03-05      21827.90       False   
@@ -34,6 +35,8 @@ df.head()
 3      22.527778              0.748928         7.808  
 4      27.050000              0.714586         7.808  
 ```
+</pythonoutput>
+
 ```python
 df.tail()
 ```
@@ -70,7 +73,7 @@ df.shape
 ```
 </pythonoutput>
 
-Trong dó `10774` là số lượng dòng của bảng và `9` là số lượng cột của bảng
+Trong đó `10774` là số lượng dòng của bảng và `9` là số lượng cột của bảng
 
 Phương thức `.size` cho biết số lượng phần từ của bảng
 
@@ -224,7 +227,8 @@ Ví dụ
 df.memory_usage(index=False)
 ```
 
-```{.python_output}
+<pythonoutput>
+```
 store                   86192
 type                    86192
 department              86192
@@ -236,7 +240,7 @@ fuel_price_usd_per_l    86192
 unemployment            86192
 dtype: int64
 ```
-
+</pythonoutput>
 ```python
 df.memory_usage(deep=True) 
 ```

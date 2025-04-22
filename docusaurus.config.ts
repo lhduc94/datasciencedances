@@ -8,7 +8,7 @@ const path = require('path')
 const config: Config = {
 
   title: 'Data Science Dances',
-  tagline: 'Data Science Dances sẽ giúp bạn hiểu thêm về những vấn đề của Data Science. Hãy xem những bài toán như những điệu nhảy và thưởng thức nó nào!',
+  tagline: 'Hãy xem những bài toán như những điệu nhảy và thưởng thức nó nào!',
   favicon: 'img/favicon.png',
 
   url: 'https://datasciencedances.com',
@@ -147,6 +147,10 @@ const config: Config = {
             {type: 'docSidebar',
               sidebarId: 'mathSidebar',
               label: 'Toán học cho ML và DS'},
+            {type: 'docSidebar',
+              sidebarId: 'boostSidebar',
+              label: 'Thực hành phân tích'
+            }
           ]
         },
        
@@ -202,6 +206,9 @@ const config: Config = {
               label: 'Roadmap Data Science',
               to: '/boost/list/data-scientist/data-scientist',
             },
+            { label: 'Thực hành phân tích',
+              to: 'docs/boost/phan-tich-dinh-vi-thuong-hieu'
+            }
           ],
         },
         {

@@ -21,13 +21,13 @@ let ITEMS = [
     category: "Roadmap", // Thêm thuộc tính category
 
   },
-  {
-    title: "Phân tích định vị thương hiệu", 
-    href: "boost/list/phan-tich-dinh-vi-thuong-hieu/phan-tich-dinh-vi-thuong-hieu",
-    image: "/img/blog/20240815_1_cover.jpg",
-    category: "Case Study", // Thêm thuộc tính category
+  // {
+  //   title: "Phân tích định vị thương hiệu", 
+  //   href: "boost/list/phan-tich-dinh-vi-thuong-hieu/phan-tich-dinh-vi-thuong-hieu",
+  //   image: "/img/blog/20240815_1_cover.jpg",
+  //   category: "Case Study", // Thêm thuộc tính category
 
-  },
+  // },
   // {
   //   title: "Speech and Language Processing",
   //   href: "boost/list/speech-and-language-processing/speech-and-language-processing",
