@@ -10,7 +10,7 @@ hide_table_of_contents: false
 draft: true
 ---
 
-![](cover.jpg)
+![](../assets/010-bandwidth-prediction/cover.jpg)
 
 ## Mô tả bài toán
 

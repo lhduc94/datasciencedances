@@ -9,7 +9,7 @@ image: /img/blog/20240304_1_cover.jpg
 hide_table_of_contents: false
 ---
 
-![](cover.jpg)
+![](../assets/005-pitfall-visualize/cover.jpg)
 <!-- truncate -->
 
 ## Dấu hiệu của một biểu đồ trực quan kém
@@ -27,13 +27,13 @@ Dưới đây là các lỗi sai trong Data Visualization
 Một sai lầm phổ biến là đưa quá nhiều màu vào visualize. Ví dụ vẽ biểu đồ scatter plot về dân số và tốc độ tăng trưởng dân số của Việt Nam, với 63 tỉnh thành ta có 63 màu cho mỗi tỉnh, điều này gây ra vấn đề khó khăn khi nhận biết màu nào là của tỉnh thành nào.
 
 <figure>
-![](pitfall_1.png)
+![](../assets/005-pitfall-visualize/pitfall_1.png)
 <figcaption>Dân số và tốc độ tăng trưởng dân số (Đã bỏ các tỉnh > 2 triệu dân)</figcaption>
 </figure>
 
 Theo nguyên tắc chung, thang màu chất lượng hoạt động tốt nhất khi có ba đến năm loại màu khác nhau. Do đó, thay vì để 63 màu cho 63 tỉnh thành, chúng ta nên phân chia màu 3 miền và để xác định từng tỉnh thành, chúng ta thêm các nhãn tỉnh thành vào biểu đồ. Dĩ nhiên chúng ta không cần phải thêm tất cả các nhãn của tất cả tỉnh thành vào biểu đồ mà chỉ cần thêm một vài nhãn tiêu biểu ứng với từng khu vực. Ngoài ra, chúng ta cần nên kèm theo dữ liệu dạng bảng với các thông tin đầy đủ để người đọc có thể truy cập toàn bộ dữ liệu.
 <figure>
-![](pitfall_1_2.png)
+![](../assets/005-pitfall-visualize/pitfall_1_2.png)
 <figcaption>Dân số và tốc độ tăng trưởng dân số (Đã bỏ các tỉnh > 2 triệu dân)</figcaption>
 </figure>
 
@@ -42,7 +42,7 @@ của màu sắc trong biểu đồ. Ví dụ như hình bên dưới là biểu
 
 
 <figure>
-![](pitfall_1_5.png)
+![](../assets/005-pitfall-visualize/pitfall_1_5.png)
 <figcaption>Biểu đồ dân số</figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ Dưới đây là dữ liệu tương tự nếu chúng ta thêm vào đường 
 
 Tuy nhiên, trong một số trường hợp chúng ta vẫn có thể điều chỉnh trục tung mà không phải bắt đầu tại đường mốc cơ sở là 0. Vào Tháng 12 năm 2015, National Review đã đưa ra một biểu đồ về nhiệt độ trung bình hằng năm từ dữ liệu công bố của NASA. Tất nhiên dữ liệu của NASA là chính xác nhưng vì  National Review  đã chọn một khoảng scale bắt đầu từ 0 đến 110 (có thể là độ F) dẫn đến việc minh họa dữ liệu nhiệt độ không còn ý nghĩa
 <figure>
-![](national_review.png)
+![](../assets/005-pitfall-visualize/national_review.png)
 <figcaption>Nguồn : National Review</figcaption>
 </figure>
 
@@ -87,7 +87,7 @@ Vậy lựa chọn đường cơ sở như thế nào cho đúng? Đối với v
 Lỗi tiếp theo là lỗi chúng ta thường gặp ở dữ liệu Chuỗi thời gian. Chúng ta sẽ bàn về cuộc thi dự báo hoạt động kinh doanh vi mô ở các bang của Hoa Kỳ được đo bằng mật độ  doanh nghiệp ở các bang [GoDaddy - Microbusiness Density Forecasting](https://www.kaggle.com/competitions/godaddy-microbusiness-density-forecasting), mỗi mã `cfips` tương ứng với một quận của bang.
 
 <figure>
-![](pitfall_3.png)
+![](../assets/005-pitfall-visualize/pitfall_3.png)
 <figcaption>Microbusiness Density Forecasting</figcaption>
 </figure>
 
@@ -98,12 +98,12 @@ Do đó chúng ta cần chia các đường biểu diễn thành các n
 Như hình dưới đây, nhóm có mật độ tập trung dày đặc ở ngưỡng dưới 6 và chia làm 2 nhóm tách biệt ở ngưỡng trên 6. Ở ngưỡng trên 6 chỉ cần chia làm 2 nhóm đó là ngưỡng trên 8 vầ ngưỡng dưới 8. Trong khhi nhóm ngưỡng dưới 6 cần chia thành các nhóm nhỏ hơn để đảm bảo không quá nhiều đường trong một nhóm.
 
 <figure>
-![](pitfall_3_1.png)
+![](../assets/005-pitfall-visualize/pitfall_3_1.png)
 <figcaption>Boxplot</figcaption>
 </figure>
 
 Hình dưới đây biểu diễn một số đường cho nhóm quận với mật độ nhỏ hơn 1.8. Biểu diễn nãy giúp ta nhìn rõ hơn về tính xu hướng, tính mùa vụ của dữ liệu. Ngoài ra, cách biểu diễn chia nhỏ nhóm này còn giúp chúng ta nhìn được các giá trị ngoại lệ hoặc các đoạn tăng bất thường, qua đó có thể ước lượng được các quận nào có thể dự báo tương lai tốt hơn các quận nào.
 <figure>
-![](pitfall_3_2.png)
+![](../assets/005-pitfall-visualize/pitfall_3_2.png)
 <figcaption>Timeseries</figcaption>
 </figure>

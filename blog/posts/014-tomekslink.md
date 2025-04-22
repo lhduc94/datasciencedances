@@ -11,7 +11,7 @@ hide_table_of_contents: false
 draft: true
 ---
 
-![](cover.jfif)
+![](../assets/014-tomekslink/cover.jfif)
 
 Trong hành trình phát triển các mô hình machine learning, dữ liệu mất cân bằng là một thách thức phổ biến mà hầu hết các kỹ sư đều gặp phải. Bài viết này sẽ đi sâu vào Tomek's Link - một kỹ thuật undersampling hiệu quả để xử lý vấn đề này, cùng với các ví dụ thực tế và hướng dẫn chi tiết về cách áp dụng.
 
@@ -134,7 +134,7 @@ print("Số lượng mẫu trước khi xử lý:", len(X))
 print("Số lượng mẫu sau khi xử lý:", len(X_res))
 print("Số điểm Tomek links được tìm thấy:", len(removed_points))
 ```
-![](example.png)
+![](../assets/014-tomekslink/example.png)
 ## Triển khai chi tiết với Python
 
 ### Cài đặt và chuẩn bị

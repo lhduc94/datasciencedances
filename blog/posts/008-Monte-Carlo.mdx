@@ -9,7 +9,7 @@ keywords: [Monte]
 image: /img/blog/20240812_1_cover.jpg
 hide_table_of_contents: false
 ---
-![](cover.jpg)
+![](../assets/008-monte-carlo-simulation/cover.jpg)
 ## Khái niệm chung
 
 Monte Carlo Simulation là một kỹ thuật toán học dùng để hiểu và đánh giá tác động của rủi ro và không chắc chắn trong các mô hình dự đoán và dự án. Phương pháp này sử dụng các biến ngẫu nhiên để mô phỏng nhiều kịch bản có thể xảy ra của một hệ thống hoặc quy trình, giúp chúng ta ước lượng phân phối của kết quả đầu ra.
@@ -41,13 +41,13 @@ Giờ chúng ta sẽ sử dụng máy tính để có thể chọn ngẫu nhiên
 
 Sau rất nhiều lần mô phỏng, ta được một phân phối như sau:
 
-![](image_01.png)
+![](../assets/008-monte-carlo-simulation/image_01.png)
 
 Vậy nhìn vào biểu đồ này ta có thể dễ dàng nói rằng ta sẽ cần khoảng từ 4.5 - 8 tiếng để hoàn thành bài thuyết trình và thời gian trung bình để hoàn thành nó là 6.25.
 
 Nhưng ta hãy mở rộng bài toán này ra một chút. Giả sử chúng ta chỉ dành được thời gian 7 tiếng để có thể hoàn thành được công việc này. Vậy khả năng bao nhiêu % là có thể hoàn thành được bài thuyết trình này.
 
-![](image_02.png)
+![](../assets/008-monte-carlo-simulation/image_02.png)
 
 Như vậy, ta có thể thấy xác suất chúng ta có thể làm đúng hạn là 92.26%
 
@@ -87,7 +87,7 @@ plt.grid(True)
 plt.show()
 ```
 
-![](image_03.png)
+![](../assets/008-monte-carlo-simulation/image_03.png)
 
 Từ phân phối này, ta có thể tính được xác suất để số lượt truy cập web mỗi ngày lớn hơn 30 là 9.53%. Vậy nếu muốn đặt mục tiêu là 30 lượt truy cập/ngày thì sẽ cần cố gắng rất nhiều mới có thể đạt được mục tiêu.
 
@@ -147,7 +147,7 @@ Chúng ta sẽ thử áp dụng Monte Carlo Simulation trong việc tính diện
 Công thức tính hình tròn $\pi r^2$ khá đơn giản và quen thuộc với đại đa số nhiều người, nhưng ta sẽ thử tính diện tích thông qua Monte Carlo Simulation.
 
 
-![](circle.png)
+![](../assets/008-monte-carlo-simulation/circle.png)
 
 Bài toán đặt ra ở đây là thông qua **Monte Carlo Simulation, làm sao để ta tính được diện tích hình tròn đỏ trong hình vuông, khi được cho trước bán kính hình tròn (r)?**
 
@@ -203,7 +203,7 @@ Diện tích hình tròn theo công thức: 502654.8245743669
 ```
 
 
-![](simulation.gif)
+![](../assets/008-monte-carlo-simulation/simulation.gif)
 
 Khi nhìn kết quả, ta có thể dễ dàng thấy càng nhiều số điểm chấm vào hình vuông thì diện tích tính thông qua Monte Carlo Simulation càng gần bằng với diện tích tính thông qua công thức $\pi r^2$.
 
@@ -226,7 +226,7 @@ Tuy nhiên khi có 3 cửa hàng trở đi, việc tính toán diện tích ch�
 do đó sử dụng phương pháp Monte Carlo Simulation có thể giúp ta ước lượng dễ dàng hơn.
 Để đơn giản hơn, trong ví dụ dưới đây chúng ta sẽ minh họa cách tính diện tích giao nhau giữa hai hình tròn.
 
-![](circle_2.png)
+![](../assets/008-monte-carlo-simulation/circle_2.png)
 
 - Đầu tiên, ta sẽ có 2 hình tròn với toạ đô và bán kính xác định là $O1(x_1, y_1, r_1)$ và $O2(x_2, y_2, r_2)$. 
 

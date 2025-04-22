@@ -11,7 +11,7 @@ hide_table_of_contents: false
 
 # Tối ưu siêu tham số mô hình với RandomizedSearchCV
 
-![](cover.jpg)
+![](../assets/012-hyperparameter-tuning-randomizedsearchcv/cover.jpg)
 
 ## Giới thiệu
 Ở bài viết trước, GridSearchCV đã được giới thiệu như một công cụ tối ưu siêu tham số bằng cách duyệt qua toàn bộ tổ hợp có thể. Tuy nhiên, khi không gian tìm kiếm trở nên quá rộng, phương pháp này nhanh chóng bộc lộ điểm yếu: tốn thời gian, tốn tài nguyên và đôi khi… không hiệu quả.
@@ -21,7 +21,7 @@ Trong bài viết này, ta sẽ tiếp cận một phương pháp khác — Rand
 ## Randomized Search là gì?
 
 Thay vì "lần lượt thử hết như GridSearch, Randomized Search chọn ngẫu nhiên một số tổ hợp siêu tham số trong không gian tìm kiếm. Điều này nghe có vẻ đơn giản, nhưng lại mang đến nhiều lợi ích bất ngờ
-![](randomized-search-and-grid-search.png)
+![](../assets/012-hyperparameter-tuning-randomizedsearchcv/randomized-search-and-grid-search.png)
 
 **Ngẫu nhiên nhưng hiệu quả – vì sao nên thử Randomized Search?**
 
@@ -407,7 +407,7 @@ Trong thực tế, kết hợp hai phương pháp này sẽ giúp ta tận dụn
 
 **:two:** Sau đó dùng GridSearch để tìm kiếm chi tiết xung quanh các giá trị tốt nhất từ Randomized Search
 
-![](hybrid.png)
+![](../assets/012-hyperparameter-tuning-randomizedsearchcv/hybrid.png)
 ### Ví dụ triển khai
 
 Khởi tạo `param_distributions`

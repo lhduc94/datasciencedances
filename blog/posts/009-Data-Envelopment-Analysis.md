@@ -10,7 +10,7 @@ image: /img/blog/20240815_1_cover.jpg
 hide_table_of_contents: false
 draft: false
 ---
-![](cover.jpg)
+![](../assets/009-data-envelopment-analysis/cover.jpg)
 
 
 ## Giới thiệu
@@ -58,7 +58,7 @@ Input có thể là 1 hoặc nhiều yếu tố và Output cũng có thể là m
 **Phát biểu bài toán**
 
 Ví dụ một nhãn hàng có 8 cửa hàng được gán nhãn là A, B, C, D, E, F, G, H với Input là Số lượng nhân viên (Employee) của cửa hàng đó và Output là số lượng hàng bán được (Sales) của cửa hàng. Hệu suất của cửa hàng được tính theo công thức đơn giản là Sales/Employees. Kết quả thu được cửa hàng B có hiệu suất cao nhất là 1 và cửa hàng F có hiệu suất thấp nhất là 0.4
-![](efficient_frontier.png)
+![](../assets/009-data-envelopment-analysis/efficient_frontier.png)
 <figcaption>Ví dụ một input và một output</figcaption>
 
 **Phân tích đánh giá**
@@ -72,7 +72,7 @@ Chúng ta có thể  vẽ một đường thống kê hồi quy $y=0.622x
 
 <!-- Khoảng cách từ các điểm đến đường Efficient Frontier nêu lên độ lệch so với điểm tốt nhất​ -->
 
-![](efficiente_frontier_regression_line.png)
+![](../assets/009-data-envelopment-analysis/efficiente_frontier_regression_line.png)
 <figcaption>Efficient Frontier và Regression Line</figcaption>
 **So sánh với đường biên hiệu quả** 
 
@@ -84,7 +84,7 @@ Với cửa hàng A, có hai cách để so sánh với đường biên
 
 Ngoài ra, bất cứ điểm nào nằm trong đoạn A1A2 cũng là kết quả tối ưu cho cửa hàng B, đối với các điểm này, chúng ta cần phải thay đổi cả giá trị Sale lẫn Employee.
 
-![](move_up_frontier.png)
+![](../assets/009-data-envelopment-analysis/move_up_frontier.png)
 <figcaption>So sánh với đường biên hiệu quả</figcaption>
 
 ### Bài toán 2 input và 1 output
@@ -93,7 +93,7 @@ Ngoài ra, bất cứ điểm nào nằm trong đoạn A1A2 cũng là kết qu�
 
 Trong ví dụ đầu, chúng ta đã làm quen với đầu vào là Số lượng nhân sự của một cửa hàng và đầu ra là số sale của cửa hàng đó. Ở ví dụ này, chúng ta sẽ làm quen với việc thêm một đầu vào là Diện tích mặt bằng của cửa hàng. Để tiện lợi cho việc tính toán, chúng ta chuẩn hóa số lượng Sale ở các cửa hàng về 1
 
-![](efficient_frontier_2input_1output.png)
+![](../assets/009-data-envelopment-analysis/efficient_frontier_2input_1output.png)
 
 
 **Phân tích đánh giá**
@@ -107,7 +107,7 @@ Vùng chứa các điểm ở trong này được gọi là Production Possibili
 
 **So sánh với đường biên hiệu quả**
 
-![](so_sanh_voi_duong_bien_2input_1output.png)
+![](../assets/009-data-envelopment-analysis/so_sanh_voi_duong_bien_2input_1output.png)
 
 
 Với cửa hàng A, ta có thể nói rằng hai cửa hàng E, D là cửa hàng tham chiếu của nó, nghĩa là để tối ưu hiệu suất của cửa hàng A, ta cần phải dựa trên hiệu quả của cửa hàng E và D. Để làm được điều này, chúng ta vẽ đường thẳng OA cắt đường biên E, D tại P có $\frac{Employees}{Sales}$ và $\frac{Area}{Sales}$ lần lượt là 3.43 và 2.58. 
@@ -124,7 +124,7 @@ Do đó, hiệu quả của A sẽ được tính theo cách hình học nh�
 
 Ngược lại với ví dụ trên, chúng ta sẽ đến ví dụ với một input là số lượng nhân viên của cửa hàng và hai output là số lượng khách hàng và số sales của cửa hàng đó. Tương tự để thuận tiện cho việc tính toán, chúng ta sẽ chuẩn hóa số lượng nhân viên về 1.
 
-![](efficient_frontier_1input_2output.png)
+![](../assets/009-data-envelopment-analysis/efficient_frontier_1input_2output.png)
 
 **Phân tích đánh giá**
 
@@ -140,7 +140,7 @@ trung Output thì đường biên sẽ nằm ở trên thể hiện rằng Outpu
 
 **So sánh với đường biên hiệu quả**
 
-![](so_sanh_voi_duong_bien_1input_2output.png)
+![](../assets/009-data-envelopment-analysis/so_sanh_voi_duong_bien_1input_2output.png)
 <figcaption>So sánh với đường biên hiệu quả</figcaption>
 Ta có thể nhận thấy B là điểm tham chiếu của cửa hàng A, từ B ta kẻ đường thẳng song song với trục hoành, sau đó vẽ đường thằng OA cắt đường song song tại Q, hiệu quả của cửa hàng A được tính theo $\frac{OA}{OQ} = 0.714$.
 
@@ -152,7 +152,7 @@ Tương tự ta có F,G là hai điểm tham chiếu của D, ta vẽ đường 
 **Phát biểu bài toán**
 
 Dữ liệu các bệnh viện được đánh nhãn từ A đến L có các Inputs là Số lượng Bác sĩ (Doctors) và số lượng Y tá (Nurses), Outputs là số lượng bên nhân Ngoại trú (Outpatients) và số lượng bệnh nhân nội trú (Inpatients).
-![](efficient_frontier_input_output.png)
+![](../assets/009-data-envelopment-analysis/efficient_frontier_input_output.png)
 <figcaption>Bảng ví dụ về thông tin các bệnh viện với nhiều input và nhiều output</figcaption>
 
 **Phân tích đánh giá**
@@ -165,7 +165,7 @@ $$
 
 Trong đó $u_1, u_2, v_1, v_2 $ là các trọng số tương ứng với các Input và Output. Người quản lý có thể dựa vào kinh nghiệm để lựa chọn một tỉ lệ thích hợp. Giả sử chúng ta chọn tỉ lệ $u_1:u_2 = 1:3$ và $v_1:v_2=5:1$, Hiệu suất của các bệnh viện sẽ được tính và chuẩn hóa về 1(Bằng cách chia cho bệnh viện có hiệu suất cao nhất)
 
-![](efficient_frontier_input_output_2.png)
+![](../assets/009-data-envelopment-analysis/efficient_frontier_input_output_2.png)
 <figcaption>Bảng tính hiệu quả dựa trên các trọng số cho trước</figcaption>
 
 Kết quả cho thấy bệnh viện A được đánh giá cao nhất là 1 sau đó là bệnh viện B là 0.9, bênh viện F thấp nhất là 0.64. 
@@ -204,7 +204,7 @@ Với mô hình này, mỗi bệnh viện sẽ có bộ trọng số **tối ưu
 ### Công thức cơ bản
 
 Để đơn giản, ta chỉ ví dụ việc tối ưu cho 5 bệnh viện A, B, C, D, E. 
-![](CCR.png)
+![](../assets/009-data-envelopment-analysis/CCR.png)
 <figcaption>Bảng ví dụ về thông tin 5 bệnh viện với nhiều input và nhiều output</figcaption>
 
 Để tìm các trọng số sao cho tối ưu bệnh viện A DMU(A). Chúng ta cần giải bài toán tối ưu 
@@ -336,22 +336,22 @@ output,_, weights = CCR_model(dfx, "Hospital", 'input',["Doctors",'Nurses'], ['O
 pd.DataFrame(weights)[["Doctors",'Nurses', 'Outpatients', 'Inpatients']]
 ```
 
-![](weights.png)
+![](../assets/009-data-envelopment-analysis/weights.png)
 <figcaption>Bảng trọng số cho các input và output</figcaption>
 
 So với kết quả của phương pháp chọn sẵn các trọng số, phương pháp CCR giúp tính toán hiệu suất tối ưu hơn, các điểm B và D được kéo về 1 như điểm A
-![](new_score.png)
+![](../assets/009-data-envelopment-analysis/new_score.png)
 <figcaption>So sánh cách tính hiệu quả mới theo cách tối ưu (Bên trái) và cách tính hiệu quả với trọng số cho trước(Bên phải)</figcaption>
 
 Đối với bảng output, với Bệnh Viện C ta có chỉ số DMU < 1. Để phân tích hiệu suất, ta so sánh với các Bệnh viện B, D có các giá trị lambda khác 0. Lúc này B và D được gọi là 2 điểm tham chiếu của C
 
-![](output.png)
+![](../assets/009-data-envelopment-analysis/output.png)
 <figcaption>Hiệu quả(Efficiency) của các bệnh viện và các điểm tham chiếu của nó cùng với các chỉ số lambda</figcaption>
 
 ### Phân tích tối ưu
 
 Để tối ưu cho bệnh viện C. Ta lập bảng tính toán như sau
-![](phan_tich_dmu.png)
+![](../assets/009-data-envelopment-analysis/phan_tich_dmu.png)
 <figcaption>Bảng phân tích hiệu quả</figcaption>
 
 Trong đó:

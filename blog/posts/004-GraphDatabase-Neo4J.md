@@ -9,13 +9,13 @@ hide_table_of_contents: false
 image: /img/blog/20240322_1_cover.jpg
 ---
 
-![](cover.jpg)
+![](../assets/004-graph-database-neo4j/cover.jpg)
 ## Giới thiệu
 
 **Graph là gì**
 
 Đồ thị (Graph) là tập hợp các đỉnh (Vertices) và cạnh (Edges), hay là tập hợp giữa các nút(Node) và mối quan hệ (Relationship) giữa các nút với nhau. Mối quan hệ có thể là một chiều hay hai chiều.
-![](intro.png)
+![](../assets/004-graph-database-neo4j/intro.png)
 Ví dụ: A và B có mối quan hệ "FRIEND" với nhau nhưng chỉ có A là "FOLLOW" B.
 
 **Cấu trúc dữ liệu**
@@ -50,7 +50,7 @@ C | 1 | 1 | 0 |
 Có rất nhiều dạng đồ thị khác nhau, dưới đây là một số dạng
 
 <figure>
-![](cac_dang_do_thi.jpg)
+![](../assets/004-graph-database-neo4j/cac_dang_do_thi.jpg)
 <figcaption>Learning Neo4j</figcaption>
 </figure>
 
@@ -66,7 +66,7 @@ Trong diễn đàn, dựa vào những bình luận của người dùng ta có 
 
  
 <figure>
-![](subgroup_detection.png)
+![](../assets/004-graph-database-neo4j/subgroup_detection.png)
 <figcaption>Detecting Subgroups in Online Discussions by Modeling Positive and Negative Relations among Participants</figcaption>
 </figure>
 
@@ -77,7 +77,7 @@ Trong diễn đàn, dựa vào những bình luận của người dùng ta có 
 Các thành phần sinh học(protein, phân tử, gen) và các tương tác của chúng cũng tạo nên một đồ thị sinh học. Dựa vào đó người ta có thể tìm hiểu được quá trình trao đổi chất trong cơ thể, sự tương tác giữa các bộ phận khác nhau trên cơ thể.
 
 <figure>
-![](protein.jpg)
+![](../assets/004-graph-database-neo4j/protein.jpg)
 <figcaption>Learning Neo4j</figcaption>
 </figure>
 
@@ -88,14 +88,14 @@ Các thành phần sinh học(protein, phân tử, gen) và các tương tác c�
 Pagerank là thuật toán phân tích các liên kết được dùng trong Google Search để xếp hạng các trang web.
 
 <figure>
-![](page_rank.png)
+![](../assets/004-graph-database-neo4j/page_rank.png)
 <figcaption>Pagerank</figcaption>
 </figure>
 
 Tóm lại, Đồ thị hiện diện ở khắp mọi nơi miễn có Đối tượng(Node) và Các tương tác giữa các Đối tượng (Relationship) đều có thể tạo nên Đồ thị.
 
 <figure>
-![](graph_everywhere.jpg)
+![](../assets/004-graph-database-neo4j/graph_everywhere.jpg)
 <figcaption></figcaption>
 </figure>
 
@@ -116,7 +116,7 @@ Có 2 đặc điểm mà chúng ta cần phải để ý khi nghiên cứu về 
 
 Node thường dùng để biểu diễn thông tin của một thực thể. Đồ thị đơn giản nhất là đồ thị mà trong đó chỉ có một Node.
 
-![](node.png)
+![](../assets/004-graph-database-neo4j/node.png)
 
 **Labels**
 
@@ -124,7 +124,7 @@ Label thường dùng để định hình một nhóm các Node có cùng một 
 
 Một Node có thể không có hoặc có nhiều nhãn.
 
-![](label.png)
+![](../assets/004-graph-database-neo4j/label.png)
 
 **Relationships**
 
@@ -132,7 +132,7 @@ Relationship thể hiện mối quan hệ hay các kết nối giữa các Node 
 
 Trong Neo4j, mỗi Relationship là một Cạnh có hướng nối Node nguồn và Node đích. Một Node có thể có Cạnh nối với chính nó.
 
-![](relationship.png)
+![](../assets/004-graph-database-neo4j/relationship.png)
 
 **Relationship Types**
 
