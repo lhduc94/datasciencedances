@@ -184,7 +184,7 @@ const sidebars: SidebarsConfig = {
   boostSidebar: [
       {
         type: 'doc',
-        id: 'boost/phan-tich-dinh-vi-thuong-hieu'
+        id: 'thuchanh/phan-tich-dinh-vi-thuong-hieu'
       }
   ]
 };

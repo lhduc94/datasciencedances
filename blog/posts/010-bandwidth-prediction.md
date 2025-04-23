@@ -7,7 +7,7 @@ tags: [Data Science]
 keywords: [time series, python, ml]
 image: /img/blog/20250301_1_cover.jpg
 hide_table_of_contents: false
-draft: true
+draft: false
 ---
 
 ![](../assets/010-bandwidth-prediction/cover.jpg)
