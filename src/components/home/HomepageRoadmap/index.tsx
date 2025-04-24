@@ -28,7 +28,7 @@ export default function HomepageRoadmap() {
             </div>
             <Link
               className={clsx("button button--lg", styles.button)}
-              to="/boost/list/data-scientist">
+              to="/boost/list/data-scientist/data-scientist">
               <span>Xem roadmap</span> <span className={styles.pulseHeart}>❤️‍🔥</span>
             </Link>
         </div>

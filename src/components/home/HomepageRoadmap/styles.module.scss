@@ -1,6 +1,6 @@
 .wrap {
     // background-color:var(--ifm-color-primary);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.1);
     // background-color:  #ffffff;
     // background-image: url("/img/boost/roadmap.png");
     // background-size: cover;
@@ -35,8 +35,8 @@
           font-size: 40px;
           font-weight: bold;
           line-height: 26px;
-          color: whitesmoke;
-          text-shadow: rgb(59, 18, 241) 0px 4px 15px;
+          color: gray;
+          // text-shadow: rgb(59, 18, 241) 0px 4px 15px;
         }
         .desc {
           margin-top: 50px;
@@ -46,9 +46,8 @@
           text-align: center;
           // font-family: 'Consolas', monospace;
 
-          color: whitesmoke;
+          color: gray;
           text-decoration: none;
-          text-shadow: rgb(59, 18, 241) 0px 4px 15px;
 
         }
         .button {

@@ -21,9 +21,9 @@
     margin-left: 10%;
     margin-right: 10%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 32px;
-    
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+    justify-items: center;
     a {
       width: 100%;
       .item {
@@ -103,12 +103,13 @@
 
   }
   
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: 1424px) {
     padding: 80px var(--mobile-padding-width);
 
     .listWrap {
       display: grid;
-      grid-template-columns: auto auto;
+      grid-template-columns: repeat(2, 1fr);
+      // grid-template-columns: auto auto;
       a {
         width: 100%;
       }

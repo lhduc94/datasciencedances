@@ -186,6 +186,18 @@ const sidebars: SidebarsConfig = {
         type: 'doc',
         id: 'thuchanh/phan-tich-dinh-vi-thuong-hieu'
       }
+  ],
+  toolSidebar:[
+    {
+      type: 'category',
+      label: 'PostgreSQL',
+      items: [
+        {
+          type: 'doc',
+          id: 'tools/postgres/postgres'
+        }
+      ]
+    }
   ]
 };
 
