@@ -30,6 +30,7 @@
   background-repeat: no-repeat;
   position: fixed;
   z-index: 1;
+  /* filter: blur(10px); */
 }
 .banner_intro{
   position: absolute;
@@ -90,7 +91,7 @@
   .banner_image {
     min-height: 70vh;
     background-position: center;
-    position: absolute;
+    position: fixed;
   }
 
   .banner_filter {

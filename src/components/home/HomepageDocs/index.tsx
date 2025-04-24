@@ -11,10 +11,28 @@ import LinkWithBaseUrl from "../../common/LinkWithBaseUrl";
 interface DocItem {
   title: string;
   description: string[];
-  buttonText: string;
-  buttonLink: string;
   imagePath: string;
 }
+
+interface ButtonItem {
+  buttonText: string;
+  buttonLink: string;
+}
+
+const ButtonContent: ButtonItem[] = [
+  {
+    buttonText: "Kungfu Pandas",
+    buttonLink: "/docs/kungfupandas/gioithieu",
+  },
+  {
+    buttonText: "Toán học cho Data Scientist",
+    buttonLink: "/docs/math/gioithieu",
+  },
+  {
+    buttonText: "Thực hành phân tích dữ liệu",
+    buttonLink: "/docs/thuchanh/phan-tich-dinh-vi-thuong-hieu",
+  }
+];
 
 const DocContent: DocItem = {
   title: "Tài liệu kỹ thuật",
@@ -23,8 +41,6 @@ const DocContent: DocItem = {
     "Toán học cho Data Scientist và Machine Learning Engineer",
     "Thực hành phân tích dữ liệu với các bài toán thực tế"
   ],
-  buttonText: "Cùng đọc nào",
-  buttonLink: "/docs/kungfupandas/gioithieu",
   imagePath: "/img/home/image_doc_4.png"
 };
 
@@ -53,12 +69,18 @@ export default function HomepageDocs(): JSX.Element {
               <DescriptionList items={DocContent.description} />
             </div>
 
-            {/* <Link
-              className={clsx("button button--lg", styles.button)}
-              to={DocContent.buttonLink}
-            >
-              <span>{DocContent.buttonText}</span> <StarIcon />!!
-            </Link> */}
+            <div className={styles.buttonContainer}>
+              {ButtonContent.map((button, index) => (
+                <Link
+                  key={index}
+                  className={clsx("button button--lg", styles.button)}
+                  to={button.buttonLink}
+                >
+                  <span>{button.buttonText}</span> <StarIcon />!!
+                </Link>
+              ))}
+            </div>
+            
 
         </div>
         

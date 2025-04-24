@@ -20,9 +20,23 @@ export default function HomepageRoadmap() {
     <div className={styles.wrap}>
       <div className={styles.content}>
         <div className={styles.maincontent}>
-            <div className={styles.title}>
-              Roadmap Data Scientist
+            <div className={styles.imagetitle}>
+              <img 
+                src={useBaseUrl("/img/home/roadmap.png")}
+                alt="Roadmap Banner"
+                className={styles.roadmapImage}
+              />
             </div>
+            {/* <div className={styles.imagedesc}>
+              <img 
+                src={useBaseUrl("/img/home/roadmap_2.png")}
+                alt="Roadmap Banner"
+                className={styles.roadmapImage}
+              />
+            </div> */}
+            {/* <div className={styles.title}>
+              Roadmap Data Scientist
+            </div> */}
             <div className={styles.desc}>
               {NewlineText(texts)}
             </div>

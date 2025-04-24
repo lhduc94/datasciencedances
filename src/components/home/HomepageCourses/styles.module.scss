@@ -72,6 +72,7 @@
       width: 100%;
       .content {
         padding: 0 40px;
+      
       }
     }
   
@@ -79,6 +80,17 @@
       padding-top: 0;
       .content {
         padding: 0 var(--mobile-padding-width);
+        .maincontent {
+          .title {
+            font-size: 30px;
+          }
+          .desc {
+            font-size: 16px;
+          }
+          .button {
+            font-size: 12px;
+          }
+        }
       }
     }
   

@@ -120,14 +120,13 @@
     padding: 0;
     // margin-top: 40px;
     .gTitle {
-      font-size: 40px;
+      font-size: 30px;
       text-align: center;
     }
     .listWrap {
       padding: 0 var(--mobile-padding-width);
       grid-template-columns: auto;
       gap: 32px;
-
       .item {
         margin: 0 auto;
         width: 70%;
@@ -175,6 +174,7 @@
 
 .viewMoreButton {
   margin-top: 30px;
+  margin-bottom: 30px;
   background-color: white;
   color: var(--ifm-color-primary);
   // text-transform: uppercase;
