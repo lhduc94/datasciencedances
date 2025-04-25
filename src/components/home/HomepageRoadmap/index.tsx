@@ -27,18 +27,15 @@ export default function HomepageRoadmap() {
                 className={styles.roadmapImage}
               />
             </div>
-            {/* <div className={styles.imagedesc}>
+            <div className={styles.desc}>
+              {NewlineText(texts)}
+            </div>
+            <div className={styles.imagedesc}>
               <img 
-                src={useBaseUrl("/img/home/roadmap_2.png")}
+                src={useBaseUrl("/img/home/roadmap_3.png")}
                 alt="Roadmap Banner"
                 className={styles.roadmapImage}
               />
-            </div> */}
-            {/* <div className={styles.title}>
-              Roadmap Data Scientist
-            </div> */}
-            <div className={styles.desc}>
-              {NewlineText(texts)}
             </div>
             <Link
               className={clsx("button button--lg", styles.button)}
