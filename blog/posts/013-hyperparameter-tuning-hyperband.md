@@ -5,16 +5,16 @@ description: Trong bài viết này, chúng ta sẽ tìm hiểu về Hyperband -
 authors: lhduc
 tags: [Data Science]
 keywords: [data science, hyperparameter tuning, python, ml, siêu tham số, machine learning, máy học, tối ưu, Hyperband, Early Stopping]
-hide_table_of_contents: false
+image: img/blog/013-hyperparameter-tuning-hyperband-cover.png
 draft: true
 ---
 
 # Tối ưu siêu tham số mô hình với Hyperband
 
-
+![](../assets/013-hyperparameter-tuning-hyperband/cover.png)
 ## Giới thiệu
 
-Trong bài viết trước, chúng ta đã tìm hiểu về RandomizedSearchCV - một phương pháp tối ưu siêu tham số hiệu quả bằng cách lấy mẫu ngẫu nhiên từ không gian tham số. Tuy nhiên, phương pháp này vẫn có một hạn chế: nó phải chạy toàn bộ quá trình huấn luyện cho mỗi bộ tham số được chọn, ngay cả khi chúng ta có thể dự đoán sớm rằng một số bộ tham số sẽ không cho kết quả tốt.
+Trong bài viết trước, chúng ta đã tìm hiểu về [RandomizedSearchCV](https://datasciencedances.com/blog/2025/03/hyperparameter-tuning-RandomizedSearchCV) - một phương pháp tối ưu siêu tham số hiệu quả bằng cách lấy mẫu ngẫu nhiên từ không gian tham số. Tuy nhiên, phương pháp này vẫn có một hạn chế: nó phải chạy toàn bộ quá trình huấn luyện cho mỗi bộ tham số được chọn, ngay cả khi chúng ta có thể dự đoán sớm rằng một số bộ tham số sẽ không cho kết quả tốt.
 
 Trong bài viết này, chúng ta sẽ tìm hiểu về Hyperband - một phương pháp tối ưu siêu tham số thông minh hơn, kết hợp giữa Randomized Search và Early Stopping để loại bỏ các bộ tham số không triển vọng sớm hơn, từ đó tiết kiệm thời gian và tài nguyên tính toán.
 
@@ -22,18 +22,13 @@ Trong bài viết này, chúng ta sẽ tìm hiểu về Hyperband - một phươ
 
 Hyperband là một thuật toán tối ưu siêu tham số được phát triển bởi Li và cộng sự vào năm 2017. Nó kết hợp hai ý tưởng chính:
 
-1. **Randomized Search**: Lấy mẫu ngẫu nhiên các bộ tham số từ không gian tìm kiếm
-2. **Early Stopping**: Dừng sớm việc huấn luyện các bộ tham số không triển vọng
+- **Randomized Search**: Lấy mẫu ngẫu nhiên các bộ tham số từ không gian tìm kiếm
+- **Early Stopping**: Dừng sớm việc huấn luyện các bộ tham số không triển vọng
 
 <!-- ![](hyperband-concept.png) -->
 
 **Tại sao nên sử dụng Hyperband?**
-
-So với RandomizedSearchCV, Hyperband mang lại nhiều lợi ích:
-
-- **Tiết kiệm thời gian**: Bằng cách dừng sớm các thử nghiệm không triển vọng, Hyperband có thể tiết kiệm đáng kể thời gian tính toán
-- **Hiệu quả hơn**: Với cùng một ngân sách thời gian, Hyperband có thể thử nhiều bộ tham số hơn
-- **Thích ứng**: Tự động điều chỉnh số lượng tài nguyên dành cho mỗi bộ tham số dựa trên hiệu suất ban đầu
+Bằng cách dừng sớm các thử nghiệm không triển vọng, Hyperband có thể tiết kiệm đáng kể thời gian tính toán. Do đó chúng ta có thể thử nhiều bộ tham số hơn. Ngoài ra Hypberband còn giúp điều chỉnh số lượng tài nguyên dành cho mỗi bộ tham số dựa trên hiệu suất ban đầu.
 
 ## Cách hoạt động của Hyperband
 
@@ -43,11 +38,11 @@ Hyperband hoạt động thông qua một quy trình lặp lại gồm hai giai 
 
 Successive Halving là cốt lõi của Hyperband. Nó hoạt động như sau:
 
-1. Bắt đầu với n bộ tham số ngẫu nhiên
-2. Huấn luyện mỗi bộ tham số trong một khoảng thời gian ngắn
-3. Chọn một nửa số bộ tham số có hiệu suất tốt nhất
-4. Tiếp tục huấn luyện các bộ tham số được chọn với thời gian dài hơn
-5. Lặp lại quá trình cho đến khi chỉ còn một bộ tham số
+- Bắt đầu với n bộ tham số ngẫu nhiên
+- Huấn luyện mỗi bộ tham số trong một khoảng thời gian ngắn
+- Chọn một nửa số bộ tham số có hiệu suất tốt nhất
+- Tiếp tục huấn luyện các bộ tham số được chọn với thời gian dài hơn
+- Lặp lại quá trình cho đến khi chỉ còn một bộ tham số
 
 <!-- ![](successive-halving.png) -->
 
@@ -55,9 +50,9 @@ Successive Halving là cốt lõi của Hyperband. Nó hoạt động như sau:
 
 Hyperband mở rộng Successive Halving bằng cách:
 
-1. Thử nhiều cấu hình khác nhau của SH (với các giá trị n khác nhau)
-2. Tự động điều chỉnh ngân sách thời gian cho mỗi cấu hình
-3. Chọn cấu hình tốt nhất dựa trên kết quả
+- Thử nhiều cấu hình khác nhau của SH (với các giá trị n khác nhau)
+- Tự động điều chỉnh ngân sách thời gian cho mỗi cấu hình
+- Chọn cấu hình tốt nhất dựa trên kết quả
 
 ## Triển khai Hyperband
 
@@ -351,3 +346,6 @@ Tuy nhiên, cũng như các phương pháp khác, Hyperband không phải là gi
 - Yêu cầu về độ chính xác và thời gian
 
 Trong thực tế, việc kết hợp nhiều phương pháp (như đã thấy trong bài viết trước về việc kết hợp RandomizedSearch và GridSearch) thường mang lại kết quả tốt nhất.
+
+## Tài liệu tham khảo
+https://arxiv.org/abs/1603.06560
