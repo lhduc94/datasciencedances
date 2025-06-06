@@ -58,15 +58,31 @@ Hyperband mở rộng Successive Halving bằng cách:
 
 Chúng ta sẽ triển khai Hyperband từ đầu để hiểu rõ cách hoạt động của nó. Trong nội dung bài viết này, chúng ta lựa chọn tài nguyên giới hạn là số lượng cây `n_estimators`
 
+Thuật toán Hyberband
+
+![](../assets/013-hyperparameter-tuning-hyperband/algorithm.png)
+
+Hyperband nhận đầu vào là các tham số 
+- $R$ : Lượng tài nguyên tối đa (ở đây có thể là số vòng lặp, số cây, tỉ lệ phần trăm dữ liệu)
+- $\eta$: đầu vào kiểm soát số lượng bộ hyperameters bị loại bỏ trong mỗi vòng của SuccessiveHalving
+- $s_{max}$ là số lượng lần thực hiện `sucessivehalving`, hay cũng chính là số lần sinh ra các tập hyperparameters ngẫu nhiên.
+- $B$: Phần tài nguyên ước lượng cho mỗi lần thực hiện `sucessivehalving`
+- $n$: Số lượng bộ hyperparameters được sinh ra trong mỗi lần thực hiện `sucessivehalving`
+- $r$: nguồn tài nguyên tối đa có thể sử dụng
+
+Các tham số còn lại sẽ được giải thích chi tiết bên dưới trong method `sucessivehalving`
+
+
 ### Triển khai từ đầu
+
 
 ```python
 import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.model_selection import train_test_split, cross_val_score, RandomizedSearchCV, StratifiedKFold
+from sklearn.metrics import accuracy_score
 import pandas as pd
-
+import math
+import time
 # Tải dữ liệu
 from ucimlrepo import fetch_ucirepo
 phishing_websites = fetch_ucirepo(id=327)
@@ -74,7 +90,7 @@ X = phishing_websites.data.features
 y = phishing_websites.data.targets
 
 # Chia tập train và test
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+X_train, X_test, y_train, y_test = train_test_split(X, y['result'], test_size=0.2, random_state=42, stratify=y)
 ```
 
 Định nghĩa class Hyperband 
@@ -406,7 +422,12 @@ print("Best parameters:", hb.best_params_)
 print("Best score:", hb.best_score_)
 ```
 
-
+<pythonoutput>
+```
+Best parameters: {'num_leaves': 69, 'max_depth': 9, 'learning_rate': 0.2076771825730454, 'n_estimators': 114, 'min_child_samples': 12, 'subsample': 0.6924299186352285, 'colsample_bytree': 0.8687570974394914, 'reg_alpha': 0.019710537754364155, 'reg_lambda': 0.10410858198457384, 'min_child_weight': 0.7999160853731894}
+Best score: 0.9695839482899304
+```
+</pythonoutput>
 
 
 
