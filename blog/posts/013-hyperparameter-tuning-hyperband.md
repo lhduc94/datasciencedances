@@ -39,9 +39,9 @@ Hyperband hoạt động thông qua một quy trình lặp lại gồm hai giai 
 Successive Halving là cốt lõi của Hyperband. Nó hoạt động như sau:
 
 - Bắt đầu với n bộ tham số ngẫu nhiên
-- Huấn luyện mỗi bộ tham số trong một khoảng thời gian ngắn
-- Chọn một nửa số bộ tham số có hiệu suất tốt nhất
-- Tiếp tục huấn luyện các bộ tham số được chọn với thời gian dài hơn
+- Huấn luyện mỗi bộ tham số với tài nguyên nhỏ (số vòng lặp, số cây)
+- Chọn một nửa số bộ tham số có hiệu suất tốt nhất 
+- Tiếp tục huấn luyện các bộ tham số được chọn với tài nguyên dài hơn
 - Lặp lại quá trình cho đến khi chỉ còn một bộ tham số
 
 <!-- ![](successive-halving.png) -->
@@ -56,7 +56,7 @@ Hyperband mở rộng Successive Halving bằng cách:
 
 ## Triển khai Hyperband
 
-Chúng ta sẽ triển khai Hyperband từ đầu để hiểu rõ cách hoạt động của nó. Sau đó, chúng ta sẽ sử dụng thư viện `scikit-optimize` để có một triển khai hoàn chỉnh hơn.
+Chúng ta sẽ triển khai Hyperband từ đầu để hiểu rõ cách hoạt động của nó. Trong nội dung bài viết này, chúng ta lựa chọn tài nguyên giới hạn là số lượng cây `n_estimators`
 
 ### Triển khai từ đầu
 
@@ -77,59 +77,37 @@ y = phishing_websites.data.targets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 ```
 
-Định nghĩa class Hyperband:
+Định nghĩa class Hyperband 
+
+
+
 
 ```python
 class Hyperband:
     def __init__(self, estimator, param_distributions, max_iter=81, eta=3, random_state=None):
+        """ArithmeticError
+        Khởi tạo Hyperband
+        estimator: Mô hình
+        param_distributions: Phân phối tham số
+        max_iter: Số lần lặp tối đa
+        eta: Hệ số giảm
+        random_state: Ngẫu nhiên
+        """
         self.estimator = estimator
         self.param_distributions = param_distributions
         self.max_iter = max_iter  # Số lần lặp tối đa
+        self.random_state = random_state # Lấy ngẫu nhiên
         self.eta = eta  # Hệ số giảm
-        self.random_state = random_state
-        
+        self.s_max = int(np.log(self.max_iter) / np.log(self.eta)) # Init s_max = log(max_iter)/log(eta)        
+        self.B = (self.s_max + 1) * self.max_iter # Init B = (s_max + 1) * max_iter
+        self.cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=self.random_state) # Init cv = StratifiedKFold
+        self.results = [] # Lưu các lần chạy
+        self.total_runs = 0 # Đếm tổng số lần chạy
         if self.random_state is not None:
             np.random.seed(self.random_state)
-            
-    def get_hyperband_configs(self):
-        """Tính toán các cấu hình cho Hyperband
-        
-        Hàm này tính toán các cấu hình (n,r) cho mỗi bracket của Hyperband, trong đó:
-        - n: số lượng cấu hình ban đầu cần thử nghiệm
-        - r: số lượng tài nguyên được phân bổ cho mỗi cấu hình
-        
-        Công thức tính:
-        - s_max = ⌊log_η(max_iter)⌋
-        - B = (s_max + 1) * max_iter
-        - Với mỗi s từ s_max đến 0:
-            + n = ⌈(B/max_iter) * η^s/(s+1)⌉
-            + r = max_iter * η^(-s)
-        
-        Returns:
-            list: Danh sách các tuple (n,r) cho mỗi bracket của Hyperband.
-                  Mỗi tuple chứa:
-                  - n: số lượng cấu hình cần thử
-                  - r: số lượng tài nguyên cho mỗi cấu hình
-        
-        Example:
-            >>> hb = Hyperband(...)
-            >>> configs = hb.get_hyperband_configs()
-            >>> print(configs)
-            [(81, 1), (27, 3), (9, 9), (6, 27), (5, 81)]  # Ví dụ với max_iter=81, eta=3
-        """
-        s_max = int(np.log(self.max_iter) / np.log(self.eta))
-        B = (s_max + 1) * self.max_iter
-        
-        configs = []
-        for s in range(s_max, -1, -1):
-            n = int(np.ceil(B / self.max_iter * (self.eta ** s) / (s + 1)))
-            r = self.max_iter * (self.eta ** (-s))
-            configs.append((n, r))
-            
-        return configs
     
     def sample_params(self):
-            """
+        """
         Lấy mẫu tham số từ các phân phối hoặc danh sách giá trị.
         Hỗ trợ:
             - scipy.stats distributions (randint, uniform,...)
@@ -137,105 +115,272 @@ class Hyperband:
         """
         sampled_params = {}
         for param, dist in self.param_distributions.items():
-            if isinstance(dist, (rv_continuous, rv_discrete)):
-                sampled_params[param] = dist.rvs()
-            elif isinstance(dist, list):
-                sampled_params[param] = np.random.choice(dist)
-            else:
-                raise ValueError(f"Không hỗ trợ loại phân phối: {param}: {type(dist)}")
+            sampled_params[param] = dist.rvs()
         return sampled_params
     
-    def successive_halving(self, n, r):
+    def try_params_and_return_score(self, params, X, y):
+        ## TODO
         """
-        Thực hiện Successive Halving với:
-        
-        Args:
-            n: số lượng cấu hình ban đầu (số lượng bộ siêu tham số được lấy mẫu ngẫu nhiên)
-            r: số lượng tài nguyên tối đa cho mỗi cấu hình (có thể là số epochs hoặc kích thước dữ liệu)
-        
-        Returns:
-            tuple: (final_params, final_score) - bộ tham số tốt nhất và điểm số tương ứng
+        Chạy cross validation với bộ tham số và trả về điểm số
         """
-        # Lấy mẫu n bộ tham số
-        params_list = [self.sample_params() for _ in range(n)]
-        
-        # Bắt đầu với r_min = r/eta^(log_eta(r)) tài nguyên
-        r_k = r / self.eta ** int(np.log(r) / np.log(self.eta))
-        n_k = n
-        
-        remaining_params = params_list
-        
-        while n_k > 1:  # Tiếp tục cho đến khi chỉ còn 1 cấu hình
-            # Tính kích thước subset của dữ liệu dựa trên r_k
-            n_samples = int(min(r_k, len(X_train)))
-            indices = np.random.choice(len(X_train), n_samples, replace=False)
-            X_subset = X_train.iloc[indices]
-            y_subset = y_train.iloc[indices]
-            
-            # Huấn luyện và đánh giá từng cấu hình
-            scores = []
-            for params in remaining_params:
-                # Đặt n_estimators dựa trên r_k nếu là tham số của mô hình
-                if 'n_estimators' in params:
-                    params['n_estimators'] = max(10, int(r_k))
-                    
-                self.estimator.set_params(**params)
-                self.estimator.fit(X_subset, y_subset)
-                
-                # Đánh giá trên validation set
-                val_indices = np.random.choice(len(X_train), min(1000, len(X_train)), replace=False)
-                X_val = X_train.iloc[val_indices]
-                y_val = y_train.iloc[val_indices]
-                score = self.estimator.score(X_val, y_val)
-                scores.append((params, score))
-            
-            # Sắp xếp và chọn top n_k/eta cấu hình
-            scores.sort(key=lambda x: x[1], reverse=True)
-            n_k = max(1, int(n_k / self.eta))
-            remaining_params = [p for p, _ in scores[:n_k]]
-            
-            # Tăng tài nguyên cho vòng tiếp theo
-            r_k *= self.eta
-        
-        # Huấn luyện lại cấu hình cuối cùng với toàn bộ dữ liệu và tài nguyên
-        final_params = remaining_params[0]
-        if 'n_estimators' in final_params:
-            final_params['n_estimators'] = int(r)
-        
-        self.estimator.set_params(**final_params)
-        self.estimator.fit(X_train, y_train)
-        final_score = self.estimator.score(X_train, y_train)
-        
-        return final_params, final_score
     
+    def sucessive_halving(self, s, n, r, X, y):
+        ## TODO
+        """
+        Thực hiện sucessive halving
+        s: số lần lặp
+        n: Số bộ tham số
+        r: Số n_estimators tối đa
+        X: tập dữ liệu
+        y: tập dữ liệu
+
+        Kết quả trả ra là
+        final_params: bộ thàm số tối ưu
+        final_score: điểm số tối ưu
+        """    
+    def fit(self, X, y):
+        ## TODO
+        """Thực hiện tối ưu hóa siêu tham số với Hyperband"""
+```
+
+**method `sample_params`**
+
+
+Cách viết method này tương tự các bài trước
+
+
+```python
+    def sample_params(self):
+        """
+        Lấy mẫu tham số từ các phân phối hoặc danh sách giá trị.
+        Hỗ trợ:
+            - scipy.stats distributions (randint, uniform,...)
+            - list giá trị rời rạc
+        """
+        sampled_params = {}
+        for param, dist in self.param_distributions.items():
+            sampled_params[param] = dist.rvs()
+        return sampled_params
+```
+
+**method `try_params_and_return_score`**
+
+method này thực hiện nhận hyperparameter và dùng `cross_validate_score` trên tập dữ liệu huấn luyện.
+
+```python
+    def try_params_and_return_score(self, params, X, y):
+        """
+        Chạy cross validation với bộ tham số và trả về điểm số
+        """
+        self.estimator.set_params(**params)
+        score = cross_val_score(estimator=self.estimator, X=X, y=y, cv=self.cv, scoring='accuracy', n_jobs=-1).mean()
+        return score
+```
+
+Trong bài viết này, mình chọn scoring là `accuracy`, chúng ta có thể chọn các metric khác như f1, log_loss hoặc auc. Ngoài ra mình còn dùng StratifiedKFold để làm cross validation, method này được khởi tạo ở thuộc tính `self.cv` trong phần `__init__`
+
+**Viết phương thức sucessive_halving**
+
+```python
+    def sucessive_halving(self, s, n, r, X, y):
+        """
+        Thực hiện sucessive halving
+        s: số lần lặp
+        n: Số bộ tham số
+        r: Số n_estimators tối đa
+        X: tập dữ liệu
+        y: tập dữ liệu
+        """
+        self.param_id_map = {}
+        self.param_id = 0
+
+        T = [self.sample_params() for _ in range(n)]
+        param_id = [str(s) + '_'+ str(pid) for pid in list(range(n))]
+        remaining_params = T.copy()
+        remaining_params_id = param_id.copy()
+        for i in range(s + 1):
+            n_i = math.floor(n * self.eta ** (-i))
+            r_i = int(r * self.eta ** i)
+            print(i,n_i, r_i)
+            scores = []
+            for t, pid in zip(remaining_params,remaining_params_id):
+                params = t.copy() # Dùng copy để tránh làm thay đổi các tham số của t
+                # Tạo n_estimators dựa trên cấu hình hyperband
+                params['n_estimators'] =  min(r_i, t['n_estimators'])
+                # Chạy cross validation và trả về điểm số
+                score = self.try_params_and_return_score(params, X, y)
+                # Lưu kết quả
+                scores.append(score)
+                result = { 'param_id' : pid, 'params': t, 'score': score, 's': s, 'i': i, 'n_i': n_i, 'r_i': r_i}
+                self.results.append(result)
+                # Đếm tổng số lần chạy
+                self.total_runs += 1
+
+            # Chọn top k bộ tham số
+            k = math.floor(n_i / n)
+            top_k_indices = np.argsort(scores)[-k:][::-1]
+            remaining_params = [remaining_params[i] for i in top_k_indices]
+            remaining_params_id = [remaining_params_id[i] for i in top_k_indices]
+        
+        # Huấn luyện mô hình với tập tham số tốt nhất
+        final_params = remaining_params[0]
+        self.estimator.set_params(**final_params)
+        final_score = self.try_params_and_return_score(final_params, X, y)
+        return final_params,final_score
+```
+
+
+**Viết phương thức fit**
+
+```python
     def fit(self, X, y):
         """Thực hiện tối ưu hóa siêu tham số với Hyperband"""
-        configs = self.get_hyperband_configs()
         best_score = -np.inf
         best_params = None
-        
-        for n, r in configs:
-            params, score = self.successive_halving(n, r)
+        params_count = 0
+        for s in reversed(range(self.s_max +1)):
+            # Tính toán số lượng bộ tham số     
+            n = math.ceil(self.B / self.max_iter * self.eta ** s / (s + 1))
+            params_count += n
+            # Tính toán số lượng n_estimators
+            r = self.max_iter * self.eta ** (-s)
+            # Thực hiện sucessive halving
+            params, score = self.sucessive_halving(s, n, r, X, y)
+            # Cập nhật tham số tốt nhất
             if score > best_score:
                 best_score = score
                 best_params = params
-                
         self.best_params_ = best_params
         self.best_score_ = best_score
-        return self
+        self.params_count = params_count
+```
+
+**Code đầy đủ**
+
+```python
+class Hyperband:
+    def __init__(self, estimator, param_distributions, max_iter=81, eta=3, random_state=None):
+        """ArithmeticError
+        Khởi tạo Hyperband
+        estimator: Mô hình
+        param_distributions: Phân phối tham số
+        max_iter: Số lần lặp tối đa
+        eta: Hệ số giảm
+        random_state: Ngẫu nhiên
+        """
+        self.estimator = estimator
+        self.param_distributions = param_distributions
+        self.max_iter = max_iter  # Số lần lặp tối đa
+        self.random_state = random_state # Lấy ngẫu nhiên
+        self.eta = eta  # Hệ số giảm
+        self.s_max = int(np.log(self.max_iter) / np.log(self.eta)) # Init s_max = log(max_iter)/log(eta)        
+        self.B = (self.s_max + 1) * self.max_iter # Init B = (s_max + 1) * max_iter
+        self.cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=self.random_state) # Init cv = StratifiedKFold
+        self.results = [] # Lưu các lần chạy
+        self.total_runs = 0 # Đếm tổng số lần chạy
+        if self.random_state is not None:
+            np.random.seed(self.random_state)
+    
+    def sample_params(self):
+        """
+        Lấy mẫu tham số từ các phân phối hoặc danh sách giá trị.
+        Hỗ trợ:
+            - scipy.stats distributions (randint, uniform,...)
+            - list giá trị rời rạc
+        """
+        sampled_params = {}
+        for param, dist in self.param_distributions.items():
+            sampled_params[param] = dist.rvs()
+        return sampled_params
+    
+    def try_params_and_return_score(self, params, X, y):
+        """
+        Chạy cross validation với bộ tham số và trả về điểm số
+        """
+        self.estimator.set_params(**params)
+        score = cross_val_score(estimator=self.estimator, X=X, y=y, cv=self.cv, scoring='accuracy', n_jobs=-1).mean()
+        return score
+    
+    def sucessive_halving(self, s, n, r, X, y):
+        """
+        Thực hiện sucessive halving
+        s: số lần lặp
+        n: Số bộ tham số
+        r: Số n_estimators tối đa
+        X: tập dữ liệu
+        y: tập dữ liệu
+        """
+
+        T = [self.sample_params() for _ in range(n)]
+        param_id = [str(s) + '_'+ str(pid) for pid in list(range(n))]
+        remaining_params = T.copy()
+        remaining_params_id = param_id.copy()
+        for i in range(s + 1):
+            n_i = math.floor(n * self.eta ** (-i))
+            r_i = int(r * self.eta ** i)
+            print(i,n_i, r_i)
+            scores = []
+            for t, pid in zip(remaining_params,remaining_params_id):
+                params = t.copy() # Dùng copy để tránh làm thay đổi các tham số của t
+                # Tạo n_estimators dựa trên cấu hình hyperband
+                params['n_estimators'] =  min(r_i, t['n_estimators'])
+                # Chạy cross validation và trả về điểm số
+                score = self.try_params_and_return_score(params, X, y)
+                # Lưu kết quả
+                scores.append(score)
+                result = { 'param_id' : pid, 'params': t, 'score': score, 's': s, 'i': i, 'n_i': n_i, 'r_i': r_i}
+                self.results.append(result)
+                # Đếm tổng số lần chạy
+                self.total_runs += 1
+
+            # Chọn top k bộ tham số
+            k = math.floor(n_i / n)
+            top_k_indices = np.argsort(scores)[-k:][::-1]
+            remaining_params = [remaining_params[i] for i in top_k_indices]
+            remaining_params_id = [remaining_params_id[i] for i in top_k_indices]
+        
+        # Huấn luyện mô hình với tập tham số tốt nhất
+        final_params = remaining_params[0]
+        self.estimator.set_params(**final_params)
+        final_score = self.try_params_and_return_score(final_params, X, y)
+        return final_params,final_score
+    
+    def fit(self, X, y):
+        """Thực hiện tối ưu hóa siêu tham số với Hyperband"""
+        best_score = -np.inf
+        best_params = None
+        params_count = 0
+        for s in reversed(range(self.s_max +1)):
+            # Tính toán số lượng bộ tham số     
+            n = math.ceil(self.B / self.max_iter * self.eta ** s / (s + 1))
+            params_count += n
+            # Tính toán số lượng n_estimators
+            r = self.max_iter * self.eta ** (-s)
+            # Thực hiện sucessive halving
+            params, score = self.sucessive_halving(s, n, r, X, y)
+            # Cập nhật tham số tốt nhất
+            if score > best_score:
+                best_score = score
+                best_params = params
+        self.best_params_ = best_params
+        self.best_score_ = best_score
+        self.params_count = params_count
 ```
 
 ### Sử dụng Hyperband với LightGBM
+
+
+Tạo bộ khởi tạo hyperparameters
 
 ```python
 from scipy.stats import randint, uniform
 
 # Định nghĩa không gian tham số rộng hơn cho LightGBM
-param_space = {
+param_distributions = {
     'num_leaves': randint(20, 100),  # Số lá trong cây
     'max_depth': randint(3, 12),     # Độ sâu tối đa
     'learning_rate': uniform(0.01, 0.3),  # Tốc độ học
-    'n_estimators': randint(50, 300), # Số cây
+    'n_estimators': randint(50, 243+1),
     'min_child_samples': randint(10, 50),  # Số mẫu tối thiểu trong mỗi lá
     'subsample': uniform(0.6, 0.4),   # Tỷ lệ mẫu sử dụng cho mỗi cây
     'colsample_bytree': uniform(0.6, 0.4),  # Tỷ lệ features sử dụng cho mỗi cây
@@ -243,8 +388,10 @@ param_space = {
     'reg_lambda': uniform(0, 1),      # L2 regularization
     'min_child_weight': uniform(0, 1)  # Trọng số tối thiểu cho mỗi lá
 }
+```
 
-# Khởi tạo và chạy Hyperband
+Khởi tạo và chạy Hyperband
+```python
 hb = Hyperband(
     estimator=lgb.LGBMClassifier(random_state=42),
     param_space=param_space,
@@ -260,75 +407,8 @@ print("Best score:", hb.best_score_)
 ```
 
 
-## So sánh với các phương pháp khác
 
-Hãy so sánh hiệu suất của Hyperband với RandomizedSearchCV và GridSearchCV:
 
-```python
-from sklearn.model_selection import RandomizedSearchCV, GridSearchCV
-import time
-
-# RandomizedSearchCV
-start_time = time.time()
-random_search = RandomizedSearchCV(
-    lgb.LGBMClassifier(random_state=42),
-    param_distributions=param_space,
-    n_iter=50,
-    cv=5,
-    n_jobs=-1,
-    random_state=42,
-    scoring='f1'
-)
-random_search.fit(X_train, y_train)
-random_time = time.time() - start_time
-
-# GridSearchCV với một tập con của tham số
-param_grid = {
-    'num_leaves': [30, 50, 70],
-    'max_depth': [5, 7, 9],
-    'learning_rate': [0.01, 0.1, 0.3],
-    'n_estimators': [100, 200, 300],
-    'subsample': [0.6, 0.8, 1.0],
-    'colsample_bytree': [0.6, 0.8, 1.0]
-}
-start_time = time.time()
-grid_search = GridSearchCV(
-    lgb.LGBMClassifier(random_state=42),
-    param_grid,
-    cv=5,
-    n_jobs=-1,
-    scoring='f1'
-)
-grid_search.fit(X_train, y_train)
-grid_time = time.time() - start_time
-
-# Hyperband
-start_time = time.time()
-hb = Hyperband(
-    estimator=lgb.LGBMClassifier(random_state=42),
-    param_space=param_space,
-    max_iter=81,
-    eta=3,
-    random_state=42
-)
-hb.fit(X_train, y_train)
-hyperband_time = time.time() - start_time
-
-# So sánh kết quả
-results = pd.DataFrame({
-    'Method': ['RandomizedSearchCV', 'GridSearchCV', 'Hyperband'],
-    'Best F1 Score': [random_search.best_score_, grid_search.best_score_, hb.best_score_],
-    'Time (s)': [random_time, grid_time, hyperband_time]
-})
-print(results)
-
-# Đánh giá trên tập test với mô hình tốt nhất
-best_model = lgb.LGBMClassifier(**hb.best_params_, random_state=42)
-best_model.fit(X_train, y_train)
-y_pred = best_model.predict(X_test)
-print("\nTest F1 Score:", f1_score(y_test, y_pred))
-print("Test Accuracy:", accuracy_score(y_test, y_pred))
-```
 
 ## Kết luận
 
@@ -348,4 +428,5 @@ Tuy nhiên, cũng như các phương pháp khác, Hyperband không phải là gi
 Trong thực tế, việc kết hợp nhiều phương pháp (như đã thấy trong bài viết trước về việc kết hợp RandomizedSearch và GridSearch) thường mang lại kết quả tốt nhất.
 
 ## Tài liệu tham khảo
-https://arxiv.org/abs/1603.06560
+[Hyperband: A Novel Bandit-Based Approach to Hyperparameter Optimization
+](https://arxiv.org/abs/1603.06560)
