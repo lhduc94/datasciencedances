@@ -415,3 +415,4 @@ Discretization – hay rời rạc hóa dữ liệu – là một kỹ thuật t
 ## THam khảo
 - https://medium.com/data-science/discretization-explained-a-visual-guide-with-code-examples-for-beginners-f056af9102fa
 - https://medium.com/%40adnan.mazraeh1993/comprehensive-guide-to-binning-discretization-in-data-science-from-basics-to-super-advanced-d66d7f199ecd
+- https://www.deepchecks.com/glossary/data-binning/
