@@ -4,6 +4,7 @@ slug: 2025/04/hyperparameter-tuning-hyperband
 description: Trong bài viết này, chúng ta sẽ tìm hiểu về Hyperband - một phương pháp hiệu quả để tối ưu siêu tham số dựa trên nguyên lý Early Stopping.
 authors: lhduc
 tags: [Data Science]
+level: Trung cấp
 keywords: [data science, hyperparameter tuning, python, ml, siêu tham số, machine learning, máy học, tối ưu, Hyperband, Early Stopping]
 image: img/blog/013-hyperparameter-tuning-hyperband-cover.png
 draft: false
