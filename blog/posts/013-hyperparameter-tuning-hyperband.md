@@ -26,9 +26,10 @@ Hyperband là một thuật toán tối ưu siêu tham số được phát tri�
 - **Randomized Search**: Lấy mẫu ngẫu nhiên các bộ tham số từ không gian tìm kiếm
 - **Early Stopping**: Dừng sớm việc huấn luyện các bộ tham số không triển vọng
 
-<!-- ![](hyperband-concept.png) -->
+![](../assets/013-hyperparameter-tuning-hyperband/luong_long_nhat_the.png)
 
-**Tại sao nên sử dụng Hyperband?**
+### Tại sao nên sử dụng Hyperband?
+
 Bằng cách dừng sớm các thử nghiệm không triển vọng, Hyperband có thể tiết kiệm đáng kể thời gian tính toán. Do đó chúng ta có thể thử nhiều bộ tham số hơn. Ngoài ra Hypberband còn giúp điều chỉnh số lượng tài nguyên dành cho mỗi bộ tham số dựa trên hiệu suất ban đầu.
 
 ## Cách hoạt động của Hyperband
@@ -41,19 +42,21 @@ Successive Halving là cốt lõi của Hyperband. Nó hoạt động như sau:
 
 - Bắt đầu với n bộ tham số ngẫu nhiên
 - Huấn luyện mỗi bộ tham số với tài nguyên nhỏ (số vòng lặp, số cây)
-- Chọn một nửa số bộ tham số có hiệu suất tốt nhất 
-- Tiếp tục huấn luyện các bộ tham số được chọn với tài nguyên dài hơn
-- Lặp lại quá trình cho đến khi chỉ còn một bộ tham số
+- Chọn một số bộ tham số có hiệu suất tốt nhất 
+- Tiếp tục huấn luyện các bộ tham số được chọn với tài nguyên dài hơn (tăng số vòng lặp, số cây)
+- Lặp lại quá trình cho đến khi chỉ còn một bộ tham số có hiệu suất tốt nhất
+- Huấn luyện lại với bộ tham số đầy đủ tài nguyên
 
-<!-- ![](successive-halving.png) -->
+![](../assets/013-hyperparameter-tuning-hyperband/hyperband_plant.jpg)
 
 ### 2. Hyperband
 
 Hyperband mở rộng Successive Halving bằng cách:
 
-- Thử nhiều cấu hình khác nhau của SH (với các giá trị n khác nhau)
-- Tự động điều chỉnh ngân sách thời gian cho mỗi cấu hình
-- Chọn cấu hình tốt nhất dựa trên kết quả
+- Chạy nhiều lần Suscessvive Halving khác nhau, mỗi lần là một túi gồm nhiều bộ  tham số ngẫu nhiên
+- Với mỗi lần chạy SH cho ra một kết quả bộ tham số tốt nhất
+- So sánh các bộ tham số tốt nhất của các SH để tìm ra bộ tham số tốt nhất toàn cục
+
 
 ## Triển khai Hyperband
 
