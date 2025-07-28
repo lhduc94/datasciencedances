@@ -23,8 +23,9 @@
 <li><strong>Randomized Search</strong>: Lấy mẫu ngẫu nhiên các bộ tham số từ không gian tìm kiếm</li>
 <li><strong>Early Stopping</strong>: Dừng sớm việc huấn luyện các bộ tham số không triển vọng</li>
 </ul>
-<p><strong>Tại sao nên sử dụng Hyperband?</strong>
-Bằng cách dừng sớm các thử nghiệm không triển vọng, Hyperband có thể tiết kiệm đáng kể thời gian tính toán. Do đó chúng ta có thể thử nhiều bộ tham số hơn. Ngoài ra Hypberband còn giúp điều chỉnh số lượng tài nguyên dành cho mỗi bộ tham số dựa trên hiệu suất ban đầu.</p>
+<p><img decoding="async" loading="lazy" src="https://datasciencedances.com/assets/images/luong_long_nhat_the-0f218557d18a726efe1cdfe4525414b4.png" width="441" height="486" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tại-sao-nên-sử-dụng-hyperband">Tại sao nên sử dụng Hyperband?<a href="https://datasciencedances.com/blog/2025/04/hyperparameter-tuning-hyperband#t%E1%BA%A1i-sao-n%C3%AAn-s%E1%BB%AD-d%E1%BB%A5ng-hyperband" class="hash-link" aria-label="Đường dẫn trực tiếp tới Tại sao nên sử dụng Hyperband?" title="Đường dẫn trực tiếp tới Tại sao nên sử dụng Hyperband?">​</a></h3>
+<p>Bằng cách dừng sớm các thử nghiệm không triển vọng, Hyperband có thể tiết kiệm đáng kể thời gian tính toán. Do đó chúng ta có thể thử nhiều bộ tham số hơn. Ngoài ra Hypberband còn giúp điều chỉnh số lượng tài nguyên dành cho mỗi bộ tham số dựa trên hiệu suất ban đầu.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="cách-hoạt-động-của-hyperband">Cách hoạt động của Hyperband<a href="https://datasciencedances.com/blog/2025/04/hyperparameter-tuning-hyperband#c%C3%A1ch-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-c%E1%BB%A7a-hyperband" class="hash-link" aria-label="Đường dẫn trực tiếp tới Cách hoạt động của Hyperband" title="Đường dẫn trực tiếp tới Cách hoạt động của Hyperband">​</a></h2>
 <p>Hyperband hoạt động thông qua một quy trình lặp lại gồm hai giai đoạn chính:</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="1-successive-halving-sh">1. Successive Halving (SH)<a href="https://datasciencedances.com/blog/2025/04/hyperparameter-tuning-hyperband#1-successive-halving-sh" class="hash-link" aria-label="Đường dẫn trực tiếp tới 1. Successive Halving (SH)" title="Đường dẫn trực tiếp tới 1. Successive Halving (SH)">​</a></h3>
@@ -32,16 +33,18 @@ Bằng cách dừng sớm các thử nghiệm không triển vọng, Hyperband c
 <ul>
 <li>Bắt đầu với n bộ tham số ngẫu nhiên</li>
 <li>Huấn luyện mỗi bộ tham số với tài nguyên nhỏ (số vòng lặp, số cây)</li>
-<li>Chọn một nửa số bộ tham số có hiệu suất tốt nhất</li>
-<li>Tiếp tục huấn luyện các bộ tham số được chọn với tài nguyên dài hơn</li>
-<li>Lặp lại quá trình cho đến khi chỉ còn một bộ tham số</li>
+<li>Chọn một số bộ tham số có hiệu suất tốt nhất</li>
+<li>Tiếp tục huấn luyện các bộ tham số được chọn với tài nguyên dài hơn (tăng số vòng lặp, số cây)</li>
+<li>Lặp lại quá trình cho đến khi chỉ còn một bộ tham số có hiệu suất tốt nhất</li>
+<li>Huấn luyện lại với bộ tham số đầy đủ tài nguyên</li>
 </ul>
+<p><img decoding="async" loading="lazy" src="https://datasciencedances.com/assets/images/hyperband_plant-d7561638e2f14890bcdeb4f2f8911d97.jpg" width="1024" height="1024" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="2-hyperband">2. Hyperband<a href="https://datasciencedances.com/blog/2025/04/hyperparameter-tuning-hyperband#2-hyperband" class="hash-link" aria-label="Đường dẫn trực tiếp tới 2. Hyperband" title="Đường dẫn trực tiếp tới 2. Hyperband">​</a></h3>
 <p>Hyperband mở rộng Successive Halving bằng cách:</p>
 <ul>
-<li>Thử nhiều cấu hình khác nhau của SH (với các giá trị n khác nhau)</li>
-<li>Tự động điều chỉnh ngân sách thời gian cho mỗi cấu hình</li>
-<li>Chọn cấu hình tốt nhất dựa trên kết quả</li>
+<li>Chạy nhiều lần Suscessvive Halving khác nhau, mỗi lần là một túi gồm nhiều bộ  tham số ngẫu nhiên</li>
+<li>Với mỗi lần chạy SH cho ra một kết quả bộ tham số tốt nhất</li>
+<li>So sánh các bộ tham số tốt nhất của các SH để tìm ra bộ tham số tốt nhất toàn cục</li>
 </ul>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="triển-khai-hyperband">Triển khai Hyperband<a href="https://datasciencedances.com/blog/2025/04/hyperparameter-tuning-hyperband#tri%E1%BB%83n-khai-hyperband" class="hash-link" aria-label="Đường dẫn trực tiếp tới Triển khai Hyperband" title="Đường dẫn trực tiếp tới Triển khai Hyperband">​</a></h2>
 <p>Chúng ta sẽ triển khai Hyperband từ đầu để hiểu rõ cách hoạt động của nó. Trong nội dung bài viết này, chúng ta lựa chọn tài nguyên giới hạn là số lượng cây <code>n_estimators</code></p>
