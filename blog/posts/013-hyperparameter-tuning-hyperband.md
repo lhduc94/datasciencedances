@@ -3,7 +3,7 @@ title: "Hyperband: Tối ưu siêu tham số (Hyperparameter Tuning) 2025"
 slug: "2025/04/hyperparameter-tuning-hyperband"
 description: "Hướng dẫn Hyperband tối ưu siêu tham số trong ML: nguyên lý Successive Halving, so sánh Grid/Random Search, ví dụ Python dễ áp dụng."
 authors: ["lhduc"]
-tags: ["Data Science", "Machine Learning", "Hyperparameter Tuning"]
+tags: ["Data Science"]
 level: "Trung cấp"
 keywords:
   - hyperparameter tuning
