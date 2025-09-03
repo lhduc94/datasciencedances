@@ -103,8 +103,6 @@
 <p><a href="https://arxiv.org/abs/1603.06560" target="_blank" rel="noopener noreferrer">Hyperband: A Novel Bandit-Based Approach to Hyperparameter Optimization
 </a></p>]]></content:encoded>
             <category>Data Science</category>
-            <category>Machine Learning</category>
-            <category>Hyperparameter Tuning</category>
         </item>
         <item>
             <title><![CDATA[Tối ưu siêu tham số mô hình với RandomizedSearchCV]]></title>

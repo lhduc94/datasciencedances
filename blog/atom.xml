@@ -106,8 +106,6 @@
             <uri>https://www.linkedin.com/in/lhduc94/</uri>
         </author>
         <category label="Data Science" term="Data Science"/>
-        <category label="Machine Learning" term="Machine Learning"/>
-        <category label="Hyperparameter Tuning" term="Hyperparameter Tuning"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Tối ưu siêu tham số mô hình với RandomizedSearchCV]]></title>
