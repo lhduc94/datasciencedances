@@ -1,23 +1,32 @@
 ---
-title: Tối ưu siêu tham số mô hình với Hyperband
-slug: 2025/04/hyperparameter-tuning-hyperband
-description: Trong bài viết này, chúng ta sẽ tìm hiểu về Hyperband - một phương pháp hiệu quả để tối ưu siêu tham số dựa trên nguyên lý Early Stopping.
-authors: lhduc
-tags: [Data Science]
-level: Trung cấp
-keywords: [data science, hyperparameter tuning, python, ml, siêu tham số, machine learning, máy học, tối ưu, Hyperband, Early Stopping]
-image: img/blog/013-hyperparameter-tuning-hyperband-cover.png
+title: "Hyperband: Tối ưu siêu tham số (Hyperparameter Tuning) 2025"
+slug: "2025/04/hyperparameter-tuning-hyperband"
+description: "Hướng dẫn Hyperband tối ưu siêu tham số trong ML: nguyên lý Successive Halving, so sánh Grid/Random Search, ví dụ Python dễ áp dụng."
+authors: ["lhduc"]
+tags: ["Data Science", "Machine Learning", "Hyperparameter Tuning"]
+level: "Trung cấp"
+keywords:
+  - hyperparameter tuning
+  - tối ưu siêu tham số
+  - Hyperband
+  - Successive Halving
+  - machine learning
+  - Python
+  - early stopping
+image: "/img/blog/013-hyperparameter-tuning-hyperband-cover.png"
 draft: false
+lastmod: 2025-09-03
+canonical: "https://datasciencedances.com/blog/2025/04/hyperparameter-tuning-hyperband"
 ---
 
 # Tối ưu siêu tham số mô hình với Hyperband
 
-![](../assets/013-hyperparameter-tuning-hyperband/cover.png)
+![Hyperparameter Tuning với Hyperband](../assets/013-hyperparameter-tuning-hyperband/cover.png)
 ## Giới thiệu
 
 Trong bài viết trước, chúng ta đã tìm hiểu về [RandomizedSearchCV](https://datasciencedances.com/blog/2025/03/hyperparameter-tuning-RandomizedSearchCV) - một phương pháp tối ưu siêu tham số hiệu quả bằng cách lấy mẫu ngẫu nhiên từ không gian tham số. Tuy nhiên, phương pháp này vẫn có một hạn chế: nó phải chạy toàn bộ quá trình huấn luyện cho mỗi bộ tham số được chọn, ngay cả khi chúng ta có thể dự đoán sớm rằng một số bộ tham số sẽ không cho kết quả tốt.
 
-Trong bài viết này, chúng ta sẽ tìm hiểu về Hyperband - một phương pháp tối ưu siêu tham số thông minh hơn, kết hợp giữa Randomized Search và Early Stopping để loại bỏ các bộ tham số không triển vọng sớm hơn, từ đó tiết kiệm thời gian và tài nguyên tính toán.
+Trong bài viết này, chúng ta sẽ tìm hiểu về Hyperband là một kỹ thuật tối ưu siêu tham số (hyperparameter tuning) giúp giảm đáng kể thời gian tìm kiếm cấu hình mô hình tốt nhờ cơ chế Successive Halving và early stopping. Trong bài viết này, chúng ta sẽ hiểu nguyên lý hoạt động của Hyperband, so sánh với Grid Search và Random Search, sau đó triển khai ví dụ Python (LightGBM) để bạn có thể áp dụng ngay trong dự án machine learning thực tế.
 
 ## Hyperband là gì?
 
@@ -26,7 +35,7 @@ Hyperband là một thuật toán tối ưu siêu tham số được phát tri�
 - **Randomized Search**: Lấy mẫu ngẫu nhiên các bộ tham số từ không gian tìm kiếm
 - **Early Stopping**: Dừng sớm việc huấn luyện các bộ tham số không triển vọng
 
-![](../assets/013-hyperparameter-tuning-hyperband/luong_long_nhat_the.png)
+![Sơ đồ hoạt động Hyperband cho tối ưu siêu tham số](../assets/013-hyperparameter-tuning-hyperband/luong_long_nhat_the.png)
 
 ### Tại sao nên sử dụng Hyperband?
 
@@ -47,13 +56,13 @@ Successive Halving là cốt lõi của Hyperband. Nó hoạt động như sau:
 - Lặp lại quá trình cho đến khi chỉ còn một bộ tham số có hiệu suất tốt nhất
 - Huấn luyện lại với bộ tham số đầy đủ tài nguyên
 
-![](../assets/013-hyperparameter-tuning-hyperband/hyperband_plant.jpg)
+![Ví dụ kết quả Hyperband trên dữ liệu phishing](../assets/013-hyperparameter-tuning-hyperband/hyperband_plant.jpg)
 
 ### 2. Hyperband
 
 Hyperband mở rộng Successive Halving bằng cách:
 
-- Chạy nhiều lần Suscessvive Halving khác nhau, mỗi lần là một túi gồm nhiều bộ  tham số ngẫu nhiên
+- Chạy nhiều lần Susccessvive Halving khác nhau, mỗi lần là một túi gồm nhiều bộ  tham số ngẫu nhiên
 - Với mỗi lần chạy SH cho ra một kết quả bộ tham số tốt nhất
 - So sánh các bộ tham số tốt nhất của các SH để tìm ra bộ tham số tốt nhất toàn cục
 
@@ -62,19 +71,19 @@ Hyperband mở rộng Successive Halving bằng cách:
 
 Chúng ta sẽ triển khai Hyperband từ đầu để hiểu rõ cách hoạt động của nó. Trong nội dung bài viết này, chúng ta lựa chọn tài nguyên giới hạn là số lượng cây `n_estimators`
 
-Thuật toán Hyberband
+Thuật toán Hyperband
 
-![](../assets/013-hyperparameter-tuning-hyperband/algorithm.png)
+![Thuật toán Hyperband - minh họa quy trình](../assets/013-hyperparameter-tuning-hyperband/algorithm.png)
 
 Hyperband nhận đầu vào là các tham số 
 - $R$ : Lượng tài nguyên tối đa (ở đây có thể là số vòng lặp, số cây, tỉ lệ phần trăm dữ liệu)
 - $\eta$: đầu vào kiểm soát số lượng bộ hyperameters bị loại bỏ trong mỗi vòng của SuccessiveHalving
-- $s_{max}$ là số lượng lần thực hiện `sucessivehalving`, hay cũng chính là số lần sinh ra các tập hyperparameters ngẫu nhiên.
-- $B$: Phần tài nguyên ước lượng cho mỗi lần thực hiện `sucessivehalving`
-- $n$: Số lượng bộ hyperparameters được sinh ra trong mỗi lần thực hiện `sucessivehalving`
+- $s_{max}$ là số lượng lần thực hiện `Successive Halving`, hay cũng chính là số lần sinh ra các tập hyperparameters ngẫu nhiên.
+- $B$: Phần tài nguyên ước lượng cho mỗi lần thực hiện `Successive Halving`
+- $n$: Số lượng bộ hyperparameters được sinh ra trong mỗi lần thực hiện `Successive Halving`
 - $r$: nguồn tài nguyên tối đa có thể sử dụng
 
-Các tham số còn lại sẽ được giải thích chi tiết bên dưới trong method `sucessivehalving`
+Các tham số còn lại sẽ được giải thích chi tiết bên dưới trong method `successive_halving`
 
 
 ### Triển khai từ đầu
@@ -144,7 +153,7 @@ class Hyperband:
         Chạy cross validation với bộ tham số và trả về điểm số
         """
     
-    def sucessive_halving(self, s, n, r, X, y):
+    def successive_halving(self, s, n, r, X, y):
         ## TODO
         """
         Thực hiện sucessive halving
@@ -199,12 +208,12 @@ method này thực hiện nhận hyperparameter và dùng `cross_validate_score`
 
 Trong bài viết này, mình chọn scoring là `accuracy`, chúng ta có thể chọn các metric khác như f1, log_loss hoặc auc. Ngoài ra mình còn dùng StratifiedKFold để làm cross validation, method này được khởi tạo ở thuộc tính `self.cv` trong phần `__init__`
 
-**Viết phương thức sucessive_halving**
+**Viết phương thức successive_halving**
 
 ```python
-    def sucessive_halving(self, s, n, r, X, y):
+    def successive_halving(self, s, n, r, X, y):
         """
-        Thực hiện sucessive halving
+        Thực hiện successive_halving
         s: số lần lặp
         n: Số bộ tham số
         r: Số n_estimators tối đa
