@@ -1,20 +1,11 @@
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { useWindowSize } from "@docusaurus/theme-common";
 
 import styles from './index.module.css';
  
 export default function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
-  const windowSize = useWindowSize();
-  let s = null;
-  if (windowSize === "mobile"){
-    s = styles.heroBannerMobile
-  }
-  else {
-    s = styles.heroBanner
-  }
   return (
     <header className={clsx('hero', styles.heroBanner)}>
       <div className={clsx("hero-banner_filter", styles.banner_filter)}></div>
@@ -34,10 +25,10 @@ export default function HomepageHeader() {
         <div>
         <Link
             className={clsx("button button--lg", styles.button)}
-            to="/#homepagedoc"
+            to="/#homepageblog"
             onClick={(e) => {
               e.preventDefault();
-              document.getElementById('homepagedoc')?.scrollIntoView({ behavior: 'smooth' });
+              document.getElementById('homepageblog')?.scrollIntoView({ behavior: 'smooth' });
             }}>
             Cùng nhảy nào 🪇🪇!!
           </Link>

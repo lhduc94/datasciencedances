@@ -137,50 +137,9 @@ const config: Config = {
         src: 'img/dsd3-favicon.jpg',
       },
       items: [
-        {type: 'dropdown',
-          label: 'Tài liệu tham khảo',
-          position: 'left',
-          items: [
-            {type:'docSidebar',
-              sidebarId: 'kungfupandasSidebar',
-              label: 'Kungfu Pandas'},
-            {type: 'docSidebar',
-              sidebarId: 'mathSidebar',
-              label: 'Toán học cho ML và DS'},
-            {type: 'docSidebar',
-              sidebarId: 'boostSidebar',
-              label: 'Thực hành phân tích'
-            }
-          ]
-        },
-       
         {
           to: '/blog', label: 'Blog', position: 'left'
         },
-        {type: 'dropdown',
-          label: 'Khóa học',
-          position: 'left',
-          items: [
-            { 
-              label: "Tất cả",
-              to: '/courses',
-            },
-            {
-              label: "Phân tích dữ liệu chuỗi thời gian",
-              to: '/courses/list/time-series-analysis/time-series-analysis',
-            },
-            {
-              label: "Thực hành phân tích dữ liệu",
-              to: '/courses/list/analysis-in-practice/analysis-in-practice',
-            },
-            {
-              label: "Giám sát mô hình Machine Learning",
-              to: '/courses/list/ml-observation/ml-observation',
-            },
-          ]
-        },
-        
-        
         // {
         //   label: "Boost",
         //   to: '/boost',
@@ -195,22 +154,6 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
-        {
-          title: 'Tài liệu tham khảo',
-          items: [
-            {
-              label: 'Kungfu Pandas',
-              to: 'docs/kungfupandas/gioithieu',
-            },
-            {
-              label: 'Roadmap Data Science',
-              to: '/boost/list/data-scientist/data-scientist',
-            },
-            { label: 'Thực hành phân tích',
-              to: 'docs/boost/phan-tich-dinh-vi-thuong-hieu'
-            }
-          ],
-        },
         {
           title: 'Cộng đồng',
           items: [

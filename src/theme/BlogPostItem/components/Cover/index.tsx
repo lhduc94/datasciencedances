@@ -16,7 +16,7 @@ export default function Cover(props: IProps) {
       }}
       onClick={props.onClick}
       src={useBaseUrl(metadata.frontMatter.image)}
-      alt=""
+      alt={metadata.title}
     />
   );
 }

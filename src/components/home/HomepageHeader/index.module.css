@@ -1,4 +1,4 @@
-/**
+﻿/**
  * CSS files with the .module.css suffix will be treated as CSS modules
  * and scoped locally.
  */
@@ -7,28 +7,30 @@
   padding: 4rem 0;
   text-align: center;
   position: relative;
-  overflow-x: hidden;
-  min-height: 95vh;
+  overflow: hidden;
+  min-height: max(95vh, 600px);
 }
 .banner_filter{
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 95vh;
+  min-height: max(95vh, 600px);
   background: linear-gradient(250.73deg, rgba(40, 14, 102, 0.5) 12.73%, var(--ifm-color-primary) 96.49%);
   opacity: 0.1;
   position: absolute;
   z-index: 2;
 }
 .banner_image{
+  top: 0;
+  left: 0;
   width: 100%;
-  min-height: 95vh;
+  min-height: max(95vh, 600px);
   opacity: .9;
   background-image: url("/img/home/home_background_without_text_3.png");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
-  position: fixed;
+  position: absolute;
   z-index: 1;
 }
 .banner_intro{
@@ -64,37 +66,28 @@
 }
 .banner_tagline{
   text-align: center;
-  line-height: 4rem;
+  line-height: 1.6;
   margin:  0.8rem;
   padding-left: 25%;
   padding-right: 25%;
-  color: gray;
-  font-size: 1.2rem;
+  color: #2f3441;
+  font-size: 1.3rem;
+  font-weight: 500;
 }
-.heroBannerMobile {
-  padding: 10rem 0;
-  vertical-align: bottom;
-  text-align:  left ;
-  position: relative;
-  overflow: hidden;
-  /* background: url('/img/meo_nhay_2.jpg') no-repeat; */
-  background-size: auto;
-}
-
 @media screen and (max-width: 996px) {
   .heroBanner {
     padding: 2rem 0;
-    min-height: 70vh;
+    min-height: max(70vh, 520px);
   }
 
   .banner_image {
-    min-height: 70vh;
+    min-height: max(70vh, 520px);
     background-position: center;
     position: absolute;
   }
 
   .banner_filter {
-    min-height: 70vh;
+    min-height: max(70vh, 520px);
   }
 
   .banner_intro {
@@ -107,7 +100,7 @@
   }
   .banner_tagline{
     text-align: center;
-    line-height: 4rem;   
+    line-height: 1.6;
     color: rgb(19, 1, 1);
     font-size: 1rem;
     padding-left: 5%;
